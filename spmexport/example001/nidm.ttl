@@ -18,7 +18,7 @@ _:blank2 a prov:Generation .
 
 niiri:spm_results_id prov:qualifiedGeneration _:blank2 .
 
-_:blank2 prov:atTime "2014-08-25T15:37:46"^^xsd:dateTime .
+_:blank2 prov:atTime "2014-08-25T15:47:10"^^xsd:dateTime .
 
 niiri:software_id
     a prov:Agent, nidm:SPM, prov:SoftwareAgent ; 
@@ -66,6 +66,7 @@ niiri:model_pe_id prov:used niiri:data_id .
 niiri:mask_id_1
     a prov:Entity, nidm:MaskMap ; 
     prov:atLocation "file://./Mask.nii.gz"^^xsd:anyURI ;
+    dct:format nidm:Nifti1Gzip ;
     rdfs:label "Mask" ;
     nidm:atCoordinateSpace niiri:coordinate_space_id_1 ;
     crypto:sha512 "932fd9f0d55e9822748f4a9b35a0a7f0fe442f3e061e2eda48c2617a2938df50ea84deca8de0725641a0105b712a80a0c8931df9bdf3bef788b1041379d00875"^^xsd:string .
@@ -83,6 +84,7 @@ niiri:mask_id_1 prov:wasGeneratedBy niiri:model_pe_id .
 niiri:grand_mean_map_id
     a prov:Entity, nidm:GrandMeanMap ; 
     prov:atLocation "file://./GrandMean.nii.gz"^^xsd:anyURI ;
+    dct:format nidm:Nifti1Gzip ;
     rdfs:label "Grand Mean Map" ;
     nidm:maskedMedian "132.008995056152"^^xsd:float ;
     nidm:atCoordinateSpace niiri:coordinate_space_id_1 ;
@@ -107,6 +109,7 @@ niiri:beta_map_id_2 prov:wasGeneratedBy niiri:model_pe_id .
 niiri:residual_mean_squares_map_id
     a prov:Entity, nidm:ResidualMeanSquaresMap ; 
     prov:atLocation "file://./ResidualMeanSquares.nii.gz"^^xsd:anyURI ;
+    dct:format nidm:Nifti1Gzip ;
     rdfs:label "Residual Mean Squares Map" ;
     nidm:atCoordinateSpace niiri:coordinate_space_id_1 ;
     crypto:sha512 "84cd0e608b8763307a1166b88761291e552838d85b58334a69a286060f6489a3b0929a940c3ccac883803455118787ea32e0bb5a6d236a5d6e9e8b6a9f918a6b"^^xsd:string .
@@ -124,6 +127,7 @@ niiri:residual_mean_squares_map_id prov:wasGeneratedBy niiri:model_pe_id .
 niiri:resels_per_voxel_map_id
     a prov:Entity, spm:ReselsPerVoxelMap ; 
     prov:atLocation "file://./ReselsPerVoxel.nii.gz"^^xsd:anyURI ;
+    dct:format nidm:Nifti1Gzip ;
     rdfs:label "Resels per Voxel Map" ;
     nidm:atCoordinateSpace niiri:coordinate_space_id_1 ;
     crypto:sha512 "2025dc6c33708b80708c2eba3215fb1149df236fb558a8e8f8f6cf34595fb54734fe5e436db3e192a424d99699dd7feb2f4a9020ceae8e7bcbd881b17825256a"^^xsd:string .
@@ -166,6 +170,7 @@ niiri:contrast_estimation_id prov:used niiri:beta_map_id_2 .
 niiri:statistic_map_id
     a prov:Entity, nidm:StatisticMap ; 
     prov:atLocation "file://./TStatistic.nii.gz"^^xsd:anyURI ;
+    dct:format nidm:Nifti1Gzip ;
     rdfs:label "Statistic Map: passive listening > rest" ;
     nidm:statisticType nidm:TStatistic ;
     nidm:contrastName "passive listening > rest"^^xsd:string ;
@@ -187,6 +192,7 @@ niiri:statistic_map_id prov:wasGeneratedBy niiri:contrast_estimation_id .
 niiri:contrast_map_id
     a prov:Entity, nidm:ContrastMap ; 
     prov:atLocation "file://./Contrast.nii.gz"^^xsd:anyURI ;
+    dct:format nidm:Nifti1Gzip ;
     rdfs:label "Contrast Map: passive listening > rest" ;
     nidm:contrastName "passive listening > rest"^^xsd:string ;
     nidm:atCoordinateSpace niiri:coordinate_space_id_1 ;
@@ -205,6 +211,7 @@ niiri:contrast_map_id prov:wasGeneratedBy niiri:contrast_estimation_id .
 niiri:contrast_standard_error_map_id
     a prov:Entity, nidm:ContrastStandardErrorMap ; 
     prov:atLocation "file://./ContrastStandardError.nii.gz"^^xsd:anyURI ;
+    dct:format nidm:Nifti1Gzip ;
     rdfs:label "Contrast Standard Error Map" ;
     nidm:atCoordinateSpace niiri:coordinate_space_id_1 ;
     crypto:sha512 "f4e3616579fe8b0812469409b1501e391bb17ca6e364f37d622b37fa9014cf1dd89befece07e73cf5bca5b3116f55ac4496751ca990db85e8377001a4be941b2"^^xsd:string .
@@ -284,6 +291,7 @@ niiri:stat_image_properties_id prov:wasGeneratedBy niiri:inference_id .
 niiri:excursion_set_id
     a prov:Entity, nidm:ExcursionSet ; 
     prov:atLocation "file://./ExcursionSet.nii.gz"^^xsd:anyURI ;
+    dct:format nidm:Nifti1Gzip ;
     rdfs:label "Excursion Set" ;
     nidm:numberOfClusters "5"^^xsd:int ;
     nidm:pValue "2.83510681597932e-09"^^xsd:float ;
