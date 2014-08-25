@@ -18,7 +18,7 @@ _:blank2 a prov:Generation .
 
 niiri:spm_results_id prov:qualifiedGeneration _:blank2 .
 
-_:blank2 prov:atTime "2014-08-25T14:59:20"^^xsd:dateTime .
+_:blank2 prov:atTime "2014-08-25T15:17:14"^^xsd:dateTime .
 
 niiri:software_id
     a prov:Agent, nidm:SPM, prov:SoftwareAgent ; 
@@ -280,10 +280,20 @@ niiri:excursion_set_id
     rdfs:label "Excursion Set" ;
     nidm:numberOfClusters "5"^^xsd:int ;
     nidm:pValue "2.83510681597932e-09"^^xsd:float ;
-    nidm:hasClusterLabelsMap "file://./ClusterLabels.nii.gz"^^xsd:anyURI ;
-    spm:hasMaximumIntensityProjection "file://./MaximumIntensityProjection.png"^^xsd:anyURI ;
+    nidm:hasClusterLabelsMap niiri:cluster_label_map_id ;
+    spm:hasMaximumIntensityProjection niiri:maximum_intensity_projection_id ;
     nidm:atCoordinateSpace niiri:coordinate_space_id_1 ;
     crypto:sha512 "d96b82761c299a66978893cab6034f3f8aed25d0a135636b0ffe79f4cf11becce86ba261f7aeb43717f5d0e47ad0b14cfb0402786251e3f2c507890c83b27652"^^xsd:string .
+
+niiri:cluster_label_map_id
+    a prov:Entity, nidm:ClusterLabelsMap ; 
+    prov:atLocation "file://./ClusterLabels.nii.gz"^^xsd:anyURI ;
+    dct:format nidm:Nifti1Gzip .
+
+niiri:maximum_intensity_projection_id
+    a prov:Entity, nidm:Image ; 
+    prov:atLocation "file://./MaximumIntensityProjection.png"^^xsd:anyURI ;
+    dct:format "image/png" .
 
 niiri:excursion_set_id prov:wasGeneratedBy niiri:inference_id .
 
