@@ -10,7 +10,7 @@ document
     prov:label = "SPM Results",
     nidm:objectModel = 'nidm:SPMResults',
     nidm:version = "0.1.0" %% xsd:string])
-  wasGeneratedBy(niiri:spm_results_id, -, 2014-08-25T09:51:34)
+  wasGeneratedBy(niiri:spm_results_id, -, 2014-08-25T13:52:02)
   bundle niiri:spm_results_id
     agent(niiri:software_id,
         [prov:type = 'nidm:SPM',
@@ -24,7 +24,7 @@ document
         nidm:voxelToWorldMapping = "[[-3, 0, 0, 78],[0, 3, 0, -112],[0, 0, 3, -70],[0, 0, 0, 1]]" %% xsd:string,
         nidm:voxelUnits = "['mm', 'mm', 'mm']" %% xsd:string,
         nidm:voxelSize = "[3, 3, 3]" %% xsd:string,
-        nidm:worldCoordinateSystem = 'nidm:MNICoordinateSystem',
+        nidm:inWorldCoordinateSystem = 'nidm:MNICoordinateSystem',
         nidm:numberOfDimensions = "3" %% xsd:int,
         nidm:dimensionsInVoxels = "[53,63,52]" %% xsd:string])
     entity(niiri:data_id,
@@ -36,8 +36,12 @@ document
     entity(niiri:design_matrix_id,
         [prov:type = 'nidm:DesignMatrix',
         prov:location = "file://./DesignMatrix.csv" %% xsd:anyURI,
-        nidm:visualisation = "file://./DesignMatrix.png" %% xsd:anyURI,
+        nidm:visualisation = 'niiri:design_matrix_png_id',
         prov:label = "Design Matrix" %% xsd:string])
+    entity(niiri:design_matrix_png_id,
+        [prov:type = 'nidm:Image',
+        prov:location = "file://./DesignMatrix.png" %% xsd:anyURI,
+        dct:format = "image/png"])
     activity(niiri:model_pe_id,
         [prov:type = 'nidm:ModelParametersEstimation',
         prov:label = "Model parameters estimation"])
@@ -82,7 +86,7 @@ document
         [prov:type = 'spm:ReselsPerVoxelMap',
         prov:location = "file://./ReselsPerVoxel.nii.gz" %% xsd:anyURI,
         prov:label = "Resels per Voxel Map" %% xsd:string,
-        nidm:originalFileName = "RPV.nii" %% xsd:string,
+        nidm:originalFileName = "RPV" %% xsd:string,
         nidm:atCoordinateSpace = 'niiri:coordinate_space_id_1',
         crypto:sha512 = "2025dc6c33708b80708c2eba3215fb1149df236fb558a8e8f8f6cf34595fb54734fe5e436db3e192a424d99699dd7feb2f4a9020ceae8e7bcbd881b17825256a" %% xsd:string])
     wasGeneratedBy(niiri:resels_per_voxel_map_id, niiri:model_pe_id, -)
@@ -104,7 +108,7 @@ document
     used(niiri:contrast_estimation_id, niiri:beta_map_id_2, -)
     entity(niiri:statistic_map_id,
         [prov:type = 'nidm:StatisticMap',
-        prov:location = "file://./spmT.nii.gz" %% xsd:anyURI,
+        prov:location = "file://./TStatistic.nii.gz" %% xsd:anyURI,
         prov:label = "Statistic Map: passive listening > rest" %% xsd:string,
         nidm:statisticType = 'nidm:TStatistic',
         nidm:contrastName = "passive listening > rest" %% xsd:string,
@@ -140,7 +144,7 @@ document
     entity(niiri:extent_threshold_id,
         [prov:type = 'nidm:ExtentThreshold',
         prov:label = "Extent Threshold: k>=0" %% xsd:string,
-        nidm:clusterSizeInVoxels = "0" %% xsd:float,
+        nidm:clusterSizeInVoxels = "0" %% xsd:int,
         spm:clusterSizeInResels = "0" %% xsd:float,
         nidm:pValueUncorrected = "1" %% xsd:float,
         nidm:pValueFWER = "1" %% xsd:float])
@@ -177,17 +181,17 @@ document
         spm:expectedNumberOfClusters = "0.0512932943875478" %% xsd:float,
         spm:heightCriticalThresholdFWE05 = "4.85241745689539" %% xsd:float,
         spm:heightCriticalThresholdFDR05 = "5.7639536857605" %% xsd:float,
-        spm:smallestSignifClusterSizeInVoxelsFWE05 = "12" %% xsd:float,
-        spm:smallestSignifClusterSizeInVoxelsFDR05 = "29" %% xsd:float])
+        spm:smallestSignifClusterSizeInVoxelsFWE05 = "12" %% xsd:int,
+        spm:smallestSignifClusterSizeInVoxelsFDR05 = "29" %% xsd:int])
     wasGeneratedBy(niiri:stat_image_properties_id, niiri:inference_id, -)
     entity(niiri:excursion_set_id,
         [prov:type = 'nidm:ExcursionSet',
-        prov:location = "file://./spmT_thresholded.nii.gz" %% xsd:anyURI,
+        prov:location = "file://./ExcursionSet.nii.gz" %% xsd:anyURI,
         prov:label = "Excursion Set" %% xsd:string,
         nidm:numberOfClusters = "5" %% xsd:int,
         nidm:pValue = "2.83510681597932e-09" %% xsd:float,
-        nidm:clusterLabelsMap = "file://./ClusterLabels.nii.gz" %% xsd:anyURI,
-        spm:maximumIntensityProjection = "file://./MaximumIntensityProjection.png" %% xsd:anyURI,
+        nidm:hasClusterLabelsMap = "file://./ClusterLabels.nii.gz" %% xsd:anyURI,
+        spm:hasMaximumIntensityProjection = "file://./MaximumIntensityProjection.png" %% xsd:anyURI,
         nidm:atCoordinateSpace = 'niiri:coordinate_space_id_1',
         crypto:sha512 = "d96b82761c299a66978893cab6034f3f8aed25d0a135636b0ffe79f4cf11becce86ba261f7aeb43717f5d0e47ad0b14cfb0402786251e3f2c507890c83b27652" %% xsd:string])
     wasGeneratedBy(niiri:excursion_set_id, niiri:inference_id, -)
