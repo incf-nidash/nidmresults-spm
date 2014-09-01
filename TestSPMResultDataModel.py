@@ -49,6 +49,7 @@ class TestSPMResultsDataModel(unittest.TestCase, TestResultDataModel):
         # self.owl_file = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 
         #     'nidm-results.owl')
         self.owl_file = urllib2.urlopen("https://raw.githubusercontent.com/incf-nidash/nidm/master/nidm/nidm-results/nidm-results.owl")
+        self.owl_file = os.path.join(RELPATH, 'nidm-results_spm', 'nidm', 'nidm', 'nidm-results', 'nidm-results.owl')
 
     def test01_class_consistency_with_owl(self):
         my_exception = check_class_names(self.spmexport, "SPM example001", owl_file=self.owl_file)
