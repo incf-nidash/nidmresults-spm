@@ -48,7 +48,7 @@ class TestSPMResultsDataModel(unittest.TestCase, TestResultDataModel):
         self.spmexport = Graph()
 
         #  Turtle file obtained with SPM NI-DM export tool
-        self.spm_export_ttl = os.path.join(self.test_dir, 'spm_nidm.ttl');
+        self.spm_export_ttl = os.path.join(self.test_dir, 'nidm.ttl');
         # print "\n\nComparing: "+self.spm_export_ttl
         self.spmexport.parse(self.spm_export_ttl, format='turtle')
 
