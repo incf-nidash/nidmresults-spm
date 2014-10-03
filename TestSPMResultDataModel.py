@@ -18,14 +18,21 @@ import rdflib
 from rdflib.graph import Graph
 
 import sys
-path = "./nidm/nidm/nidm-results/test"
-sys.path.append(path)
+RELPATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Add nidm common testing code folder to python path
+NIDM_DIR = os.path.join(RELPATH, "nidm")
+# In TravisCI the nidm repository will be created as a subtree, however locally the nidm
+# directory will be accessed directly
+if not os.path.isdir(NIDM_DIR):
+    NIDM_DIR = os.path.join(RELPATH, "..", "nidm")
+
+NIDM_RESULTS_DIR = os.path.join(NIDM_DIR, "nidm", "nidm-results")
+sys.path.append(os.path.join(NIDM_RESULTS_DIR, "test"))
 
 from TestResultDataModel import TestResultDataModel
 from TestCommons import *
 from CheckConsistency import *
-
-RELPATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # FIXME: Extend tests to more than one dataset (group analysis, ...)
 '''Tests based on the analysis of single-subject auditory data based on test01_spm_batch.m using SPM12b r5918.
@@ -53,7 +60,7 @@ class TestSPMResultsDataModel(unittest.TestCase, TestResultDataModel):
         self.spmexport.parse(self.spm_export_ttl, format='turtle')
 
         # Retreive owl file for NIDM-Results
-        self.owl_file = os.path.join(RELPATH, 'nidm-results_spm', 'nidm', 'nidm', 'nidm-results', 'nidm-results.owl')
+        self.owl_file = os.path.join(NIDM_RESULTS_DIR, 'nidm-results.owl')
 
     def test01_class_consistency_with_owl(self):
         my_exception = check_class_names(self.spmexport, "SPM example001", owl_file=self.owl_file)
