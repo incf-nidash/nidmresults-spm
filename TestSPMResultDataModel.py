@@ -17,6 +17,8 @@ import re
 import rdflib
 from rdflib.graph import Graph
 import logging
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
 
 import sys
 RELPATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
