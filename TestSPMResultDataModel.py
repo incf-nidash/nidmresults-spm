@@ -16,16 +16,22 @@ from subprocess import call
 import re
 import rdflib
 from rdflib.graph import Graph
+import logging
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
 
 import sys
-RELPATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+RELPATH = os.path.dirname(os.path.abspath(__file__))
 
 # Add nidm common testing code folder to python path
 NIDM_DIR = os.path.join(RELPATH, "nidm")
+
 # In TravisCI the nidm repository will be created as a subtree, however locally the nidm
 # directory will be accessed directly
+logging.debug(NIDM_DIR)
 if not os.path.isdir(NIDM_DIR):
     NIDM_DIR = os.path.join(RELPATH, "..", "nidm")
+    logging.debug(NIDM_DIR)
 
 NIDM_RESULTS_DIR = os.path.join(NIDM_DIR, "nidm", "nidm-results")
 sys.path.append(os.path.join(NIDM_RESULTS_DIR, "test"))
