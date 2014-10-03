@@ -21,7 +21,7 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 import sys
-RELPATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+RELPATH = os.path.dirname(os.path.abspath(__file__))
 
 # Add nidm common testing code folder to python path
 NIDM_DIR = os.path.join(RELPATH, "nidm")
