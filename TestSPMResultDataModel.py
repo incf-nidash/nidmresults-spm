@@ -66,7 +66,7 @@ class TestSPMResultsDataModel(unittest.TestCase, TestResultDataModel):
         self.spmexport.parse(self.spm_export_ttl, format='turtle')
 
         # Retreive owl file for NIDM-Results
-        self.owl_file = os.path.join(NIDM_RESULTS_DIR, 'nidm-results.owl')
+        self.owl_file = os.path.join(NIDM_RESULTS_DIR, 'terms', 'nidm-results.owl')
 
     def test01_class_consistency_with_owl(self):
         my_exception = check_class_names(self.spmexport, "SPM example001", owl_file=self.owl_file)
