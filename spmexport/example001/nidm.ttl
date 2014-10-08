@@ -12,19 +12,19 @@ niiri:spm_results_id
   a prov:Entity, prov:Bundle ; 
   rdfs:label "SPM Results" ;
   nidm:objectModel nidm:SPMResults ;
-  nidm:version "0.1.0"^^xsd:string .
+  nidm:version "0.2.0"^^xsd:string .
 
 _:blank2 a prov:Generation .
 
 niiri:spm_results_id prov:qualifiedGeneration _:blank2 .
 
-_:blank2 prov:atTime "2014-09-10T18:27:16"^^xsd:dateTime .
+_:blank2 prov:atTime "2014-10-08T14:26:50"^^xsd:dateTime .
 
 niiri:software_id
     a prov:Agent, nidm:SPM, prov:SoftwareAgent ; 
     rdfs:label "SPM" ;
-    nidm:softwareVersion "SPM12b"^^xsd:string ;
-    spm:softwareRevision "beta"^^xsd:string .
+    nidm:softwareVersion "SPM12"^^xsd:string ;
+    spm:softwareRevision "12.0"^^xsd:string .
 
 niiri:coordinate_space_id_1
     a prov:Entity, nidm:CoordinateSpace ; 
@@ -56,15 +56,26 @@ niiri:design_matrix_png_id
     nidm:filename "DesignMatrix.png"^^xsd:string ;
     dct:format "image/png"^^xsd:string .
 
+niiri:noise_model_id
+    a prov:Entity, nidm:NoiseModel ; 
+    nidm:hasNoiseDistribution nidm:GaussianDistribution ;
+    nidm:hasNoiseDependence nidm:SeriallyCorrelatedNoise ;
+    nidm:dependenceSpatialModel nidm:SpatiallyGlobalModel ;
+    nidm:noiseVarianceHomogeneous "true"^^xsd:boolean ;
+    nidm:varianceSpatialModel nidm:SpatiallyLocalModel .
+
 niiri:model_pe_id
     a prov:Activity, nidm:ModelParametersEstimation ; 
-    rdfs:label "Model parameters estimation" .
+    rdfs:label "Model parameters estimation" ;
+    nidm:withEstimationMethod nidm:GeneralizedLeastSquares .
 
 niiri:model_pe_id prov:wasAssociatedWith niiri:software_id .
 
 niiri:model_pe_id prov:used niiri:design_matrix_id .
 
 niiri:model_pe_id prov:used niiri:data_id .
+
+niiri:model_pe_id prov:used niiri:noise_model_id .
 
 niiri:mask_id_1
     a prov:Entity, nidm:MaskMap ; 

@@ -10,15 +10,15 @@ document
     [prov:type = 'prov:Bundle',
     prov:label = "SPM Results",
     nidm:objectModel = 'nidm:SPMResults',
-    nidm:version = "0.1.0" %% xsd:string])
-  wasGeneratedBy(niiri:spm_results_id, -, 2014-09-10T18:27:16)
+    nidm:version = "0.2.0" %% xsd:string])
+  wasGeneratedBy(niiri:spm_results_id, -, 2014-10-08T14:26:50)
   bundle niiri:spm_results_id
     agent(niiri:software_id,
         [prov:type = 'nidm:SPM',
         prov:type = 'prov:SoftwareAgent',
         prov:label = "SPM" %% xsd:string,
-        nidm:softwareVersion = "SPM12b" %% xsd:string,
-        spm:softwareRevision = "beta" %% xsd:string])
+        nidm:softwareVersion = "SPM12" %% xsd:string,
+        spm:softwareRevision = "12.0" %% xsd:string])
     entity(niiri:coordinate_space_id_1,
         [prov:type = 'nidm:CoordinateSpace',
         prov:label = "Coordinate space 1" %% xsd:string,
@@ -46,12 +46,21 @@ document
         prov:location = "file://./DesignMatrix.png" %% xsd:anyURI,
         nidm:filename = "DesignMatrix.png" %% xsd:string,
         dct:format = "image/png" %% xsd:string])
+    entity(niiri:noise_model_id,
+        [prov:type = 'nidm:NoiseModel',
+        nidm:hasNoiseDistribution = 'nidm:GaussianDistribution',
+        nidm:hasNoiseDependence = 'nidm:SeriallyCorrelatedNoise',
+        nidm:dependenceSpatialModel = 'nidm:SpatiallyGlobalModel',
+        nidm:noiseVarianceHomogeneous = "true" %% xsd:boolean,
+        nidm:varianceSpatialModel = 'nidm:SpatiallyLocalModel'])
     activity(niiri:model_pe_id,
         [prov:type = 'nidm:ModelParametersEstimation',
-        prov:label = "Model parameters estimation"])
+        prov:label = "Model parameters estimation",
+        nidm:withEstimationMethod = 'nidm:GeneralizedLeastSquares'])
     wasAssociatedWith(niiri:model_pe_id, niiri:software_id, -)
     used(niiri:model_pe_id, niiri:design_matrix_id, -)
     used(niiri:model_pe_id, niiri:data_id, -)
+    used(niiri:model_pe_id, niiri:noise_model_id, -)
     entity(niiri:mask_id_1,
         [prov:type = 'nidm:MaskMap',
         prov:location = "file://./Mask.nii.gz" %% xsd:anyURI,
