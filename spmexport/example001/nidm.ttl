@@ -18,7 +18,7 @@ _:blank2 a prov:Generation .
 
 niiri:spm_results_id prov:qualifiedGeneration _:blank2 .
 
-_:blank2 prov:atTime "2014-10-09T12:27:56"^^xsd:dateTime .
+_:blank2 prov:atTime "2014-10-09T12:37:46"^^xsd:dateTime .
 
 niiri:software_id
     a prov:Agent, nidm:SPM, prov:SoftwareAgent ; 
@@ -56,12 +56,12 @@ niiri:design_matrix_png_id
     nidm:filename "DesignMatrix.png"^^xsd:string ;
     dct:format "image/png"^^xsd:string .
 
-niiri:noise_model_id
-    a prov:Entity, nidm:NoiseModel ; 
-    nidm:hasNoiseDistribution nidm:GaussianDistribution ;
-    nidm:hasNoiseDependence nidm:SeriallyCorrelatedNoise ;
+niiri:error_model_id
+    a prov:Entity, nidm:ErrorModel ; 
+    nidm:hasErrorDistribution nidm:GaussianDistribution ;
+    nidm:hasErrorDependence nidm:SeriallyCorrelatedError ;
     nidm:dependenceSpatialModel nidm:SpatiallyGlobalModel ;
-    nidm:noiseVarianceHomogeneous "true"^^xsd:boolean ;
+    nidm:errorVarianceHomogeneous "true"^^xsd:boolean ;
     nidm:varianceSpatialModel nidm:SpatiallyLocalModel .
 
 niiri:model_pe_id
@@ -75,7 +75,7 @@ niiri:model_pe_id prov:used niiri:design_matrix_id .
 
 niiri:model_pe_id prov:used niiri:data_id .
 
-niiri:model_pe_id prov:used niiri:noise_model_id .
+niiri:model_pe_id prov:used niiri:error_model_id .
 
 niiri:mask_id_1
     a prov:Entity, nidm:MaskMap ; 

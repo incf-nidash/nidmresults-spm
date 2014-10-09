@@ -11,7 +11,7 @@ document
     prov:label = "SPM Results",
     nidm:objectModel = 'nidm:SPMResults',
     nidm:version = "0.2.0" %% xsd:string])
-  wasGeneratedBy(niiri:spm_results_id, -, 2014-10-09T12:27:56)
+  wasGeneratedBy(niiri:spm_results_id, -, 2014-10-09T12:37:46)
   bundle niiri:spm_results_id
     agent(niiri:software_id,
         [prov:type = 'nidm:SPM',
@@ -46,12 +46,12 @@ document
         prov:location = "file://./DesignMatrix.png" %% xsd:anyURI,
         nidm:filename = "DesignMatrix.png" %% xsd:string,
         dct:format = "image/png" %% xsd:string])
-    entity(niiri:noise_model_id,
-        [prov:type = 'nidm:NoiseModel',
-        nidm:hasNoiseDistribution = 'nidm:GaussianDistribution',
-        nidm:hasNoiseDependence = 'nidm:SeriallyCorrelatedNoise',
+    entity(niiri:error_model_id,
+        [prov:type = 'nidm:ErrorModel',
+        nidm:hasErrorDistribution = 'nidm:GaussianDistribution',
+        nidm:hasErrorDependence = 'nidm:SeriallyCorrelatedError',
         nidm:dependenceSpatialModel = 'nidm:SpatiallyGlobalModel',
-        nidm:noiseVarianceHomogeneous = "true" %% xsd:boolean,
+        nidm:errorVarianceHomogeneous = "true" %% xsd:boolean,
         nidm:varianceSpatialModel = 'nidm:SpatiallyLocalModel'])
     activity(niiri:model_pe_id,
         [prov:type = 'nidm:ModelParametersEstimation',
@@ -60,7 +60,7 @@ document
     wasAssociatedWith(niiri:model_pe_id, niiri:software_id, -)
     used(niiri:model_pe_id, niiri:design_matrix_id, -)
     used(niiri:model_pe_id, niiri:data_id, -)
-    used(niiri:model_pe_id, niiri:noise_model_id, -)
+    used(niiri:model_pe_id, niiri:error_model_id, -)
     entity(niiri:mask_id_1,
         [prov:type = 'nidm:MaskMap',
         prov:location = "file://./Mask.nii.gz" %% xsd:anyURI,
