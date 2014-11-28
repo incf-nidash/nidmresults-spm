@@ -12,9 +12,6 @@ python test/TestSPMResultDataModel.py
 '''
 import unittest
 import os
-from subprocess import call
-import re
-import rdflib
 from rdflib.graph import Graph
 import logging
 logging.basicConfig(level=logging.DEBUG)
@@ -97,7 +94,7 @@ class TestSPMResultsDataModel(unittest.TestCase, TestResultDataModel):
     def test03_ex1_auditory_singlesub_full_graph(self):
         #  Turtle file of ground truth (manually computed) RDF
         ground_truth_provn = os.path.join(self.ground_truth_dir, 'example001_spm_results.provn');
-        ground_truth_ttl = get_turtle(ground_truth_provn)
+        ground_truth_ttl = ground_truth_provn.replace(".provn", ".ttl")
 
         # print "\n\nwith: "+ground_truth_ttl
 
