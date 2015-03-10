@@ -12,13 +12,13 @@ python test/TestSPMResultDataModel.py
 '''
 import unittest
 import os
-from subprocess import call
-import re
-import rdflib
 from rdflib.graph import Graph
 import logging
-logging.basicConfig(level=logging.DEBUG)
+
+# Save debug info in a log file (debug.log)
+logging.basicConfig(filename='debug.log', level=logging.DEBUG, filemode='w')
 logger = logging.getLogger(__name__)
+logger.info(' ---------- Debug log ----------')
 
 import sys
 RELPATH = os.path.dirname(os.path.abspath(__file__))
