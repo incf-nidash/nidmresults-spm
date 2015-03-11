@@ -8,13 +8,14 @@ document
   prefix nfo <http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#>
   prefix dc <http://purl.org/dc/elements/1.1/>
   prefix dctype <http://purl.org/dc/dcmitype/>
+  prefix obo <http://purl.obolibrary.org/obo/>
 
   entity(niiri:spm_results_id,
     [prov:type = 'prov:Bundle',
     prov:label = "SPM Results",
     nidm:objectModel = 'nidm:SPMResults',
     nidm:version = "0.2.0" %% xsd:string])
-  wasGeneratedBy(niiri:spm_results_id, -, 2015-03-11T13:37:21)
+  wasGeneratedBy(niiri:spm_results_id, -, 2015-03-11T13:50:09)
   bundle niiri:spm_results_id
     agent(niiri:software_id,
         [prov:type = 'nidm:SPM',
@@ -59,7 +60,7 @@ document
     activity(niiri:model_pe_id,
         [prov:type = 'nidm:ModelParametersEstimation',
         prov:label = "Model parameters estimation",
-        nidm:withEstimationMethod = 'nidm:GeneralizedLeastSquares'])
+        nidm:withEstimationMethod = 'obo:STATO_0000372'])
     wasAssociatedWith(niiri:model_pe_id, niiri:software_id, -)
     used(niiri:model_pe_id, niiri:design_matrix_id, -)
     used(niiri:model_pe_id, niiri:data_id, -)
