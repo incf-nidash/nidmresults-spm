@@ -7,6 +7,8 @@
 @prefix crypto: <http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix nfo: <http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dctype: <http://purl.org/dc/dcmitype/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 niiri:spm_results_id
@@ -19,7 +21,7 @@ _:blank2 a prov:Generation .
 
 niiri:spm_results_id prov:qualifiedGeneration _:blank2 .
 
-_:blank2 prov:atTime "2015-03-11T13:19:56"^^xsd:dateTime .
+_:blank2 prov:atTime "2015-03-11T13:27:36"^^xsd:dateTime .
 
 niiri:software_id
     a prov:Agent, nidm:SPM, prov:SoftwareAgent ; 
@@ -48,11 +50,11 @@ niiri:design_matrix_id
     prov:atLocation "file://./DesignMatrix.csv"^^xsd:anyURI ;
     nfo:fileName "DesignMatrix.csv"^^xsd:string ;
     dct:format "text/csv"^^xsd:string ;
-    nidm:visualisation niiri:design_matrix_png_id ;
+    dc:description niiri:design_matrix_png_id ;
     rdfs:label "Design Matrix" .
 
 niiri:design_matrix_png_id
-    a prov:Entity, nidm:Image ; 
+    a prov:Entity, dctype:Image ; 
     prov:atLocation "file://./DesignMatrix.png"^^xsd:anyURI ;
     nfo:fileName "DesignMatrix.png"^^xsd:string ;
     dct:format "image/png"^^xsd:string .
