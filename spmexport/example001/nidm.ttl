@@ -22,7 +22,7 @@ _:blank2 a prov:Generation .
 
 niiri:spm_results_id prov:qualifiedGeneration _:blank2 .
 
-_:blank2 prov:atTime "2015-03-11T13:50:09"^^xsd:dateTime .
+_:blank2 prov:atTime "2015-03-18T12:17:40"^^xsd:dateTime .
 
 niiri:software_id
     a prov:Agent, nidm:SPM, prov:SoftwareAgent ; 
@@ -275,6 +275,17 @@ niiri:extent_threshold_id
     nidm:pValueUncorrected "1"^^xsd:float ;
     nidm:pValueFWER "1"^^xsd:float .
 
+niiri:peak_definition_criteria_id
+    a prov:Entity, nidm:PeakDefinitionCriteria ; 
+    rdfs:label "Peak Definition Criteria" ;
+    nidm:maxNumberOfPeaksPerCluster "3"^^xsd:int ;
+    nidm:minDistanceBetweenPeaks "8"^^xsd:float .
+
+niiri:cluster_definition_criteria_id
+    a prov:Entity, nidm:ClusterDefinitionCriteria ; 
+    rdfs:label "Cluster Connectivity Criterion: 18" ;
+    nidm:hasConnectivityCriterion nidm:voxel18connected .
+
 niiri:inference_id
     a prov:Activity, nidm:Inference ; 
     nidm:hasAlternativeHypothesis nidm:OneTailedTest ;
@@ -291,6 +302,10 @@ niiri:inference_id prov:used niiri:statistic_map_id .
 niiri:inference_id prov:used niiri:resels_per_voxel_map_id .
 
 niiri:inference_id prov:used niiri:mask_id_1 .
+
+niiri:inference_id prov:used niiri:peak_definition_criteria_id .
+
+niiri:inference_id prov:used niiri:cluster_definition_criteria_id .
 
 niiri:search_space_id
     a prov:Entity, nidm:SearchSpaceMap ; 
