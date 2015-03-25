@@ -14,6 +14,7 @@ import unittest
 import os
 from rdflib.graph import Graph
 import logging
+import glob
 
 # Save debug info in a log file (debug.log)
 logging.basicConfig(filename='debug.log', level=logging.DEBUG, filemode='w')
@@ -68,8 +69,14 @@ class TestSPMResultsDataModel(unittest.TestCase, TestResultDataModel):
         # Retreive owl file for NIDM-Results
         self.owl_file = os.path.join(NIDM_RESULTS_DIR, 'terms', 'nidm-results.owl')
 
+        # Retreive imported owl files from NIDM-Results
+        self.owl_imports = os.path.join(NIDM_RESULTS_DIR, 'terms', 'nidm-results.owl')
+        self.owl_imports = glob.glob(os.path.join(os.path.dirname(self.owl_file), \
+            os.pardir, os.pardir, "imports", '*.ttl'))
+
     def test01_class_consistency_with_owl(self):
-        my_exception = check_class_names(self.spmexport, "SPM example001", owl_file=self.owl_file)
+        my_exception = check_class_names(self.spmexport, "SPM example001", \
+            owl_file=self.owl_file, owl_imports=self.owl_imports)
 
         # FIXME (error message display should be simplified when only one example...)
         if my_exception:
@@ -79,7 +86,8 @@ class TestSPMResultsDataModel(unittest.TestCase, TestResultDataModel):
             raise Exception(error_msg)
 
     def test02_attributes_consistency_with_owl(self):
-        my_exception = check_attributes(self.spmexport, "SPM example001", owl_file=self.owl_file)
+        my_exception = check_attributes(self.spmexport, "SPM example001", \
+            owl_file=self.owl_file, owl_imports=self.owl_imports)
 
         # FIXME (error message display should be simplified when only one example...)
         error_msg = ""
@@ -97,7 +105,7 @@ class TestSPMResultsDataModel(unittest.TestCase, TestResultDataModel):
     def test03_ex1_auditory_singlesub_full_graph(self):
         #  Turtle file of ground truth (manually computed) RDF
         ground_truth_provn = os.path.join(self.ground_truth_dir, 'example001_spm_results.provn');
-        ground_truth_ttl = get_turtle(ground_truth_provn)
+        ground_truth_ttl = ground_truth_provn.replace(".provn", ".ttl")
 
         # print "\n\nwith: "+ground_truth_ttl
 
