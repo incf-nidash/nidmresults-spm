@@ -52,13 +52,19 @@ class TestSPMResultsDataModel(unittest.TestCase, TestResultDataModel):
         # Display log messages in console
         logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
-        TestResultDataModel.setUp(self) 
+        # Retreive owl file for NIDM-Results
+        owl_file = os.path.join(NIDM_RESULTS_DIR, 'terms', 'nidm-results.owl')
+        # Retreive imported owl files from NIDM-Results
+        owl_imports = glob.glob(os.path.join(os.path.dirname(owl_file),
+            os.pardir, os.pardir, "imports", '*.ttl'))
+
+        TestResultDataModel.setUp(self, owl_file, owl_imports) 
         self.ground_truth_dir = os.path.join(self.ground_truth_dir, 'spm', 'example001')
 
         # Current module directory is used as test directory
         self.test_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'spmexport', 'example001')
         
-        # RDF obtained by the SPM export 
+        # RDF obtained by the SPM export
         self.spmexport = Graph()
 
         #  Turtle file obtained with SPM NI-DM export tool
@@ -66,17 +72,8 @@ class TestSPMResultsDataModel(unittest.TestCase, TestResultDataModel):
         # print "\n\nComparing: "+self.spm_export_ttl
         self.spmexport.parse(self.spm_export_ttl, format='turtle')
 
-        # Retreive owl file for NIDM-Results
-        self.owl_file = os.path.join(NIDM_RESULTS_DIR, 'terms', 'nidm-results.owl')
-
-        # Retreive imported owl files from NIDM-Results
-        self.owl_imports = os.path.join(NIDM_RESULTS_DIR, 'terms', 'nidm-results.owl')
-        self.owl_imports = glob.glob(os.path.join(os.path.dirname(self.owl_file), \
-            os.pardir, os.pardir, "imports", '*.ttl'))
-
     def test01_class_consistency_with_owl(self):
-        my_exception = check_class_names(self.spmexport, "SPM example001", \
-            owl_file=self.owl_file, owl_imports=self.owl_imports)
+        my_exception = self.owl.check_class_names(self.spmexport, "SPM example001")
 
         # FIXME (error message display should be simplified when only one example...)
         if my_exception:
@@ -86,8 +83,7 @@ class TestSPMResultsDataModel(unittest.TestCase, TestResultDataModel):
             raise Exception(error_msg)
 
     def test02_attributes_consistency_with_owl(self):
-        my_exception = check_attributes(self.spmexport, "SPM example001", \
-            owl_file=self.owl_file, owl_imports=self.owl_imports)
+        my_exception = self.owl.check_attributes(self.spmexport, "SPM example001")
 
         # FIXME (error message display should be simplified when only one example...)
         error_msg = ""
