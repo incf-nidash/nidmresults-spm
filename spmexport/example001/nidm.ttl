@@ -22,7 +22,7 @@ _:blank2 a prov:Generation .
 
 niiri:spm_results_id prov:qualifiedGeneration _:blank2 .
 
-_:blank2 prov:atTime "2015-04-28T12:08:37"^^xsd:dateTime .
+_:blank2 prov:atTime "2015-04-28T14:54:51"^^xsd:dateTime .
 
 niiri:software_id
     a prov:Agent, neurolex:nif-0000-00343, prov:SoftwareAgent ; 
@@ -62,7 +62,7 @@ niiri:design_matrix_png_id
 niiri:error_model_id
     a prov:Entity, nidm:NIDM_0000023 ; 
     nidm:NIDM_0000101 nidm:NIDM_0000032 ;
-    nidm:NIDM_0000100 nidm:SeriallyCorrelatedError ;
+    nidm:NIDM_0000100 obo:STATO_0000357 ;
     nidm:NIDM_0000089 nidm:NIDM_0000072 ;
     nidm:NIDM_0000094 "true"^^xsd:boolean ;
     nidm:NIDM_0000126 nidm:NIDM_0000073 .
@@ -83,6 +83,7 @@ niiri:model_pe_id prov:used niiri:error_model_id .
 niiri:mask_id_1
     a prov:Entity, nidm:NIDM_0000054 ; 
     prov:atLocation "file://./Mask.nii.gz"^^xsd:anyURI ;
+    nidm:NIDM_0000106 "false"^^xsd:boolean ;
     nfo:fileName "Mask.nii.gz"^^xsd:string ;
     dct:format "image/nifti"^^xsd:string ;
     rdfs:label "Mask" ;
@@ -308,10 +309,10 @@ niiri:inference_id prov:used niiri:cluster_definition_criteria_id .
 
 niiri:search_space_id
     a prov:Entity, nidm:NIDM_0000068 ; 
-    prov:atLocation "file://./SearchSpace.nii.gz"^^xsd:anyURI ;
-    nfo:fileName "SearchSpace.nii.gz"^^xsd:string ;
+    prov:atLocation "file://./SearchSpaceMask.nii.gz"^^xsd:anyURI ;
+    nfo:fileName "SearchSpaceMask.nii.gz"^^xsd:string ;
     dct:format "image/nifti"^^xsd:string ;
-    rdfs:label "Search Space Map" ;
+    rdfs:label "Search Space Mask Map" ;
     nidm:NIDM_0000104 niiri:coordinate_space_id_1 ;
     nidm:NIDM_0000121 "69306"^^xsd:int ;
     nidm:NIDM_0000136 "1871262"^^xsd:float ;
@@ -333,8 +334,8 @@ niiri:search_space_id prov:wasGeneratedBy niiri:inference_id .
 
 niiri:excursion_set_map_id
     a prov:Entity, nidm:NIDM_0000025 ; 
-    prov:atLocation "file://./ExcursionSetMap.nii.gz"^^xsd:anyURI ;
-    nfo:fileName "ExcursionSetMap.nii.gz"^^xsd:string ;
+    prov:atLocation "file://./ExcursionSet.nii.gz"^^xsd:anyURI ;
+    nfo:fileName "ExcursionSet.nii.gz"^^xsd:string ;
     dct:format "image/nifti"^^xsd:string ;
     rdfs:label "Excursion Set Map" ;
     nidm:NIDM_0000111 "5"^^xsd:int ;

@@ -15,7 +15,7 @@ document
     prov:label = "SPM Results",
     nidm:NIDM_0000057 = 'nidm:SPMResults',
     nidm:NIDM_0000127 = "1.0.0" %% xsd:string])
-  wasGeneratedBy(niiri:spm_results_id, -, 2015-04-28T12:08:37)
+  wasGeneratedBy(niiri:spm_results_id, -, 2015-04-28T14:54:51)
   bundle niiri:spm_results_id
     agent(niiri:software_id,
         [prov:type = 'neurolex:nif-0000-00343',
@@ -52,7 +52,7 @@ document
     entity(niiri:error_model_id,
         [prov:type = 'nidm:NIDM_0000023',
         nidm:NIDM_0000101 = 'nidm:NIDM_0000032',
-        nidm:NIDM_0000100 = 'nidm:SeriallyCorrelatedError',
+        nidm:NIDM_0000100 = 'obo:STATO_0000357',
         nidm:NIDM_0000089 = 'nidm:NIDM_0000072',
         nidm:NIDM_0000094 = "true" %% xsd:boolean,
         nidm:NIDM_0000126 = 'nidm:NIDM_0000073'])
@@ -67,6 +67,7 @@ document
     entity(niiri:mask_id_1,
         [prov:type = 'nidm:NIDM_0000054',
         prov:location = "file://./Mask.nii.gz" %% xsd:anyURI,
+        nidm:NIDM_0000106 = "false" %% xsd:boolean,
         nfo:fileName = "Mask.nii.gz" %% xsd:string,
         dct:format = "image/nifti" %% xsd:string,
         prov:label = "Mask" %% xsd:string,
@@ -238,10 +239,10 @@ document
     used(niiri:inference_id, niiri:cluster_definition_criteria_id, -)
     entity(niiri:search_space_id,
         [prov:type = 'nidm:NIDM_0000068',
-        prov:location = "file://./SearchSpace.nii.gz" %% xsd:anyURI,
-        nfo:fileName = "SearchSpace.nii.gz" %% xsd:string,
+        prov:location = "file://./SearchSpaceMask.nii.gz" %% xsd:anyURI,
+        nfo:fileName = "SearchSpaceMask.nii.gz" %% xsd:string,
         dct:format = "image/nifti" %% xsd:string,
-        prov:label = "Search Space Map" %% xsd:string,
+        prov:label = "Search Space Mask Map" %% xsd:string,
         nidm:NIDM_0000104 = 'niiri:coordinate_space_id_1',
         nidm:NIDM_0000121 = "69306" %% xsd:int,
         nidm:NIDM_0000136 = "1871262" %% xsd:float,
@@ -261,8 +262,8 @@ document
     wasGeneratedBy(niiri:search_space_id, niiri:inference_id, -)
     entity(niiri:excursion_set_map_id,
         [prov:type = 'nidm:NIDM_0000025',
-        prov:location = "file://./ExcursionSetMap.nii.gz" %% xsd:anyURI,
-        nfo:fileName = "ExcursionSetMap.nii.gz" %% xsd:string,
+        prov:location = "file://./ExcursionSet.nii.gz" %% xsd:anyURI,
+        nfo:fileName = "ExcursionSet.nii.gz" %% xsd:string,
         dct:format = "image/nifti" %% xsd:string,
         prov:label = "Excursion Set Map" %% xsd:string,
         nidm:NIDM_0000111 = "5" %% xsd:int,
