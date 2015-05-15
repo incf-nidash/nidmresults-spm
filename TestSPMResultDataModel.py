@@ -37,7 +37,7 @@ if not os.path.isdir(NIDM_DIR):
 NIDM_RESULTS_DIR = os.path.join(NIDM_DIR, "nidm", "nidm-results")
 sys.path.append(os.path.join(NIDM_RESULTS_DIR, "test"))
 
-from TestResultDataModel import TestResultDataModel
+from TestResultDataModel import TestResultDataModel, ExampleGraph
 from TestCommons import *
 from CheckConsistency import *
 
@@ -63,25 +63,28 @@ class TestSPMResultsDataModel(unittest.TestCase, TestResultDataModel):
             os.path.dirname(owl_file),
             os.pardir, os.pardir, "imports", '*.ttl'))
 
-        TestResultDataModel.setUp(self, owl_file, owl_imports)
         self.ground_truth_dir = os.path.join(
-            self.ground_truth_dir, 'spm', 'example001')
+            NIDM_RESULTS_DIR, 'spm', 'example001')
 
         # Current module directory is used as test directory
         self.test_dir = os.path.join(os.path.dirname(
             os.path.abspath(__file__)), 'spmexport', 'example001')
 
-        # RDF obtained by the SPM export
-        self.spmexport = Graph()
-
         #  Turtle file obtained with SPM NI-DM export tool
-        self.spm_export_ttl = os.path.join(self.test_dir, 'nidm.ttl')
-        # print "\n\nComparing: "+self.spm_export_ttl
-        self.spmexport.parse(self.spm_export_ttl, format='turtle')
+        spm_export_ttl = os.path.join(self.test_dir, 'nidm.ttl')
+
+        # RDF obtained by the SPM export
+        #  Turtle file of ground truth (manually computed) RDF
+        self.spmexport = ExampleGraph(
+            spm_export_ttl,
+            os.path.join(self.ground_truth_dir, 'example001_spm_results.ttl'),
+            True)
+
+        TestResultDataModel.setUp(self, owl_file, owl_imports)
 
     def test01_class_consistency_with_owl(self):
         my_exception = self.owl.check_class_names(
-            self.spmexport, "SPM example001")
+            self.spmexport.graph, "SPM example001")
 
         # FIXME (error message display should be simplified when only one
         # example...)
@@ -94,7 +97,7 @@ class TestSPMResultsDataModel(unittest.TestCase, TestResultDataModel):
 
     def test02_attributes_consistency_with_owl(self):
         my_exception = self.owl.check_attributes(
-            self.spmexport, "SPM example001")
+            self.spmexport.graph, "SPM example001")
 
         # FIXME (error message display should be simplified when only one
         # example...)
@@ -117,18 +120,14 @@ class TestSPMResultsDataModel(unittest.TestCase, TestResultDataModel):
     # TestResultDataModel.py
 
     def test03_ex1_auditory_singlesub_full_graph(self):
-        #  Turtle file of ground truth (manually computed) RDF
-        ground_truth_provn = os.path.join(
-            self.ground_truth_dir, 'example001_spm_results.provn')
-        ground_truth_ttl = ground_truth_provn.replace(".provn", ".ttl")
 
         # print "\n\nwith: "+ground_truth_ttl
 
         # RDF obtained by the ground truth export
         gt = Graph()
-        gt.parse(ground_truth_ttl, format='turtle')
+        gt.parse(self.spmexport.gt_ttl_file, format='turtle')
 
-        self.compare_full_graphs(gt, self.spmexport)
+        self.compare_full_graphs(gt, self.spmexport.graph)
 
         if self.my_execption:
             raise Exception(self.my_execption)
