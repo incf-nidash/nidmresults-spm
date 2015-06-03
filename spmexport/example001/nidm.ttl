@@ -21,7 +21,7 @@ _:blank2 a prov:Generation .
 
 niiri:spm_results_id prov:qualifiedGeneration _:blank2 .
 
-_:blank2 prov:atTime "2015-06-03T10:24:14"^^xsd:dateTime .
+_:blank2 prov:atTime "2015-06-03T14:29:56"^^xsd:dateTime .
 
 niiri:software_id
     a prov:Agent, neurolex:nif-0000-00343, prov:SoftwareAgent ; 
@@ -268,11 +268,20 @@ niiri:contrast_standard_error_map_id prov:wasGeneratedBy niiri:contrast_estimati
 
 niiri:height_threshold_id
     a prov:Entity, nidm:NIDM_0000034 ; 
-    rdfs:label "Height Threshold: p<0.05 (FWE)" ;
-    nidm:NIDM_0000125 "p-value FWE"^^xsd:string ;
-    prov:value "4.85241745689539"^^xsd:float ;
-    nidm:NIDM_0000116 "2.7772578456986e-06"^^xsd:float ;
-    nidm:NIDM_0000115 "0.0499999999999976"^^xsd:float .
+    rdfs:label "Height Threshold: p=0.050000 (FWE)" ;
+    prov:value "0.0499999999999976"^^xsd:float ;
+    nidm:NIDM_0000161 niiri:height_threshold_id2 ;
+    nidm:NIDM_0000161 niiri:height_threshold_id3 .
+
+niiri:height_threshold_id2
+    a prov:Entity, nidm:NIDM_0000034, obo:STATO_0000039 ; 
+    rdfs:label "Height Threshold: T=4.852417)" ;
+    prov:value "4.85241745689539"^^xsd:float .
+
+niiri:height_threshold_id3
+    a prov:Entity, nidm:NIDM_0000034, nidm:NIDM_0000116 ; 
+    rdfs:label "Height Threshold: p=0.000003 (unc.)" ;
+    prov:value "2.7772578456986e-06"^^xsd:float .
 
 niiri:extent_threshold_id
     a prov:Entity, nidm:NIDM_0000026 ; 
