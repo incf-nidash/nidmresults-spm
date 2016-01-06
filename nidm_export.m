@@ -9,7 +9,6 @@ function nidm_export(path_to_script_folder)
         if strncmpi(dname,'nidm',4)
             disp(['Removing ' dname])
             rmdir(dname,'s')
-            delete([dname '.nidm.zip'])
         end
         
         nidm_zips = cellstr(strvcat(spm_select('FPList', path_to_script_folder, '\.nidm\.zip$')));
@@ -27,6 +26,8 @@ function nidm_export(path_to_script_folder)
     result_batch{1}.spm.stats.results.spmmat = {fullfile(pwd, 'SPM.mat')};
     result_batch{1}.spm.stats.results.print = 'nidm';    
     spm_jobman('run', result_batch)
+    
+    unzip('spm_0001.nidm.zip', 'nidm')
     
     cd(cwd);
 end
