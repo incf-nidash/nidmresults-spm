@@ -1,0 +1,1316 @@
+document
+  prefix nidm <http://purl.org/nidash/nidm#>
+  prefix niiri <http://iri.nidash.org/>
+  prefix spm <http://purl.org/nidash/spm#>
+  prefix neurolex <http://neurolex.org/wiki/>
+  prefix crypto <http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions#>
+  prefix dct <http://purl.org/dc/terms/>
+  prefix nfo <http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#>
+  prefix dc <http://purl.org/dc/elements/1.1/>
+  prefix dctype <http://purl.org/dc/dcmitype/>
+  prefix obo <http://purl.obolibrary.org/obo/>
+  prefix nidm_NIDMResults <http://purl.org/nidash/nidm#NIDM_0000027>
+  prefix nidm_version <http://purl.org/nidash/nidm#NIDM_0000127>
+  prefix nidm_spm_results_nidm <http://purl.org/nidash/nidm#NIDM_0000168>
+  prefix nidm_softwareVersion <http://purl.org/nidash/nidm#NIDM_0000122>
+  prefix nidm_NIDMResultsExport <http://purl.org/nidash/nidm#NIDM_0000166>
+
+  entity(niiri:e8889926d05a35c367676e2b266a5d9e,
+    [prov:type = 'prov:Bundle',
+    prov:type = 'nidm_NIDMResults:',
+    prov:label = "NIDM-Results",
+    nidm_version: = "1.2.0" %% xsd:string])
+  agent(niiri:229b0f08cfcf3f699fd45d952761f576,
+    [prov:type = 'nidm_spm_results_nidm:',
+    prov:type = 'prov:SoftwareAgent',
+    prov:label = "spm_results_nidm" %% xsd:string,
+    nidm_softwareVersion: = "12.6646" %% xsd:string])
+  activity(niiri:1051dc20a62ed1558eac0a1a2fb70588,
+    [prov:type = 'nidm_NIDMResultsExport:',
+    prov:label = "NIDM-Results export"])
+  wasAssociatedWith(niiri:1051dc20a62ed1558eac0a1a2fb70588, niiri:229b0f08cfcf3f699fd45d952761f576, -)
+  wasGeneratedBy(niiri:e8889926d05a35c367676e2b266a5d9e, niiri:1051dc20a62ed1558eac0a1a2fb70588, 2016-01-11T10:11:03)
+  bundle niiri:e8889926d05a35c367676e2b266a5d9e
+    prefix nidm_softwareVersion <http://purl.org/nidash/nidm#NIDM_0000122>
+    prefix nidm_CoordinateSpace <http://purl.org/nidash/nidm#NIDM_0000016>
+    prefix nidm_voxelToWorldMapping <http://purl.org/nidash/nidm#NIDM_0000132>
+    prefix nidm_voxelUnits <http://purl.org/nidash/nidm#NIDM_0000133>
+    prefix nidm_voxelSize <http://purl.org/nidash/nidm#NIDM_0000131>
+    prefix nidm_inWorldCoordinateSystem <http://purl.org/nidash/nidm#NIDM_0000105>
+    prefix nidm_numberOfDimensions <http://purl.org/nidash/nidm#NIDM_0000112>
+    prefix nidm_dimensionsInVoxels <http://purl.org/nidash/nidm#NIDM_0000090>
+    prefix nidm_grandMeanScaling <http://purl.org/nidash/nidm#NIDM_0000096>
+    prefix nidm_targetIntensity <http://purl.org/nidash/nidm#NIDM_0000124>
+    prefix nidm_DataScaling <http://purl.org/nidash/nidm#NIDM_0000018>
+    prefix spm_DCTDriftModel <http://purl.org/nidash/spm#SPM_0000002>
+    prefix spm_SPMsDriftCutoffPeriod <http://purl.org/nidash/spm#SPM_0000001>
+    prefix nidm_hasDriftModel <http://purl.org/nidash/nidm#NIDM_0000088>
+    prefix nidm_hasHRFBasis <http://purl.org/nidash/nidm#NIDM_0000102>
+    prefix spm_SPMsCanonicalHRF <http://purl.org/nidash/spm#SPM_0000004>
+    prefix nidm_DesignMatrix <http://purl.org/nidash/nidm#NIDM_0000019>
+    prefix nidm_regressorNames <http://purl.org/nidash/nidm#NIDM_0000021>
+    prefix nidm_hasErrorDependence <http://purl.org/nidash/nidm#NIDM_0000100>
+    prefix stato_ToeplitzCovarianceStructure <http://purl.obolibrary.org/obo/STATO_0000357>
+    prefix nidm_dependenceMapWiseDependence <http://purl.org/nidash/nidm#NIDM_0000089>
+    prefix nidm_ConstantParameter <http://purl.org/nidash/nidm#NIDM_0000072>
+    prefix nidm_errorVarianceHomogeneous <http://purl.org/nidash/nidm#NIDM_0000094>
+    prefix nidm_varianceMapWiseDependence <http://purl.org/nidash/nidm#NIDM_0000126>
+    prefix nidm_IndependentParameter <http://purl.org/nidash/nidm#NIDM_0000073>
+    prefix nidm_withEstimationMethod <http://purl.org/nidash/nidm#NIDM_0000134>
+    prefix stato_GLS <http://purl.obolibrary.org/obo/STATO_0000372>
+    prefix nidm_ErrorModel <http://purl.org/nidash/nidm#NIDM_0000023>
+    prefix nidm_hasErrorDistribution <http://purl.org/nidash/nidm#NIDM_0000101>
+    prefix stato_GaussianDistribution <http://purl.obolibrary.org/obo/STATO_0000227>
+    prefix nidm_ModelParametersEstimation <http://purl.org/nidash/nidm#NIDM_0000056>
+    prefix nidm_MaskMap <http://purl.org/nidash/nidm#NIDM_0000054>
+    prefix nidm_isUserDefined <http://purl.org/nidash/nidm#NIDM_0000106>
+    prefix nidm_inCoordinateSpace <http://purl.org/nidash/nidm#NIDM_0000104>
+    prefix nidm_GrandMeanMap <http://purl.org/nidash/nidm#NIDM_0000033>
+    prefix nidm_maskedMedian <http://purl.org/nidash/nidm#NIDM_0000107>
+    prefix nidm_ParameterEstimateMap <http://purl.org/nidash/nidm#NIDM_0000061>
+    prefix nidm_ResidualMeanSquaresMap <http://purl.org/nidash/nidm#NIDM_0000066>
+    prefix nidm_ReselsPerVoxelMap <http://purl.org/nidash/nidm#NIDM_0000144>
+    prefix stato_ContrastWeightMatrix <http://purl.obolibrary.org/obo/STATO_0000323>
+    prefix nidm_statisticType <http://purl.org/nidash/nidm#NIDM_0000123>
+    prefix stato_TStatistic <http://purl.obolibrary.org/obo/STATO_0000176>
+    prefix nidm_contrastName <http://purl.org/nidash/nidm#NIDM_0000085>
+    prefix nidm_ContrastEstimation <http://purl.org/nidash/nidm#NIDM_0000001>
+    prefix nidm_StatisticMap <http://purl.org/nidash/nidm#NIDM_0000076>
+    prefix nidm_errorDegreesOfFreedom <http://purl.org/nidash/nidm#NIDM_0000093>
+    prefix nidm_effectDegreesOfFreedom <http://purl.org/nidash/nidm#NIDM_0000091>
+    prefix nidm_ContrastMap <http://purl.org/nidash/nidm#NIDM_0000002>
+    prefix nidm_ContrastStandardErrorMap <http://purl.org/nidash/nidm#NIDM_0000013>
+    prefix obo_Statistic <http://purl.obolibrary.org/obo/STATO_0000039>
+    prefix nidm_PValueUncorrected <http://purl.org/nidash/nidm#NIDM_0000160>
+    prefix obo_pValueFWER <http://purl.obolibrary.org/obo/OBI_0001265>
+    prefix nidm_HeightThreshold <http://purl.org/nidash/nidm#NIDM_0000034>
+    prefix nidm_equivalentThreshold <http://purl.org/nidash/nidm#NIDM_0000161>
+    prefix nidm_ExtentThreshold <http://purl.org/nidash/nidm#NIDM_0000026>
+    prefix nidm_clusterSizeInVoxels <http://purl.org/nidash/nidm#NIDM_0000084>
+    prefix nidm_clusterSizeInResels <http://purl.org/nidash/nidm#NIDM_0000156>
+    prefix nidm_PeakDefinitionCriteria <http://purl.org/nidash/nidm#NIDM_0000063>
+    prefix nidm_maxNumberOfPeaksPerCluster <http://purl.org/nidash/nidm#NIDM_0000108>
+    prefix nidm_minDistanceBetweenPeaks <http://purl.org/nidash/nidm#NIDM_0000109>
+    prefix nidm_ClusterDefinitionCriteria <http://purl.org/nidash/nidm#NIDM_0000007>
+    prefix nidm_hasConnectivityCriterion <http://purl.org/nidash/nidm#NIDM_0000099>
+    prefix nidm_voxel18connected <http://purl.org/nidash/nidm#NIDM_0000128>
+    prefix nidm_ConjunctionInference <http://purl.org/nidash/nidm#NIDM_0000011>
+    prefix nidm_SearchSpaceMaskMap <http://purl.org/nidash/nidm#NIDM_0000068>
+    prefix nidm_searchVolumeInVoxels <http://purl.org/nidash/nidm#NIDM_0000121>
+    prefix nidm_searchVolumeInUnits <http://purl.org/nidash/nidm#NIDM_0000136>
+    prefix nidm_reselSizeInVoxels <http://purl.org/nidash/nidm#NIDM_0000148>
+    prefix nidm_searchVolumeInResels <http://purl.org/nidash/nidm#NIDM_0000149>
+    prefix spm_searchVolumeReselsGeometry <http://purl.org/nidash/spm#SPM_0000010>
+    prefix nidm_noiseFWHMInVoxels <http://purl.org/nidash/nidm#NIDM_0000159>
+    prefix nidm_noiseFWHMInUnits <http://purl.org/nidash/nidm#NIDM_0000157>
+    prefix nidm_randomFieldStationarity <http://purl.org/nidash/nidm#NIDM_0000120>
+    prefix nidm_expectedNumberOfVoxelsPerCluster <http://purl.org/nidash/nidm#NIDM_0000143>
+    prefix nidm_expectedNumberOfClusters <http://purl.org/nidash/nidm#NIDM_0000141>
+    prefix nidm_heightCriticalThresholdFWE05 <http://purl.org/nidash/nidm#NIDM_0000147>
+    prefix nidm_heightCriticalThresholdFDR05 <http://purl.org/nidash/nidm#NIDM_0000146>
+    prefix spm_smallestSupraThresholdClusterSizeInVoxelsFWE05 <http://purl.org/nidash/spm#SPM_0000014>
+    prefix spm_smallestSupraThresholdClusterSizeInVoxelsFDR05 <http://purl.org/nidash/spm#SPM_0000013>
+    prefix nidm_ExcursionSetMap <http://purl.org/nidash/nidm#NIDM_0000025>
+    prefix nidm_numberOfSupraThresholdClusters <http://purl.org/nidash/nidm#NIDM_0000111>
+    prefix nidm_pValue <http://purl.org/nidash/nidm#NIDM_0000114>
+    prefix nidm_hasClusterLabelsMap <http://purl.org/nidash/nidm#NIDM_0000098>
+    prefix nidm_hasMaximumIntensityProjection <http://purl.org/nidash/nidm#NIDM_0000138>
+    prefix nidm_ClusterLabelsMap <http://purl.org/nidash/nidm#NIDM_0000008>
+    prefix nidm_SupraThresholdCluster <http://purl.org/nidash/nidm#NIDM_0000070>
+    prefix nidm_pValueUncorrected <http://purl.org/nidash/nidm#NIDM_0000116>
+    prefix nidm_pValueFWER <http://purl.org/nidash/nidm#NIDM_0000115>
+    prefix nidm_qValueFDR <http://purl.org/nidash/nidm#NIDM_0000119>
+    prefix nidm_clusterLabelId <http://purl.org/nidash/nidm#NIDM_0000082>
+    prefix nidm_Peak <http://purl.org/nidash/nidm#NIDM_0000062>
+    prefix nidm_equivalentZStatistic <http://purl.org/nidash/nidm#NIDM_0000092>
+    prefix nidm_Coordinate <http://purl.org/nidash/nidm#NIDM_0000015>
+    prefix nidm_coordinateVector <http://purl.org/nidash/nidm#NIDM_0000086>
+
+    agent(niiri:0b3ed3b43289bfce69e1dd8e0a580555,
+        [prov:type = 'neurolex_SPM:',
+        prov:type = 'prov:SoftwareAgent',
+        prov:label = "SPM" %% xsd:string,
+        nidm_softwareVersion: = "12.6470" %% xsd:string])
+    entity(niiri:08ce005cf94169deadd293b9f0386fc0,
+        [prov:type = 'nidm_CoordinateSpace:',
+        prov:label = "Coordinate space 1" %% xsd:string,
+        nidm_voxelToWorldMapping: = "[[-2, 0, 0, 78],[0, 2, 0, -112],[0, 0, 2, -70],[0, 0, 0, 1]]" %% xsd:string,
+        nidm_voxelUnits: = "[\"mm\", \"mm\", \"mm\"]" %% xsd:string,
+        nidm_voxelSize: = "[2, 2, 2]" %% xsd:string,
+        nidm_inWorldCoordinateSystem: = 'nidm_MNICoordinateSystem:',
+        nidm_numberOfDimensions: = "3" %% xsd:int,
+        nidm_dimensionsInVoxels: = "[79,95,79]" %% xsd:string])
+    entity(niiri:12128f6eb829f1af879e8f015ce78ee5,
+        [prov:type = 'prov:Collection',
+        prov:type = 'nidm_DataScaling:',
+        prov:label = "Data" %% xsd:string,
+        nidm_grandMeanScaling: = "true" %% xsd:boolean,
+        nidm_targetIntensity: = "100" %% xsd:float])
+    entity(niiri:4d9192c7fd08ad2bb7c4ff9503e7546b,
+        [prov:type = 'spm_DCTDriftModel:',
+        prov:label = "SPM's DCT Drift Model",
+        spm_SPMsDriftCutoffPeriod: = "128" %% xsd:float])
+    entity(niiri:62719c37cb7f1155944ed6252b71ec01,
+        [prov:type = 'nidm_DesignMatrix:',
+        prov:location = "DesignMatrix.csv" %% xsd:anyURI,
+        nfo:fileName = "DesignMatrix.csv" %% xsd:string,
+        dct:format = "text/csv" %% xsd:string,
+        dc:description = 'niiri:df48ccc999ebf8ca6f4c3e5bc939230c',
+        prov:label = "Design Matrix" %% xsd:string,
+        nidm_regressorNames: = "[\"Sn(1) mr_sw*bf(1)\", \"Sn(1) mr_ns*bf(1)\", \"Sn(1) pl_sw*bf(1)\", \"Sn(1) pl_ns*bf(1)\", \"Sn(1) junk*bf(1)\", \"Sn(1) constant\"]" %% xsd:string,
+        nidm_hasDriftModel: = 'niiri:4d9192c7fd08ad2bb7c4ff9503e7546b',
+        nidm_hasHRFBasis: = 'spm_SPMsCanonicalHRF:'])
+    entity(niiri:df48ccc999ebf8ca6f4c3e5bc939230c,
+        [prov:type = 'dctype:Image',
+        prov:location = "DesignMatrix.png" %% xsd:anyURI,
+        nfo:fileName = "DesignMatrix.png" %% xsd:string,
+        dct:format = "image/png" %% xsd:string])
+    entity(niiri:9cca745d6e07ffe830a810c73a4beb94,
+        [prov:type = 'nidm_ErrorModel:',
+        nidm_hasErrorDistribution: = 'stato_GaussianDistribution:',
+        nidm_hasErrorDependence: = 'stato_ToeplitzCovarianceStructure:',
+        nidm_dependenceMapWiseDependence: = 'nidm_ConstantParameter:',
+        nidm_errorVarianceHomogeneous: = "true" %% xsd:boolean,
+        nidm_varianceMapWiseDependence: = 'nidm_IndependentParameter:'])
+    activity(niiri:814ac7079ffe5eac40b4e81f109d77d3,
+        [prov:type = 'nidm_ModelParametersEstimation:',
+        prov:label = "Model parameters estimation",
+        nidm_withEstimationMethod: = 'stato_GLS:'])
+    wasAssociatedWith(niiri:814ac7079ffe5eac40b4e81f109d77d3, niiri:0b3ed3b43289bfce69e1dd8e0a580555, -)
+    used(niiri:814ac7079ffe5eac40b4e81f109d77d3, niiri:62719c37cb7f1155944ed6252b71ec01, -)
+    used(niiri:814ac7079ffe5eac40b4e81f109d77d3, niiri:12128f6eb829f1af879e8f015ce78ee5, -)
+    used(niiri:814ac7079ffe5eac40b4e81f109d77d3, niiri:9cca745d6e07ffe830a810c73a4beb94, -)
+    entity(niiri:fa56d066478b2ea71a6e1c4d5d549487,
+        [prov:type = 'nidm_MaskMap:',
+        prov:location = "Mask.nii.gz" %% xsd:anyURI,
+        nidm_isUserDefined: = "false" %% xsd:boolean,
+        nfo:fileName = "Mask.nii.gz" %% xsd:string,
+        dct:format = "image/nifti" %% xsd:string,
+        prov:label = "Mask" %% xsd:string,
+        nidm_inCoordinateSpace: = 'niiri:08ce005cf94169deadd293b9f0386fc0',
+        crypto:sha512 = "d7ea5de8ac6126fad539cc6bebeecf2db149192b03153a2d1e470f551bf2ce7da6c2ffcc5b32693307c4f7801fbb0a4097087dfc90ef4c09cf727f7af14888c8" %% xsd:string])
+    entity(niiri:e4a6119a50fded21c14197bcf296ab06,
+        [prov:type = 'nidm_MaskMap:',
+        nfo:fileName = "mask.nii" %% xsd:string,
+        dct:format = "image/nifti" %% xsd:string,
+        crypto:sha512 = "bc0e22a3eb2c896557e1e680900858fc400231b687aee04d5e3c51cca04b17f4210b79c966e12ecb4b321c29dda58e5ffb15f851cdfd62c5a9cec6e56ccddd2b" %% xsd:string])
+    wasDerivedFrom(niiri:fa56d066478b2ea71a6e1c4d5d549487, niiri:e4a6119a50fded21c14197bcf296ab06, -, -, -)
+    wasGeneratedBy(niiri:fa56d066478b2ea71a6e1c4d5d549487, niiri:814ac7079ffe5eac40b4e81f109d77d3, -)
+    entity(niiri:e5e2aba57bea3f7fc5a3f8657c80a53b,
+        [prov:type = 'nidm_GrandMeanMap:',
+        prov:location = "GrandMean.nii.gz" %% xsd:anyURI,
+        nfo:fileName = "GrandMean.nii.gz" %% xsd:string,
+        dct:format = "image/nifti" %% xsd:string,
+        prov:label = "Grand Mean Map" %% xsd:string,
+        nidm_maskedMedian: = "108.038318634033" %% xsd:float,
+        nidm_inCoordinateSpace: = 'niiri:08ce005cf94169deadd293b9f0386fc0',
+        crypto:sha512 = "73643a59abf52d8456d427b7c94a21fb5213b4b71c10ce39a94e1cd9995a58057fcf52794c7cb71ad9acf7a167eb0dbf0db3f9aeaeede1706cba904b73dca848" %% xsd:string])
+    wasGeneratedBy(niiri:e5e2aba57bea3f7fc5a3f8657c80a53b, niiri:814ac7079ffe5eac40b4e81f109d77d3, -)
+    entity(niiri:8dc72e026b46807ff7610978144a50a7,
+        [prov:type = 'nidm_ParameterEstimateMap:',
+        prov:label = "Beta Map 1" %% xsd:string,
+        nidm_inCoordinateSpace: = 'niiri:08ce005cf94169deadd293b9f0386fc0'])
+    entity(niiri:4ae89562691298e404907d30c17d6405,
+        [prov:type = 'nidm_ParameterEstimateMap:',
+        nfo:fileName = "beta_0001.nii" %% xsd:string,
+        dct:format = "image/nifti" %% xsd:string,
+        crypto:sha512 = "be820a2f6c3699ac1a63bd9e0ba8518c1600a0313e193d4a3e19cc4362e545abd38469ddb3dcc3fb59efaeba50f12ab9ffcf502061631c642a884af56560be3f" %% xsd:string])
+    wasDerivedFrom(niiri:8dc72e026b46807ff7610978144a50a7, niiri:4ae89562691298e404907d30c17d6405, -, -, -)
+    wasGeneratedBy(niiri:8dc72e026b46807ff7610978144a50a7, niiri:814ac7079ffe5eac40b4e81f109d77d3, -)
+    entity(niiri:c92fcc94226b041e076498dac96ae002,
+        [prov:type = 'nidm_ParameterEstimateMap:',
+        prov:label = "Beta Map 2" %% xsd:string,
+        nidm_inCoordinateSpace: = 'niiri:08ce005cf94169deadd293b9f0386fc0'])
+    entity(niiri:70eb7916777b2ccbe5e1004599b6b16f,
+        [prov:type = 'nidm_ParameterEstimateMap:',
+        nfo:fileName = "beta_0002.nii" %% xsd:string,
+        dct:format = "image/nifti" %% xsd:string,
+        crypto:sha512 = "1430335d25c76e19cb3bcfa012a51eda78c2534a3a3c15b9b31d7447d4d79f473b5875843e80740d16208d525aa141c861ab112507e2e7c5ed55959038c9f01b" %% xsd:string])
+    wasDerivedFrom(niiri:c92fcc94226b041e076498dac96ae002, niiri:70eb7916777b2ccbe5e1004599b6b16f, -, -, -)
+    wasGeneratedBy(niiri:c92fcc94226b041e076498dac96ae002, niiri:814ac7079ffe5eac40b4e81f109d77d3, -)
+    entity(niiri:e709d65a8b7aad133a26fc434e5810c1,
+        [prov:type = 'nidm_ParameterEstimateMap:',
+        prov:label = "Beta Map 3" %% xsd:string,
+        nidm_inCoordinateSpace: = 'niiri:08ce005cf94169deadd293b9f0386fc0'])
+    entity(niiri:5c45b10466b418609ad8f78d1d37f2a6,
+        [prov:type = 'nidm_ParameterEstimateMap:',
+        nfo:fileName = "beta_0003.nii" %% xsd:string,
+        dct:format = "image/nifti" %% xsd:string,
+        crypto:sha512 = "a16b3cca7c22a4385dd5321a01cee79e2a1ccbd995ddf924fa7e6c8f286bbc99acb726584562c24bd4176f84130aea7218195aa090ddb84247ff94decfd850eb" %% xsd:string])
+    wasDerivedFrom(niiri:e709d65a8b7aad133a26fc434e5810c1, niiri:5c45b10466b418609ad8f78d1d37f2a6, -, -, -)
+    wasGeneratedBy(niiri:e709d65a8b7aad133a26fc434e5810c1, niiri:814ac7079ffe5eac40b4e81f109d77d3, -)
+    entity(niiri:68dce10b86eb716a09c05d6bff88fb86,
+        [prov:type = 'nidm_ParameterEstimateMap:',
+        prov:label = "Beta Map 4" %% xsd:string,
+        nidm_inCoordinateSpace: = 'niiri:08ce005cf94169deadd293b9f0386fc0'])
+    entity(niiri:2ec5caa6c30b03a58e93533d26263bf0,
+        [prov:type = 'nidm_ParameterEstimateMap:',
+        nfo:fileName = "beta_0004.nii" %% xsd:string,
+        dct:format = "image/nifti" %% xsd:string,
+        crypto:sha512 = "3ef040dd4156288f6e00f9dde6566008a74022758623483d269086ecfa4b3764f3bb05251a46ab326cd9971839c9c711006bd05f0d0e0d543612ab6fcdeb2fa6" %% xsd:string])
+    wasDerivedFrom(niiri:68dce10b86eb716a09c05d6bff88fb86, niiri:2ec5caa6c30b03a58e93533d26263bf0, -, -, -)
+    wasGeneratedBy(niiri:68dce10b86eb716a09c05d6bff88fb86, niiri:814ac7079ffe5eac40b4e81f109d77d3, -)
+    entity(niiri:1835bec3a94146206bbc4c8dd879125c,
+        [prov:type = 'nidm_ParameterEstimateMap:',
+        prov:label = "Beta Map 5" %% xsd:string,
+        nidm_inCoordinateSpace: = 'niiri:08ce005cf94169deadd293b9f0386fc0'])
+    entity(niiri:7cfa6c3f159704f4e89cdb27e96c7bc1,
+        [prov:type = 'nidm_ParameterEstimateMap:',
+        nfo:fileName = "beta_0005.nii" %% xsd:string,
+        dct:format = "image/nifti" %% xsd:string,
+        crypto:sha512 = "fedee569e24e6a8b58ab59a2e10c6be3ba811752bb9f6da50709a5c7b1ace19d7ffda59fd2fe5ac07d9e9bc4da11338d71e7069b0e2ac852d39007789bbc52ff" %% xsd:string])
+    wasDerivedFrom(niiri:1835bec3a94146206bbc4c8dd879125c, niiri:7cfa6c3f159704f4e89cdb27e96c7bc1, -, -, -)
+    wasGeneratedBy(niiri:1835bec3a94146206bbc4c8dd879125c, niiri:814ac7079ffe5eac40b4e81f109d77d3, -)
+    entity(niiri:3f4483bbcd6a762700a3897d004115aa,
+        [prov:type = 'nidm_ParameterEstimateMap:',
+        prov:label = "Beta Map 6" %% xsd:string,
+        nidm_inCoordinateSpace: = 'niiri:08ce005cf94169deadd293b9f0386fc0'])
+    entity(niiri:5924cb43042ba2ca9b3e72dff64b49b5,
+        [prov:type = 'nidm_ParameterEstimateMap:',
+        nfo:fileName = "beta_0006.nii" %% xsd:string,
+        dct:format = "image/nifti" %% xsd:string,
+        crypto:sha512 = "5e4c12d0189a405df73642520fca3f6f23f37db75d202c03e217675ffcce441ebe42e99894b4561cf9739b46eb1371debf8a8b23efe9e86ec24166927794351c" %% xsd:string])
+    wasDerivedFrom(niiri:3f4483bbcd6a762700a3897d004115aa, niiri:5924cb43042ba2ca9b3e72dff64b49b5, -, -, -)
+    wasGeneratedBy(niiri:3f4483bbcd6a762700a3897d004115aa, niiri:814ac7079ffe5eac40b4e81f109d77d3, -)
+    entity(niiri:0584af123d5f6deb3954a3ac1bf9afaf,
+        [prov:type = 'nidm_ResidualMeanSquaresMap:',
+        prov:location = "ResidualMeanSquares.nii.gz" %% xsd:anyURI,
+        nfo:fileName = "ResidualMeanSquares.nii.gz" %% xsd:string,
+        dct:format = "image/nifti" %% xsd:string,
+        prov:label = "Residual Mean Squares Map" %% xsd:string,
+        nidm_inCoordinateSpace: = 'niiri:08ce005cf94169deadd293b9f0386fc0',
+        crypto:sha512 = "8721ece3d3084917bbd7cbf24e40027da6d6084caf0afa22783e9dc4279d1defe84362a827a06a4f7b81b75b771b2b819fc0720e957302d17f7afccce0fed2f8" %% xsd:string])
+    entity(niiri:751ce5b565c5ac0b6fcbae2755edacc1,
+        [prov:type = 'nidm_ResidualMeanSquaresMap:',
+        nfo:fileName = "ResMS.nii" %% xsd:string,
+        dct:format = "image/nifti" %% xsd:string,
+        crypto:sha512 = "90a4f0be6b668a65e01bcce5377a069670ec5ab135ff87f564cfbc0440318f6604470bd1e2baab9507d123f9a4be36c1a6847f4b1cd6c205f5dff1aafcd41b81" %% xsd:string])
+    wasDerivedFrom(niiri:0584af123d5f6deb3954a3ac1bf9afaf, niiri:751ce5b565c5ac0b6fcbae2755edacc1, -, -, -)
+    wasGeneratedBy(niiri:0584af123d5f6deb3954a3ac1bf9afaf, niiri:814ac7079ffe5eac40b4e81f109d77d3, -)
+    entity(niiri:5e5f72d3a313df47ed1675f196ba2790,
+        [prov:type = 'nidm_ReselsPerVoxelMap:',
+        prov:location = "ReselsPerVoxel.nii.gz" %% xsd:anyURI,
+        nfo:fileName = "ReselsPerVoxel.nii.gz" %% xsd:string,
+        dct:format = "image/nifti" %% xsd:string,
+        prov:label = "Resels per Voxel Map" %% xsd:string,
+        nidm_inCoordinateSpace: = 'niiri:08ce005cf94169deadd293b9f0386fc0',
+        crypto:sha512 = "bea02d144f49db7ea625da57e6929bcea39973d6ad9e47f5c09ca65b19f359837649da2dee7fdc4b668a677fc9d0cae380b082a753afba61ecf4bf705e9eead8" %% xsd:string])
+    entity(niiri:c43d5c20b335994694e0ce99c69c63d2,
+        [prov:type = 'nidm_ReselsPerVoxelMap:',
+        nfo:fileName = "RPV.nii" %% xsd:string,
+        dct:format = "image/nifti" %% xsd:string,
+        crypto:sha512 = "d65f7c471d6695e60691d74e52ac8d2d6f4c1e44764dad1fb672b49e3138d3e34f7a69367983607ad89b57bc0f464e5377bc76e3a6ea9624930372567273cb29" %% xsd:string])
+    wasDerivedFrom(niiri:5e5f72d3a313df47ed1675f196ba2790, niiri:c43d5c20b335994694e0ce99c69c63d2, -, -, -)
+    wasGeneratedBy(niiri:5e5f72d3a313df47ed1675f196ba2790, niiri:814ac7079ffe5eac40b4e81f109d77d3, -)
+    entity(niiri:fff3d3a4810634aa02f29f0c1f5fbb8f,
+        [prov:type = 'stato_ContrastWeightMatrix:',
+        nidm_statisticType: = 'stato_TStatistic:',
+        nidm_contrastName: = "mr vs plain" %% xsd:string,
+        prov:label = "Contrast: mr vs plain" %% xsd:string,
+        prov:value = "[1, 1, -1, -1, 0, 0]" %% xsd:string])
+    activity(niiri:ed2f36215d4ae0d42c3aefe5ecd86175,
+        [prov:type = 'nidm_ContrastEstimation:',
+        prov:label = "Contrast estimation 1"])
+    wasAssociatedWith(niiri:ed2f36215d4ae0d42c3aefe5ecd86175, niiri:0b3ed3b43289bfce69e1dd8e0a580555, -)
+    used(niiri:ed2f36215d4ae0d42c3aefe5ecd86175, niiri:fa56d066478b2ea71a6e1c4d5d549487, -)
+    used(niiri:ed2f36215d4ae0d42c3aefe5ecd86175, niiri:0584af123d5f6deb3954a3ac1bf9afaf, -)
+    used(niiri:ed2f36215d4ae0d42c3aefe5ecd86175, niiri:62719c37cb7f1155944ed6252b71ec01, -)
+    used(niiri:ed2f36215d4ae0d42c3aefe5ecd86175, niiri:fff3d3a4810634aa02f29f0c1f5fbb8f, -)
+    used(niiri:ed2f36215d4ae0d42c3aefe5ecd86175, niiri:8dc72e026b46807ff7610978144a50a7, -)
+    used(niiri:ed2f36215d4ae0d42c3aefe5ecd86175, niiri:c92fcc94226b041e076498dac96ae002, -)
+    used(niiri:ed2f36215d4ae0d42c3aefe5ecd86175, niiri:e709d65a8b7aad133a26fc434e5810c1, -)
+    used(niiri:ed2f36215d4ae0d42c3aefe5ecd86175, niiri:68dce10b86eb716a09c05d6bff88fb86, -)
+    used(niiri:ed2f36215d4ae0d42c3aefe5ecd86175, niiri:1835bec3a94146206bbc4c8dd879125c, -)
+    used(niiri:ed2f36215d4ae0d42c3aefe5ecd86175, niiri:3f4483bbcd6a762700a3897d004115aa, -)
+    entity(niiri:33170469490d72c603cf1ad06ce86637,
+        [prov:type = 'nidm_StatisticMap:',
+        prov:location = "TStatistic_0001.nii.gz" %% xsd:anyURI,
+        nfo:fileName = "TStatistic_0001.nii.gz" %% xsd:string,
+        dct:format = "image/nifti" %% xsd:string,
+        prov:label = "Statistic Map: mr vs plain" %% xsd:string,
+        nidm_statisticType: = 'stato_TStatistic:',
+        nidm_contrastName: = "mr vs plain" %% xsd:string,
+        nidm_errorDegreesOfFreedom: = "192.99999999965" %% xsd:float,
+        nidm_effectDegreesOfFreedom: = "0.999999999999999" %% xsd:float,
+        nidm_inCoordinateSpace: = 'niiri:08ce005cf94169deadd293b9f0386fc0',
+        crypto:sha512 = "aba2fef7900cacda1ed84fe5edf867bd2b0fc6ae7eb4919967798d7f219a6d8ad5454fe8e0bdf4a7cfa6402e73287e703c285d12df0a282e40438ec36153e715" %% xsd:string])
+    entity(niiri:0d5089a0bd1af4fc6f9474726c757a3b,
+        [prov:type = 'nidm_StatisticMap:',
+        nfo:fileName = "spmT_0001.nii" %% xsd:string,
+        dct:format = "image/nifti" %% xsd:string,
+        crypto:sha512 = "aebdf5f3c741d8b2c2d2f4f924d9c82e393e8a534603fc77cad173fff1f70bba798fe74b2ff0a725c4181b1ad59b78d3f37db660ca10d3f22d71d0741f27c782" %% xsd:string])
+    wasDerivedFrom(niiri:33170469490d72c603cf1ad06ce86637, niiri:0d5089a0bd1af4fc6f9474726c757a3b, -, -, -)
+    wasGeneratedBy(niiri:33170469490d72c603cf1ad06ce86637, niiri:ed2f36215d4ae0d42c3aefe5ecd86175, -)
+    entity(niiri:a15220866e3ff78e30b1d06f1e2ad332,
+        [prov:type = 'nidm_ContrastMap:',
+        prov:location = "Contrast_0001.nii.gz" %% xsd:anyURI,
+        nfo:fileName = "Contrast_0001.nii.gz" %% xsd:string,
+        dct:format = "image/nifti" %% xsd:string,
+        prov:label = "Contrast Map: mr vs plain" %% xsd:string,
+        nidm_contrastName: = "mr vs plain" %% xsd:string,
+        nidm_inCoordinateSpace: = 'niiri:08ce005cf94169deadd293b9f0386fc0',
+        crypto:sha512 = "da03bc15b480c389aef3095d1a0ebd43f66d4f3ef7c4c30f4f1b4938f27392e060edc590d95edecda00ccf80bfc56d87f5b0c4c689ce32ba33506f9e0563a0d5" %% xsd:string])
+    entity(niiri:c06e95223a98daddc50df12b0ef668ef,
+        [prov:type = 'nidm_ContrastMap:',
+        nfo:fileName = "con_0001.nii" %% xsd:string,
+        dct:format = "image/nifti" %% xsd:string,
+        crypto:sha512 = "56e20d705475fcdc2123532215e4dcbd7db25a6210c432017a8d965c794b9f09d860ab5fd6f3b84750f1db7610dd27ebfa97ea4abc640d110f672ca522f4dc28" %% xsd:string])
+    wasDerivedFrom(niiri:a15220866e3ff78e30b1d06f1e2ad332, niiri:c06e95223a98daddc50df12b0ef668ef, -, -, -)
+    wasGeneratedBy(niiri:a15220866e3ff78e30b1d06f1e2ad332, niiri:ed2f36215d4ae0d42c3aefe5ecd86175, -)
+    entity(niiri:88f8800367c7c2b2a2d1a301d933782c,
+        [prov:type = 'nidm_ContrastStandardErrorMap:',
+        prov:location = "ContrastStandardError_0001.nii.gz" %% xsd:anyURI,
+        nfo:fileName = "ContrastStandardError_0001.nii.gz" %% xsd:string,
+        dct:format = "image/nifti" %% xsd:string,
+        prov:label = "Contrast Standard Error Map" %% xsd:string,
+        nidm_inCoordinateSpace: = 'niiri:08ce005cf94169deadd293b9f0386fc0',
+        crypto:sha512 = "5dc3fca765031371124b93ae045627c60482af20d5509f441903b60797b97ceac41218b785ea7705278a79198188ad288ca428c0de5f0e1b84032cb628f9720b" %% xsd:string])
+    wasGeneratedBy(niiri:88f8800367c7c2b2a2d1a301d933782c, niiri:ed2f36215d4ae0d42c3aefe5ecd86175, -)
+    entity(niiri:59cd72b8af1baa0c5eb355990015dbc8,
+        [prov:type = 'stato_ContrastWeightMatrix:',
+        nidm_statisticType: = 'stato_TStatistic:',
+        nidm_contrastName: = "switch vs nonswitch" %% xsd:string,
+        prov:label = "Contrast: switch vs nonswitch" %% xsd:string,
+        prov:value = "[1, -1, 1, -1, 0, 0]" %% xsd:string])
+    activity(niiri:bb82cadb0c0a63033cb0b69845e19933,
+        [prov:type = 'nidm_ContrastEstimation:',
+        prov:label = "Contrast estimation 2"])
+    wasAssociatedWith(niiri:bb82cadb0c0a63033cb0b69845e19933, niiri:0b3ed3b43289bfce69e1dd8e0a580555, -)
+    used(niiri:bb82cadb0c0a63033cb0b69845e19933, niiri:fa56d066478b2ea71a6e1c4d5d549487, -)
+    used(niiri:bb82cadb0c0a63033cb0b69845e19933, niiri:0584af123d5f6deb3954a3ac1bf9afaf, -)
+    used(niiri:bb82cadb0c0a63033cb0b69845e19933, niiri:62719c37cb7f1155944ed6252b71ec01, -)
+    used(niiri:bb82cadb0c0a63033cb0b69845e19933, niiri:59cd72b8af1baa0c5eb355990015dbc8, -)
+    used(niiri:bb82cadb0c0a63033cb0b69845e19933, niiri:8dc72e026b46807ff7610978144a50a7, -)
+    used(niiri:bb82cadb0c0a63033cb0b69845e19933, niiri:c92fcc94226b041e076498dac96ae002, -)
+    used(niiri:bb82cadb0c0a63033cb0b69845e19933, niiri:e709d65a8b7aad133a26fc434e5810c1, -)
+    used(niiri:bb82cadb0c0a63033cb0b69845e19933, niiri:68dce10b86eb716a09c05d6bff88fb86, -)
+    used(niiri:bb82cadb0c0a63033cb0b69845e19933, niiri:1835bec3a94146206bbc4c8dd879125c, -)
+    used(niiri:bb82cadb0c0a63033cb0b69845e19933, niiri:3f4483bbcd6a762700a3897d004115aa, -)
+    entity(niiri:cdd7c42099c33f420a6755aca2f2279f,
+        [prov:type = 'nidm_StatisticMap:',
+        prov:location = "TStatistic_0002.nii.gz" %% xsd:anyURI,
+        nfo:fileName = "TStatistic_0002.nii.gz" %% xsd:string,
+        dct:format = "image/nifti" %% xsd:string,
+        prov:label = "Statistic Map: switch vs nonswitch" %% xsd:string,
+        nidm_statisticType: = 'stato_TStatistic:',
+        nidm_contrastName: = "switch vs nonswitch" %% xsd:string,
+        nidm_errorDegreesOfFreedom: = "192.99999999965" %% xsd:float,
+        nidm_effectDegreesOfFreedom: = "0.999999999999999" %% xsd:float,
+        nidm_inCoordinateSpace: = 'niiri:08ce005cf94169deadd293b9f0386fc0',
+        crypto:sha512 = "1c375cdc8f2b00f93f3d6f1a09aafa5670d35ffcf2c82ef061151bfb047463e482e971d67ce3e3e2496f37b1621f5d732a0a1f88c773f5d5fa077cb6a3e38501" %% xsd:string])
+    entity(niiri:f364d39b2363c17f9d16acb9c59c6a34,
+        [prov:type = 'nidm_StatisticMap:',
+        nfo:fileName = "spmT_0002.nii" %% xsd:string,
+        dct:format = "image/nifti" %% xsd:string,
+        crypto:sha512 = "313c8e34e107b1e9bec46074e7a1cef289427618869119eff1c8044a2b5b8e5a340c899a78f40a3f8b938dbbbde53bd16c096da55f2e07a7c9e334cfd1e471f2" %% xsd:string])
+    wasDerivedFrom(niiri:cdd7c42099c33f420a6755aca2f2279f, niiri:f364d39b2363c17f9d16acb9c59c6a34, -, -, -)
+    wasGeneratedBy(niiri:cdd7c42099c33f420a6755aca2f2279f, niiri:bb82cadb0c0a63033cb0b69845e19933, -)
+    entity(niiri:e302d7d850e61776b5bb1245b4e05648,
+        [prov:type = 'nidm_ContrastMap:',
+        prov:location = "Contrast_0002.nii.gz" %% xsd:anyURI,
+        nfo:fileName = "Contrast_0002.nii.gz" %% xsd:string,
+        dct:format = "image/nifti" %% xsd:string,
+        prov:label = "Contrast Map: switch vs nonswitch" %% xsd:string,
+        nidm_contrastName: = "switch vs nonswitch" %% xsd:string,
+        nidm_inCoordinateSpace: = 'niiri:08ce005cf94169deadd293b9f0386fc0',
+        crypto:sha512 = "77720bd21fb296db2e69c9742318c52f7cf6b08f94a83c5c1e30d5b8b21b1fd218de32fcc3a96aa2d067d5b06015e85e863ab87907741d2d7c9993740f668dc2" %% xsd:string])
+    entity(niiri:4488f35b0475365c16a619d4367e2596,
+        [prov:type = 'nidm_ContrastMap:',
+        nfo:fileName = "con_0002.nii" %% xsd:string,
+        dct:format = "image/nifti" %% xsd:string,
+        crypto:sha512 = "6983d8888c458d8a073f84054db2587b0a71764e64c30ea7e4a13cd0e6b2e301eaea1b570822b24b635b464fd233c3801a9205ddcd2dcffcda7cd99679d2734a" %% xsd:string])
+    wasDerivedFrom(niiri:e302d7d850e61776b5bb1245b4e05648, niiri:4488f35b0475365c16a619d4367e2596, -, -, -)
+    wasGeneratedBy(niiri:e302d7d850e61776b5bb1245b4e05648, niiri:bb82cadb0c0a63033cb0b69845e19933, -)
+    entity(niiri:f0fc139f8e55d67381833c5bf0ad8776,
+        [prov:type = 'nidm_ContrastStandardErrorMap:',
+        prov:location = "ContrastStandardError_0002.nii.gz" %% xsd:anyURI,
+        nfo:fileName = "ContrastStandardError_0002.nii.gz" %% xsd:string,
+        dct:format = "image/nifti" %% xsd:string,
+        prov:label = "Contrast Standard Error Map" %% xsd:string,
+        nidm_inCoordinateSpace: = 'niiri:08ce005cf94169deadd293b9f0386fc0',
+        crypto:sha512 = "1bb21447dcf3cc1eeb9453c707178e4d87161242c69e18795e0e2b30496c9e657ed2f202d4c9cd364aea5a04e4e46fe70ca830e1db14dd2e0f20af754281c3f2" %% xsd:string])
+    wasGeneratedBy(niiri:f0fc139f8e55d67381833c5bf0ad8776, niiri:bb82cadb0c0a63033cb0b69845e19933, -)
+    entity(niiri:fc0dadbc5f694e6ae907492f74e6940a,
+        [prov:type = 'nidm_HeightThreshold:',
+        prov:type = 'nidm_PValueUncorrected:',
+        prov:label = "Height Threshold: p<0.048771 (unc.)" %% xsd:string,
+        prov:value = "0.0487705952532708" %% xsd:float,
+        nidm_equivalentThreshold: = 'niiri:4e24c86c0c11cc5f53096bcd0ce1dee2',
+        nidm_equivalentThreshold: = 'niiri:f9486c7fafc049f9442fc8a37aad071b'])
+    entity(niiri:4e24c86c0c11cc5f53096bcd0ce1dee2,
+        [prov:type = 'nidm_HeightThreshold:',
+        prov:type = 'obo_Statistic:',
+        prov:label = "Height Threshold" %% xsd:string,
+        prov:value = "1.65278686445912" %% xsd:float])
+    entity(niiri:f9486c7fafc049f9442fc8a37aad071b,
+        [prov:type = 'nidm_HeightThreshold:',
+        prov:type = 'obo_pValueFWER:',
+        prov:label = "Height Threshold" %% xsd:string,
+        prov:value = "1" %% xsd:float])
+    entity(niiri:6f5dc8bb78b50ed4e5df8f9ad38d9464,
+        [prov:type = 'nidm_ExtentThreshold:',
+        prov:type = 'obo_Statistic:',
+        prov:label = "Extent Threshold: k>=0" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "0" %% xsd:int,
+        nidm_clusterSizeInResels: = "0" %% xsd:float,
+        nidm_equivalentThreshold: = 'niiri:92687adf3abda3ba46eb627518e50083',
+        nidm_equivalentThreshold: = 'niiri:6af6d4d06a49094c399e6ccf744121ef'])
+    entity(niiri:92687adf3abda3ba46eb627518e50083,
+        [prov:type = 'nidm_ExtentThreshold:',
+        prov:type = 'obo_pValueFWER:',
+        prov:label = "Extent Threshold" %% xsd:string,
+        prov:value = "1" %% xsd:float])
+    entity(niiri:6af6d4d06a49094c399e6ccf744121ef,
+        [prov:type = 'nidm_ExtentThreshold:',
+        prov:type = 'nidm_PValueUncorrected:',
+        prov:label = "Extent Threshold" %% xsd:string,
+        prov:value = "1" %% xsd:float])
+    entity(niiri:c90078d4c679070cca4a029f082015c6,
+        [prov:type = 'nidm_PeakDefinitionCriteria:',
+        prov:label = "Peak Definition Criteria" %% xsd:string,
+        nidm_maxNumberOfPeaksPerCluster: = "3" %% xsd:int,
+        nidm_minDistanceBetweenPeaks: = "8" %% xsd:float])
+    entity(niiri:e225a30061c1008b5fab26894ccaf377,
+        [prov:type = 'nidm_ClusterDefinitionCriteria:',
+        prov:label = "Cluster Connectivity Criterion: 18" %% xsd:string,
+        nidm_hasConnectivityCriterion: = 'nidm_voxel18connected:'])
+    activity(niiri:e99ac3c1e07c5c1b8b9b94dad780efc6,
+        [prov:type = 'nidm_ConjunctionInference:',
+        prov:label = "Conjunction Inference"])
+    wasAssociatedWith(niiri:e99ac3c1e07c5c1b8b9b94dad780efc6, niiri:0b3ed3b43289bfce69e1dd8e0a580555, -)
+    used(niiri:e99ac3c1e07c5c1b8b9b94dad780efc6, niiri:fc0dadbc5f694e6ae907492f74e6940a, -)
+    used(niiri:e99ac3c1e07c5c1b8b9b94dad780efc6, niiri:6f5dc8bb78b50ed4e5df8f9ad38d9464, -)
+    used(niiri:e99ac3c1e07c5c1b8b9b94dad780efc6, niiri:33170469490d72c603cf1ad06ce86637, -)
+    used(niiri:e99ac3c1e07c5c1b8b9b94dad780efc6, niiri:cdd7c42099c33f420a6755aca2f2279f, -)
+    used(niiri:e99ac3c1e07c5c1b8b9b94dad780efc6, niiri:5e5f72d3a313df47ed1675f196ba2790, -)
+    used(niiri:e99ac3c1e07c5c1b8b9b94dad780efc6, niiri:fa56d066478b2ea71a6e1c4d5d549487, -)
+    used(niiri:e99ac3c1e07c5c1b8b9b94dad780efc6, niiri:c90078d4c679070cca4a029f082015c6, -)
+    used(niiri:e99ac3c1e07c5c1b8b9b94dad780efc6, niiri:e225a30061c1008b5fab26894ccaf377, -)
+    entity(niiri:5659ce7e18cccaee79d052589cc49082,
+        [prov:type = 'nidm_SearchSpaceMaskMap:',
+        prov:location = "SearchSpaceMask.nii.gz" %% xsd:anyURI,
+        nfo:fileName = "SearchSpaceMask.nii.gz" %% xsd:string,
+        dct:format = "image/nifti" %% xsd:string,
+        prov:label = "Search Space Mask Map" %% xsd:string,
+        nidm_inCoordinateSpace: = 'niiri:08ce005cf94169deadd293b9f0386fc0',
+        nidm_searchVolumeInVoxels: = "207876" %% xsd:int,
+        nidm_searchVolumeInUnits: = "1663008" %% xsd:float,
+        nidm_reselSizeInVoxels: = "68.4409986586553" %% xsd:float,
+        nidm_searchVolumeInResels: = "2811.45809925534" %% xsd:float,
+        spm_searchVolumeReselsGeometry: = "[5, 96.6116867805852, 900.100332657535, 2811.45809925534]" %% xsd:string,
+        nidm_noiseFWHMInVoxels: = "[4.16320607513012, 4.05765428344905, 4.05147708968699]" %% xsd:string,
+        nidm_noiseFWHMInUnits: = "[8.32641215026024, 8.1153085668981, 8.10295417937398]" %% xsd:string,
+        nidm_randomFieldStationarity: = "true" %% xsd:boolean,
+        nidm_expectedNumberOfVoxelsPerCluster: = "65.6719601732437" %% xsd:float,
+        nidm_expectedNumberOfClusters: = "221.248707519578" %% xsd:float,
+        nidm_heightCriticalThresholdFWE05: = "5.08514693703219" %% xsd:float,
+        nidm_heightCriticalThresholdFDR05: = "Inf" %% xsd:float,
+        spm_smallestSupraThresholdClusterSizeInVoxelsFWE05: = "Inf" %% xsd:int,
+        spm_smallestSupraThresholdClusterSizeInVoxelsFDR05: = "Inf" %% xsd:int,
+        crypto:sha512 = "d7ea5de8ac6126fad539cc6bebeecf2db149192b03153a2d1e470f551bf2ce7da6c2ffcc5b32693307c4f7801fbb0a4097087dfc90ef4c09cf727f7af14888c8" %% xsd:string])
+    wasGeneratedBy(niiri:5659ce7e18cccaee79d052589cc49082, niiri:e99ac3c1e07c5c1b8b9b94dad780efc6, -)
+    entity(niiri:f3637fafb926481fff6bd8938c6a8550,
+        [prov:type = 'nidm_ExcursionSetMap:',
+        prov:location = "ExcursionSet.nii.gz" %% xsd:anyURI,
+        nfo:fileName = "ExcursionSet.nii.gz" %% xsd:string,
+        dct:format = "image/nifti" %% xsd:string,
+        prov:label = "Excursion Set Map" %% xsd:string,
+        nidm_numberOfSupraThresholdClusters: = "30" %% xsd:int,
+        nidm_pValue: = "1" %% xsd:float,
+        nidm_hasClusterLabelsMap: = 'niiri:225cba9527198fe0f9f286e4794b0c09',
+        nidm_hasMaximumIntensityProjection: = 'niiri:b314a44bd0faae613b91c61054d712ba',
+        nidm_inCoordinateSpace: = 'niiri:08ce005cf94169deadd293b9f0386fc0',
+        crypto:sha512 = "bcf45ac744752d54a29a2b918eda586a0e6637179a62a2eef62afd03f594bb4bdb4d2171625040d21c22a02d3a13fd0312ce1b83f6a6aecf34c432299e21c864" %% xsd:string])
+    entity(niiri:225cba9527198fe0f9f286e4794b0c09,
+        [prov:type = 'nidm_ClusterLabelsMap:',
+        prov:location = "ClusterLabels.nii.gz" %% xsd:anyURI,
+        nfo:fileName = "ClusterLabels.nii.gz" %% xsd:string,
+        dct:format = "image/nifti" %% xsd:string])
+    entity(niiri:b314a44bd0faae613b91c61054d712ba,
+        [prov:type = 'dctype:Image',
+        prov:location = "MaximumIntensityProjection.png" %% xsd:anyURI,
+        nfo:fileName = "MaximumIntensityProjection.png" %% xsd:string,
+        dct:format = "image/png" %% xsd:string])
+    wasGeneratedBy(niiri:f3637fafb926481fff6bd8938c6a8550, niiri:e99ac3c1e07c5c1b8b9b94dad780efc6, -)
+    entity(niiri:1ca2ed8885126a13f37d342c5bda82b6,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0001" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "95" %% xsd:int,
+        nidm_clusterSizeInResels: = "1.38805689370206" %% xsd:float,
+        nidm_pValueUncorrected: = "0.213014928043125" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "1" %% xsd:int])
+    wasDerivedFrom(niiri:1ca2ed8885126a13f37d342c5bda82b6, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:b6ec4ee5c26bd5170b56e954e84a7789,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0002" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "6" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.0876667511811828" %% xsd:float,
+        nidm_pValueUncorrected: = "0.782510669800627" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "2" %% xsd:int])
+    wasDerivedFrom(niiri:b6ec4ee5c26bd5170b56e954e84a7789, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:67aa7dea8d858564a8b4505070c20ab3,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0003" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "9" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.131500126771774" %% xsd:float,
+        nidm_pValueUncorrected: = "0.725158209956759" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "3" %% xsd:int])
+    wasDerivedFrom(niiri:67aa7dea8d858564a8b4505070c20ab3, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:8eb556353f8e288e589eef37024ef068,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0004" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "17" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.248389128346685" %% xsd:float,
+        nidm_pValueUncorrected: = "0.611975830727683" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "4" %% xsd:int])
+    wasDerivedFrom(niiri:8eb556353f8e288e589eef37024ef068, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:4f970219224428039454afd130e40f48,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0005" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "11" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.160722377165502" %% xsd:float,
+        nidm_pValueUncorrected: = "0.692555940999578" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "5" %% xsd:int])
+    wasDerivedFrom(niiri:4f970219224428039454afd130e40f48, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:c2a5888cb7cfb94104a85fdf0c0a0975,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0006" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "17" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.248389128346685" %% xsd:float,
+        nidm_pValueUncorrected: = "0.611975830727683" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "6" %% xsd:int])
+    wasDerivedFrom(niiri:c2a5888cb7cfb94104a85fdf0c0a0975, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:5e85e47c2fc2758e5d466cd2123b2254,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0007" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "24" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.350667004724731" %% xsd:float,
+        nidm_pValueUncorrected: = "0.539029201377477" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "7" %% xsd:int])
+    wasDerivedFrom(niiri:5e85e47c2fc2758e5d466cd2123b2254, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:6105338324e4b950666042ae82d011fd,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0008" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "6" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.0876667511811828" %% xsd:float,
+        nidm_pValueUncorrected: = "0.782510669800627" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "8" %% xsd:int])
+    wasDerivedFrom(niiri:6105338324e4b950666042ae82d011fd, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:4f020dcb9018a1690cba2cbf60dc38b0,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0009" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "41" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.599056133071416" %% xsd:float,
+        nidm_pValueUncorrected: = "0.413484921872381" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "9" %% xsd:int])
+    wasDerivedFrom(niiri:4f020dcb9018a1690cba2cbf60dc38b0, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:68b9b03c7822e1a0b86cd9e68fe99ca2,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0010" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "6" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.0876667511811828" %% xsd:float,
+        nidm_pValueUncorrected: = "0.782510669800627" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "10" %% xsd:int])
+    wasDerivedFrom(niiri:68b9b03c7822e1a0b86cd9e68fe99ca2, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:9d7bfc795c45dfc1d2a9b0bd65c9fbd9,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0011" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "17" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.248389128346685" %% xsd:float,
+        nidm_pValueUncorrected: = "0.611975830727683" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "11" %% xsd:int])
+    wasDerivedFrom(niiri:9d7bfc795c45dfc1d2a9b0bd65c9fbd9, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:f626ba6b4ad8b422a9e8b6208607d5c7,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0012" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "4" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.0584445007874552" %% xsd:float,
+        nidm_pValueUncorrected: = "0.829311832510809" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "12" %% xsd:int])
+    wasDerivedFrom(niiri:f626ba6b4ad8b422a9e8b6208607d5c7, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:dd3a390096e9240d96d84a6fa0b53334,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0013" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "4" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.0584445007874552" %% xsd:float,
+        nidm_pValueUncorrected: = "0.829311832510809" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "13" %% xsd:int])
+    wasDerivedFrom(niiri:dd3a390096e9240d96d84a6fa0b53334, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:b38cc3f1a8c8b355373259707d78b430,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0014" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "8" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.11688900157491" %% xsd:float,
+        nidm_pValueUncorrected: = "0.742972344559258" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "14" %% xsd:int])
+    wasDerivedFrom(niiri:b38cc3f1a8c8b355373259707d78b430, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:708b36a85852210d2aa37cd0a43c31d6,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0015" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "8" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.11688900157491" %% xsd:float,
+        nidm_pValueUncorrected: = "0.742972344559258" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "15" %% xsd:int])
+    wasDerivedFrom(niiri:708b36a85852210d2aa37cd0a43c31d6, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:9fb5666ada501891fcef9d333ed6afff,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0016" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "4" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.0584445007874552" %% xsd:float,
+        nidm_pValueUncorrected: = "0.829311832510809" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "16" %% xsd:int])
+    wasDerivedFrom(niiri:9fb5666ada501891fcef9d333ed6afff, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:756837e339677511c64f8da38004cd2e,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0017" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "2" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.0292222503937276" %% xsd:float,
+        nidm_pValueUncorrected: = "0.888782432018751" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "17" %% xsd:int])
+    wasDerivedFrom(niiri:756837e339677511c64f8da38004cd2e, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:303983981b9e7155b24ee729485e35d5,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0018" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "3" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.0438333755905914" %% xsd:float,
+        nidm_pValueUncorrected: = "0.856846591224654" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "18" %% xsd:int])
+    wasDerivedFrom(niiri:303983981b9e7155b24ee729485e35d5, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:ff25cf8967cf153c0c4bac8744bfd4de,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0019" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "4" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.0584445007874552" %% xsd:float,
+        nidm_pValueUncorrected: = "0.829311832510809" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "19" %% xsd:int])
+    wasDerivedFrom(niiri:ff25cf8967cf153c0c4bac8744bfd4de, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:1e1d5e2b654ff9dfd561671bb14dac45,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0020" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "1" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.0146111251968638" %% xsd:float,
+        nidm_pValueUncorrected: = "0.928417166750593" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "20" %% xsd:int])
+    wasDerivedFrom(niiri:1e1d5e2b654ff9dfd561671bb14dac45, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:04d3366efa2ae78508ba78d4f6d3fbd4,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0021" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "3" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.0438333755905914" %% xsd:float,
+        nidm_pValueUncorrected: = "0.856846591224654" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "21" %% xsd:int])
+    wasDerivedFrom(niiri:04d3366efa2ae78508ba78d4f6d3fbd4, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:471616239367dd0b8f23af62cd1178af,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0022" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "1" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.0146111251968638" %% xsd:float,
+        nidm_pValueUncorrected: = "0.928417166750593" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "22" %% xsd:int])
+    wasDerivedFrom(niiri:471616239367dd0b8f23af62cd1178af, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:146e852a595d2bd9bf43b63cb1ffe554,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0023" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "1" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.0146111251968638" %% xsd:float,
+        nidm_pValueUncorrected: = "0.928417166750593" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "23" %% xsd:int])
+    wasDerivedFrom(niiri:146e852a595d2bd9bf43b63cb1ffe554, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:c76d475fb44856dbc3b3660c08027d10,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0024" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "1" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.0146111251968638" %% xsd:float,
+        nidm_pValueUncorrected: = "0.928417166750593" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "24" %% xsd:int])
+    wasDerivedFrom(niiri:c76d475fb44856dbc3b3660c08027d10, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:171a3293a830389fbc0eeedac10ab2ef,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0025" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "3" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.0438333755905914" %% xsd:float,
+        nidm_pValueUncorrected: = "0.856846591224654" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "25" %% xsd:int])
+    wasDerivedFrom(niiri:171a3293a830389fbc0eeedac10ab2ef, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:230b132218201af072b76732d6cd366e,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0026" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "1" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.0146111251968638" %% xsd:float,
+        nidm_pValueUncorrected: = "0.928417166750593" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "26" %% xsd:int])
+    wasDerivedFrom(niiri:230b132218201af072b76732d6cd366e, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:88b6854434c4c7d7d77b89858ff66d15,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0027" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "1" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.0146111251968638" %% xsd:float,
+        nidm_pValueUncorrected: = "0.928417166750593" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "27" %% xsd:int])
+    wasDerivedFrom(niiri:88b6854434c4c7d7d77b89858ff66d15, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:983ff16f46a1aa2fb13613f2c2f88011,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0028" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "2" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.0292222503937276" %% xsd:float,
+        nidm_pValueUncorrected: = "0.888782432018751" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "28" %% xsd:int])
+    wasDerivedFrom(niiri:983ff16f46a1aa2fb13613f2c2f88011, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:a6327d343c9ff6cf00c6cbe83308072b,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0029" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "2" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.0292222503937276" %% xsd:float,
+        nidm_pValueUncorrected: = "0.888782432018751" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "29" %% xsd:int])
+    wasDerivedFrom(niiri:a6327d343c9ff6cf00c6cbe83308072b, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:92ac4a8cb0a6c243ecb32fc66fd3deab,
+        [prov:type = 'nidm_SupraThresholdCluster:',
+        prov:label = "Supra-Threshold Cluster: 0030" %% xsd:string,
+        nidm_clusterSizeInVoxels: = "1" %% xsd:int,
+        nidm_clusterSizeInResels: = "0.0146111251968638" %% xsd:float,
+        nidm_pValueUncorrected: = "0.928417166750593" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "[]" %% xsd:float,
+        nidm_clusterLabelId: = "30" %% xsd:int])
+    wasDerivedFrom(niiri:92ac4a8cb0a6c243ecb32fc66fd3deab, niiri:f3637fafb926481fff6bd8938c6a8550, -, -, -)
+    entity(niiri:c3e496eea557d318020009e75ea064a9,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0001" %% xsd:string,
+        prov:location = 'niiri:33b9e64baedb78edec3c778ac3503e57',
+        prov:value = "2.29849815368652" %% xsd:float,
+        nidm_equivalentZStatistic: = "2.28220028418391" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0112387591680547" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:33b9e64baedb78edec3c778ac3503e57,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0001" %% xsd:string,
+        nidm_coordinateVector: = "[-28,24,4]" %% xsd:string])
+    wasDerivedFrom(niiri:c3e496eea557d318020009e75ea064a9, niiri:1ca2ed8885126a13f37d342c5bda82b6, -, -, -)
+    entity(niiri:304c8f977e3d31328f1ba8cc597ceb18,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0002" %% xsd:string,
+        prov:location = 'niiri:39b6eca99b5b73480b968ea12add2484',
+        prov:value = "2.07190132141113" %% xsd:float,
+        nidm_equivalentZStatistic: = "2.0619285244841" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0196072706834085" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:39b6eca99b5b73480b968ea12add2484,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0002" %% xsd:string,
+        nidm_coordinateVector: = "[-28,26,12]" %% xsd:string])
+    wasDerivedFrom(niiri:304c8f977e3d31328f1ba8cc597ceb18, niiri:1ca2ed8885126a13f37d342c5bda82b6, -, -, -)
+    entity(niiri:02fb69f52c0371d7e8083f1d698b5486,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0003" %% xsd:string,
+        prov:location = 'niiri:0545dc10de1e5d6701474796bc5135b3',
+        prov:value = "2.18201637268066" %% xsd:float,
+        nidm_equivalentZStatistic: = "2.16893530312973" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0150437980271687" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:0545dc10de1e5d6701474796bc5135b3,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0003" %% xsd:string,
+        nidm_coordinateVector: = "[52,48,12]" %% xsd:string])
+    wasDerivedFrom(niiri:02fb69f52c0371d7e8083f1d698b5486, niiri:b6ec4ee5c26bd5170b56e954e84a7789, -, -, -)
+    entity(niiri:47905f0ed8d89646a0b2df5e003f1e2a,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0004" %% xsd:string,
+        prov:location = 'niiri:d0d2bf61fd3a0931a0e3bdd8f49eed93',
+        prov:value = "2.13869571685791" %% xsd:float,
+        nidm_equivalentZStatistic: = "2.12682533173394" %% xsd:float,
+        nidm_pValueUncorrected: = "0.016717299356924" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:d0d2bf61fd3a0931a0e3bdd8f49eed93,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0004" %% xsd:string,
+        nidm_coordinateVector: = "[34,-54,52]" %% xsd:string])
+    wasDerivedFrom(niiri:47905f0ed8d89646a0b2df5e003f1e2a, niiri:67aa7dea8d858564a8b4505070c20ab3, -, -, -)
+    entity(niiri:091b7fa1943f270ddc578020b6bf4b81,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0005" %% xsd:string,
+        prov:location = 'niiri:2d030121bd3e3440189b9362d24d0e82',
+        prov:value = "2.13825297355652" %% xsd:float,
+        nidm_equivalentZStatistic: = "2.12639503027273" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0167351906128659" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:2d030121bd3e3440189b9362d24d0e82,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0005" %% xsd:string,
+        nidm_coordinateVector: = "[36,-84,2]" %% xsd:string])
+    wasDerivedFrom(niiri:091b7fa1943f270ddc578020b6bf4b81, niiri:8eb556353f8e288e589eef37024ef068, -, -, -)
+    entity(niiri:225874e925381c31ec2075213af93cc8,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0006" %% xsd:string,
+        prov:location = 'niiri:7506c87aedf9336f1b97442d8e526f2f',
+        prov:value = "2.1293613910675" %% xsd:float,
+        nidm_equivalentZStatistic: = "2.11775365245473" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0170979681968485" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:7506c87aedf9336f1b97442d8e526f2f,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0006" %% xsd:string,
+        nidm_coordinateVector: = "[30,68,12]" %% xsd:string])
+    wasDerivedFrom(niiri:225874e925381c31ec2075213af93cc8, niiri:4f970219224428039454afd130e40f48, -, -, -)
+    entity(niiri:eb6fb2c76c756484f30c7d09b66c5c43,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0007" %% xsd:string,
+        prov:location = 'niiri:99c662c8509b716d461c456391b45b37',
+        prov:value = "2.11468005180359" %% xsd:float,
+        nidm_equivalentZStatistic: = "2.10348692366691" %% xsd:float,
+        nidm_pValueUncorrected: = "0.017711613581637" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:99c662c8509b716d461c456391b45b37,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0007" %% xsd:string,
+        nidm_coordinateVector: = "[34,-84,14]" %% xsd:string])
+    wasDerivedFrom(niiri:eb6fb2c76c756484f30c7d09b66c5c43, niiri:c2a5888cb7cfb94104a85fdf0c0a0975, -, -, -)
+    entity(niiri:db15f3aea3a0b1689952a5924009614a,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0008" %% xsd:string,
+        prov:location = 'niiri:ec58debeeea826abc9378be9d6ccee92',
+        prov:value = "2.01981115341187" %% xsd:float,
+        nidm_equivalentZStatistic: = "2.01135476956162" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0221439986174564" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:ec58debeeea826abc9378be9d6ccee92,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0008" %% xsd:string,
+        nidm_coordinateVector: = "[-42,20,36]" %% xsd:string])
+    wasDerivedFrom(niiri:db15f3aea3a0b1689952a5924009614a, niiri:5e85e47c2fc2758e5d466cd2123b2254, -, -, -)
+    entity(niiri:a9e83bfae2a235a9cc20adac4118915b,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0009" %% xsd:string,
+        prov:location = 'niiri:3991fe3c2e71f1b8e7f88c795fa8f2b0',
+        prov:value = "1.9834691286087" %% xsd:float,
+        nidm_equivalentZStatistic: = "1.97609535691968" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0240719891024281" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:3991fe3c2e71f1b8e7f88c795fa8f2b0,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0009" %% xsd:string,
+        nidm_coordinateVector: = "[34,-78,36]" %% xsd:string])
+    wasDerivedFrom(niiri:a9e83bfae2a235a9cc20adac4118915b, niiri:6105338324e4b950666042ae82d011fd, -, -, -)
+    entity(niiri:2f99eaddb3b1956eee9400c73e729457,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0010" %% xsd:string,
+        prov:location = 'niiri:94ba0436d49d4f1ac392af5f6adb2756',
+        prov:value = "1.94259870052338" %% xsd:float,
+        nidm_equivalentZStatistic: = "1.93647164753299" %% xsd:float,
+        nidm_pValueUncorrected: = "0.026404980891827" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:94ba0436d49d4f1ac392af5f6adb2756,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0010" %% xsd:string,
+        nidm_coordinateVector: = "[-48,18,18]" %% xsd:string])
+    wasDerivedFrom(niiri:2f99eaddb3b1956eee9400c73e729457, niiri:4f020dcb9018a1690cba2cbf60dc38b0, -, -, -)
+    entity(niiri:e21f5c3bb0d87db0399aa6aeaae8fa17,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0011" %% xsd:string,
+        prov:location = 'niiri:026fbe87ef12da1f1cb8f58505c5a35d',
+        prov:value = "1.89261054992676" %% xsd:float,
+        nidm_equivalentZStatistic: = "1.88805796389517" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0295090846561562" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:026fbe87ef12da1f1cb8f58505c5a35d,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0011" %% xsd:string,
+        nidm_coordinateVector: = "[-40,20,8]" %% xsd:string])
+    wasDerivedFrom(niiri:e21f5c3bb0d87db0399aa6aeaae8fa17, niiri:4f020dcb9018a1690cba2cbf60dc38b0, -, -, -)
+    entity(niiri:819a69b124962a6bc39aa80cdc398a30,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0012" %% xsd:string,
+        prov:location = 'niiri:0d0ffa2881f696dcc6b1d489a15348ec',
+        prov:value = "1.9298506975174" %% xsd:float,
+        nidm_equivalentZStatistic: = "1.92411963399221" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0271697947905869" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:0d0ffa2881f696dcc6b1d489a15348ec,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0012" %% xsd:string,
+        nidm_coordinateVector: = "[22,-82,6]" %% xsd:string])
+    wasDerivedFrom(niiri:819a69b124962a6bc39aa80cdc398a30, niiri:68b9b03c7822e1a0b86cd9e68fe99ca2, -, -, -)
+    entity(niiri:df4034a52a0223c24e52134353933b85,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0013" %% xsd:string,
+        prov:location = 'niiri:b2e026ac20229c679280d6521ef462e2',
+        prov:value = "1.87824356555939" %% xsd:float,
+        nidm_equivalentZStatistic: = "1.87415494022171" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0304545363496075" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:b2e026ac20229c679280d6521ef462e2,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0013" %% xsd:string,
+        nidm_coordinateVector: = "[-34,22,20]" %% xsd:string])
+    wasDerivedFrom(niiri:df4034a52a0223c24e52134353933b85, niiri:9d7bfc795c45dfc1d2a9b0bd65c9fbd9, -, -, -)
+    entity(niiri:56e0435b5a93b3ea44eb4880caa46f6e,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0014" %% xsd:string,
+        prov:location = 'niiri:64c2cf7669582f994375fb0c99a90889',
+        prov:value = "1.85802888870239" %% xsd:float,
+        nidm_equivalentZStatistic: = "1.85460257678401" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0318264999487402" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:64c2cf7669582f994375fb0c99a90889,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0014" %% xsd:string,
+        nidm_coordinateVector: = "[16,-100,10]" %% xsd:string])
+    wasDerivedFrom(niiri:56e0435b5a93b3ea44eb4880caa46f6e, niiri:f626ba6b4ad8b422a9e8b6208607d5c7, -, -, -)
+    entity(niiri:1585cde397394ce1852eabdc3e6069bc,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0015" %% xsd:string,
+        prov:location = 'niiri:f72c8e0f5976a1f9554754dc1a644aec',
+        prov:value = "1.82612562179565" %% xsd:float,
+        nidm_equivalentZStatistic: = "1.82376887581619" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0340935105624357" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:f72c8e0f5976a1f9554754dc1a644aec,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0015" %% xsd:string,
+        nidm_coordinateVector: = "[-22,6,14]" %% xsd:string])
+    wasDerivedFrom(niiri:1585cde397394ce1852eabdc3e6069bc, niiri:dd3a390096e9240d96d84a6fa0b53334, -, -, -)
+    entity(niiri:fc1bd52acb4a54ac65706ec77b597664,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0016" %% xsd:string,
+        prov:location = 'niiri:b916c3481037d35a043ee9bca1bfa812',
+        prov:value = "1.8208144903183" %% xsd:float,
+        nidm_equivalentZStatistic: = "1.81863886421642" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0344832722280412" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:b916c3481037d35a043ee9bca1bfa812,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0016" %% xsd:string,
+        nidm_coordinateVector: = "[32,-66,0]" %% xsd:string])
+    wasDerivedFrom(niiri:fc1bd52acb4a54ac65706ec77b597664, niiri:b38cc3f1a8c8b355373259707d78b430, -, -, -)
+    entity(niiri:dd9b23180ca6d48364bbd5e03598085b,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0017" %% xsd:string,
+        prov:location = 'niiri:e19da916a650e437d894081ea2700363',
+        prov:value = "1.79377067089081" %% xsd:float,
+        nidm_equivalentZStatistic: = "1.79253174586373" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0365239143287336" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:e19da916a650e437d894081ea2700363,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0017" %% xsd:string,
+        nidm_coordinateVector: = "[-28,8,14]" %% xsd:string])
+    wasDerivedFrom(niiri:dd9b23180ca6d48364bbd5e03598085b, niiri:708b36a85852210d2aa37cd0a43c31d6, -, -, -)
+    entity(niiri:60833962d796c1925bb5caa354752e20,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0018" %% xsd:string,
+        prov:location = 'niiri:0286ca8f9f6d1abb7e43fe83af301e65',
+        prov:value = "1.79001986980438" %% xsd:float,
+        nidm_equivalentZStatistic: = "1.78891283515708" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0368144271933957" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:0286ca8f9f6d1abb7e43fe83af301e65,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0018" %% xsd:string,
+        nidm_coordinateVector: = "[-20,26,28]" %% xsd:string])
+    wasDerivedFrom(niiri:60833962d796c1925bb5caa354752e20, niiri:9fb5666ada501891fcef9d333ed6afff, -, -, -)
+    entity(niiri:f44eff18cdf7e25979cf1141a5338fc0,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0019" %% xsd:string,
+        prov:location = 'niiri:9d4722db398870c6b3ea92787232d10a',
+        prov:value = "1.74872362613678" %% xsd:float,
+        nidm_equivalentZStatistic: = "1.749102772694" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0401366280244358" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:9d4722db398870c6b3ea92787232d10a,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0019" %% xsd:string,
+        nidm_coordinateVector: = "[-54,28,20]" %% xsd:string])
+    wasDerivedFrom(niiri:f44eff18cdf7e25979cf1141a5338fc0, niiri:756837e339677511c64f8da38004cd2e, -, -, -)
+    entity(niiri:7d958f3e975bddab9f95985faaae5cad,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0020" %% xsd:string,
+        prov:location = 'niiri:338c9616ae26c8e59158924ee7b04682',
+        prov:value = "1.73660695552826" %% xsd:float,
+        nidm_equivalentZStatistic: = "1.73743465054505" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0411552397567266" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:338c9616ae26c8e59158924ee7b04682,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0020" %% xsd:string,
+        nidm_coordinateVector: = "[36,-56,-12]" %% xsd:string])
+    wasDerivedFrom(niiri:7d958f3e975bddab9f95985faaae5cad, niiri:303983981b9e7155b24ee729485e35d5, -, -, -)
+    entity(niiri:8f47804dc4763167b41a429473c75db8,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0021" %% xsd:string,
+        prov:location = 'niiri:590b0466ddb6db870e7a7eb6ccc2f0c5',
+        prov:value = "1.72697401046753" %% xsd:float,
+        nidm_equivalentZStatistic: = "1.72816258455492" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0419795398198842" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:590b0466ddb6db870e7a7eb6ccc2f0c5,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0021" %% xsd:string,
+        nidm_coordinateVector: = "[12,74,8]" %% xsd:string])
+    wasDerivedFrom(niiri:8f47804dc4763167b41a429473c75db8, niiri:ff25cf8967cf153c0c4bac8744bfd4de, -, -, -)
+    entity(niiri:d86f7773fa7f7c82a9d04542bdbbd522,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0022" %% xsd:string,
+        prov:location = 'niiri:4a94efdcb82d851208aa8b066ac5c604',
+        prov:value = "1.69681537151337" %% xsd:float,
+        nidm_equivalentZStatistic: = "1.69915940103581" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0446445768205113" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:4a94efdcb82d851208aa8b066ac5c604,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0022" %% xsd:string,
+        nidm_coordinateVector: = "[-28,50,36]" %% xsd:string])
+    wasDerivedFrom(niiri:d86f7773fa7f7c82a9d04542bdbbd522, niiri:1e1d5e2b654ff9dfd561671bb14dac45, -, -, -)
+    entity(niiri:27b1286570a35003fd1cb892df5003ee,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0023" %% xsd:string,
+        prov:location = 'niiri:fd0f08df1132bd69544d5c2bc67a8ce1',
+        prov:value = "1.69281709194183" %% xsd:float,
+        nidm_equivalentZStatistic: = "1.69531733220798" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0450076192977755" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:fd0f08df1132bd69544d5c2bc67a8ce1,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0023" %% xsd:string,
+        nidm_coordinateVector: = "[-54,28,12]" %% xsd:string])
+    wasDerivedFrom(niiri:27b1286570a35003fd1cb892df5003ee, niiri:04d3366efa2ae78508ba78d4f6d3fbd4, -, -, -)
+    entity(niiri:39aa9652e5edc473ede61063b5f9330b,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0024" %% xsd:string,
+        prov:location = 'niiri:f19ef86275c6e6fc9f17827d454cea6f',
+        prov:value = "1.68880593776703" %% xsd:float,
+        nidm_equivalentZStatistic: = "1.69146362670159" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0453741445419741" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:f19ef86275c6e6fc9f17827d454cea6f,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0024" %% xsd:string,
+        nidm_coordinateVector: = "[26,-92,18]" %% xsd:string])
+    wasDerivedFrom(niiri:39aa9652e5edc473ede61063b5f9330b, niiri:471616239367dd0b8f23af62cd1178af, -, -, -)
+    entity(niiri:9607bb62ecc6289f2476a8bb82c2c966,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0025" %% xsd:string,
+        prov:location = 'niiri:9759d63712f31dd71f970ba24fdc02ba',
+        prov:value = "1.68117702007294" %% xsd:float,
+        nidm_equivalentZStatistic: = "1.68413622248109" %% xsd:float,
+        nidm_pValueUncorrected: = "0.046077672706774" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:9759d63712f31dd71f970ba24fdc02ba,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0025" %% xsd:string,
+        nidm_coordinateVector: = "[42,-78,6]" %% xsd:string])
+    wasDerivedFrom(niiri:9607bb62ecc6289f2476a8bb82c2c966, niiri:146e852a595d2bd9bf43b63cb1ffe554, -, -, -)
+    entity(niiri:5aac45256e13cd03a2a1e390f5df998d,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0026" %% xsd:string,
+        prov:location = 'niiri:7b8ba463b7a085d4623751d494579f21',
+        prov:value = "1.67713749408722" %% xsd:float,
+        nidm_equivalentZStatistic: = "1.68025745484094" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0464536174884935" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:7b8ba463b7a085d4623751d494579f21,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0026" %% xsd:string,
+        nidm_coordinateVector: = "[-12,26,36]" %% xsd:string])
+    wasDerivedFrom(niiri:5aac45256e13cd03a2a1e390f5df998d, niiri:c76d475fb44856dbc3b3660c08027d10, -, -, -)
+    entity(niiri:aa7acc61eb0d336d8adfd1c279535ef0,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0027" %% xsd:string,
+        prov:location = 'niiri:f60e25b0c2abc9fe4d73f5854c0adbee',
+        prov:value = "1.67311263084412" %% xsd:float,
+        nidm_equivalentZStatistic: = "1.6763935381234" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0468305669041873" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:f60e25b0c2abc9fe4d73f5854c0adbee,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0027" %% xsd:string,
+        nidm_coordinateVector: = "[12,-94,-32]" %% xsd:string])
+    wasDerivedFrom(niiri:aa7acc61eb0d336d8adfd1c279535ef0, niiri:171a3293a830389fbc0eeedac10ab2ef, -, -, -)
+    entity(niiri:309b2780bdf657c8f0c7a6410916169c,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0028" %% xsd:string,
+        prov:location = 'niiri:967f245c1c386892dbecddea40037b53',
+        prov:value = "1.67067694664001" %% xsd:float,
+        nidm_equivalentZStatistic: = "1.67405562956399" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0470598334324596" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:967f245c1c386892dbecddea40037b53,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0028" %% xsd:string,
+        nidm_coordinateVector: = "[24,-92,-30]" %% xsd:string])
+    wasDerivedFrom(niiri:309b2780bdf657c8f0c7a6410916169c, niiri:230b132218201af072b76732d6cd366e, -, -, -)
+    entity(niiri:ed3607586490b22746adf59129afa310,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0029" %% xsd:string,
+        prov:location = 'niiri:fddb34281430a5ac7649b34b53b04c89',
+        prov:value = "1.66812241077423" %% xsd:float,
+        nidm_equivalentZStatistic: = "1.67160394831323" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0473012228473357" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:fddb34281430a5ac7649b34b53b04c89,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0029" %% xsd:string,
+        nidm_coordinateVector: = "[-24,22,22]" %% xsd:string])
+    wasDerivedFrom(niiri:ed3607586490b22746adf59129afa310, niiri:88b6854434c4c7d7d77b89858ff66d15, -, -, -)
+    entity(niiri:cb35f3207972df7107e6d2aea1bfbde2,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0030" %% xsd:string,
+        prov:location = 'niiri:36ff55a8118b6b1b3e001a7636293a8f',
+        prov:value = "1.66770362854004" %% xsd:float,
+        nidm_equivalentZStatistic: = "1.67120205793481" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0473408869609759" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:36ff55a8118b6b1b3e001a7636293a8f,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0030" %% xsd:string,
+        nidm_coordinateVector: = "[26,-90,22]" %% xsd:string])
+    wasDerivedFrom(niiri:cb35f3207972df7107e6d2aea1bfbde2, niiri:983ff16f46a1aa2fb13613f2c2f88011, -, -, -)
+    entity(niiri:9545b4314633cb0868f593c5d38febb7,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0031" %% xsd:string,
+        prov:location = 'niiri:9803db31221b2c078fe55c084d5d83ed',
+        prov:value = "1.66512632369995" %% xsd:float,
+        nidm_equivalentZStatistic: = "1.66872889854066" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0475855596349387" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:9803db31221b2c078fe55c084d5d83ed,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0031" %% xsd:string,
+        nidm_coordinateVector: = "[32,-60,-2]" %% xsd:string])
+    wasDerivedFrom(niiri:9545b4314633cb0868f593c5d38febb7, niiri:a6327d343c9ff6cf00c6cbe83308072b, -, -, -)
+    entity(niiri:02317feaa78e69f7d7f9737af5644214,
+        [prov:type = 'nidm_Peak:',
+        prov:label = "Peak: 0032" %% xsd:string,
+        prov:location = 'niiri:5d4415f1293150147830ba8d2fe89e88',
+        prov:value = "1.6600536108017" %% xsd:float,
+        nidm_equivalentZStatistic: = "1.66386211897632" %% xsd:float,
+        nidm_pValueUncorrected: = "0.0480699933329287" %% xsd:float,
+        nidm_pValueFWER: = "1" %% xsd:float,
+        nidm_qValueFDR: = "0.993657486705384" %% xsd:float])
+    entity(niiri:5d4415f1293150147830ba8d2fe89e88,
+        [prov:type = 'prov:Location',
+        prov:type = 'nidm_Coordinate:',
+        prov:label = "Coordinate: 0032" %% xsd:string,
+        nidm_coordinateVector: = "[-44,-56,-32]" %% xsd:string])
+    wasDerivedFrom(niiri:02317feaa78e69f7d7f9737af5644214, niiri:92ac4a8cb0a6c243ecb32fc66fd3deab, -, -, -)
+  endBundle
+endDocument
