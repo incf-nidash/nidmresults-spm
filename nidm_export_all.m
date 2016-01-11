@@ -1,4 +1,8 @@
-function nidm_export_all(path_to)
+function nidm_export_all(path_to, out_path)
+    if ~isvarname('out_path')
+        out_path = '';
+    end
+
     spm('defaults','fmri');
     spm_jobman('initcfg');
 
@@ -18,12 +22,9 @@ function nidm_export_all(path_to)
                 if strncmpi(dname,'spm_',4)
                     if ~strcmp(dname, 'ground_truth')
                         disp(dname)
-                        nidm_export(fullfile(path_to, dname))
+                        nidm_export(fullfile(path_to, dname), out_path)
                     end
                 end
-            else
-                load('nidm_example001.mat')
-                spm_results_nidm(SPM,xSPM,TabDat)
             end
         end
     end
