@@ -20,11 +20,19 @@ function nidm_export(path_to_script_folder, out_path)
         end
     end
     
-    run(fullfile(pwd, 'batch.m'))
-    result_batch = matlabbatch(end);
-    result_batch{1}.spm.stats.results.spmmat = {fullfile(pwd, 'SPM.mat')};
-    result_batch{1}.spm.stats.results.print = 'nidm';    
-    spm_jobman('run', result_batch)
+    if strcmp(dname, 'spm_full_example001')
+        % For SPM full example 001 we use already exported peaks 
+        % and clusters list to get exactly the same graph
+        load(fullfile(path_to, dname, 'nidm_example001.mat'));
+        SPM.swd=pwd;
+        spm_results_nidm(SPM,xSPM,TabDat);
+    else    
+        run(fullfile(pwd, 'batch.m'))
+        result_batch = matlabbatch(end);
+        result_batch{1}.spm.stats.results.spmmat = {fullfile(pwd, 'SPM.mat')};
+        result_batch{1}.spm.stats.results.print = 'nidm';    
+        spm_jobman('run', result_batch)
+    end
     
     unzip('spm_0001.nidm.zip', 'nidm')
     
