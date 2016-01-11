@@ -29,12 +29,37 @@ function nidm_export(path_to_script_folder, out_path)
     unzip('spm_0001.nidm.zip', 'nidm')
     
     if ~isempty(out_path)
-        target_dir = fullfile(out_path, ['ex_' spm_file(path_to_script_folder, 'basename')]);
+        test_name = spm_file(path_to_script_folder, 'basename');
+        
+        target_dir = fullfile(out_path, ['ex_' test_name]);
         if isdir(target_dir)
             disp(['Removing ' target_dir])
             rmdir(target_dir,'s')
         end
         movefile('nidm', target_dir)
+        json_file = fullfile(path_to_script_folder, 'config.json');
+        copyfile(json_file, ...
+                 fullfile(target_dir, 'config.json'));
+             
+        fname = json_file;
+        fid = fopen(fname);
+        raw = fread(fid,inf);
+        str = char(raw');
+        fclose(fid);
+
+        expression = '\[".*"\]';
+        gt = regexp(str,expression,'match'); 
+        gt = strrep(strrep(strrep(gt{1}, '[', ''), ']', ''), '"', '');
+        disp(gt)
+        gt_file = fullfile(path_to_script_folder, '..', 'ground_truth', gt);
+        
+        target_gt_dir = fullfile(out_path, 'ground_truth', spm_file(gt,'path'));
+        if isdir(target_gt_dir)
+            disp(['Removing ' target_gt_dir])
+            rmdir(target_gt_dir,'s')
+        end
+        mkdir(target_gt_dir)
+        copyfile(gt_file, target_gt_dir);
     end
     
     cd(cwd);
