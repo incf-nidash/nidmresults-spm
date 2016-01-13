@@ -4,7 +4,7 @@ Test for NIDM-Results export in SPM
 
 Testing procedures for SPM NIDM-Results export.
 
-Test data is available at https://github.com/incf-nidash/nidmresults-examples/, you will need a local copy of this repository:
+Test data is available at https://github.com/incf-nidash/nidmresults-examples/, you will need a local copy of this repository stored with [git lfs](https://git-lfs.github.com/):
 ```
 git clone https://github.com/incf-nidash/nidmresults-examples.git
 git lfs install
