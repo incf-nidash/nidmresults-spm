@@ -7,6 +7,7 @@ Testing procedures for SPM NIDM-Results export.
 Test data is available at https://github.com/incf-nidash/nidmresults-examples/, you will need a local copy of this repository:
 ```
 git clone https://github.com/incf-nidash/nidmresults-examples.git
+git lfs install
 ```
 
 To run the test battery, follow those steps:
