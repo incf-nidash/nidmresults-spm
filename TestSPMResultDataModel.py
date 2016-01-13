@@ -68,8 +68,10 @@ class TestSPMResultsDataModel(unittest.TestCase, TestResultDataModel):
             os.path.dirname(owl_file),
             os.pardir, os.pardir, "imports", '*.ttl'))
 
+        gt_dir = os.path.join(TEST_DIR, 'spmexport', 'ground_truth')
+
         TestResultDataModel.setUp(self, owl_file, owl_imports, test_files,
-                                  TEST_DIR, NIDM_RESULTS_DIR)
+                                  TEST_DIR, gt_dir)
 
     @data(*test_files)
     def test_class_consistency_with_owl(self, ttl):
