@@ -20,10 +20,11 @@ function nidm_export(path_to_script_folder, out_path)
         end
     end
     
-    if strcmp(dname, 'spm_full_example001')
+    test_name = spm_file(path_to_script_folder, 'filename');
+    if strcmp(test_name, 'spm_full_example001')
         % For SPM full example 001 we use already exported peaks 
         % and clusters list to get exactly the same graph
-        load(fullfile(path_to, dname, 'nidm_example001.mat'));
+        load(fullfile(path_to_script_folder, 'nidm_example001.mat'));
         SPM.swd=pwd;
         spm_results_nidm(SPM,xSPM,TabDat);
     else    
