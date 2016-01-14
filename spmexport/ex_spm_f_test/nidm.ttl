@@ -1,0 +1,3368 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix nidm: <http://purl.org/nidash/nidm#> .
+@prefix niiri: <http://iri.nidash.org/> .
+@prefix spm: <http://purl.org/nidash/spm#> .
+@prefix neurolex: <http://neurolex.org/wiki/> .
+@prefix crypto: <http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix nfo: <http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dctype: <http://purl.org/dc/dcmitype/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix nidm_NIDMResults: <http://purl.org/nidash/nidm#NIDM_0000027> .
+@prefix nidm_version: <http://purl.org/nidash/nidm#NIDM_0000127> .
+@prefix nidm_spm_results_nidm: <http://purl.org/nidash/nidm#NIDM_0000168> .
+@prefix nidm_softwareVersion: <http://purl.org/nidash/nidm#NIDM_0000122> .
+@prefix nidm_NIDMResultsExport: <http://purl.org/nidash/nidm#NIDM_0000166> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+niiri:94350a30508710a81c55188bdb54b3a9
+  a prov:Entity, prov:Bundle, nidm_NIDMResults: ; 
+  rdfs:label "NIDM-Results" ;
+  nidm_version: "1.2.0"^^xsd:string .
+
+niiri:c3ce6e8455b93d01b003f62798403114
+  a prov:Agent, nidm_spm_results_nidm:, prov:SoftwareAgent ; 
+  rdfs:label "spm_results_nidm" ;
+  nidm_softwareVersion: "12.6646"^^xsd:string .
+
+niiri:b12f70ab92b50ab520c458bd3f6fcd10
+  a prov:Activity, nidm_NIDMResultsExport: ; 
+  rdfs:label "NIDM-Results export" .
+
+niiri:b12f70ab92b50ab520c458bd3f6fcd10 prov:wasAssociatedWith niiri:c3ce6e8455b93d01b003f62798403114 .
+
+_:blank5 a prov:Generation .
+
+niiri:94350a30508710a81c55188bdb54b3a9 prov:qualifiedGeneration _:blank5 .
+
+_:blank5 prov:atTime "2016-01-11T10:43:58"^^xsd:dateTime .
+
+@prefix nidm_MNICoordinateSystem: <http://purl.org/nidash/nidm#NIDM_0000051> .
+@prefix neurolex_SPM: <http://neurolex.org/wiki/nif-0000-00343> .
+@prefix nidm_softwareVersion: <http://purl.org/nidash/nidm#NIDM_0000122> .
+@prefix nidm_CoordinateSpace: <http://purl.org/nidash/nidm#NIDM_0000016> .
+@prefix nidm_voxelToWorldMapping: <http://purl.org/nidash/nidm#NIDM_0000132> .
+@prefix nidm_voxelUnits: <http://purl.org/nidash/nidm#NIDM_0000133> .
+@prefix nidm_voxelSize: <http://purl.org/nidash/nidm#NIDM_0000131> .
+@prefix nidm_inWorldCoordinateSystem: <http://purl.org/nidash/nidm#NIDM_0000105> .
+@prefix nidm_numberOfDimensions: <http://purl.org/nidash/nidm#NIDM_0000112> .
+@prefix nidm_dimensionsInVoxels: <http://purl.org/nidash/nidm#NIDM_0000090> .
+@prefix nidm_grandMeanScaling: <http://purl.org/nidash/nidm#NIDM_0000096> .
+@prefix nidm_targetIntensity: <http://purl.org/nidash/nidm#NIDM_0000124> .
+@prefix nidm_DataScaling: <http://purl.org/nidash/nidm#NIDM_0000018> .
+@prefix spm_DCTDriftModel: <http://purl.org/nidash/spm#SPM_0000002> .
+@prefix spm_SPMsDriftCutoffPeriod: <http://purl.org/nidash/spm#SPM_0000001> .
+@prefix nidm_hasDriftModel: <http://purl.org/nidash/nidm#NIDM_0000088> .
+@prefix nidm_hasHRFBasis: <http://purl.org/nidash/nidm#NIDM_0000102> .
+@prefix spm_SPMsCanonicalHRF: <http://purl.org/nidash/spm#SPM_0000004> .
+@prefix nidm_DesignMatrix: <http://purl.org/nidash/nidm#NIDM_0000019> .
+@prefix nidm_regressorNames: <http://purl.org/nidash/nidm#NIDM_0000021> .
+@prefix nidm_hasErrorDependence: <http://purl.org/nidash/nidm#NIDM_0000100> .
+@prefix stato_ToeplitzCovarianceStructure: <http://purl.obolibrary.org/obo/STATO_0000357> .
+@prefix nidm_dependenceMapWiseDependence: <http://purl.org/nidash/nidm#NIDM_0000089> .
+@prefix nidm_ConstantParameter: <http://purl.org/nidash/nidm#NIDM_0000072> .
+@prefix nidm_errorVarianceHomogeneous: <http://purl.org/nidash/nidm#NIDM_0000094> .
+@prefix nidm_varianceMapWiseDependence: <http://purl.org/nidash/nidm#NIDM_0000126> .
+@prefix nidm_IndependentParameter: <http://purl.org/nidash/nidm#NIDM_0000073> .
+@prefix nidm_withEstimationMethod: <http://purl.org/nidash/nidm#NIDM_0000134> .
+@prefix stato_GLS: <http://purl.obolibrary.org/obo/STATO_0000372> .
+@prefix nidm_ErrorModel: <http://purl.org/nidash/nidm#NIDM_0000023> .
+@prefix nidm_hasErrorDistribution: <http://purl.org/nidash/nidm#NIDM_0000101> .
+@prefix stato_GaussianDistribution: <http://purl.obolibrary.org/obo/STATO_0000227> .
+@prefix nidm_ModelParametersEstimation: <http://purl.org/nidash/nidm#NIDM_0000056> .
+@prefix nidm_MaskMap: <http://purl.org/nidash/nidm#NIDM_0000054> .
+@prefix nidm_isUserDefined: <http://purl.org/nidash/nidm#NIDM_0000106> .
+@prefix nidm_inCoordinateSpace: <http://purl.org/nidash/nidm#NIDM_0000104> .
+@prefix nidm_GrandMeanMap: <http://purl.org/nidash/nidm#NIDM_0000033> .
+@prefix nidm_maskedMedian: <http://purl.org/nidash/nidm#NIDM_0000107> .
+@prefix nidm_ParameterEstimateMap: <http://purl.org/nidash/nidm#NIDM_0000061> .
+@prefix nidm_ResidualMeanSquaresMap: <http://purl.org/nidash/nidm#NIDM_0000066> .
+@prefix nidm_ReselsPerVoxelMap: <http://purl.org/nidash/nidm#NIDM_0000144> .
+@prefix stato_ContrastWeightMatrix: <http://purl.obolibrary.org/obo/STATO_0000323> .
+@prefix nidm_statisticType: <http://purl.org/nidash/nidm#NIDM_0000123> .
+@prefix stato_FStatistic: <http://purl.obolibrary.org/obo/STATO_0000282> .
+@prefix nidm_contrastName: <http://purl.org/nidash/nidm#NIDM_0000085> .
+@prefix nidm_ContrastEstimation: <http://purl.org/nidash/nidm#NIDM_0000001> .
+@prefix nidm_StatisticMap: <http://purl.org/nidash/nidm#NIDM_0000076> .
+@prefix nidm_errorDegreesOfFreedom: <http://purl.org/nidash/nidm#NIDM_0000093> .
+@prefix nidm_effectDegreesOfFreedom: <http://purl.org/nidash/nidm#NIDM_0000091> .
+@prefix nidm_ContrastExplainedMeanSquareMap: <http://purl.org/nidash/nidm#NIDM_0000163> .
+@prefix obo_Statistic: <http://purl.obolibrary.org/obo/STATO_0000039> .
+@prefix nidm_PValueUncorrected: <http://purl.org/nidash/nidm#NIDM_0000160> .
+@prefix obo_pValueFWER: <http://purl.obolibrary.org/obo/OBI_0001265> .
+@prefix nidm_HeightThreshold: <http://purl.org/nidash/nidm#NIDM_0000034> .
+@prefix nidm_equivalentThreshold: <http://purl.org/nidash/nidm#NIDM_0000161> .
+@prefix nidm_ExtentThreshold: <http://purl.org/nidash/nidm#NIDM_0000026> .
+@prefix nidm_clusterSizeInVoxels: <http://purl.org/nidash/nidm#NIDM_0000084> .
+@prefix nidm_clusterSizeInResels: <http://purl.org/nidash/nidm#NIDM_0000156> .
+@prefix nidm_PeakDefinitionCriteria: <http://purl.org/nidash/nidm#NIDM_0000063> .
+@prefix nidm_maxNumberOfPeaksPerCluster: <http://purl.org/nidash/nidm#NIDM_0000108> .
+@prefix nidm_minDistanceBetweenPeaks: <http://purl.org/nidash/nidm#NIDM_0000109> .
+@prefix nidm_ClusterDefinitionCriteria: <http://purl.org/nidash/nidm#NIDM_0000007> .
+@prefix nidm_hasConnectivityCriterion: <http://purl.org/nidash/nidm#NIDM_0000099> .
+@prefix nidm_voxel18connected: <http://purl.org/nidash/nidm#NIDM_0000128> .
+@prefix nidm_Inference: <http://purl.org/nidash/nidm#NIDM_0000049> .
+@prefix nidm_hasAlternativeHypothesis: <http://purl.org/nidash/nidm#NIDM_0000097> .
+@prefix nidm_OneTailedTest: <http://purl.org/nidash/nidm#NIDM_0000060> .
+@prefix nidm_SearchSpaceMaskMap: <http://purl.org/nidash/nidm#NIDM_0000068> .
+@prefix nidm_searchVolumeInVoxels: <http://purl.org/nidash/nidm#NIDM_0000121> .
+@prefix nidm_searchVolumeInUnits: <http://purl.org/nidash/nidm#NIDM_0000136> .
+@prefix nidm_reselSizeInVoxels: <http://purl.org/nidash/nidm#NIDM_0000148> .
+@prefix nidm_searchVolumeInResels: <http://purl.org/nidash/nidm#NIDM_0000149> .
+@prefix spm_searchVolumeReselsGeometry: <http://purl.org/nidash/spm#SPM_0000010> .
+@prefix nidm_noiseFWHMInVoxels: <http://purl.org/nidash/nidm#NIDM_0000159> .
+@prefix nidm_noiseFWHMInUnits: <http://purl.org/nidash/nidm#NIDM_0000157> .
+@prefix nidm_randomFieldStationarity: <http://purl.org/nidash/nidm#NIDM_0000120> .
+@prefix nidm_expectedNumberOfVoxelsPerCluster: <http://purl.org/nidash/nidm#NIDM_0000143> .
+@prefix nidm_expectedNumberOfClusters: <http://purl.org/nidash/nidm#NIDM_0000141> .
+@prefix nidm_heightCriticalThresholdFWE05: <http://purl.org/nidash/nidm#NIDM_0000147> .
+@prefix nidm_heightCriticalThresholdFDR05: <http://purl.org/nidash/nidm#NIDM_0000146> .
+@prefix spm_smallestSupraThresholdClusterSizeInVoxelsFWE05: <http://purl.org/nidash/spm#SPM_0000014> .
+@prefix spm_smallestSupraThresholdClusterSizeInVoxelsFDR05: <http://purl.org/nidash/spm#SPM_0000013> .
+@prefix nidm_ExcursionSetMap: <http://purl.org/nidash/nidm#NIDM_0000025> .
+@prefix nidm_numberOfSupraThresholdClusters: <http://purl.org/nidash/nidm#NIDM_0000111> .
+@prefix nidm_pValue: <http://purl.org/nidash/nidm#NIDM_0000114> .
+@prefix nidm_hasClusterLabelsMap: <http://purl.org/nidash/nidm#NIDM_0000098> .
+@prefix nidm_hasMaximumIntensityProjection: <http://purl.org/nidash/nidm#NIDM_0000138> .
+@prefix nidm_ClusterLabelsMap: <http://purl.org/nidash/nidm#NIDM_0000008> .
+@prefix nidm_SupraThresholdCluster: <http://purl.org/nidash/nidm#NIDM_0000070> .
+@prefix nidm_pValueUncorrected: <http://purl.org/nidash/nidm#NIDM_0000116> .
+@prefix nidm_pValueFWER: <http://purl.org/nidash/nidm#NIDM_0000115> .
+@prefix nidm_qValueFDR: <http://purl.org/nidash/nidm#NIDM_0000119> .
+@prefix nidm_clusterLabelId: <http://purl.org/nidash/nidm#NIDM_0000082> .
+@prefix nidm_Peak: <http://purl.org/nidash/nidm#NIDM_0000062> .
+@prefix nidm_equivalentZStatistic: <http://purl.org/nidash/nidm#NIDM_0000092> .
+@prefix nidm_Coordinate: <http://purl.org/nidash/nidm#NIDM_0000015> .
+@prefix nidm_coordinateVector: <http://purl.org/nidash/nidm#NIDM_0000086> .
+
+niiri:ea8d144ccce6489b92b187acdc792bec
+    a prov:Agent, neurolex_SPM:, prov:SoftwareAgent ; 
+    rdfs:label "SPM" ;
+    nidm_softwareVersion: "12.6470"^^xsd:string .
+
+niiri:3afab7fbc0c106b802099cf168ca0377
+    a prov:Entity, nidm_CoordinateSpace: ; 
+    rdfs:label "Coordinate space 1" ;
+    nidm_voxelToWorldMapping: "[[-2, 0, 0, 78],[0, 2, 0, -112],[0, 0, 2, -70],[0, 0, 0, 1]]"^^xsd:string ;
+    nidm_voxelUnits: "[\"mm\", \"mm\", \"mm\"]"^^xsd:string ;
+    nidm_voxelSize: "[2, 2, 2]"^^xsd:string ;
+    nidm_inWorldCoordinateSystem: nidm_MNICoordinateSystem: ;
+    nidm_numberOfDimensions: "3"^^xsd:int ;
+    nidm_dimensionsInVoxels: "[79,95,79]"^^xsd:string .
+
+niiri:680b19ae5cf36bf681e8dbe95af38dc2
+    a prov:Entity, prov:Collection, nidm_DataScaling: ; 
+    rdfs:label "Data" ;
+    nidm_grandMeanScaling: "true"^^xsd:boolean ;
+    nidm_targetIntensity: "100"^^xsd:float .
+
+niiri:3af050cd6585ce5a06f1b07cb80ed0e0
+    a prov:Entity, spm_DCTDriftModel: ; 
+    rdfs:label "SPM's DCT Drift Model" ;
+    spm_SPMsDriftCutoffPeriod: "128"^^xsd:float .
+
+niiri:a0660d4d7fa510f658959260466e1e3e
+    a prov:Entity, nidm_DesignMatrix: ; 
+    prov:atLocation "DesignMatrix.csv"^^xsd:anyURI ;
+    nfo:fileName "DesignMatrix.csv"^^xsd:string ;
+    dct:format "text/csv"^^xsd:string ;
+    dc:description niiri:eaa7306a1252a08b865632eb736793e2 ;
+    rdfs:label "Design Matrix" ;
+    nidm_regressorNames: "[\"Sn(1) mr_sw*bf(1)\", \"Sn(1) mr_ns*bf(1)\", \"Sn(1) pl_sw*bf(1)\", \"Sn(1) pl_ns*bf(1)\", \"Sn(1) junk*bf(1)\", \"Sn(1) constant\"]"^^xsd:string ;
+    nidm_hasDriftModel: niiri:3af050cd6585ce5a06f1b07cb80ed0e0 ;
+    nidm_hasHRFBasis: spm_SPMsCanonicalHRF: .
+
+niiri:eaa7306a1252a08b865632eb736793e2
+    a prov:Entity, dctype:Image ; 
+    prov:atLocation "DesignMatrix.png"^^xsd:anyURI ;
+    nfo:fileName "DesignMatrix.png"^^xsd:string ;
+    dct:format "image/png"^^xsd:string .
+
+niiri:0bd8aede66fc8be9ae3875eb95a27342
+    a prov:Entity, nidm_ErrorModel: ; 
+    nidm_hasErrorDistribution: stato_GaussianDistribution: ;
+    nidm_hasErrorDependence: stato_ToeplitzCovarianceStructure: ;
+    nidm_dependenceMapWiseDependence: nidm_ConstantParameter: ;
+    nidm_errorVarianceHomogeneous: "true"^^xsd:boolean ;
+    nidm_varianceMapWiseDependence: nidm_IndependentParameter: .
+
+niiri:9d8cf492466560d50918318864025c61
+    a prov:Activity, nidm_ModelParametersEstimation: ; 
+    rdfs:label "Model parameters estimation" ;
+    nidm_withEstimationMethod: stato_GLS: .
+
+niiri:9d8cf492466560d50918318864025c61 prov:wasAssociatedWith niiri:ea8d144ccce6489b92b187acdc792bec .
+
+niiri:9d8cf492466560d50918318864025c61 prov:used niiri:a0660d4d7fa510f658959260466e1e3e .
+
+niiri:9d8cf492466560d50918318864025c61 prov:used niiri:680b19ae5cf36bf681e8dbe95af38dc2 .
+
+niiri:9d8cf492466560d50918318864025c61 prov:used niiri:0bd8aede66fc8be9ae3875eb95a27342 .
+
+niiri:4a2baf3c1d8fbb1b78319c1483b1b28e
+    a prov:Entity, nidm_MaskMap: ; 
+    prov:atLocation "Mask.nii.gz"^^xsd:anyURI ;
+    nidm_isUserDefined: "false"^^xsd:boolean ;
+    nfo:fileName "Mask.nii.gz"^^xsd:string ;
+    dct:format "image/nifti"^^xsd:string ;
+    rdfs:label "Mask" ;
+    nidm_inCoordinateSpace: niiri:3afab7fbc0c106b802099cf168ca0377 ;
+    crypto:sha512 "d7ea5de8ac6126fad539cc6bebeecf2db149192b03153a2d1e470f551bf2ce7da6c2ffcc5b32693307c4f7801fbb0a4097087dfc90ef4c09cf727f7af14888c8"^^xsd:string .
+
+niiri:c6ef8881327f7dbd655c5bd684eddd5f
+    a prov:Entity, nidm_MaskMap: ; 
+    nfo:fileName "mask.nii"^^xsd:string ;
+    dct:format "image/nifti"^^xsd:string ;
+    crypto:sha512 "bc0e22a3eb2c896557e1e680900858fc400231b687aee04d5e3c51cca04b17f4210b79c966e12ecb4b321c29dda58e5ffb15f851cdfd62c5a9cec6e56ccddd2b"^^xsd:string .
+
+niiri:4a2baf3c1d8fbb1b78319c1483b1b28e prov:wasDerivedFrom niiri:c6ef8881327f7dbd655c5bd684eddd5f .
+
+niiri:4a2baf3c1d8fbb1b78319c1483b1b28e prov:wasGeneratedBy niiri:9d8cf492466560d50918318864025c61 .
+
+niiri:e32ad7d6a1d3a7b17810d670e8fd072a
+    a prov:Entity, nidm_GrandMeanMap: ; 
+    prov:atLocation "GrandMean.nii.gz"^^xsd:anyURI ;
+    nfo:fileName "GrandMean.nii.gz"^^xsd:string ;
+    dct:format "image/nifti"^^xsd:string ;
+    rdfs:label "Grand Mean Map" ;
+    nidm_maskedMedian: "108.038318634033"^^xsd:float ;
+    nidm_inCoordinateSpace: niiri:3afab7fbc0c106b802099cf168ca0377 ;
+    crypto:sha512 "73643a59abf52d8456d427b7c94a21fb5213b4b71c10ce39a94e1cd9995a58057fcf52794c7cb71ad9acf7a167eb0dbf0db3f9aeaeede1706cba904b73dca848"^^xsd:string .
+
+niiri:e32ad7d6a1d3a7b17810d670e8fd072a prov:wasGeneratedBy niiri:9d8cf492466560d50918318864025c61 .
+
+niiri:fc7a2a7c4dc5f4907189ccf4e254bef8
+    a prov:Entity, nidm_ParameterEstimateMap: ; 
+    rdfs:label "Beta Map 1" ;
+    nidm_inCoordinateSpace: niiri:3afab7fbc0c106b802099cf168ca0377 .
+
+niiri:0b1ee3d8ddfaddb3225d71c6fa48f10d
+    a prov:Entity, nidm_ParameterEstimateMap: ; 
+    nfo:fileName "beta_0001.nii"^^xsd:string ;
+    dct:format "image/nifti"^^xsd:string ;
+    crypto:sha512 "11c208792e1874b4837ea90ec03320c8eeb702ad3966ee5912aa2e33b5bdb17b0e88caa31ed546f7f601160ced8eceebdf5db6449df6ec3ffbd17e27917ec328"^^xsd:string .
+
+niiri:fc7a2a7c4dc5f4907189ccf4e254bef8 prov:wasDerivedFrom niiri:0b1ee3d8ddfaddb3225d71c6fa48f10d .
+
+niiri:fc7a2a7c4dc5f4907189ccf4e254bef8 prov:wasGeneratedBy niiri:9d8cf492466560d50918318864025c61 .
+
+niiri:7f0262e97145372a803588a6101fa2ae
+    a prov:Entity, nidm_ParameterEstimateMap: ; 
+    rdfs:label "Beta Map 2" ;
+    nidm_inCoordinateSpace: niiri:3afab7fbc0c106b802099cf168ca0377 .
+
+niiri:e157b91be2875d773dbb473a64e2fe41
+    a prov:Entity, nidm_ParameterEstimateMap: ; 
+    nfo:fileName "beta_0002.nii"^^xsd:string ;
+    dct:format "image/nifti"^^xsd:string ;
+    crypto:sha512 "1430335d25c76e19cb3bcfa012a51eda78c2534a3a3c15b9b31d7447d4d79f473b5875843e80740d16208d525aa141c861ab112507e2e7c5ed55959038c9f01b"^^xsd:string .
+
+niiri:7f0262e97145372a803588a6101fa2ae prov:wasDerivedFrom niiri:e157b91be2875d773dbb473a64e2fe41 .
+
+niiri:7f0262e97145372a803588a6101fa2ae prov:wasGeneratedBy niiri:9d8cf492466560d50918318864025c61 .
+
+niiri:52b5f0dfeef5a989ceb73981bb38aea1
+    a prov:Entity, nidm_ParameterEstimateMap: ; 
+    rdfs:label "Beta Map 3" ;
+    nidm_inCoordinateSpace: niiri:3afab7fbc0c106b802099cf168ca0377 .
+
+niiri:5a6aaf833cfaf0d24c2ee98156b45a17
+    a prov:Entity, nidm_ParameterEstimateMap: ; 
+    nfo:fileName "beta_0003.nii"^^xsd:string ;
+    dct:format "image/nifti"^^xsd:string ;
+    crypto:sha512 "833a477bd4e758bdde7fcc9e6682186e9e38c1eeaa2a66de7d67e5f3c57cbaed7bddd45a7f7c86db713a8aa708790eaa31e0d8f0d0af9db9e87b545990b9e91e"^^xsd:string .
+
+niiri:52b5f0dfeef5a989ceb73981bb38aea1 prov:wasDerivedFrom niiri:5a6aaf833cfaf0d24c2ee98156b45a17 .
+
+niiri:52b5f0dfeef5a989ceb73981bb38aea1 prov:wasGeneratedBy niiri:9d8cf492466560d50918318864025c61 .
+
+niiri:54d1aded0ce58fe08df4293d8ceddadf
+    a prov:Entity, nidm_ParameterEstimateMap: ; 
+    rdfs:label "Beta Map 4" ;
+    nidm_inCoordinateSpace: niiri:3afab7fbc0c106b802099cf168ca0377 .
+
+niiri:917bda9ca5a5cd276b5de3dd367e6ec4
+    a prov:Entity, nidm_ParameterEstimateMap: ; 
+    nfo:fileName "beta_0004.nii"^^xsd:string ;
+    dct:format "image/nifti"^^xsd:string ;
+    crypto:sha512 "8044c2e517efad185114b1d5478983a5073547d99f6b5778bcefe9caa7d243b89824b69841e3e5aa05e1da5393c9d1a34fec9a050b6a1e8a87da31cad99bfe69"^^xsd:string .
+
+niiri:54d1aded0ce58fe08df4293d8ceddadf prov:wasDerivedFrom niiri:917bda9ca5a5cd276b5de3dd367e6ec4 .
+
+niiri:54d1aded0ce58fe08df4293d8ceddadf prov:wasGeneratedBy niiri:9d8cf492466560d50918318864025c61 .
+
+niiri:c17ccb3d27e2d45265ebedf07304238f
+    a prov:Entity, nidm_ParameterEstimateMap: ; 
+    rdfs:label "Beta Map 5" ;
+    nidm_inCoordinateSpace: niiri:3afab7fbc0c106b802099cf168ca0377 .
+
+niiri:1de788620c205e069ddf02ffd1a53060
+    a prov:Entity, nidm_ParameterEstimateMap: ; 
+    nfo:fileName "beta_0005.nii"^^xsd:string ;
+    dct:format "image/nifti"^^xsd:string ;
+    crypto:sha512 "15551a7f3970720338fd0643bd017ba2f7f5db09c16b38909560b0479aa69eb74cd746fa98b2adc796153af88fba9b2ddd4eb5713b6f6011e62b7efb6531426d"^^xsd:string .
+
+niiri:c17ccb3d27e2d45265ebedf07304238f prov:wasDerivedFrom niiri:1de788620c205e069ddf02ffd1a53060 .
+
+niiri:c17ccb3d27e2d45265ebedf07304238f prov:wasGeneratedBy niiri:9d8cf492466560d50918318864025c61 .
+
+niiri:4851c787a436167f4a71edf42259ba00
+    a prov:Entity, nidm_ParameterEstimateMap: ; 
+    rdfs:label "Beta Map 6" ;
+    nidm_inCoordinateSpace: niiri:3afab7fbc0c106b802099cf168ca0377 .
+
+niiri:1d9572dddd28e78581bf46f4943a00b3
+    a prov:Entity, nidm_ParameterEstimateMap: ; 
+    nfo:fileName "beta_0006.nii"^^xsd:string ;
+    dct:format "image/nifti"^^xsd:string ;
+    crypto:sha512 "5e4c12d0189a405df73642520fca3f6f23f37db75d202c03e217675ffcce441ebe42e99894b4561cf9739b46eb1371debf8a8b23efe9e86ec24166927794351c"^^xsd:string .
+
+niiri:4851c787a436167f4a71edf42259ba00 prov:wasDerivedFrom niiri:1d9572dddd28e78581bf46f4943a00b3 .
+
+niiri:4851c787a436167f4a71edf42259ba00 prov:wasGeneratedBy niiri:9d8cf492466560d50918318864025c61 .
+
+niiri:044de1fe963ba759e42829a1aa90a533
+    a prov:Entity, nidm_ResidualMeanSquaresMap: ; 
+    prov:atLocation "ResidualMeanSquares.nii.gz"^^xsd:anyURI ;
+    nfo:fileName "ResidualMeanSquares.nii.gz"^^xsd:string ;
+    dct:format "image/nifti"^^xsd:string ;
+    rdfs:label "Residual Mean Squares Map" ;
+    nidm_inCoordinateSpace: niiri:3afab7fbc0c106b802099cf168ca0377 ;
+    crypto:sha512 "9f1acf4f335317f388cc8adcc04086aa4e6bc6d19d5633a6a8d8dd85716386748c7ed700ef8031c7a3733228557d5ecf96eb6a889e2d36ad065e7bc852ae0b8c"^^xsd:string .
+
+niiri:e7cb96c8612281b1aa20712f5ab8d78a
+    a prov:Entity, nidm_ResidualMeanSquaresMap: ; 
+    nfo:fileName "ResMS.nii"^^xsd:string ;
+    dct:format "image/nifti"^^xsd:string ;
+    crypto:sha512 "641184631587ff0ed74f92302d94dd40f2802efab358753eade14667fb6ee74fe64f3090b02fdf20e4a99d444610a61a1ae8a684628c9b2037535fbed9d53a12"^^xsd:string .
+
+niiri:044de1fe963ba759e42829a1aa90a533 prov:wasDerivedFrom niiri:e7cb96c8612281b1aa20712f5ab8d78a .
+
+niiri:044de1fe963ba759e42829a1aa90a533 prov:wasGeneratedBy niiri:9d8cf492466560d50918318864025c61 .
+
+niiri:fde6c201825e0d228d8f071226d6df72
+    a prov:Entity, nidm_ReselsPerVoxelMap: ; 
+    prov:atLocation "ReselsPerVoxel.nii.gz"^^xsd:anyURI ;
+    nfo:fileName "ReselsPerVoxel.nii.gz"^^xsd:string ;
+    dct:format "image/nifti"^^xsd:string ;
+    rdfs:label "Resels per Voxel Map" ;
+    nidm_inCoordinateSpace: niiri:3afab7fbc0c106b802099cf168ca0377 ;
+    crypto:sha512 "a093dd7a9dd81e95f3696221e49cbb3ad8080b1f316ece53c9aafcb5cc9b767e55c594b7131d933e31231744c65db07483e64245480afd95075b76ccd2432789"^^xsd:string .
+
+niiri:bb6e9ede0fb10dff1545bbf67b08e145
+    a prov:Entity, nidm_ReselsPerVoxelMap: ; 
+    nfo:fileName "RPV.nii"^^xsd:string ;
+    dct:format "image/nifti"^^xsd:string ;
+    crypto:sha512 "6ccf9e1895f8a26549f392b1d1a3676888cd729a207c6a93bcda6d549de2d4f133c0b2847bd2e839a462f3ba74cb9d9525eddb9f8499b99fb452b93cd713a158"^^xsd:string .
+
+niiri:fde6c201825e0d228d8f071226d6df72 prov:wasDerivedFrom niiri:bb6e9ede0fb10dff1545bbf67b08e145 .
+
+niiri:fde6c201825e0d228d8f071226d6df72 prov:wasGeneratedBy niiri:9d8cf492466560d50918318864025c61 .
+
+niiri:11535783db3c16f234c0a9a9c08eeff7
+    a prov:Entity, stato_ContrastWeightMatrix: ; 
+    nidm_statisticType: stato_FStatistic: ;
+    nidm_contrastName: "F Contrast Test"^^xsd:string ;
+    rdfs:label "Contrast: F Contrast Test" ;
+    prov:value "[[1, 0, 0, 0, 0, 0],[0, 1, 0, 0, 0, 0],[0, 0, 1, 0, 0, 0],[0, 0, 0, 1, 0, 0]]"^^xsd:string .
+
+niiri:01c79625dd156fe0cc39d295e9a1bc02
+    a prov:Activity, nidm_ContrastEstimation: ; 
+    rdfs:label "Contrast estimation" .
+
+niiri:01c79625dd156fe0cc39d295e9a1bc02 prov:wasAssociatedWith niiri:ea8d144ccce6489b92b187acdc792bec .
+
+niiri:01c79625dd156fe0cc39d295e9a1bc02 prov:used niiri:4a2baf3c1d8fbb1b78319c1483b1b28e .
+
+niiri:01c79625dd156fe0cc39d295e9a1bc02 prov:used niiri:044de1fe963ba759e42829a1aa90a533 .
+
+niiri:01c79625dd156fe0cc39d295e9a1bc02 prov:used niiri:a0660d4d7fa510f658959260466e1e3e .
+
+niiri:01c79625dd156fe0cc39d295e9a1bc02 prov:used niiri:11535783db3c16f234c0a9a9c08eeff7 .
+
+niiri:01c79625dd156fe0cc39d295e9a1bc02 prov:used niiri:fc7a2a7c4dc5f4907189ccf4e254bef8 .
+
+niiri:01c79625dd156fe0cc39d295e9a1bc02 prov:used niiri:7f0262e97145372a803588a6101fa2ae .
+
+niiri:01c79625dd156fe0cc39d295e9a1bc02 prov:used niiri:52b5f0dfeef5a989ceb73981bb38aea1 .
+
+niiri:01c79625dd156fe0cc39d295e9a1bc02 prov:used niiri:54d1aded0ce58fe08df4293d8ceddadf .
+
+niiri:01c79625dd156fe0cc39d295e9a1bc02 prov:used niiri:c17ccb3d27e2d45265ebedf07304238f .
+
+niiri:01c79625dd156fe0cc39d295e9a1bc02 prov:used niiri:4851c787a436167f4a71edf42259ba00 .
+
+niiri:445e63a4c2b814664d88bb41eb6a0e93
+    a prov:Entity, nidm_StatisticMap: ; 
+    prov:atLocation "FStatistic.nii.gz"^^xsd:anyURI ;
+    nfo:fileName "FStatistic.nii.gz"^^xsd:string ;
+    dct:format "image/nifti"^^xsd:string ;
+    rdfs:label "Statistic Map: F Contrast Test" ;
+    nidm_statisticType: stato_FStatistic: ;
+    nidm_contrastName: "F Contrast Test"^^xsd:string ;
+    nidm_errorDegreesOfFreedom: "192.999999999651"^^xsd:float ;
+    nidm_effectDegreesOfFreedom: "3.99999999999962"^^xsd:float ;
+    nidm_inCoordinateSpace: niiri:3afab7fbc0c106b802099cf168ca0377 ;
+    crypto:sha512 "ca31a667d26797ee68a3709a8fa04f799ad113f17e6eff75ad6e88f53c44aa9e158a0d007354d454ad01df82d6b0f25f07b324cc3baa32f7623096a92ee6f304"^^xsd:string .
+
+niiri:b7a13b645ead1cd72ae3434790f2a7c3
+    a prov:Entity, nidm_StatisticMap: ; 
+    nfo:fileName "spmF_0001.nii"^^xsd:string ;
+    dct:format "image/nifti"^^xsd:string ;
+    crypto:sha512 "db6d4200b2e060c1fbd3e5c71011ac95ce60024087239685545954651a68733ec2d949c56520d2637add9e91c8e7883742c7d307667ad83c4ebe2a8531a1cc53"^^xsd:string .
+
+niiri:445e63a4c2b814664d88bb41eb6a0e93 prov:wasDerivedFrom niiri:b7a13b645ead1cd72ae3434790f2a7c3 .
+
+niiri:445e63a4c2b814664d88bb41eb6a0e93 prov:wasGeneratedBy niiri:01c79625dd156fe0cc39d295e9a1bc02 .
+
+niiri:b84b557c73a4800ede8eb4970d8fbd08
+    a prov:Entity, nidm_ContrastExplainedMeanSquareMap: ; 
+    prov:atLocation "ContrastExplainedMeanSquare.nii.gz"^^xsd:anyURI ;
+    nfo:fileName "ContrastExplainedMeanSquare.nii.gz"^^xsd:string ;
+    dct:format "image/nifti"^^xsd:string ;
+    rdfs:label "Contrast Explained Mean Square Map" ;
+    nidm_inCoordinateSpace: niiri:3afab7fbc0c106b802099cf168ca0377 ;
+    crypto:sha512 "a4b2ff6f792524a027a625aba962b798c3ea321cdd6636193ab521acf5dafa8ceb7fd4cb99a450ab7872359d0e6dac97f82b7523d609747780623b5077e02588"^^xsd:string .
+
+niiri:b84b557c73a4800ede8eb4970d8fbd08 prov:wasGeneratedBy niiri:01c79625dd156fe0cc39d295e9a1bc02 .
+
+niiri:9cd223dcc0ec8314815147f964be2fee
+    a prov:Entity, nidm_HeightThreshold:, nidm_PValueUncorrected: ; 
+    rdfs:label "Height Threshold: p<0.001000 (unc.)" ;
+    prov:value "0.000999500086842908"^^xsd:float ;
+    nidm_equivalentThreshold: niiri:a369c40ba876dd1b11662a065f62caba ;
+    nidm_equivalentThreshold: niiri:acc7ca43aa3ae020f2992ce6646c4d82 .
+
+niiri:a369c40ba876dd1b11662a065f62caba
+    a prov:Entity, nidm_HeightThreshold:, obo_Statistic: ; 
+    rdfs:label "Height Threshold" ;
+    prov:value "4.81888651656205"^^xsd:float .
+
+niiri:acc7ca43aa3ae020f2992ce6646c4d82
+    a prov:Entity, nidm_HeightThreshold:, obo_pValueFWER: ; 
+    rdfs:label "Height Threshold" ;
+    prov:value "1"^^xsd:float .
+
+niiri:1bf6a1379f676d90935a4c9cba3549dd
+    a prov:Entity, nidm_ExtentThreshold:, obo_Statistic: ; 
+    rdfs:label "Extent Threshold: k>=0" ;
+    nidm_clusterSizeInVoxels: "0"^^xsd:int ;
+    nidm_clusterSizeInResels: "0"^^xsd:float ;
+    nidm_equivalentThreshold: niiri:8a8890213f87d19045b69e60f0fea2a3 ;
+    nidm_equivalentThreshold: niiri:5bddf3675665070262f012165db26554 .
+
+niiri:8a8890213f87d19045b69e60f0fea2a3
+    a prov:Entity, nidm_ExtentThreshold:, obo_pValueFWER: ; 
+    rdfs:label "Extent Threshold" ;
+    prov:value "1"^^xsd:float .
+
+niiri:5bddf3675665070262f012165db26554
+    a prov:Entity, nidm_ExtentThreshold:, nidm_PValueUncorrected: ; 
+    rdfs:label "Extent Threshold" ;
+    prov:value "1"^^xsd:float .
+
+niiri:5f51c5b8d9b08bb6dfc880cd6a7406f0
+    a prov:Entity, nidm_PeakDefinitionCriteria: ; 
+    rdfs:label "Peak Definition Criteria" ;
+    nidm_maxNumberOfPeaksPerCluster: "3"^^xsd:int ;
+    nidm_minDistanceBetweenPeaks: "8"^^xsd:float .
+
+niiri:4cd73eb3fe73378073fd798331a4a363
+    a prov:Entity, nidm_ClusterDefinitionCriteria: ; 
+    rdfs:label "Cluster Connectivity Criterion: 18" ;
+    nidm_hasConnectivityCriterion: nidm_voxel18connected: .
+
+niiri:b7277b9b56644163330bef68a876971a
+    a prov:Activity, nidm_Inference: ; 
+    nidm_hasAlternativeHypothesis: nidm_OneTailedTest: ;
+    rdfs:label "Inference" .
+
+niiri:b7277b9b56644163330bef68a876971a prov:wasAssociatedWith niiri:ea8d144ccce6489b92b187acdc792bec .
+
+niiri:b7277b9b56644163330bef68a876971a prov:used niiri:9cd223dcc0ec8314815147f964be2fee .
+
+niiri:b7277b9b56644163330bef68a876971a prov:used niiri:1bf6a1379f676d90935a4c9cba3549dd .
+
+niiri:b7277b9b56644163330bef68a876971a prov:used niiri:445e63a4c2b814664d88bb41eb6a0e93 .
+
+niiri:b7277b9b56644163330bef68a876971a prov:used niiri:fde6c201825e0d228d8f071226d6df72 .
+
+niiri:b7277b9b56644163330bef68a876971a prov:used niiri:4a2baf3c1d8fbb1b78319c1483b1b28e .
+
+niiri:b7277b9b56644163330bef68a876971a prov:used niiri:5f51c5b8d9b08bb6dfc880cd6a7406f0 .
+
+niiri:b7277b9b56644163330bef68a876971a prov:used niiri:4cd73eb3fe73378073fd798331a4a363 .
+
+niiri:213f699536a3c6b036ed7516495f25af
+    a prov:Entity, nidm_SearchSpaceMaskMap: ; 
+    prov:atLocation "SearchSpaceMask.nii.gz"^^xsd:anyURI ;
+    nfo:fileName "SearchSpaceMask.nii.gz"^^xsd:string ;
+    dct:format "image/nifti"^^xsd:string ;
+    rdfs:label "Search Space Mask Map" ;
+    nidm_inCoordinateSpace: niiri:3afab7fbc0c106b802099cf168ca0377 ;
+    nidm_searchVolumeInVoxels: "207876"^^xsd:int ;
+    nidm_searchVolumeInUnits: "1663008"^^xsd:float ;
+    nidm_reselSizeInVoxels: "68.4409986586639"^^xsd:float ;
+    nidm_searchVolumeInResels: "2811.45809925498"^^xsd:float ;
+    spm_searchVolumeReselsGeometry: "[5, 96.6116867805811, 900.100332657459, 2811.45809925498]"^^xsd:string ;
+    nidm_noiseFWHMInVoxels: "[4.16320607513029, 4.05765428344923, 4.05147708968716]"^^xsd:string ;
+    nidm_noiseFWHMInUnits: "[8.32641215026059, 8.11530856689846, 8.10295417937431]"^^xsd:string ;
+    nidm_randomFieldStationarity: "true"^^xsd:boolean ;
+    nidm_expectedNumberOfVoxelsPerCluster: "4.8177623848126"^^xsd:float ;
+    nidm_expectedNumberOfClusters: "45.9650640219086"^^xsd:float ;
+    nidm_heightCriticalThresholdFWE05: "9.80643263054093"^^xsd:float ;
+    nidm_heightCriticalThresholdFDR05: "8.38272571563721"^^xsd:float ;
+    spm_smallestSupraThresholdClusterSizeInVoxelsFWE05: "68"^^xsd:int ;
+    spm_smallestSupraThresholdClusterSizeInVoxelsFDR05: "51"^^xsd:int ;
+    crypto:sha512 "d7ea5de8ac6126fad539cc6bebeecf2db149192b03153a2d1e470f551bf2ce7da6c2ffcc5b32693307c4f7801fbb0a4097087dfc90ef4c09cf727f7af14888c8"^^xsd:string .
+
+niiri:213f699536a3c6b036ed7516495f25af prov:wasGeneratedBy niiri:b7277b9b56644163330bef68a876971a .
+
+niiri:693cbd3283b68002fb1375c234a7ba13
+    a prov:Entity, nidm_ExcursionSetMap: ; 
+    prov:atLocation "ExcursionSet.nii.gz"^^xsd:anyURI ;
+    nfo:fileName "ExcursionSet.nii.gz"^^xsd:string ;
+    dct:format "image/nifti"^^xsd:string ;
+    rdfs:label "Excursion Set Map" ;
+    nidm_numberOfSupraThresholdClusters: "89"^^xsd:int ;
+    nidm_pValue: "1.20671430625663e-08"^^xsd:float ;
+    nidm_hasClusterLabelsMap: niiri:5f008af65afcb63ce31164ba65ba7611 ;
+    nidm_hasMaximumIntensityProjection: niiri:fa74373bbf11f8977e622e922390906d ;
+    nidm_inCoordinateSpace: niiri:3afab7fbc0c106b802099cf168ca0377 ;
+    crypto:sha512 "7655b200bdcbba72ab5ab79029728a420df3f3368bcb553410540390e1372e99531cb91885edbdd03945d7e2391516a3d8dc537da81527730e866035d4af7894"^^xsd:string .
+
+niiri:5f008af65afcb63ce31164ba65ba7611
+    a prov:Entity, nidm_ClusterLabelsMap: ; 
+    prov:atLocation "ClusterLabels.nii.gz"^^xsd:anyURI ;
+    nfo:fileName "ClusterLabels.nii.gz"^^xsd:string ;
+    dct:format "image/nifti"^^xsd:string .
+
+niiri:fa74373bbf11f8977e622e922390906d
+    a prov:Entity, dctype:Image ; 
+    prov:atLocation "MaximumIntensityProjection.png"^^xsd:anyURI ;
+    nfo:fileName "MaximumIntensityProjection.png"^^xsd:string ;
+    dct:format "image/png"^^xsd:string .
+
+niiri:693cbd3283b68002fb1375c234a7ba13 prov:wasGeneratedBy niiri:b7277b9b56644163330bef68a876971a .
+
+niiri:70b2003559708458bd92e73d3d3c7bf4
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0001" ;
+    nidm_clusterSizeInVoxels: "1078"^^xsd:int ;
+    nidm_clusterSizeInResels: "15.7507929622172"^^xsd:float ;
+    nidm_pValueUncorrected: "4.44714364460473e-20"^^xsd:float ;
+    nidm_pValueFWER: "0"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "1"^^xsd:int .
+
+niiri:70b2003559708458bd92e73d3d3c7bf4 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:e2b47f512f66716985aee0fe421c3346
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0002" ;
+    nidm_clusterSizeInVoxels: "930"^^xsd:int ;
+    nidm_clusterSizeInResels: "13.5883464330816"^^xsd:float ;
+    nidm_pValueUncorrected: "2.90091267643839e-18"^^xsd:float ;
+    nidm_pValueFWER: "1.11022302462516e-16"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "2"^^xsd:int .
+
+niiri:e2b47f512f66716985aee0fe421c3346 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:3c6dd5e94db642fc0c6313fade61752c
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0003" ;
+    nidm_clusterSizeInVoxels: "61"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.891278637008579"^^xsd:float ;
+    nidm_pValueUncorrected: "0.00140501536931943"^^xsd:float ;
+    nidm_pValueFWER: "0.0625404056276491"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "3"^^xsd:int .
+
+niiri:3c6dd5e94db642fc0c6313fade61752c prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:13dc91c36d42d9c0075971b7e2e4340a
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0004" ;
+    nidm_clusterSizeInVoxels: "51"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.74516738503996"^^xsd:float ;
+    nidm_pValueUncorrected: "0.00294180828906497"^^xsd:float ;
+    nidm_pValueFWER: "0.126476639623878"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "4"^^xsd:int .
+
+niiri:13dc91c36d42d9c0075971b7e2e4340a prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:63baaa25c1850e25ff8b59437cf378c6
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0005" ;
+    nidm_clusterSizeInVoxels: "102"^^xsd:int ;
+    nidm_clusterSizeInResels: "1.49033477007992"^^xsd:float ;
+    nidm_pValueUncorrected: "9.58684672197711e-05"^^xsd:float ;
+    nidm_pValueFWER: "0.00439690541625271"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "5"^^xsd:int .
+
+niiri:63baaa25c1850e25ff8b59437cf378c6 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:938d8c88ecfbbf04abff04ec2e6740f3
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0006" ;
+    nidm_clusterSizeInVoxels: "69"^^xsd:int ;
+    nidm_clusterSizeInResels: "1.00816763858347"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000800670143082103"^^xsd:float ;
+    nidm_pValueFWER: "0.0361338614001637"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "6"^^xsd:int .
+
+niiri:938d8c88ecfbbf04abff04ec2e6740f3 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:86d427d519cd54a38aa4d9fc15de80c3
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0007" ;
+    nidm_clusterSizeInVoxels: "81"^^xsd:int ;
+    nidm_clusterSizeInResels: "1.18350114094582"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000358186300522155"^^xsd:float ;
+    nidm_pValueFWER: "0.0163292644152585"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "7"^^xsd:int .
+
+niiri:86d427d519cd54a38aa4d9fc15de80c3 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:d23334e15ca989a88f18103920c37202
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0008" ;
+    nidm_clusterSizeInVoxels: "62"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.905889762205441"^^xsd:float ;
+    nidm_pValueUncorrected: "0.00130795483514697"^^xsd:float ;
+    nidm_pValueFWER: "0.0583486858266125"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "8"^^xsd:int .
+
+niiri:d23334e15ca989a88f18103920c37202 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:34d7407deceb41bb05814c58f568aa8a
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0009" ;
+    nidm_clusterSizeInVoxels: "27"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.394500380315273"^^xsd:float ;
+    nidm_pValueUncorrected: "0.0220489738091681"^^xsd:float ;
+    nidm_pValueFWER: "0.637047204368496"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "9"^^xsd:int .
+
+niiri:34d7407deceb41bb05814c58f568aa8a prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:f11390729469ff5ad94b49a0bdfa4678
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0010" ;
+    nidm_clusterSizeInVoxels: "69"^^xsd:int ;
+    nidm_clusterSizeInResels: "1.00816763858347"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000800670143082103"^^xsd:float ;
+    nidm_pValueFWER: "0.0361338614001637"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "10"^^xsd:int .
+
+niiri:f11390729469ff5ad94b49a0bdfa4678 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:ccdacac7fbef86b94a12c5dabbf08bc2
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0011" ;
+    nidm_clusterSizeInVoxels: "34"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.496778256693306"^^xsd:float ;
+    nidm_pValueUncorrected: "0.011700144046285"^^xsd:float ;
+    nidm_pValueFWER: "0.41596704628578"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "11"^^xsd:int .
+
+niiri:ccdacac7fbef86b94a12c5dabbf08bc2 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:13403d7573cd820266b83ff32d0e9707
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0012" ;
+    nidm_clusterSizeInVoxels: "16"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.233778003149791"^^xsd:float ;
+    nidm_pValueUncorrected: "0.0678018153345425"^^xsd:float ;
+    nidm_pValueFWER: "0.955688665756324"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "12"^^xsd:int .
+
+niiri:13403d7573cd820266b83ff32d0e9707 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:d86187d8105730183f4e8c029a41bf61
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0013" ;
+    nidm_clusterSizeInVoxels: "33"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.482167131496445"^^xsd:float ;
+    nidm_pValueUncorrected: "0.0127719721079915"^^xsd:float ;
+    nidm_pValueFWER: "0.444043105508432"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "13"^^xsd:int .
+
+niiri:d86187d8105730183f4e8c029a41bf61 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:67556c87393c94a727ee0b764b5d8856
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0014" ;
+    nidm_clusterSizeInVoxels: "29"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.423722630708997"^^xsd:float ;
+    nidm_pValueUncorrected: "0.01830452631499"^^xsd:float ;
+    nidm_pValueFWER: "0.568879964907834"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "14"^^xsd:int .
+
+niiri:67556c87393c94a727ee0b764b5d8856 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:8832fdb39eea98ef7aabb68883c63c22
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0015" ;
+    nidm_clusterSizeInVoxels: "52"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.759778510236822"^^xsd:float ;
+    nidm_pValueUncorrected: "0.00272666362579781"^^xsd:float ;
+    nidm_pValueFWER: "0.117795392093901"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "15"^^xsd:int .
+
+niiri:8832fdb39eea98ef7aabb68883c63c22 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:0a733ee37ab9d8fc5554d22235fb2ebb
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0016" ;
+    nidm_clusterSizeInVoxels: "19"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.277611378740377"^^xsd:float ;
+    nidm_pValueUncorrected: "0.0489067183857246"^^xsd:float ;
+    nidm_pValueFWER: "0.894389812698126"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "16"^^xsd:int .
+
+niiri:0a733ee37ab9d8fc5554d22235fb2ebb prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:20f7a6809dd02ee80d08c981d7533384
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0017" ;
+    nidm_clusterSizeInVoxels: "15"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.219166877952929"^^xsd:float ;
+    nidm_pValueUncorrected: "0.0759384102313504"^^xsd:float ;
+    nidm_pValueFWER: "0.969514797834504"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "17"^^xsd:int .
+
+niiri:20f7a6809dd02ee80d08c981d7533384 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:c1ebe6af3636d8119b6c8c898bc0b9cd
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0018" ;
+    nidm_clusterSizeInVoxels: "17"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.248389128346653"^^xsd:float ;
+    nidm_pValueUncorrected: "0.0606787631410972"^^xsd:float ;
+    nidm_pValueFWER: "0.938523680835064"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "18"^^xsd:int .
+
+niiri:c1ebe6af3636d8119b6c8c898bc0b9cd prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:f967cba917487022842df44264a09b9a
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0019" ;
+    nidm_clusterSizeInVoxels: "37"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.540611632283892"^^xsd:float ;
+    nidm_pValueUncorrected: "0.00903991120867935"^^xsd:float ;
+    nidm_pValueFWER: "0.340003071301302"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "19"^^xsd:int .
+
+niiri:f967cba917487022842df44264a09b9a prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:dead248e9a831f2d39ed43c1307d7a6f
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0020" ;
+    nidm_clusterSizeInVoxels: "9"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.131500126771758"^^xsd:float ;
+    nidm_pValueUncorrected: "0.15980273271822"^^xsd:float ;
+    nidm_pValueFWER: "0.999354408004913"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "20"^^xsd:int .
+
+niiri:dead248e9a831f2d39ed43c1307d7a6f prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:63395ba4fe844e99193e44b8b12c407b
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0021" ;
+    nidm_clusterSizeInVoxels: "27"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.394500380315273"^^xsd:float ;
+    nidm_pValueUncorrected: "0.0220489738091681"^^xsd:float ;
+    nidm_pValueFWER: "0.637047204368496"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "21"^^xsd:int .
+
+niiri:63395ba4fe844e99193e44b8b12c407b prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:9e473a48bfa3001fcf429b2b016fa5ea
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0022" ;
+    nidm_clusterSizeInVoxels: "24"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.350667004724687"^^xsd:float ;
+    nidm_pValueUncorrected: "0.0294098545193599"^^xsd:float ;
+    nidm_pValueFWER: "0.741232640256625"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "22"^^xsd:int .
+
+niiri:9e473a48bfa3001fcf429b2b016fa5ea prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:66117305de42f7fc8878b963008d257b
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0023" ;
+    nidm_clusterSizeInVoxels: "30"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.438333755905859"^^xsd:float ;
+    nidm_pValueUncorrected: "0.0167048818724221"^^xsd:float ;
+    nidm_pValueFWER: "0.535986190221124"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "23"^^xsd:int .
+
+niiri:66117305de42f7fc8878b963008d257b prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:4b2de1d700d8a7f369f0417da0db1e66
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0024" ;
+    nidm_clusterSizeInVoxels: "19"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.277611378740377"^^xsd:float ;
+    nidm_pValueUncorrected: "0.0489067183857246"^^xsd:float ;
+    nidm_pValueFWER: "0.894389812698126"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "24"^^xsd:int .
+
+niiri:4b2de1d700d8a7f369f0417da0db1e66 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:f5ac935852ea4b1b9fed377c2aeb3b18
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0025" ;
+    nidm_clusterSizeInVoxels: "68"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.993556513386613"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000857915851634946"^^xsd:float ;
+    nidm_pValueFWER: "0.0386667510721175"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "25"^^xsd:int .
+
+niiri:f5ac935852ea4b1b9fed377c2aeb3b18 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:e0f3dfa1c85357af4b401994ac38769b
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0026" ;
+    nidm_clusterSizeInVoxels: "11"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.160722377165481"^^xsd:float ;
+    nidm_pValueUncorrected: "0.122909028578024"^^xsd:float ;
+    nidm_pValueFWER: "0.996480799224121"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "26"^^xsd:int .
+
+niiri:e0f3dfa1c85357af4b401994ac38769b prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:614c41139aa842cbd80a44616011d080
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0027" ;
+    nidm_clusterSizeInVoxels: "10"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.14611125196862"^^xsd:float ;
+    nidm_pValueUncorrected: "0.139840260197002"^^xsd:float ;
+    nidm_pValueFWER: "0.998383943752383"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "27"^^xsd:int .
+
+niiri:614c41139aa842cbd80a44616011d080 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:c8f3c9da99d7be6a54c536483f0ca346
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0028" ;
+    nidm_clusterSizeInVoxels: "15"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.219166877952929"^^xsd:float ;
+    nidm_pValueUncorrected: "0.0759384102313504"^^xsd:float ;
+    nidm_pValueFWER: "0.969514797834504"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "28"^^xsd:int .
+
+niiri:c8f3c9da99d7be6a54c536483f0ca346 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:cf1f683799f80f149702b64601072e25
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0029" ;
+    nidm_clusterSizeInVoxels: "17"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.248389128346653"^^xsd:float ;
+    nidm_pValueUncorrected: "0.0606787631410972"^^xsd:float ;
+    nidm_pValueFWER: "0.938523680835064"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "29"^^xsd:int .
+
+niiri:cf1f683799f80f149702b64601072e25 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:fcfdc3edc7e7cbb46b2a5e7bd6a60b5a
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0030" ;
+    nidm_clusterSizeInVoxels: "12"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.175333502362343"^^xsd:float ;
+    nidm_pValueUncorrected: "0.108445358385968"^^xsd:float ;
+    nidm_pValueFWER: "0.993158154960398"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "30"^^xsd:int .
+
+niiri:fcfdc3edc7e7cbb46b2a5e7bd6a60b5a prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:c6b09785e79116c69c0d566f14508194
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0031" ;
+    nidm_clusterSizeInVoxels: "4"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.0584445007874478"^^xsd:float ;
+    nidm_pValueUncorrected: "0.343698638066254"^^xsd:float ;
+    nidm_pValueFWER: "0.99999986229194"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "31"^^xsd:int .
+
+niiri:c6b09785e79116c69c0d566f14508194 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:b62d08e7f48d3b48c3d3470c4864b0f5
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0032" ;
+    nidm_clusterSizeInVoxels: "11"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.160722377165481"^^xsd:float ;
+    nidm_pValueUncorrected: "0.122909028578024"^^xsd:float ;
+    nidm_pValueFWER: "0.996480799224121"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "32"^^xsd:int .
+
+niiri:b62d08e7f48d3b48c3d3470c4864b0f5 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:820eae4f2ecfa96c61f16f68989e60f2
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0033" ;
+    nidm_clusterSizeInVoxels: "10"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.14611125196862"^^xsd:float ;
+    nidm_pValueUncorrected: "0.139840260197002"^^xsd:float ;
+    nidm_pValueFWER: "0.998383943752383"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "33"^^xsd:int .
+
+niiri:820eae4f2ecfa96c61f16f68989e60f2 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:0c814c8aa73eb23edb6b0bdf05d875b9
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0034" ;
+    nidm_clusterSizeInVoxels: "9"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.131500126771758"^^xsd:float ;
+    nidm_pValueUncorrected: "0.15980273271822"^^xsd:float ;
+    nidm_pValueFWER: "0.999354408004913"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "34"^^xsd:int .
+
+niiri:0c814c8aa73eb23edb6b0bdf05d875b9 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:3237418b7d965d5533963a3817c7547f
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0035" ;
+    nidm_clusterSizeInVoxels: "8"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.116889001574896"^^xsd:float ;
+    nidm_pValueUncorrected: "0.183538919045686"^^xsd:float ;
+    nidm_pValueFWER: "0.999783165932851"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "35"^^xsd:int .
+
+niiri:3237418b7d965d5533963a3817c7547f prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:479583c290f59d278781273768ba65dc
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0036" ;
+    nidm_clusterSizeInVoxels: "4"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.0584445007874478"^^xsd:float ;
+    nidm_pValueUncorrected: "0.343698638066254"^^xsd:float ;
+    nidm_pValueFWER: "0.99999986229194"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "36"^^xsd:int .
+
+niiri:479583c290f59d278781273768ba65dc prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:609da3fb63ae9918c3e77a08cdb6cfc2
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0037" ;
+    nidm_clusterSizeInVoxels: "12"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.175333502362343"^^xsd:float ;
+    nidm_pValueUncorrected: "0.108445358385968"^^xsd:float ;
+    nidm_pValueFWER: "0.993158154960398"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "37"^^xsd:int .
+
+niiri:609da3fb63ae9918c3e77a08cdb6cfc2 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:76f32299041fc5f4d0b950c566a0624b
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0038" ;
+    nidm_clusterSizeInVoxels: "13"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.189944627559205"^^xsd:float ;
+    nidm_pValueUncorrected: "0.096012927539169"^^xsd:float ;
+    nidm_pValueFWER: "0.987884145093703"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "38"^^xsd:int .
+
+niiri:76f32299041fc5f4d0b950c566a0624b prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:9e864aa27a55745175707c98d46a334c
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0039" ;
+    nidm_clusterSizeInVoxels: "6"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.0876667511811717"^^xsd:float ;
+    nidm_pValueUncorrected: "0.246729452566726"^^xsd:float ;
+    nidm_pValueFWER: "0.999988123335902"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "39"^^xsd:int .
+
+niiri:9e864aa27a55745175707c98d46a334c prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:628a97ee4df64877d84868107814f955
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0040" ;
+    nidm_clusterSizeInVoxels: "4"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.0584445007874478"^^xsd:float ;
+    nidm_pValueUncorrected: "0.343698638066254"^^xsd:float ;
+    nidm_pValueFWER: "0.99999986229194"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "40"^^xsd:int .
+
+niiri:628a97ee4df64877d84868107814f955 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:52a2c6444b10fca5e154fba0b3e62d50
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0041" ;
+    nidm_clusterSizeInVoxels: "6"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.0876667511811717"^^xsd:float ;
+    nidm_pValueUncorrected: "0.246729452566726"^^xsd:float ;
+    nidm_pValueFWER: "0.999988123335902"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "41"^^xsd:int .
+
+niiri:52a2c6444b10fca5e154fba0b3e62d50 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:a9bc5d8a6d734a19d1ee638ddfa9e34f
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0042" ;
+    nidm_clusterSizeInVoxels: "11"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.160722377165481"^^xsd:float ;
+    nidm_pValueUncorrected: "0.122909028578024"^^xsd:float ;
+    nidm_pValueFWER: "0.996480799224121"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "42"^^xsd:int .
+
+niiri:a9bc5d8a6d734a19d1ee638ddfa9e34f prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:cf869ef162fc61878c8c7fbac7157264
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0043" ;
+    nidm_clusterSizeInVoxels: "14"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.204555752756067"^^xsd:float ;
+    nidm_pValueUncorrected: "0.0852685099572997"^^xsd:float ;
+    nidm_pValueFWER: "0.980146451443566"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "43"^^xsd:int .
+
+niiri:cf869ef162fc61878c8c7fbac7157264 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:404edd754b52ba04b35f56d4e502f8ce
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0044" ;
+    nidm_clusterSizeInVoxels: "10"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.14611125196862"^^xsd:float ;
+    nidm_pValueUncorrected: "0.139840260197002"^^xsd:float ;
+    nidm_pValueFWER: "0.998383943752383"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "44"^^xsd:int .
+
+niiri:404edd754b52ba04b35f56d4e502f8ce prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:646c9634927ecdb2332ab5dfe7a28006
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0045" ;
+    nidm_clusterSizeInVoxels: "7"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.102277876378034"^^xsd:float ;
+    nidm_pValueUncorrected: "0.212050388130978"^^xsd:float ;
+    nidm_pValueFWER: "0.999941524907657"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "45"^^xsd:int .
+
+niiri:646c9634927ecdb2332ab5dfe7a28006 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:c0fd049d894fca767270c43b39b70df9
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0046" ;
+    nidm_clusterSizeInVoxels: "1"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.014611125196862"^^xsd:float ;
+    nidm_pValueUncorrected: "0.654533745817325"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999914"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "46"^^xsd:int .
+
+niiri:c0fd049d894fca767270c43b39b70df9 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:9552b4dbfe0833d9f21d39cf5a3f531c
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0047" ;
+    nidm_clusterSizeInVoxels: "8"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.116889001574896"^^xsd:float ;
+    nidm_pValueUncorrected: "0.183538919045686"^^xsd:float ;
+    nidm_pValueFWER: "0.999783165932851"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "47"^^xsd:int .
+
+niiri:9552b4dbfe0833d9f21d39cf5a3f531c prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:4cb0bf65605055716432884893e5e9c2
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0048" ;
+    nidm_clusterSizeInVoxels: "1"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.014611125196862"^^xsd:float ;
+    nidm_pValueUncorrected: "0.654533745817325"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999914"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "48"^^xsd:int .
+
+niiri:4cb0bf65605055716432884893e5e9c2 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:d6b37cc773edb870bb55c2d6372f256b
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0049" ;
+    nidm_clusterSizeInVoxels: "9"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.131500126771758"^^xsd:float ;
+    nidm_pValueUncorrected: "0.15980273271822"^^xsd:float ;
+    nidm_pValueFWER: "0.999354408004913"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "49"^^xsd:int .
+
+niiri:d6b37cc773edb870bb55c2d6372f256b prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:27724b6869441a042387c9d5c13942d2
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0050" ;
+    nidm_clusterSizeInVoxels: "4"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.0584445007874478"^^xsd:float ;
+    nidm_pValueUncorrected: "0.343698638066254"^^xsd:float ;
+    nidm_pValueFWER: "0.99999986229194"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "50"^^xsd:int .
+
+niiri:27724b6869441a042387c9d5c13942d2 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:6c4baced41f2f8c3fb0cb36e9ec2f421
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0051" ;
+    nidm_clusterSizeInVoxels: "7"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.102277876378034"^^xsd:float ;
+    nidm_pValueUncorrected: "0.212050388130978"^^xsd:float ;
+    nidm_pValueFWER: "0.999941524907657"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "51"^^xsd:int .
+
+niiri:6c4baced41f2f8c3fb0cb36e9ec2f421 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:8b632dcc185547a7f8ad04edead2291a
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0052" ;
+    nidm_clusterSizeInVoxels: "5"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.0730556259843098"^^xsd:float ;
+    nidm_pValueUncorrected: "0.289588977139942"^^xsd:float ;
+    nidm_pValueFWER: "0.999998343785323"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "52"^^xsd:int .
+
+niiri:8b632dcc185547a7f8ad04edead2291a prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:0b81b51c15877094ca33c61a79325340
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0053" ;
+    nidm_clusterSizeInVoxels: "4"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.0584445007874478"^^xsd:float ;
+    nidm_pValueUncorrected: "0.343698638066254"^^xsd:float ;
+    nidm_pValueFWER: "0.99999986229194"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "53"^^xsd:int .
+
+niiri:0b81b51c15877094ca33c61a79325340 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:39734aff0e8ba70db0c48ce245fe4c87
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0054" ;
+    nidm_clusterSizeInVoxels: "7"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.102277876378034"^^xsd:float ;
+    nidm_pValueUncorrected: "0.212050388130978"^^xsd:float ;
+    nidm_pValueFWER: "0.999941524907657"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "54"^^xsd:int .
+
+niiri:39734aff0e8ba70db0c48ce245fe4c87 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:715173a69633af936b825645f63d4b6e
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0055" ;
+    nidm_clusterSizeInVoxels: "11"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.160722377165481"^^xsd:float ;
+    nidm_pValueUncorrected: "0.122909028578024"^^xsd:float ;
+    nidm_pValueFWER: "0.996480799224121"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "55"^^xsd:int .
+
+niiri:715173a69633af936b825645f63d4b6e prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:1c44f60f8e5351b0a92c492ed60e2137
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0056" ;
+    nidm_clusterSizeInVoxels: "2"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.0292222503937239"^^xsd:float ;
+    nidm_pValueUncorrected: "0.510282095685957"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999934903"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "56"^^xsd:int .
+
+niiri:1c44f60f8e5351b0a92c492ed60e2137 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:f2443d4e5be8deae8260b1f1dedfc174
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0057" ;
+    nidm_clusterSizeInVoxels: "2"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.0292222503937239"^^xsd:float ;
+    nidm_pValueUncorrected: "0.510282095685957"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999934903"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "57"^^xsd:int .
+
+niiri:f2443d4e5be8deae8260b1f1dedfc174 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:de6358617bfe8f7769d05d29a4316925
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0058" ;
+    nidm_clusterSizeInVoxels: "2"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.0292222503937239"^^xsd:float ;
+    nidm_pValueUncorrected: "0.510282095685957"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999934903"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "58"^^xsd:int .
+
+niiri:de6358617bfe8f7769d05d29a4316925 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:28b00390010cb45d9a423be0d041e4eb
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0059" ;
+    nidm_clusterSizeInVoxels: "7"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.102277876378034"^^xsd:float ;
+    nidm_pValueUncorrected: "0.212050388130978"^^xsd:float ;
+    nidm_pValueFWER: "0.999941524907657"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "59"^^xsd:int .
+
+niiri:28b00390010cb45d9a423be0d041e4eb prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:6f2458f857e5301314e4c49c53ddab5c
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0060" ;
+    nidm_clusterSizeInVoxels: "4"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.0584445007874478"^^xsd:float ;
+    nidm_pValueUncorrected: "0.343698638066254"^^xsd:float ;
+    nidm_pValueFWER: "0.99999986229194"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "60"^^xsd:int .
+
+niiri:6f2458f857e5301314e4c49c53ddab5c prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:a5ccd12af883dc80ecb285cbc7d90996
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0061" ;
+    nidm_clusterSizeInVoxels: "2"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.0292222503937239"^^xsd:float ;
+    nidm_pValueUncorrected: "0.510282095685957"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999934903"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "61"^^xsd:int .
+
+niiri:a5ccd12af883dc80ecb285cbc7d90996 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:075cefbcdab0306f76e523f39577afc9
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0062" ;
+    nidm_clusterSizeInVoxels: "3"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.0438333755905859"^^xsd:float ;
+    nidm_pValueUncorrected: "0.41411715244508"^^xsd:float ;
+    nidm_pValueFWER: "0.999999994589484"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "62"^^xsd:int .
+
+niiri:075cefbcdab0306f76e523f39577afc9 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:67b2de2f1c8c8f1c6308f97901012c85
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0063" ;
+    nidm_clusterSizeInVoxels: "2"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.0292222503937239"^^xsd:float ;
+    nidm_pValueUncorrected: "0.510282095685957"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999934903"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "63"^^xsd:int .
+
+niiri:67b2de2f1c8c8f1c6308f97901012c85 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:3e4aab372e14b498f67d8f3af7fe64d4
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0064" ;
+    nidm_clusterSizeInVoxels: "4"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.0584445007874478"^^xsd:float ;
+    nidm_pValueUncorrected: "0.343698638066254"^^xsd:float ;
+    nidm_pValueFWER: "0.99999986229194"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "64"^^xsd:int .
+
+niiri:3e4aab372e14b498f67d8f3af7fe64d4 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:4e46f866f0c4c884a98d67ad4f286185
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0065" ;
+    nidm_clusterSizeInVoxels: "1"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.014611125196862"^^xsd:float ;
+    nidm_pValueUncorrected: "0.654533745817325"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999914"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "65"^^xsd:int .
+
+niiri:4e46f866f0c4c884a98d67ad4f286185 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:0c4f8238e0d8817ab291795ad931058d
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0066" ;
+    nidm_clusterSizeInVoxels: "1"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.014611125196862"^^xsd:float ;
+    nidm_pValueUncorrected: "0.654533745817325"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999914"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "66"^^xsd:int .
+
+niiri:0c4f8238e0d8817ab291795ad931058d prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:45b239a4d9c3d2d8505e69c949d3d8e8
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0067" ;
+    nidm_clusterSizeInVoxels: "2"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.0292222503937239"^^xsd:float ;
+    nidm_pValueUncorrected: "0.510282095685957"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999934903"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "67"^^xsd:int .
+
+niiri:45b239a4d9c3d2d8505e69c949d3d8e8 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:d81ab34b3d15a5e83dcac601860e2c67
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0068" ;
+    nidm_clusterSizeInVoxels: "4"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.0584445007874478"^^xsd:float ;
+    nidm_pValueUncorrected: "0.343698638066254"^^xsd:float ;
+    nidm_pValueFWER: "0.99999986229194"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "68"^^xsd:int .
+
+niiri:d81ab34b3d15a5e83dcac601860e2c67 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:17915a4b4045396b3dc9e808d4f43fff
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0069" ;
+    nidm_clusterSizeInVoxels: "5"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.0730556259843098"^^xsd:float ;
+    nidm_pValueUncorrected: "0.289588977139942"^^xsd:float ;
+    nidm_pValueFWER: "0.999998343785323"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "69"^^xsd:int .
+
+niiri:17915a4b4045396b3dc9e808d4f43fff prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:fb337b3deac825168c6547e71cdf45e4
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0070" ;
+    nidm_clusterSizeInVoxels: "1"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.014611125196862"^^xsd:float ;
+    nidm_pValueUncorrected: "0.654533745817325"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999914"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "70"^^xsd:int .
+
+niiri:fb337b3deac825168c6547e71cdf45e4 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:d1e644390766d6283debb5ff26e27399
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0071" ;
+    nidm_clusterSizeInVoxels: "3"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.0438333755905859"^^xsd:float ;
+    nidm_pValueUncorrected: "0.41411715244508"^^xsd:float ;
+    nidm_pValueFWER: "0.999999994589484"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "71"^^xsd:int .
+
+niiri:d1e644390766d6283debb5ff26e27399 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:f2c41aa526c7ecfe683fb5b1f2a7588a
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0072" ;
+    nidm_clusterSizeInVoxels: "2"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.0292222503937239"^^xsd:float ;
+    nidm_pValueUncorrected: "0.510282095685957"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999934903"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "72"^^xsd:int .
+
+niiri:f2c41aa526c7ecfe683fb5b1f2a7588a prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:b6e3adf39b177b2fe3b6833a47713718
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0073" ;
+    nidm_clusterSizeInVoxels: "2"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.0292222503937239"^^xsd:float ;
+    nidm_pValueUncorrected: "0.510282095685957"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999934903"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "73"^^xsd:int .
+
+niiri:b6e3adf39b177b2fe3b6833a47713718 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:ac9ee3188f787257a289a9904e28a0df
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0074" ;
+    nidm_clusterSizeInVoxels: "1"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.014611125196862"^^xsd:float ;
+    nidm_pValueUncorrected: "0.654533745817325"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999914"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "74"^^xsd:int .
+
+niiri:ac9ee3188f787257a289a9904e28a0df prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:499c553f4f05bed3bf262435de53d3b1
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0075" ;
+    nidm_clusterSizeInVoxels: "2"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.0292222503937239"^^xsd:float ;
+    nidm_pValueUncorrected: "0.510282095685957"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999934903"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "75"^^xsd:int .
+
+niiri:499c553f4f05bed3bf262435de53d3b1 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:425b3b59bb1a3d7b86c2c5264b8a6627
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0076" ;
+    nidm_clusterSizeInVoxels: "1"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.014611125196862"^^xsd:float ;
+    nidm_pValueUncorrected: "0.654533745817325"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999914"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "76"^^xsd:int .
+
+niiri:425b3b59bb1a3d7b86c2c5264b8a6627 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:9c92e09c369b8211d4e65fbfbb9c9aa4
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0077" ;
+    nidm_clusterSizeInVoxels: "2"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.0292222503937239"^^xsd:float ;
+    nidm_pValueUncorrected: "0.510282095685957"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999934903"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "77"^^xsd:int .
+
+niiri:9c92e09c369b8211d4e65fbfbb9c9aa4 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:d76384fac79adab2f8bcdd74e38b05e5
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0078" ;
+    nidm_clusterSizeInVoxels: "1"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.014611125196862"^^xsd:float ;
+    nidm_pValueUncorrected: "0.654533745817325"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999914"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "78"^^xsd:int .
+
+niiri:d76384fac79adab2f8bcdd74e38b05e5 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:66b4285fcdb2a68d01ddbdfea09445d1
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0079" ;
+    nidm_clusterSizeInVoxels: "5"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.0730556259843098"^^xsd:float ;
+    nidm_pValueUncorrected: "0.289588977139942"^^xsd:float ;
+    nidm_pValueFWER: "0.999998343785323"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "79"^^xsd:int .
+
+niiri:66b4285fcdb2a68d01ddbdfea09445d1 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:ce2fd9609bbaf4260567fecf8334f73a
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0080" ;
+    nidm_clusterSizeInVoxels: "1"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.014611125196862"^^xsd:float ;
+    nidm_pValueUncorrected: "0.654533745817325"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999914"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "80"^^xsd:int .
+
+niiri:ce2fd9609bbaf4260567fecf8334f73a prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:a482e942f85057c7e6150a9211c470d5
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0081" ;
+    nidm_clusterSizeInVoxels: "1"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.014611125196862"^^xsd:float ;
+    nidm_pValueUncorrected: "0.654533745817325"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999914"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "81"^^xsd:int .
+
+niiri:a482e942f85057c7e6150a9211c470d5 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:72e4e5b0d793f6bdd394586ab7b319ae
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0082" ;
+    nidm_clusterSizeInVoxels: "2"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.0292222503937239"^^xsd:float ;
+    nidm_pValueUncorrected: "0.510282095685957"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999934903"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "82"^^xsd:int .
+
+niiri:72e4e5b0d793f6bdd394586ab7b319ae prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:698f920512e0bc86196ac5bdf9403706
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0083" ;
+    nidm_clusterSizeInVoxels: "1"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.014611125196862"^^xsd:float ;
+    nidm_pValueUncorrected: "0.654533745817325"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999914"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "83"^^xsd:int .
+
+niiri:698f920512e0bc86196ac5bdf9403706 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:ad1cd56f7d143bd776b5691683c59add
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0084" ;
+    nidm_clusterSizeInVoxels: "1"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.014611125196862"^^xsd:float ;
+    nidm_pValueUncorrected: "0.654533745817325"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999914"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "84"^^xsd:int .
+
+niiri:ad1cd56f7d143bd776b5691683c59add prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:eaa184888e18a33c4f8a743428f908be
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0085" ;
+    nidm_clusterSizeInVoxels: "1"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.014611125196862"^^xsd:float ;
+    nidm_pValueUncorrected: "0.654533745817325"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999914"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "85"^^xsd:int .
+
+niiri:eaa184888e18a33c4f8a743428f908be prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:7a8727b45ba0d1d9809d83d6afaba387
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0086" ;
+    nidm_clusterSizeInVoxels: "1"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.014611125196862"^^xsd:float ;
+    nidm_pValueUncorrected: "0.654533745817325"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999914"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "86"^^xsd:int .
+
+niiri:7a8727b45ba0d1d9809d83d6afaba387 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:e37d9920261de8039f51fb95dfc921a4
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0087" ;
+    nidm_clusterSizeInVoxels: "1"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.014611125196862"^^xsd:float ;
+    nidm_pValueUncorrected: "0.654533745817325"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999914"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "87"^^xsd:int .
+
+niiri:e37d9920261de8039f51fb95dfc921a4 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:69d9b433456370b7c1a9673758c8fe93
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0088" ;
+    nidm_clusterSizeInVoxels: "1"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.014611125196862"^^xsd:float ;
+    nidm_pValueUncorrected: "0.654533745817325"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999914"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "88"^^xsd:int .
+
+niiri:69d9b433456370b7c1a9673758c8fe93 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:f8f9f105adf5f8aecb1ef2a7b71b7a33
+    a prov:Entity, nidm_SupraThresholdCluster: ; 
+    rdfs:label "Supra-Threshold Cluster: 0089" ;
+    nidm_clusterSizeInVoxels: "1"^^xsd:int ;
+    nidm_clusterSizeInResels: "0.014611125196862"^^xsd:float ;
+    nidm_pValueUncorrected: "0.654533745817325"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999914"^^xsd:float ;
+    nidm_qValueFDR: "[]"^^xsd:float ;
+    nidm_clusterLabelId: "89"^^xsd:int .
+
+niiri:f8f9f105adf5f8aecb1ef2a7b71b7a33 prov:wasDerivedFrom niiri:693cbd3283b68002fb1375c234a7ba13 .
+
+niiri:93496da83c58096fe3cadb5c0a487eb8
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0001" ;
+    prov:atLocation niiri:42ca6d43b5feb478f133427c1a06d1fa ;
+    prov:value "16.0820484161377"^^xsd:float ;
+    nidm_equivalentZStatistic: "6.58928757769047"^^xsd:float ;
+    nidm_pValueUncorrected: "2.20971019260219e-11"^^xsd:float ;
+    nidm_pValueFWER: "4.59341100222943e-06"^^xsd:float ;
+    nidm_qValueFDR: "2.11792501803032e-06"^^xsd:float .
+
+niiri:42ca6d43b5feb478f133427c1a06d1fa
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0001" ;
+    nidm_coordinateVector: "[-14,-84,-14]"^^xsd:string .
+
+niiri:93496da83c58096fe3cadb5c0a487eb8 prov:wasDerivedFrom niiri:70b2003559708458bd92e73d3d3c7bf4 .
+
+niiri:9aa03bdba011795f1f4d5ac002e49c6c
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0002" ;
+    prov:atLocation niiri:a54d946bc00da59c9cfa1ed1e4c0a194 ;
+    prov:value "13.9779033660889"^^xsd:float ;
+    nidm_equivalentZStatistic: "6.11142244434854"^^xsd:float ;
+    nidm_pValueUncorrected: "4.93734941819923e-10"^^xsd:float ;
+    nidm_pValueFWER: "0.000102635598608014"^^xsd:float ;
+    nidm_qValueFDR: "5.60210458059015e-06"^^xsd:float .
+
+niiri:a54d946bc00da59c9cfa1ed1e4c0a194
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0002" ;
+    nidm_coordinateVector: "[-42,-76,-12]"^^xsd:string .
+
+niiri:9aa03bdba011795f1f4d5ac002e49c6c prov:wasDerivedFrom niiri:70b2003559708458bd92e73d3d3c7bf4 .
+
+niiri:bf83c25f85dbf8414669cb3b0b1360b4
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0003" ;
+    prov:atLocation niiri:c9f1ea6c398da29c68d0d98d7cd0a738 ;
+    prov:value "10.3123865127563"^^xsd:float ;
+    nidm_equivalentZStatistic: "5.1402197604635"^^xsd:float ;
+    nidm_pValueUncorrected: "1.3720866187672e-07"^^xsd:float ;
+    nidm_pValueFWER: "0.0248386091747108"^^xsd:float ;
+    nidm_qValueFDR: "0.000165827847161811"^^xsd:float .
+
+niiri:c9f1ea6c398da29c68d0d98d7cd0a738
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0003" ;
+    nidm_coordinateVector: "[-20,-90,8]"^^xsd:string .
+
+niiri:bf83c25f85dbf8414669cb3b0b1360b4 prov:wasDerivedFrom niiri:70b2003559708458bd92e73d3d3c7bf4 .
+
+niiri:01f425e6980b230ac084a97aaea6f38b
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0004" ;
+    prov:atLocation niiri:cf65d0a1b44e4d21b33bf5348cb46c49 ;
+    prov:value "13.7427864074707"^^xsd:float ;
+    nidm_equivalentZStatistic: "6.05489626279796"^^xsd:float ;
+    nidm_pValueUncorrected: "7.02540914332417e-10"^^xsd:float ;
+    nidm_pValueFWER: "0.000146041348950021"^^xsd:float ;
+    nidm_qValueFDR: "5.84165395800085e-06"^^xsd:float .
+
+niiri:cf65d0a1b44e4d21b33bf5348cb46c49
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0004" ;
+    nidm_coordinateVector: "[22,-98,10]"^^xsd:string .
+
+niiri:01f425e6980b230ac084a97aaea6f38b prov:wasDerivedFrom niiri:e2b47f512f66716985aee0fe421c3346 .
+
+niiri:9ce1726d88e8e968130e7c320e9c5c3c
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0005" ;
+    prov:atLocation niiri:3d64faa35ffe99daeb08c99ca68b0f5b ;
+    prov:value "12.7449989318848"^^xsd:float ;
+    nidm_equivalentZStatistic: "5.80709618365418"^^xsd:float ;
+    nidm_pValueUncorrected: "3.17828119378305e-09"^^xsd:float ;
+    nidm_pValueFWER: "0.000660688335281101"^^xsd:float ;
+    nidm_qValueFDR: "1.54333527599919e-05"^^xsd:float .
+
+niiri:3d64faa35ffe99daeb08c99ca68b0f5b
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0005" ;
+    nidm_coordinateVector: "[40,-76,-4]"^^xsd:string .
+
+niiri:9ce1726d88e8e968130e7c320e9c5c3c prov:wasDerivedFrom niiri:e2b47f512f66716985aee0fe421c3346 .
+
+niiri:4b1eff73e32776f0e2fb32014c8cb1a0
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0006" ;
+    prov:atLocation niiri:ae8b9eff557540ff9e2d82be8ca44920 ;
+    prov:value "11.9460592269897"^^xsd:float ;
+    nidm_equivalentZStatistic: "5.59865646408728"^^xsd:float ;
+    nidm_pValueUncorrected: "1.08009692301181e-08"^^xsd:float ;
+    nidm_pValueFWER: "0.00224526225660115"^^xsd:float ;
+    nidm_qValueFDR: "3.11841980083494e-05"^^xsd:float .
+
+niiri:ae8b9eff557540ff9e2d82be8ca44920
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0006" ;
+    nidm_coordinateVector: "[36,-86,8]"^^xsd:string .
+
+niiri:4b1eff73e32776f0e2fb32014c8cb1a0 prov:wasDerivedFrom niiri:e2b47f512f66716985aee0fe421c3346 .
+
+niiri:ce6df4e02afb3fb751ea9337acc129e5
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0007" ;
+    prov:atLocation niiri:fdb17142e8776e5e09fa077af54505c1 ;
+    prov:value "10.8997001647949"^^xsd:float ;
+    nidm_equivalentZStatistic: "5.31044487629651"^^xsd:float ;
+    nidm_pValueUncorrected: "5.46789791222579e-08"^^xsd:float ;
+    nidm_pValueFWER: "0.0109446324802115"^^xsd:float ;
+    nidm_qValueFDR: "8.7562484520721e-05"^^xsd:float .
+
+niiri:fdb17142e8776e5e09fa077af54505c1
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0007" ;
+    nidm_coordinateVector: "[32,-66,32]"^^xsd:string .
+
+niiri:ce6df4e02afb3fb751ea9337acc129e5 prov:wasDerivedFrom niiri:3c6dd5e94db642fc0c6313fade61752c .
+
+niiri:cf1ae1b8dbb977bd43ccd87582ce99ef
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0008" ;
+    prov:atLocation niiri:9f73dfd775133cf752b6fee383b6a816 ;
+    prov:value "5.45807838439941"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.39070148271528"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000348569950826771"^^xsd:float ;
+    nidm_pValueFWER: "0.999999998685327"^^xsd:float ;
+    nidm_qValueFDR: "0.0335543570769498"^^xsd:float .
+
+niiri:9f73dfd775133cf752b6fee383b6a816
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0008" ;
+    nidm_coordinateVector: "[32,-74,38]"^^xsd:string .
+
+niiri:cf1ae1b8dbb977bd43ccd87582ce99ef prov:wasDerivedFrom niiri:3c6dd5e94db642fc0c6313fade61752c .
+
+niiri:feca1010bcfc4933755ffba31c61684b
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0009" ;
+    prov:atLocation niiri:e405f5885f3ea041f0fbd1d1a38116d6 ;
+    prov:value "10.0041055679321"^^xsd:float ;
+    nidm_equivalentZStatistic: "5.04819646859005"^^xsd:float ;
+    nidm_pValueUncorrected: "2.23000182986155e-07"^^xsd:float ;
+    nidm_pValueFWER: "0.0380835451252286"^^xsd:float ;
+    nidm_qValueFDR: "0.000232018725953295"^^xsd:float .
+
+niiri:e405f5885f3ea041f0fbd1d1a38116d6
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0009" ;
+    nidm_coordinateVector: "[-30,-74,26]"^^xsd:string .
+
+niiri:feca1010bcfc4933755ffba31c61684b prov:wasDerivedFrom niiri:13dc91c36d42d9c0075971b7e2e4340a .
+
+niiri:bb52dac57682aa53c4dcc159d57cd756
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0010" ;
+    prov:atLocation niiri:60ef24b2768423f042d35e46f16fce54 ;
+    prov:value "9.62718677520752"^^xsd:float ;
+    nidm_equivalentZStatistic: "4.933015925023"^^xsd:float ;
+    nidm_pValueUncorrected: "4.04847753543436e-07"^^xsd:float ;
+    nidm_pValueFWER: "0.063890884133409"^^xsd:float ;
+    nidm_qValueFDR: "0.000364320989617512"^^xsd:float .
+
+niiri:60ef24b2768423f042d35e46f16fce54
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0010" ;
+    nidm_coordinateVector: "[-42,24,20]"^^xsd:string .
+
+niiri:bb52dac57682aa53c4dcc159d57cd756 prov:wasDerivedFrom niiri:63baaa25c1850e25ff8b59437cf378c6 .
+
+niiri:1bec17a9f9ed5b6df70b776d93da494f
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0011" ;
+    prov:atLocation niiri:ec0b37c67b2fb07a2714322846d4b004 ;
+    prov:value "8.07208061218262"^^xsd:float ;
+    nidm_equivalentZStatistic: "4.42255808855286"^^xsd:float ;
+    nidm_pValueUncorrected: "4.87695566220303e-06"^^xsd:float ;
+    nidm_pValueFWER: "0.443484796305441"^^xsd:float ;
+    nidm_qValueFDR: "0.00197238230997959"^^xsd:float .
+
+niiri:ec0b37c67b2fb07a2714322846d4b004
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0011" ;
+    nidm_coordinateVector: "[-50,28,22]"^^xsd:string .
+
+niiri:1bec17a9f9ed5b6df70b776d93da494f prov:wasDerivedFrom niiri:63baaa25c1850e25ff8b59437cf378c6 .
+
+niiri:4398173eefb4e1c6b6311db6e2849a12
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0012" ;
+    prov:atLocation niiri:640ace8062dc20b9f4349cee1bffe196 ;
+    prov:value "9.20645141601562"^^xsd:float ;
+    nidm_equivalentZStatistic: "4.80076510146651"^^xsd:float ;
+    nidm_pValueUncorrected: "7.90302914999153e-07"^^xsd:float ;
+    nidm_pValueFWER: "0.112525268059434"^^xsd:float ;
+    nidm_qValueFDR: "0.000576835659463966"^^xsd:float .
+
+niiri:640ace8062dc20b9f4349cee1bffe196
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0012" ;
+    nidm_coordinateVector: "[-50,8,42]"^^xsd:string .
+
+niiri:4398173eefb4e1c6b6311db6e2849a12 prov:wasDerivedFrom niiri:938d8c88ecfbbf04abff04ec2e6740f3 .
+
+niiri:894a5ac410c5e9f3cf47f79619bb0060
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0013" ;
+    prov:atLocation niiri:641ff8bf09bceeb5eaacb8a965cbdf20 ;
+    prov:value "7.18871355056763"^^xsd:float ;
+    nidm_equivalentZStatistic: "4.10255932739581"^^xsd:float ;
+    nidm_pValueUncorrected: "2.04302517635702e-05"^^xsd:float ;
+    nidm_pValueFWER: "0.864381142749573"^^xsd:float ;
+    nidm_qValueFDR: "0.00518559511521378"^^xsd:float .
+
+niiri:641ff8bf09bceeb5eaacb8a965cbdf20
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0013" ;
+    nidm_coordinateVector: "[-52,2,48]"^^xsd:string .
+
+niiri:894a5ac410c5e9f3cf47f79619bb0060 prov:wasDerivedFrom niiri:938d8c88ecfbbf04abff04ec2e6740f3 .
+
+niiri:ac4cea7f8f1bb0436e917fcc6be779b5
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0014" ;
+    prov:atLocation niiri:8dc4cf1d1a8139a657dd64adfcd3144a ;
+    prov:value "8.94470500946045"^^xsd:float ;
+    nidm_equivalentZStatistic: "4.71641138081763"^^xsd:float ;
+    nidm_pValueUncorrected: "1.20020424165812e-06"^^xsd:float ;
+    nidm_pValueFWER: "0.158435738485403"^^xsd:float ;
+    nidm_qValueFDR: "0.000760651849406736"^^xsd:float .
+
+niiri:8dc4cf1d1a8139a657dd64adfcd3144a
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0014" ;
+    nidm_coordinateVector: "[-24,-64,66]"^^xsd:string .
+
+niiri:ac4cea7f8f1bb0436e917fcc6be779b5 prov:wasDerivedFrom niiri:86d427d519cd54a38aa4d9fc15de80c3 .
+
+niiri:fd225bac392b7701cbc27894453e59cd
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0015" ;
+    prov:atLocation niiri:9fa66d81c9808501c94e931069a39ba8 ;
+    prov:value "7.5668888092041"^^xsd:float ;
+    nidm_equivalentZStatistic: "4.24258939908316"^^xsd:float ;
+    nidm_pValueUncorrected: "1.10477738578529e-05"^^xsd:float ;
+    nidm_pValueFWER: "0.693995702855766"^^xsd:float ;
+    nidm_qValueFDR: "0.0033973072847523"^^xsd:float .
+
+niiri:9fa66d81c9808501c94e931069a39ba8
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0015" ;
+    nidm_coordinateVector: "[-32,-56,62]"^^xsd:string .
+
+niiri:fd225bac392b7701cbc27894453e59cd prov:wasDerivedFrom niiri:86d427d519cd54a38aa4d9fc15de80c3 .
+
+niiri:ff15ef5ba6e10aebe3cbaa8d04230787
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0016" ;
+    prov:atLocation niiri:5fde917c842a1c2f12d320e49a0fe31b ;
+    prov:value "8.42212200164795"^^xsd:float ;
+    nidm_equivalentZStatistic: "4.54288070436711"^^xsd:float ;
+    nidm_pValueUncorrected: "2.77453287811369e-06"^^xsd:float ;
+    nidm_pValueFWER: "0.301737952159247"^^xsd:float ;
+    nidm_qValueFDR: "0.00135672565933354"^^xsd:float .
+
+niiri:5fde917c842a1c2f12d320e49a0fe31b
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0016" ;
+    nidm_coordinateVector: "[22,-52,4]"^^xsd:string .
+
+niiri:ff15ef5ba6e10aebe3cbaa8d04230787 prov:wasDerivedFrom niiri:d23334e15ca989a88f18103920c37202 .
+
+niiri:9bd16aac89c993320304c9eb63a87b57
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0017" ;
+    prov:atLocation niiri:48c2cd130bbd6d709ab32816cec618a4 ;
+    prov:value "8.14441299438477"^^xsd:float ;
+    nidm_equivalentZStatistic: "4.44770400954001"^^xsd:float ;
+    nidm_pValueUncorrected: "4.33965069324138e-06"^^xsd:float ;
+    nidm_pValueFWER: "0.411238149698711"^^xsd:float ;
+    nidm_qValueFDR: "0.00180683059312593"^^xsd:float .
+
+niiri:48c2cd130bbd6d709ab32816cec618a4
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0017" ;
+    nidm_coordinateVector: "[-36,-54,-22]"^^xsd:string .
+
+niiri:9bd16aac89c993320304c9eb63a87b57 prov:wasDerivedFrom niiri:34d7407deceb41bb05814c58f568aa8a .
+
+niiri:fb27062a0582a1fce60d6928817c662a
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0018" ;
+    prov:atLocation niiri:bdb8026c36f785eb5ec07f08ef6cfdc0 ;
+    prov:value "7.75212860107422"^^xsd:float ;
+    nidm_equivalentZStatistic: "4.30948435197428"^^xsd:float ;
+    nidm_pValueUncorrected: "8.18178178840778e-06"^^xsd:float ;
+    nidm_pValueFWER: "0.599664226758408"^^xsd:float ;
+    nidm_qValueFDR: "0.00278317762946249"^^xsd:float .
+
+niiri:bdb8026c36f785eb5ec07f08ef6cfdc0
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0018" ;
+    nidm_coordinateVector: "[10,-66,-50]"^^xsd:string .
+
+niiri:fb27062a0582a1fce60d6928817c662a prov:wasDerivedFrom niiri:f11390729469ff5ad94b49a0bdfa4678 .
+
+niiri:657347798992bf8f9378fd7636cc0927
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0019" ;
+    prov:atLocation niiri:0b4836f180573c7e2a074a4b6a46c52f ;
+    prov:value "6.59869337081909"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.87398612970452"^^xsd:float ;
+    nidm_pValueUncorrected: "5.35347545974618e-05"^^xsd:float ;
+    nidm_pValueFWER: "0.988687386127249"^^xsd:float ;
+    nidm_qValueFDR: "0.0099990013840748"^^xsd:float .
+
+niiri:0b4836f180573c7e2a074a4b6a46c52f
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0019" ;
+    nidm_coordinateVector: "[26,-72,-50]"^^xsd:string .
+
+niiri:657347798992bf8f9378fd7636cc0927 prov:wasDerivedFrom niiri:f11390729469ff5ad94b49a0bdfa4678 .
+
+niiri:a44b6a2efc6f9acbbcaf0464ac5a681d
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0020" ;
+    prov:atLocation niiri:56f5ddfaab043af81b9608b017d7f1b7 ;
+    prov:value "6.09796094894409"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.6691747416434"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000121667358184974"^^xsd:float ;
+    nidm_pValueFWER: "0.999849800966092"^^xsd:float ;
+    nidm_qValueFDR: "0.0170443244379802"^^xsd:float .
+
+niiri:56f5ddfaab043af81b9608b017d7f1b7
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0020" ;
+    nidm_coordinateVector: "[16,-72,-50]"^^xsd:string .
+
+niiri:a44b6a2efc6f9acbbcaf0464ac5a681d prov:wasDerivedFrom niiri:f11390729469ff5ad94b49a0bdfa4678 .
+
+niiri:c23aa344df3dfb68c6df15d4b9de0b49
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0021" ;
+    prov:atLocation niiri:98a12d2cc55f8a4d4c0966b703d77ddc ;
+    prov:value "7.67598438262939"^^xsd:float ;
+    nidm_equivalentZStatistic: "4.28211703257948"^^xsd:float ;
+    nidm_pValueUncorrected: "9.25617831770698e-06"^^xsd:float ;
+    nidm_pValueFWER: "0.638571937641115"^^xsd:float ;
+    nidm_qValueFDR: "0.00302106969058158"^^xsd:float .
+
+niiri:98a12d2cc55f8a4d4c0966b703d77ddc
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0021" ;
+    nidm_coordinateVector: "[42,-22,66]"^^xsd:string .
+
+niiri:c23aa344df3dfb68c6df15d4b9de0b49 prov:wasDerivedFrom niiri:ccdacac7fbef86b94a12c5dabbf08bc2 .
+
+niiri:10eae58327bef44f83f5eadf77bf2b29
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0022" ;
+    prov:atLocation niiri:37e955e48e516a624990fe7106e561e6 ;
+    prov:value "6.16005897521973"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.6951610937944"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000109873708078023"^^xsd:float ;
+    nidm_pValueFWER: "0.999696971784475"^^xsd:float ;
+    nidm_qValueFDR: "0.0160177852706299"^^xsd:float .
+
+niiri:37e955e48e516a624990fe7106e561e6
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0022" ;
+    nidm_coordinateVector: "[48,-18,62]"^^xsd:string .
+
+niiri:10eae58327bef44f83f5eadf77bf2b29 prov:wasDerivedFrom niiri:ccdacac7fbef86b94a12c5dabbf08bc2 .
+
+niiri:cd26ddfc926406425c12a65ed0b6edd3
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0023" ;
+    prov:atLocation niiri:4fc105ae0a05d4f9532f7a6138101892 ;
+    prov:value "7.57218790054321"^^xsd:float ;
+    nidm_equivalentZStatistic: "4.24451811148991"^^xsd:float ;
+    nidm_pValueUncorrected: "1.09531837353405e-05"^^xsd:float ;
+    nidm_pValueFWER: "0.691329596120285"^^xsd:float ;
+    nidm_qValueFDR: "0.00338801480937036"^^xsd:float .
+
+niiri:4fc105ae0a05d4f9532f7a6138101892
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0023" ;
+    nidm_coordinateVector: "[30,-36,-22]"^^xsd:string .
+
+niiri:cd26ddfc926406425c12a65ed0b6edd3 prov:wasDerivedFrom niiri:13403d7573cd820266b83ff32d0e9707 .
+
+niiri:e2ba3fc6a82344eb16652a1045af15c4
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0024" ;
+    prov:atLocation niiri:415b77645b7cdae17b8ad758f5eb8b8d ;
+    prov:value "7.4740514755249"^^xsd:float ;
+    nidm_equivalentZStatistic: "4.20865253327564"^^xsd:float ;
+    nidm_pValueUncorrected: "1.28449040975864e-05"^^xsd:float ;
+    nidm_pValueFWER: "0.739935004547452"^^xsd:float ;
+    nidm_qValueFDR: "0.00374497115452541"^^xsd:float .
+
+niiri:415b77645b7cdae17b8ad758f5eb8b8d
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0024" ;
+    nidm_coordinateVector: "[22,-70,60]"^^xsd:string .
+
+niiri:e2ba3fc6a82344eb16652a1045af15c4 prov:wasDerivedFrom niiri:d86187d8105730183f4e8c029a41bf61 .
+
+niiri:082452054c3dd5d2af374fa654347080
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0025" ;
+    prov:atLocation niiri:799c9d89567bb44e19c70580446205dc ;
+    prov:value "7.42476272583008"^^xsd:float ;
+    nidm_equivalentZStatistic: "4.19052086074216"^^xsd:float ;
+    nidm_pValueUncorrected: "1.39157412012425e-05"^^xsd:float ;
+    nidm_pValueFWER: "0.76353829505901"^^xsd:float ;
+    nidm_qValueFDR: "0.00397904916843096"^^xsd:float .
+
+niiri:799c9d89567bb44e19c70580446205dc
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0025" ;
+    nidm_coordinateVector: "[14,-44,-2]"^^xsd:string .
+
+niiri:082452054c3dd5d2af374fa654347080 prov:wasDerivedFrom niiri:67556c87393c94a727ee0b764b5d8856 .
+
+niiri:76c802f08b9291304a2b64e88d09d6f7
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0026" ;
+    prov:atLocation niiri:7163eea4c853502750a9407c735c9e3c ;
+    prov:value "7.41156482696533"^^xsd:float ;
+    nidm_equivalentZStatistic: "4.1856522195161"^^xsd:float ;
+    nidm_pValueUncorrected: "1.42174217934166e-05"^^xsd:float ;
+    nidm_pValueFWER: "0.76974170216107"^^xsd:float ;
+    nidm_qValueFDR: "0.00404779744790916"^^xsd:float .
+
+niiri:7163eea4c853502750a9407c735c9e3c
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0026" ;
+    nidm_coordinateVector: "[0,-22,66]"^^xsd:string .
+
+niiri:76c802f08b9291304a2b64e88d09d6f7 prov:wasDerivedFrom niiri:8832fdb39eea98ef7aabb68883c63c22 .
+
+niiri:cca01f107697356a1cefd866ab455a05
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0027" ;
+    prov:atLocation niiri:0153ac1615e7c9789d415c65e4851eae ;
+    prov:value "7.3316125869751"^^xsd:float ;
+    nidm_equivalentZStatistic: "4.15603434431885"^^xsd:float ;
+    nidm_pValueUncorrected: "1.61909583913378e-05"^^xsd:float ;
+    nidm_pValueFWER: "0.806071531912271"^^xsd:float ;
+    nidm_qValueFDR: "0.00442558415624652"^^xsd:float .
+
+niiri:0153ac1615e7c9789d415c65e4851eae
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0027" ;
+    nidm_coordinateVector: "[-40,-26,-22]"^^xsd:string .
+
+niiri:cca01f107697356a1cefd866ab455a05 prov:wasDerivedFrom niiri:0a733ee37ab9d8fc5554d22235fb2ebb .
+
+niiri:f91b302604a192f5e4846ca6deb35991
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0028" ;
+    prov:atLocation niiri:e6c18a21b0838652b0739046d24d8b3c ;
+    prov:value "7.15871143341064"^^xsd:float ;
+    nidm_equivalentZStatistic: "4.09124266610495"^^xsd:float ;
+    nidm_pValueUncorrected: "2.14533936502281e-05"^^xsd:float ;
+    nidm_pValueFWER: "0.875348981068006"^^xsd:float ;
+    nidm_qValueFDR: "0.00534735431216318"^^xsd:float .
+
+niiri:e6c18a21b0838652b0739046d24d8b3c
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0028" ;
+    nidm_coordinateVector: "[-48,-42,58]"^^xsd:string .
+
+niiri:f91b302604a192f5e4846ca6deb35991 prov:wasDerivedFrom niiri:20f7a6809dd02ee80d08c981d7533384 .
+
+niiri:71d9ea403ed4487a2c2fcef870a5a99d
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0029" ;
+    prov:atLocation niiri:1dcc0de807471f00991bddcea168b316 ;
+    prov:value "7.11809158325195"^^xsd:float ;
+    nidm_equivalentZStatistic: "4.075870818357"^^xsd:float ;
+    nidm_pValueUncorrected: "2.29212322924166e-05"^^xsd:float ;
+    nidm_pValueFWER: "0.889420975253515"^^xsd:float ;
+    nidm_qValueFDR: "0.00557942469794563"^^xsd:float .
+
+niiri:1dcc0de807471f00991bddcea168b316
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0029" ;
+    nidm_coordinateVector: "[-40,-34,66]"^^xsd:string .
+
+niiri:71d9ea403ed4487a2c2fcef870a5a99d prov:wasDerivedFrom niiri:c1ebe6af3636d8119b6c8c898bc0b9cd .
+
+niiri:2a3f1962b93cf1ec51d9f9ce82b5b379
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0030" ;
+    prov:atLocation niiri:4f5bb05f88295472d544372f5353ad67 ;
+    prov:value "7.07621002197266"^^xsd:float ;
+    nidm_equivalentZStatistic: "4.05996049269805"^^xsd:float ;
+    nidm_pValueUncorrected: "2.45405099345009e-05"^^xsd:float ;
+    nidm_pValueFWER: "0.902960652497904"^^xsd:float ;
+    nidm_qValueFDR: "0.00587047829619361"^^xsd:float .
+
+niiri:4f5bb05f88295472d544372f5353ad67
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0030" ;
+    nidm_coordinateVector: "[-28,-64,36]"^^xsd:string .
+
+niiri:2a3f1962b93cf1ec51d9f9ce82b5b379 prov:wasDerivedFrom niiri:f967cba917487022842df44264a09b9a .
+
+niiri:b06959bff99e3cecbbed58938eb1d757
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0031" ;
+    prov:atLocation niiri:8a18e9b312dde5cee1fe6ad6a5724104 ;
+    prov:value "6.77566051483154"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.94391444392688"^^xsd:float ;
+    nidm_pValueUncorrected: "4.0081133562353e-05"^^xsd:float ;
+    nidm_pValueFWER: "0.970449378854534"^^xsd:float ;
+    nidm_qValueFDR: "0.0083237489519884"^^xsd:float .
+
+niiri:8a18e9b312dde5cee1fe6ad6a5724104
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0031" ;
+    nidm_coordinateVector: "[56,-14,52]"^^xsd:string .
+
+niiri:b06959bff99e3cecbbed58938eb1d757 prov:wasDerivedFrom niiri:dead248e9a831f2d39ed43c1307d7a6f .
+
+niiri:881cc335773de76e9b8662888bd13ac4
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0032" ;
+    prov:atLocation niiri:7ef0341d12f7ee676f32a2804a1f717b ;
+    prov:value "6.75197219848633"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.9346244929229"^^xsd:float ;
+    nidm_pValueUncorrected: "4.16634347842892e-05"^^xsd:float ;
+    nidm_pValueFWER: "0.973679338420771"^^xsd:float ;
+    nidm_qValueFDR: "0.00848286835858746"^^xsd:float .
+
+niiri:7ef0341d12f7ee676f32a2804a1f717b
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0032" ;
+    nidm_coordinateVector: "[-40,56,6]"^^xsd:string .
+
+niiri:881cc335773de76e9b8662888bd13ac4 prov:wasDerivedFrom niiri:63395ba4fe844e99193e44b8b12c407b .
+
+niiri:09bb3c77498b130e8126aa61c345d374
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0033" ;
+    prov:atLocation niiri:0d5aad91f5d1c2bbd1f6c0c9a4531565 ;
+    prov:value "5.62889766693115"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.4670438729023"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000263107996845591"^^xsd:float ;
+    nidm_pValueFWER: "0.999999922471127"^^xsd:float ;
+    nidm_qValueFDR: "0.0280636167791234"^^xsd:float .
+
+niiri:0d5aad91f5d1c2bbd1f6c0c9a4531565
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0033" ;
+    nidm_coordinateVector: "[-34,62,8]"^^xsd:string .
+
+niiri:09bb3c77498b130e8126aa61c345d374 prov:wasDerivedFrom niiri:63395ba4fe844e99193e44b8b12c407b .
+
+niiri:e045c46e40d2c8576a9a4ec0c1c78184
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0034" ;
+    prov:atLocation niiri:372489fa8f3b978b7aed90c95f4b72f1 ;
+    prov:value "6.72361373901367"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.92347467532863"^^xsd:float ;
+    nidm_pValueUncorrected: "4.3640471964479e-05"^^xsd:float ;
+    nidm_pValueFWER: "0.977197537328254"^^xsd:float ;
+    nidm_qValueFDR: "0.00877369894078824"^^xsd:float .
+
+niiri:372489fa8f3b978b7aed90c95f4b72f1
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0034" ;
+    nidm_coordinateVector: "[-4,-52,6]"^^xsd:string .
+
+niiri:e045c46e40d2c8576a9a4ec0c1c78184 prov:wasDerivedFrom niiri:9e473a48bfa3001fcf429b2b016fa5ea .
+
+niiri:78929640a7507b3952794c1ba644e2bc
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0035" ;
+    prov:atLocation niiri:26d159fdd349355fe8abf9a0d1ce02cb ;
+    prov:value "5.89449167251587"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.58279190167641"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000169970706923372"^^xsd:float ;
+    nidm_pValueFWER: "0.999990278549049"^^xsd:float ;
+    nidm_qValueFDR: "0.0210834330463974"^^xsd:float .
+
+niiri:26d159fdd349355fe8abf9a0d1ce02cb
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0035" ;
+    nidm_coordinateVector: "[-8,-56,0]"^^xsd:string .
+
+niiri:78929640a7507b3952794c1ba644e2bc prov:wasDerivedFrom niiri:9e473a48bfa3001fcf429b2b016fa5ea .
+
+niiri:b818f50374f62975097a22b686287afc
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0036" ;
+    prov:atLocation niiri:fc3fb595563fd02fd5c9c620a0e410ac ;
+    prov:value "6.7043924331665"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.91589968256295"^^xsd:float ;
+    nidm_pValueUncorrected: "4.5033848123488e-05"^^xsd:float ;
+    nidm_pValueFWER: "0.979375630051391"^^xsd:float ;
+    nidm_qValueFDR: "0.00887748685076858"^^xsd:float .
+
+niiri:fc3fb595563fd02fd5c9c620a0e410ac
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0036" ;
+    nidm_coordinateVector: "[50,-64,-6]"^^xsd:string .
+
+niiri:b818f50374f62975097a22b686287afc prov:wasDerivedFrom niiri:66117305de42f7fc8878b963008d257b .
+
+niiri:657fc4be25ff87694be73a716d31ee88
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0037" ;
+    prov:atLocation niiri:d579053f7af762590e2159cb63c3702b ;
+    prov:value "6.67913484573364"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.90592399967592"^^xsd:float ;
+    nidm_pValueUncorrected: "4.6933006303207e-05"^^xsd:float ;
+    nidm_pValueFWER: "0.981996459937482"^^xsd:float ;
+    nidm_qValueFDR: "0.00914383746051283"^^xsd:float .
+
+niiri:d579053f7af762590e2159cb63c3702b
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0037" ;
+    nidm_coordinateVector: "[-34,-40,36]"^^xsd:string .
+
+niiri:657fc4be25ff87694be73a716d31ee88 prov:wasDerivedFrom niiri:4b2de1d700d8a7f369f0417da0db1e66 .
+
+niiri:404282759712923e7380deda715286f5
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0038" ;
+    prov:atLocation niiri:b42605abec5347a0ce7def763b3054e4 ;
+    prov:value "6.64170026779175"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.89109301638303"^^xsd:float ;
+    nidm_pValueUncorrected: "4.98968323957572e-05"^^xsd:float ;
+    nidm_pValueFWER: "0.985407255166263"^^xsd:float ;
+    nidm_qValueFDR: "0.00949872959107623"^^xsd:float .
+
+niiri:b42605abec5347a0ce7def763b3054e4
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0038" ;
+    nidm_coordinateVector: "[22,10,-12]"^^xsd:string .
+
+niiri:404282759712923e7380deda715286f5 prov:wasDerivedFrom niiri:f5ac935852ea4b1b9fed377c2aeb3b18 .
+
+niiri:445cd2ad209dc7d0f5567e57dbfdbe57
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0039" ;
+    prov:atLocation niiri:04c6ede1d05f4dda32d567b98428ef09 ;
+    prov:value "5.66292333602905"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.48206928174656"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000248777471726358"^^xsd:float ;
+    nidm_pValueFWER: "0.999999841793879"^^xsd:float ;
+    nidm_qValueFDR: "0.0270792144117247"^^xsd:float .
+
+niiri:04c6ede1d05f4dda32d567b98428ef09
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0039" ;
+    nidm_coordinateVector: "[22,10,2]"^^xsd:string .
+
+niiri:445cd2ad209dc7d0f5567e57dbfdbe57 prov:wasDerivedFrom niiri:f5ac935852ea4b1b9fed377c2aeb3b18 .
+
+niiri:94f93090d947e5f3aba6f6e0ea3e792c
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0040" ;
+    prov:atLocation niiri:3a2a3e242401e1324c7a782c7dac5ea8 ;
+    prov:value "6.58932304382324"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.87024913662237"^^xsd:float ;
+    nidm_pValueUncorrected: "5.43620931486855e-05"^^xsd:float ;
+    nidm_pValueFWER: "0.9893188063809"^^xsd:float ;
+    nidm_qValueFDR: "0.0101197978315716"^^xsd:float .
+
+niiri:3a2a3e242401e1324c7a782c7dac5ea8
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0040" ;
+    nidm_coordinateVector: "[16,-8,20]"^^xsd:string .
+
+niiri:94f93090d947e5f3aba6f6e0ea3e792c prov:wasDerivedFrom niiri:e0f3dfa1c85357af4b401994ac38769b .
+
+niiri:22544d4fd0e5f5fc386047416e17946e
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0041" ;
+    prov:atLocation niiri:bc0e92bfb4bdfcd2e81499112ddfb5ad ;
+    prov:value "6.53873300552368"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.8500124840786"^^xsd:float ;
+    nidm_pValueUncorrected: "5.90559022480841e-05"^^xsd:float ;
+    nidm_pValueFWER: "0.992265133018752"^^xsd:float ;
+    nidm_qValueFDR: "0.0107045232421608"^^xsd:float .
+
+niiri:bc0e92bfb4bdfcd2e81499112ddfb5ad
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0041" ;
+    nidm_coordinateVector: "[28,-48,72]"^^xsd:string .
+
+niiri:22544d4fd0e5f5fc386047416e17946e prov:wasDerivedFrom niiri:614c41139aa842cbd80a44616011d080 .
+
+niiri:b4dcf253fb98a7d02af8a6095383dec3
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0042" ;
+    prov:atLocation niiri:8e8dae887c8bcbc322df68e9e8618d47 ;
+    prov:value "6.41633129119873"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.80061969992356"^^xsd:float ;
+    nidm_pValueUncorrected: "7.2167337301976e-05"^^xsd:float ;
+    nidm_pValueFWER: "0.996780557608903"^^xsd:float ;
+    nidm_qValueFDR: "0.0122368668491247"^^xsd:float .
+
+niiri:8e8dae887c8bcbc322df68e9e8618d47
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0042" ;
+    nidm_coordinateVector: "[30,-48,-18]"^^xsd:string .
+
+niiri:b4dcf253fb98a7d02af8a6095383dec3 prov:wasDerivedFrom niiri:c8f3c9da99d7be6a54c536483f0ca346 .
+
+niiri:8fce2c8eb72bd4713a99a07479eb885c
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0043" ;
+    prov:atLocation niiri:9663f7df7f5469003782e730408ea356 ;
+    prov:value "6.32824850082397"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.764690456476"^^xsd:float ;
+    nidm_pValueUncorrected: "8.33777634952071e-05"^^xsd:float ;
+    nidm_pValueFWER: "0.998439799137585"^^xsd:float ;
+    nidm_qValueFDR: "0.0133433091347082"^^xsd:float .
+
+niiri:9663f7df7f5469003782e730408ea356
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0043" ;
+    nidm_coordinateVector: "[34,64,-2]"^^xsd:string .
+
+niiri:8fce2c8eb72bd4713a99a07479eb885c prov:wasDerivedFrom niiri:cf1f683799f80f149702b64601072e25 .
+
+niiri:6375e0c71e69ce7d6e7030ad6eedc08c
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0044" ;
+    prov:atLocation niiri:2812d75f861602f532b1d54b4fb4714b ;
+    prov:value "6.23233604431152"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.72519134385979"^^xsd:float ;
+    nidm_pValueUncorrected: "9.75835625125487e-05"^^xsd:float ;
+    nidm_pValueFWER: "0.999359408722565"^^xsd:float ;
+    nidm_qValueFDR: "0.0147821614629234"^^xsd:float .
+
+niiri:2812d75f861602f532b1d54b4fb4714b
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0044" ;
+    nidm_coordinateVector: "[-42,44,26]"^^xsd:string .
+
+niiri:6375e0c71e69ce7d6e7030ad6eedc08c prov:wasDerivedFrom niiri:fcfdc3edc7e7cbb46b2a5e7bd6a60b5a .
+
+niiri:82ccc891a4305f319cce2fc0f607ed1d
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0045" ;
+    prov:atLocation niiri:e8db766a541deb9a4c6852ac44059437 ;
+    prov:value "6.06225728988647"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.6541549978965"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000129015181687619"^^xsd:float ;
+    nidm_pValueFWER: "0.999902284410057"^^xsd:float ;
+    nidm_qValueFDR: "0.0177419633224147"^^xsd:float .
+
+niiri:e8db766a541deb9a4c6852ac44059437
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0045" ;
+    nidm_coordinateVector: "[0,-10,76]"^^xsd:string .
+
+niiri:82ccc891a4305f319cce2fc0f607ed1d prov:wasDerivedFrom niiri:c6b09785e79116c69c0d566f14508194 .
+
+niiri:4bc015637a25e94d5335a5387464938f
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0046" ;
+    prov:atLocation niiri:c5afe2e92d4baf5644d912e4354b4143 ;
+    prov:value "6.03189373016357"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.64133598155782"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000135613449379846"^^xsd:float ;
+    nidm_pValueFWER: "0.999933280387137"^^xsd:float ;
+    nidm_qValueFDR: "0.0183426760576609"^^xsd:float .
+
+niiri:c5afe2e92d4baf5644d912e4354b4143
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0046" ;
+    nidm_coordinateVector: "[34,-16,-12]"^^xsd:string .
+
+niiri:4bc015637a25e94d5335a5387464938f prov:wasDerivedFrom niiri:b62d08e7f48d3b48c3d3470c4864b0f5 .
+
+niiri:c7e58eb2aceb0dab12765c4d98d82b9e
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0047" ;
+    prov:atLocation niiri:8f1b0a8e1b537455e75ed1f53fc5590f ;
+    prov:value "6.02538537979126"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.63858275251093"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000137071270502886"^^xsd:float ;
+    nidm_pValueFWER: "0.999938640797957"^^xsd:float ;
+    nidm_qValueFDR: "0.0183962430264957"^^xsd:float .
+
+niiri:8f1b0a8e1b537455e75ed1f53fc5590f
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0047" ;
+    nidm_coordinateVector: "[6,-80,-22]"^^xsd:string .
+
+niiri:c7e58eb2aceb0dab12765c4d98d82b9e prov:wasDerivedFrom niiri:820eae4f2ecfa96c61f16f68989e60f2 .
+
+niiri:7c6c80d6afc552a312faa863484d1e87
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0048" ;
+    prov:atLocation niiri:ed391688f38f5280aa723ad94fb9890d ;
+    prov:value "5.95283126831055"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.60775727167743"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000154427613028529"^^xsd:float ;
+    nidm_pValueFWER: "0.999977036852347"^^xsd:float ;
+    nidm_qValueFDR: "0.0199653441808624"^^xsd:float .
+
+niiri:ed391688f38f5280aa723ad94fb9890d
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0048" ;
+    nidm_coordinateVector: "[-26,-38,-52]"^^xsd:string .
+
+niiri:7c6c80d6afc552a312faa863484d1e87 prov:wasDerivedFrom niiri:0c814c8aa73eb23edb6b0bdf05d875b9 .
+
+niiri:4ab14068789abfafe4a80670e95fbd0f
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0049" ;
+    prov:atLocation niiri:99fa92cce75080e4308b5d4b51ae0f66 ;
+    prov:value "5.9493842124939"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.60628663469786"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000155305014835405"^^xsd:float ;
+    nidm_pValueFWER: "0.999978135328144"^^xsd:float ;
+    nidm_qValueFDR: "0.0200343508975978"^^xsd:float .
+
+niiri:99fa92cce75080e4308b5d4b51ae0f66
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0049" ;
+    nidm_coordinateVector: "[32,-52,46]"^^xsd:string .
+
+niiri:4ab14068789abfafe4a80670e95fbd0f prov:wasDerivedFrom niiri:3237418b7d965d5533963a3817c7547f .
+
+niiri:c5e8312043c11a120970a62496ae9d72
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0050" ;
+    prov:atLocation niiri:0e6a5cde3992a2f46e103d9f26d781ee ;
+    prov:value "5.90739822387695"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.58832892416593"^^xsd:float ;
+    nidm_pValueUncorrected: "0.00016640212943575"^^xsd:float ;
+    nidm_pValueFWER: "0.999988176695278"^^xsd:float ;
+    nidm_qValueFDR: "0.0208396911967648"^^xsd:float .
+
+niiri:0e6a5cde3992a2f46e103d9f26d781ee
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0050" ;
+    nidm_coordinateVector: "[20,58,6]"^^xsd:string .
+
+niiri:c5e8312043c11a120970a62496ae9d72 prov:wasDerivedFrom niiri:479583c290f59d278781273768ba65dc .
+
+niiri:b6a20083300f6de427709519fa96ff08
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0051" ;
+    prov:atLocation niiri:1fbdc4f79b52339c73cb35f1986d9dbd ;
+    prov:value "5.88568687438965"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.57901000852841"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000172449130450447"^^xsd:float ;
+    nidm_pValueFWER: "0.999991509605729"^^xsd:float ;
+    nidm_qValueFDR: "0.0213019172775607"^^xsd:float .
+
+niiri:1fbdc4f79b52339c73cb35f1986d9dbd
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0051" ;
+    nidm_coordinateVector: "[-28,-70,-52]"^^xsd:string .
+
+niiri:b6a20083300f6de427709519fa96ff08 prov:wasDerivedFrom niiri:609da3fb63ae9918c3e77a08cdb6cfc2 .
+
+niiri:31767e616570435641f143cae011f953
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0052" ;
+    prov:atLocation niiri:080ac45360879294e37c6287d22fd8b3 ;
+    prov:value "5.88288545608521"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.57780594841694"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000173245266573252"^^xsd:float ;
+    nidm_pValueFWER: "0.999991870214044"^^xsd:float ;
+    nidm_qValueFDR: "0.0213621903805226"^^xsd:float .
+
+niiri:080ac45360879294e37c6287d22fd8b3
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0052" ;
+    nidm_coordinateVector: "[-16,-58,-38]"^^xsd:string .
+
+niiri:31767e616570435641f143cae011f953 prov:wasDerivedFrom niiri:76f32299041fc5f4d0b950c566a0624b .
+
+niiri:18dcf52d105ae341a24bc8dcf187bd7d
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0053" ;
+    prov:atLocation niiri:8d26f8dc7b292242e6151b98e0f835db ;
+    prov:value "5.87665224075317"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.57512554105657"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000175029940004845"^^xsd:float ;
+    nidm_pValueFWER: "0.999992622705061"^^xsd:float ;
+    nidm_qValueFDR: "0.0214921236782135"^^xsd:float .
+
+niiri:8d26f8dc7b292242e6151b98e0f835db
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0053" ;
+    nidm_coordinateVector: "[-10,-82,-30]"^^xsd:string .
+
+niiri:18dcf52d105ae341a24bc8dcf187bd7d prov:wasDerivedFrom niiri:9e864aa27a55745175707c98d46a334c .
+
+niiri:29d29448ea553b9836a11b3f3932ffc9
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0054" ;
+    prov:atLocation niiri:0a1bdaff66645f8b1b42fb1660070405 ;
+    prov:value "5.86712741851807"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.57102607807387"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000177792742607208"^^xsd:float ;
+    nidm_pValueFWER: "0.999993649803941"^^xsd:float ;
+    nidm_qValueFDR: "0.0216816267105749"^^xsd:float .
+
+niiri:0a1bdaff66645f8b1b42fb1660070405
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0054" ;
+    nidm_coordinateVector: "[50,50,8]"^^xsd:string .
+
+niiri:29d29448ea553b9836a11b3f3932ffc9 prov:wasDerivedFrom niiri:628a97ee4df64877d84868107814f955 .
+
+niiri:136b0dae4c0cc7c691f5df819a046a16
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0055" ;
+    prov:atLocation niiri:47c22b00af020d507b9cfcdebf96840b ;
+    prov:value "5.85824680328369"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.56719995255891"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000180408078987448"^^xsd:float ;
+    nidm_pValueFWER: "0.999994487319543"^^xsd:float ;
+    nidm_qValueFDR: "0.0217930814133279"^^xsd:float .
+
+niiri:47c22b00af020d507b9cfcdebf96840b
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0055" ;
+    nidm_coordinateVector: "[-6,-78,56]"^^xsd:string .
+
+niiri:136b0dae4c0cc7c691f5df819a046a16 prov:wasDerivedFrom niiri:52a2c6444b10fca5e154fba0b3e62d50 .
+
+niiri:7d6ac5abaee75da771fcc4ee9ae756b9
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0056" ;
+    prov:atLocation niiri:eaa049bc0deda3f95639705970fa8823 ;
+    prov:value "5.81644201278687"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.54913757298709"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000193247549691744"^^xsd:float ;
+    nidm_pValueFWER: "0.99999722874557"^^xsd:float ;
+    nidm_qValueFDR: "0.022905022613713"^^xsd:float .
+
+niiri:eaa049bc0deda3f95639705970fa8823
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0056" ;
+    nidm_coordinateVector: "[44,50,20]"^^xsd:string .
+
+niiri:7d6ac5abaee75da771fcc4ee9ae756b9 prov:wasDerivedFrom niiri:a9bc5d8a6d734a19d1ee638ddfa9e34f .
+
+niiri:92f780b833bf32893f3b88e89980d8d8
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0057" ;
+    prov:atLocation niiri:453445eb90a279054934aeb350144243 ;
+    prov:value "5.75350570678711"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.52178406559812"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000214326572548162"^^xsd:float ;
+    nidm_pValueFWER: "0.999999083879168"^^xsd:float ;
+    nidm_qValueFDR: "0.0245474913207941"^^xsd:float .
+
+niiri:453445eb90a279054934aeb350144243
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0057" ;
+    nidm_coordinateVector: "[-30,-58,-52]"^^xsd:string .
+
+niiri:92f780b833bf32893f3b88e89980d8d8 prov:wasDerivedFrom niiri:cf869ef162fc61878c8c7fbac7157264 .
+
+niiri:253b21a384f1f3314298745cb5d1668d
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0058" ;
+    prov:atLocation niiri:03ad8275dad57815babc684e230f29da ;
+    prov:value "5.74829816818237"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.51951200270118"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000216170736607735"^^xsd:float ;
+    nidm_pValueFWER: "0.999999167412893"^^xsd:float ;
+    nidm_qValueFDR: "0.0246525319493899"^^xsd:float .
+
+niiri:03ad8275dad57815babc684e230f29da
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0058" ;
+    nidm_coordinateVector: "[-38,36,-14]"^^xsd:string .
+
+niiri:253b21a384f1f3314298745cb5d1668d prov:wasDerivedFrom niiri:404edd754b52ba04b35f56d4e502f8ce .
+
+niiri:de597d8b3789310d0a77b771a6a6e111
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0059" ;
+    prov:atLocation niiri:44711cdf019c5b4f5b970ff900611073 ;
+    prov:value "5.7312970161438"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.51208496979963"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000222302913436612"^^xsd:float ;
+    nidm_pValueFWER: "0.99999939333845"^^xsd:float ;
+    nidm_qValueFDR: "0.0250806761204491"^^xsd:float .
+
+niiri:44711cdf019c5b4f5b970ff900611073
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0059" ;
+    nidm_coordinateVector: "[-50,12,-2]"^^xsd:string .
+
+niiri:de597d8b3789310d0a77b771a6a6e111 prov:wasDerivedFrom niiri:646c9634927ecdb2332ab5dfe7a28006 .
+
+niiri:8e7f20532879d495c5a42e5d03642d77
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0060" ;
+    prov:atLocation niiri:93b03e2e5d1ab918fd6387ca80923df5 ;
+    prov:value "5.61407613754272"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.46048027314539"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000269606369816766"^^xsd:float ;
+    nidm_pValueFWER: "0.999999943721802"^^xsd:float ;
+    nidm_qValueFDR: "0.0285650985701987"^^xsd:float .
+
+niiri:93b03e2e5d1ab918fd6387ca80923df5
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0060" ;
+    nidm_coordinateVector: "[-52,38,14]"^^xsd:string .
+
+niiri:8e7f20532879d495c5a42e5d03642d77 prov:wasDerivedFrom niiri:c0fd049d894fca767270c43b39b70df9 .
+
+niiri:5c140482468e320e3d5211e55d1b2399
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0061" ;
+    prov:atLocation niiri:f3b8807229024d21b3f54c200a577a82 ;
+    prov:value "5.53163862228394"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.42376539987989"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000308799561745898"^^xsd:float ;
+    nidm_pValueFWER: "0.999999991534363"^^xsd:float ;
+    nidm_qValueFDR: "0.0312013208214028"^^xsd:float .
+
+niiri:f3b8807229024d21b3f54c200a577a82
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0061" ;
+    nidm_coordinateVector: "[-14,-80,10]"^^xsd:string .
+
+niiri:5c140482468e320e3d5211e55d1b2399 prov:wasDerivedFrom niiri:9552b4dbfe0833d9f21d39cf5a3f531c .
+
+niiri:0456eeedb5dc828ec86c0c36377fb91f
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0062" ;
+    prov:atLocation niiri:01308065c94d19b3fc7a19a6d160ef56 ;
+    prov:value "5.52454996109009"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.42059171809414"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000312425309546338"^^xsd:float ;
+    nidm_pValueFWER: "0.999999992873262"^^xsd:float ;
+    nidm_qValueFDR: "0.0313644959462665"^^xsd:float .
+
+niiri:01308065c94d19b3fc7a19a6d160ef56
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0062" ;
+    nidm_coordinateVector: "[-66,-40,18]"^^xsd:string .
+
+niiri:0456eeedb5dc828ec86c0c36377fb91f prov:wasDerivedFrom niiri:4cb0bf65605055716432884893e5e9c2 .
+
+niiri:c60b521a8155d25ab1d81a437359bcd0
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0063" ;
+    prov:atLocation niiri:7c7faa3f4c77dc526122e2f47f62aece ;
+    prov:value "5.51989889144897"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.41850793238069"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000314827412227103"^^xsd:float ;
+    nidm_pValueFWER: "0.99999999363976"^^xsd:float ;
+    nidm_qValueFDR: "0.0315295603356192"^^xsd:float .
+
+niiri:7c7faa3f4c77dc526122e2f47f62aece
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0063" ;
+    nidm_coordinateVector: "[-2,-90,16]"^^xsd:string .
+
+niiri:c60b521a8155d25ab1d81a437359bcd0 prov:wasDerivedFrom niiri:d6b37cc773edb870bb55c2d6372f256b .
+
+niiri:228fb7b44d90fa76d0a2bd634ed30bad
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0064" ;
+    prov:atLocation niiri:344815ee260bb617fd9b0d32cadfc871 ;
+    prov:value "5.50013113021851"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.40963871850162"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000325244937404157"^^xsd:float ;
+    nidm_pValueFWER: "0.99999999610751"^^xsd:float ;
+    nidm_qValueFDR: "0.0320937892728011"^^xsd:float .
+
+niiri:344815ee260bb617fd9b0d32cadfc871
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0064" ;
+    nidm_coordinateVector: "[48,-68,24]"^^xsd:string .
+
+niiri:228fb7b44d90fa76d0a2bd634ed30bad prov:wasDerivedFrom niiri:27724b6869441a042387c9d5c13942d2 .
+
+niiri:3eb9240a880fd3014089aee2ec60e9ee
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0065" ;
+    prov:atLocation niiri:f8140c6cb955395595441fdd0ac9060f ;
+    prov:value "5.47258329391479"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.39724406479958"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000340341137511579"^^xsd:float ;
+    nidm_pValueFWER: "0.999999998076035"^^xsd:float ;
+    nidm_qValueFDR: "0.0330219418190176"^^xsd:float .
+
+niiri:f8140c6cb955395595441fdd0ac9060f
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0065" ;
+    nidm_coordinateVector: "[-66,-52,14]"^^xsd:string .
+
+niiri:3eb9240a880fd3014089aee2ec60e9ee prov:wasDerivedFrom niiri:6c4baced41f2f8c3fb0cb36e9ec2f421 .
+
+niiri:894e7b5f3c0f1694051eaa36e3339902
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0066" ;
+    prov:atLocation niiri:71f8c30346b0401144bb9a6aafce5d89 ;
+    prov:value "5.47253847122192"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.39722386451209"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000340366263790748"^^xsd:float ;
+    nidm_pValueFWER: "0.999999998078278"^^xsd:float ;
+    nidm_qValueFDR: "0.0330219418190176"^^xsd:float .
+
+niiri:71f8c30346b0401144bb9a6aafce5d89
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0066" ;
+    nidm_coordinateVector: "[-24,-70,-40]"^^xsd:string .
+
+niiri:894e7b5f3c0f1694051eaa36e3339902 prov:wasDerivedFrom niiri:8b632dcc185547a7f8ad04edead2291a .
+
+niiri:26000f9c87b50b1ed4cbfc0c38d36776
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0067" ;
+    prov:atLocation niiri:e1962c719c187e312f46dbb443ea0ba6 ;
+    prov:value "5.40879058837891"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.36838466104027"^^xsd:float ;
+    nidm_pValueUncorrected: "0.00037805012668235"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999657857"^^xsd:float ;
+    nidm_qValueFDR: "0.0351846046980527"^^xsd:float .
+
+niiri:e1962c719c187e312f46dbb443ea0ba6
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0067" ;
+    nidm_coordinateVector: "[-52,28,-4]"^^xsd:string .
+
+niiri:26000f9c87b50b1ed4cbfc0c38d36776 prov:wasDerivedFrom niiri:0b81b51c15877094ca33c61a79325340 .
+
+niiri:66f05ba7ece66064d5053eeba2010534
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0068" ;
+    prov:atLocation niiri:a97959a880c8ff0a4d1b087cca95a7ba ;
+    prov:value "5.40180397033691"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.36521050637541"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000382426408436776"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999719179"^^xsd:float ;
+    nidm_qValueFDR: "0.0353860600288775"^^xsd:float .
+
+niiri:a97959a880c8ff0a4d1b087cca95a7ba
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0068" ;
+    nidm_coordinateVector: "[46,40,-20]"^^xsd:string .
+
+niiri:66f05ba7ece66064d5053eeba2010534 prov:wasDerivedFrom niiri:39734aff0e8ba70db0c48ce245fe4c87 .
+
+niiri:aad41db07b26e0fc135033c3c54c6265
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0069" ;
+    prov:atLocation niiri:880971a35f2cb80ebdb3cce39907ade3 ;
+    prov:value "5.37467432022095"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.35285956111335"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000399906393667493"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999871685"^^xsd:float ;
+    nidm_qValueFDR: "0.0362799194266732"^^xsd:float .
+
+niiri:880971a35f2cb80ebdb3cce39907ade3
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0069" ;
+    nidm_coordinateVector: "[-24,-64,-26]"^^xsd:string .
+
+niiri:aad41db07b26e0fc135033c3c54c6265 prov:wasDerivedFrom niiri:715173a69633af936b825645f63d4b6e .
+
+niiri:5d2e7b231ceaa16ac77fce6999cbee79
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0070" ;
+    prov:atLocation niiri:7fee676079f21de5ddb648922d6cfc96 ;
+    prov:value "5.37411737442017"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.35260558298398"^^xsd:float ;
+    nidm_pValueUncorrected: "0.00040027350203431"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999873767"^^xsd:float ;
+    nidm_qValueFDR: "0.0362799194266732"^^xsd:float .
+
+niiri:7fee676079f21de5ddb648922d6cfc96
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0070" ;
+    nidm_coordinateVector: "[6,-78,4]"^^xsd:string .
+
+niiri:5d2e7b231ceaa16ac77fce6999cbee79 prov:wasDerivedFrom niiri:1c44f60f8e5351b0a92c492ed60e2137 .
+
+niiri:293523500452c1280cc36cd2bec7c9d6
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0071" ;
+    prov:atLocation niiri:39d51facd795550d74df67b084209afb ;
+    prov:value "5.30396842956543"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.32047825714677"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000449316793136201"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999985317"^^xsd:float ;
+    nidm_qValueFDR: "0.038893908226916"^^xsd:float .
+
+niiri:39d51facd795550d74df67b084209afb
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0071" ;
+    nidm_coordinateVector: "[-18,6,-16]"^^xsd:string .
+
+niiri:293523500452c1280cc36cd2bec7c9d6 prov:wasDerivedFrom niiri:f2443d4e5be8deae8260b1f1dedfc174 .
+
+niiri:dd17912e2a4135820561e7201f7942dc
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0072" ;
+    prov:atLocation niiri:1d8c77d2e14a912b0d6091aa51a528ec ;
+    prov:value "5.3003044128418"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.31879260124815"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000452037748311596"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999986945"^^xsd:float ;
+    nidm_qValueFDR: "0.0390806835204476"^^xsd:float .
+
+niiri:1d8c77d2e14a912b0d6091aa51a528ec
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0072" ;
+    nidm_coordinateVector: "[44,34,22]"^^xsd:string .
+
+niiri:dd17912e2a4135820561e7201f7942dc prov:wasDerivedFrom niiri:de6358617bfe8f7769d05d29a4316925 .
+
+niiri:3daf6b4701e8ccb2e1874fd38153c225
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0073" ;
+    prov:atLocation niiri:305677c749428098b4af066f04082753 ;
+    prov:value "5.2790060043335"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.30897907487843"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000468184175549835"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999993475"^^xsd:float ;
+    nidm_qValueFDR: "0.0399946769218688"^^xsd:float .
+
+niiri:305677c749428098b4af066f04082753
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0073" ;
+    nidm_coordinateVector: "[-16,-70,62]"^^xsd:string .
+
+niiri:3daf6b4701e8ccb2e1874fd38153c225 prov:wasDerivedFrom niiri:28b00390010cb45d9a423be0d041e4eb .
+
+niiri:56ea6a1820785a481a616a83d7912917
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0074" ;
+    prov:atLocation niiri:76e25882363bf74544ee45db516ada9f ;
+    prov:value "5.22220420837402"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.28268028866984"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000514126053509312"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999062"^^xsd:float ;
+    nidm_qValueFDR: "0.0424551034128408"^^xsd:float .
+
+niiri:76e25882363bf74544ee45db516ada9f
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0074" ;
+    nidm_coordinateVector: "[-18,-90,34]"^^xsd:string .
+
+niiri:56ea6a1820785a481a616a83d7912917 prov:wasDerivedFrom niiri:6f2458f857e5301314e4c49c53ddab5c .
+
+niiri:94336fe7b97ca1dbe7f4c74a8e1f26c1
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0075" ;
+    prov:atLocation niiri:e6fd08976db92d3550930b0866ffd452 ;
+    prov:value "5.1730318069458"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.25976321879304"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000557526302441769"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999843"^^xsd:float ;
+    nidm_qValueFDR: "0.0447389446131481"^^xsd:float .
+
+niiri:e6fd08976db92d3550930b0866ffd452
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0075" ;
+    nidm_coordinateVector: "[36,62,8]"^^xsd:string .
+
+niiri:94336fe7b97ca1dbe7f4c74a8e1f26c1 prov:wasDerivedFrom niiri:a5ccd12af883dc80ecb285cbc7d90996 .
+
+niiri:c7aca18db0a1f6a5280f9703bc935efc
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0076" ;
+    prov:atLocation niiri:e78bdc31a6807cf01d6eaa462befa9d9 ;
+    prov:value "5.17224788665771"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.25939672404754"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000558247108556009"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999848"^^xsd:float ;
+    nidm_qValueFDR: "0.0447389446131481"^^xsd:float .
+
+niiri:e78bdc31a6807cf01d6eaa462befa9d9
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0076" ;
+    nidm_coordinateVector: "[44,46,-18]"^^xsd:string .
+
+niiri:c7aca18db0a1f6a5280f9703bc935efc prov:wasDerivedFrom niiri:075cefbcdab0306f76e523f39577afc9 .
+
+niiri:b810043fb497b4b30e67d61f1ef6d95d
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0077" ;
+    prov:atLocation niiri:ac9a89a3bf9c8e03f7d0abfd07ea181a ;
+    prov:value "5.13746070861816"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.24309671226403"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000591190343014691"^^xsd:float ;
+    nidm_pValueFWER: "0.99999999999996"^^xsd:float ;
+    nidm_qValueFDR: "0.0465822754926653"^^xsd:float .
+
+niiri:ac9a89a3bf9c8e03f7d0abfd07ea181a
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0077" ;
+    nidm_coordinateVector: "[22,-18,-10]"^^xsd:string .
+
+niiri:b810043fb497b4b30e67d61f1ef6d95d prov:wasDerivedFrom niiri:67b2de2f1c8c8f1c6308f97901012c85 .
+
+niiri:7b232038d9487e4356e8dfb4323accd3
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0078" ;
+    prov:atLocation niiri:b4963c38f81a01898be7895643388317 ;
+    prov:value "5.11799764633179"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.23394572778211"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000610463272072148"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999981"^^xsd:float ;
+    nidm_qValueFDR: "0.0474717326152994"^^xsd:float .
+
+niiri:b4963c38f81a01898be7895643388317
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0078" ;
+    nidm_coordinateVector: "[-54,34,4]"^^xsd:string .
+
+niiri:7b232038d9487e4356e8dfb4323accd3 prov:wasDerivedFrom niiri:3e4aab372e14b498f67d8f3af7fe64d4 .
+
+niiri:11ed40cf7c6d1e1b76914519ad648298
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0079" ;
+    prov:atLocation niiri:b2c2c2474e5e6fee6e66d413930cd815 ;
+    prov:value "5.10930299758911"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.22985044435181"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000619274939217984"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999987"^^xsd:float ;
+    nidm_qValueFDR: "0.047852944668371"^^xsd:float .
+
+niiri:b2c2c2474e5e6fee6e66d413930cd815
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0079" ;
+    nidm_coordinateVector: "[-30,-64,-52]"^^xsd:string .
+
+niiri:11ed40cf7c6d1e1b76914519ad648298 prov:wasDerivedFrom niiri:4e46f866f0c4c884a98d67ad4f286185 .
+
+niiri:4d10f48cdd2d3f00f61d037f49b32b4f
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0080" ;
+    prov:atLocation niiri:7016a6fd792cf01d7c320f58e80217f0 ;
+    prov:value "5.10401487350464"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.22735746106492"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000624696357977461"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999989"^^xsd:float ;
+    nidm_qValueFDR: "0.0480043833565767"^^xsd:float .
+
+niiri:7016a6fd792cf01d7c320f58e80217f0
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0080" ;
+    nidm_coordinateVector: "[-48,-78,18]"^^xsd:string .
+
+niiri:4d10f48cdd2d3f00f61d037f49b32b4f prov:wasDerivedFrom niiri:0c4f8238e0d8817ab291795ad931058d .
+
+niiri:9a335bf5867319042aef935fdd61a2ca
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0081" ;
+    prov:atLocation niiri:bdd410f3992b80366097ff8da55c6572 ;
+    prov:value "5.09518003463745"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.22318870378714"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000633860042171808"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999993"^^xsd:float ;
+    nidm_qValueFDR: "0.0483657513246105"^^xsd:float .
+
+niiri:bdd410f3992b80366097ff8da55c6572
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0081" ;
+    nidm_coordinateVector: "[4,-86,38]"^^xsd:string .
+
+niiri:9a335bf5867319042aef935fdd61a2ca prov:wasDerivedFrom niiri:45b239a4d9c3d2d8505e69c949d3d8e8 .
+
+niiri:71e3044821bf1685ebc1d1ccc482996c
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0082" ;
+    prov:atLocation niiri:cbce0e0cb8230da058e27ef6498e9822 ;
+    prov:value "5.08291101455688"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.21739172198432"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000646809225746448"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999996"^^xsd:float ;
+    nidm_qValueFDR: "0.0489980390158314"^^xsd:float .
+
+niiri:cbce0e0cb8230da058e27ef6498e9822
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0082" ;
+    nidm_coordinateVector: "[-14,-50,-36]"^^xsd:string .
+
+niiri:71e3044821bf1685ebc1d1ccc482996c prov:wasDerivedFrom niiri:d81ab34b3d15a5e83dcac601860e2c67 .
+
+niiri:64739c4167dc0d3498f8e2a1c8595f71
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0083" ;
+    prov:atLocation niiri:f40d5d8206a7e8bfeb960db99a347c49 ;
+    prov:value "5.0689902305603"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.21080328886987"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000661822545445001"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999998"^^xsd:float ;
+    nidm_qValueFDR: "0.0496832380294054"^^xsd:float .
+
+niiri:f40d5d8206a7e8bfeb960db99a347c49
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0083" ;
+    nidm_coordinateVector: "[30,68,10]"^^xsd:string .
+
+niiri:64739c4167dc0d3498f8e2a1c8595f71 prov:wasDerivedFrom niiri:17915a4b4045396b3dc9e808d4f43fff .
+
+niiri:a433274bd13730beb4dfc0d55357557e
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0084" ;
+    prov:atLocation niiri:7c271a5a16a2eba0109c81f0cefb625f ;
+    prov:value "5.05907249450684"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.20610225272296"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000672730842027125"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999998"^^xsd:float ;
+    nidm_qValueFDR: "0.0501943510982274"^^xsd:float .
+
+niiri:7c271a5a16a2eba0109c81f0cefb625f
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0084" ;
+    nidm_coordinateVector: "[10,-30,80]"^^xsd:string .
+
+niiri:a433274bd13730beb4dfc0d55357557e prov:wasDerivedFrom niiri:fb337b3deac825168c6547e71cdf45e4 .
+
+niiri:fe448e07f10dd77ad7048bec2935288a
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0085" ;
+    prov:atLocation niiri:2146da53497ad34f011f172dddd97f90 ;
+    prov:value "5.05790328979492"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.20554765226523"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000674028618936839"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999998"^^xsd:float ;
+    nidm_qValueFDR: "0.0502551505802037"^^xsd:float .
+
+niiri:2146da53497ad34f011f172dddd97f90
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0085" ;
+    nidm_coordinateVector: "[44,-76,8]"^^xsd:string .
+
+niiri:fe448e07f10dd77ad7048bec2935288a prov:wasDerivedFrom niiri:d1e644390766d6283debb5ff26e27399 .
+
+niiri:e39a0ed9969f84905bcc14001d8bf13f
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0086" ;
+    prov:atLocation niiri:2bc5786adf5e16150692c21f687fd1e7 ;
+    prov:value "5.04969549179077"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.20165202224461"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000683209765197312"^^xsd:float ;
+    nidm_pValueFWER: "0.999999999999999"^^xsd:float ;
+    nidm_qValueFDR: "0.050613270744433"^^xsd:float .
+
+niiri:2bc5786adf5e16150692c21f687fd1e7
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0086" ;
+    nidm_coordinateVector: "[-52,-36,44]"^^xsd:string .
+
+niiri:e39a0ed9969f84905bcc14001d8bf13f prov:wasDerivedFrom niiri:f2c41aa526c7ecfe683fb5b1f2a7588a .
+
+niiri:5f5dd191ac43989e197e1dc7f76d17b2
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0087" ;
+    prov:atLocation niiri:fd5647f38306e48b87e44239ec80d981 ;
+    prov:value "5.02838468551636"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.19151815181806"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000707636089146368"^^xsd:float ;
+    nidm_pValueFWER: "1"^^xsd:float ;
+    nidm_qValueFDR: "0.051650625154872"^^xsd:float .
+
+niiri:fd5647f38306e48b87e44239ec80d981
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0087" ;
+    nidm_coordinateVector: "[-44,-40,42]"^^xsd:string .
+
+niiri:5f5dd191ac43989e197e1dc7f76d17b2 prov:wasDerivedFrom niiri:b6e3adf39b177b2fe3b6833a47713718 .
+
+niiri:f71c1e2e5f91a95c5712a4d4ba89c40f
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0088" ;
+    prov:atLocation niiri:8acbde476f7d16ebe1080128d978f2a5 ;
+    prov:value "5.02759695053101"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.19114302879552"^^xsd:float ;
+    nidm_pValueUncorrected: "0.00070855553886906"^^xsd:float ;
+    nidm_pValueFWER: "1"^^xsd:float ;
+    nidm_qValueFDR: "0.0516996133446043"^^xsd:float .
+
+niiri:8acbde476f7d16ebe1080128d978f2a5
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0088" ;
+    nidm_coordinateVector: "[-44,54,-6]"^^xsd:string .
+
+niiri:f71c1e2e5f91a95c5712a4d4ba89c40f prov:wasDerivedFrom niiri:ac9ee3188f787257a289a9904e28a0df .
+
+niiri:af1ef614c297cb2b0e8df9da0f88d85f
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0089" ;
+    prov:atLocation niiri:5e694eb878b5af9458d3d142d8858bc7 ;
+    prov:value "5.00743103027344"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.18152691683286"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000732504543232371"^^xsd:float ;
+    nidm_pValueFWER: "1"^^xsd:float ;
+    nidm_qValueFDR: "0.0526896959368281"^^xsd:float .
+
+niiri:5e694eb878b5af9458d3d142d8858bc7
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0089" ;
+    nidm_coordinateVector: "[36,58,18]"^^xsd:string .
+
+niiri:af1ef614c297cb2b0e8df9da0f88d85f prov:wasDerivedFrom niiri:499c553f4f05bed3bf262435de53d3b1 .
+
+niiri:2bc5fdc6aa9851c6ac2a13fe3cadb39d
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0090" ;
+    prov:atLocation niiri:855f018b32553b4caf4fc1bf009968d2 ;
+    prov:value "4.99766159057617"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.17685933085535"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000744396146822202"^^xsd:float ;
+    nidm_pValueFWER: "1"^^xsd:float ;
+    nidm_qValueFDR: "0.0532506765476335"^^xsd:float .
+
+niiri:855f018b32553b4caf4fc1bf009968d2
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0090" ;
+    nidm_coordinateVector: "[-44,22,40]"^^xsd:string .
+
+niiri:2bc5fdc6aa9851c6ac2a13fe3cadb39d prov:wasDerivedFrom niiri:425b3b59bb1a3d7b86c2c5264b8a6627 .
+
+niiri:5fc1f607a58e2e1e41ba524f5b5569bf
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0091" ;
+    prov:atLocation niiri:5af36ea4b1408261746969b90904aa72 ;
+    prov:value "4.98628282546997"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.1714153864203"^^xsd:float ;
+    nidm_pValueUncorrected: "0.00075849026901309"^^xsd:float ;
+    nidm_pValueFWER: "1"^^xsd:float ;
+    nidm_qValueFDR: "0.0537320048825192"^^xsd:float .
+
+niiri:5af36ea4b1408261746969b90904aa72
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0091" ;
+    nidm_coordinateVector: "[32,-24,72]"^^xsd:string .
+
+niiri:5fc1f607a58e2e1e41ba524f5b5569bf prov:wasDerivedFrom niiri:9c92e09c369b8211d4e65fbfbb9c9aa4 .
+
+niiri:d574b1737bae301e87767c0ba911977b
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0092" ;
+    prov:atLocation niiri:70168be09147ff18f1b4d58e45414ac5 ;
+    prov:value "4.97769069671631"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.16729931357798"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000769309331678514"^^xsd:float ;
+    nidm_pValueFWER: "1"^^xsd:float ;
+    nidm_qValueFDR: "0.0542313534025412"^^xsd:float .
+
+niiri:70168be09147ff18f1b4d58e45414ac5
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0092" ;
+    nidm_coordinateVector: "[50,-30,60]"^^xsd:string .
+
+niiri:d574b1737bae301e87767c0ba911977b prov:wasDerivedFrom niiri:d76384fac79adab2f8bcdd74e38b05e5 .
+
+niiri:c8377608c568eaa0cdfbf4c747621fa9
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0093" ;
+    prov:atLocation niiri:acdaf7ebdad9ef3b2e6853b153b2cecc ;
+    prov:value "4.95973443984985"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.15868244743865"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000792420371319991"^^xsd:float ;
+    nidm_pValueFWER: "1"^^xsd:float ;
+    nidm_qValueFDR: "0.05524320395595"^^xsd:float .
+
+niiri:acdaf7ebdad9ef3b2e6853b153b2cecc
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0093" ;
+    nidm_coordinateVector: "[-32,-74,-28]"^^xsd:string .
+
+niiri:c8377608c568eaa0cdfbf4c747621fa9 prov:wasDerivedFrom niiri:66b4285fcdb2a68d01ddbdfea09445d1 .
+
+niiri:e21e14898e4a6342702db7821daa0b6f
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0094" ;
+    prov:atLocation niiri:e4ee48571566d6ae17936ca8119e4c6e ;
+    prov:value "4.95515823364258"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.15648318111342"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000798420481037398"^^xsd:float ;
+    nidm_pValueFWER: "1"^^xsd:float ;
+    nidm_qValueFDR: "0.0553418612137989"^^xsd:float .
+
+niiri:e4ee48571566d6ae17936ca8119e4c6e
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0094" ;
+    nidm_coordinateVector: "[-26,-86,40]"^^xsd:string .
+
+niiri:e21e14898e4a6342702db7821daa0b6f prov:wasDerivedFrom niiri:ce2fd9609bbaf4260567fecf8334f73a .
+
+niiri:ec800b1561a8e211d893b9129cbd17ff
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0095" ;
+    prov:atLocation niiri:a5b7712f3a3c7ea5cce3b7f25d7840d9 ;
+    prov:value "4.93855857849121"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.14849453487417"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000820568960055779"^^xsd:float ;
+    nidm_pValueFWER: "1"^^xsd:float ;
+    nidm_qValueFDR: "0.0562262327439451"^^xsd:float .
+
+niiri:a5b7712f3a3c7ea5cce3b7f25d7840d9
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0095" ;
+    nidm_coordinateVector: "[-10,8,6]"^^xsd:string .
+
+niiri:ec800b1561a8e211d893b9129cbd17ff prov:wasDerivedFrom niiri:a482e942f85057c7e6150a9211c470d5 .
+
+niiri:2acd52cd4d8b0806cc76e3f29c4eff53
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0096" ;
+    prov:atLocation niiri:d5d56e7417d11be82b076cdec47aa14c ;
+    prov:value "4.90264129638672"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.13114947632107"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000870617549853403"^^xsd:float ;
+    nidm_pValueFWER: "1"^^xsd:float ;
+    nidm_qValueFDR: "0.058320641241518"^^xsd:float .
+
+niiri:d5d56e7417d11be82b076cdec47aa14c
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0096" ;
+    nidm_coordinateVector: "[14,8,10]"^^xsd:string .
+
+niiri:2acd52cd4d8b0806cc76e3f29c4eff53 prov:wasDerivedFrom niiri:72e4e5b0d793f6bdd394586ab7b319ae .
+
+niiri:c96ee0b4ee3228aa7692569b05c9d521
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0097" ;
+    prov:atLocation niiri:5a6d01da2d934174919cb15f04e572d4 ;
+    prov:value "4.90243864059448"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.1310513773308"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000870908426383377"^^xsd:float ;
+    nidm_pValueFWER: "1"^^xsd:float ;
+    nidm_qValueFDR: "0.058320641241518"^^xsd:float .
+
+niiri:5a6d01da2d934174919cb15f04e572d4
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0097" ;
+    nidm_coordinateVector: "[-20,-54,-2]"^^xsd:string .
+
+niiri:c96ee0b4ee3228aa7692569b05c9d521 prov:wasDerivedFrom niiri:698f920512e0bc86196ac5bdf9403706 .
+
+niiri:1d08526aab6a9a90c5952a579bfe70f9
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0098" ;
+    prov:atLocation niiri:4305ea19e546e9f3e09c4e96ecb80222 ;
+    prov:value "4.88119602203369"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.12075392909771"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000901943498395119"^^xsd:float ;
+    nidm_pValueFWER: "1"^^xsd:float ;
+    nidm_qValueFDR: "0.0594947205600118"^^xsd:float .
+
+niiri:4305ea19e546e9f3e09c4e96ecb80222
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0098" ;
+    nidm_coordinateVector: "[-26,-84,44]"^^xsd:string .
+
+niiri:1d08526aab6a9a90c5952a579bfe70f9 prov:wasDerivedFrom niiri:ad1cd56f7d143bd776b5691683c59add .
+
+niiri:e293b60c32a79f675471d9249f7c74e9
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0099" ;
+    prov:atLocation niiri:f76d40c83ee44efc114b2f7748b07ab0 ;
+    prov:value "4.86706686019897"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.11388868389685"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000923195680083033"^^xsd:float ;
+    nidm_pValueFWER: "1"^^xsd:float ;
+    nidm_qValueFDR: "0.0603762016821821"^^xsd:float .
+
+niiri:f76d40c83ee44efc114b2f7748b07ab0
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0099" ;
+    nidm_coordinateVector: "[-54,22,10]"^^xsd:string .
+
+niiri:e293b60c32a79f675471d9249f7c74e9 prov:wasDerivedFrom niiri:eaa184888e18a33c4f8a743428f908be .
+
+niiri:a2e6eded6d5f1f58391a348ff3e8a663
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0100" ;
+    prov:atLocation niiri:6c3e52ed132f2f99aa602219a7ebe413 ;
+    prov:value "4.84812355041504"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.10466401400555"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000952476397051205"^^xsd:float ;
+    nidm_pValueFWER: "1"^^xsd:float ;
+    nidm_qValueFDR: "0.0616422795595169"^^xsd:float .
+
+niiri:6c3e52ed132f2f99aa602219a7ebe413
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0100" ;
+    nidm_coordinateVector: "[32,-80,-24]"^^xsd:string .
+
+niiri:a2e6eded6d5f1f58391a348ff3e8a663 prov:wasDerivedFrom niiri:7a8727b45ba0d1d9809d83d6afaba387 .
+
+niiri:97ef4abdcfd8473e154e7543d15c3849
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0101" ;
+    prov:atLocation niiri:c0861ab711f9c4ee99cc4d65f2359ec6 ;
+    prov:value "4.82597017288208"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.09384653195936"^^xsd:float ;
+    nidm_pValueUncorrected: "0.00098789830908641"^^xsd:float ;
+    nidm_pValueFWER: "1"^^xsd:float ;
+    nidm_qValueFDR: "0.0629671631402158"^^xsd:float .
+
+niiri:c0861ab711f9c4ee99cc4d65f2359ec6
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0101" ;
+    nidm_coordinateVector: "[10,-80,4]"^^xsd:string .
+
+niiri:97ef4abdcfd8473e154e7543d15c3849 prov:wasDerivedFrom niiri:e37d9920261de8039f51fb95dfc921a4 .
+
+niiri:6d05594f0412161046c44eacac40a42a
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0102" ;
+    prov:atLocation niiri:c299d10452cbc4dd22179d17b089b932 ;
+    prov:value "4.82537364959717"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.09355480628341"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000988870098138084"^^xsd:float ;
+    nidm_pValueFWER: "1"^^xsd:float ;
+    nidm_qValueFDR: "0.0629727239584754"^^xsd:float .
+
+niiri:c299d10452cbc4dd22179d17b089b932
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0102" ;
+    nidm_coordinateVector: "[16,-50,-50]"^^xsd:string .
+
+niiri:6d05594f0412161046c44eacac40a42a prov:wasDerivedFrom niiri:69d9b433456370b7c1a9673758c8fe93 .
+
+niiri:e51a96651be45131bb9f48a47747e9ef
+    a prov:Entity, nidm_Peak: ; 
+    rdfs:label "Peak: 0103" ;
+    prov:atLocation niiri:11a804aecddacdb1c417a8972e693084 ;
+    prov:value "4.82024002075195"^^xsd:float ;
+    nidm_equivalentZStatistic: "3.09104327517968"^^xsd:float ;
+    nidm_pValueUncorrected: "0.000997272813291428"^^xsd:float ;
+    nidm_pValueFWER: "1"^^xsd:float ;
+    nidm_qValueFDR: "0.0632678542871923"^^xsd:float .
+
+niiri:11a804aecddacdb1c417a8972e693084
+    a prov:Entity, prov:Location, nidm_Coordinate: ; 
+    rdfs:label "Coordinate: 0103" ;
+    nidm_coordinateVector: "[-12,-20,12]"^^xsd:string .
+
+niiri:e51a96651be45131bb9f48a47747e9ef prov:wasDerivedFrom niiri:f8f9f105adf5f8aecb1ef2a7b71b7a33 .
+
