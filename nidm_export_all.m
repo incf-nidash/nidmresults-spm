@@ -9,16 +9,27 @@ function nidm_export_all(path_to, out_path)
 
     files = dir(path_to);
     subdirs = files([files.isdir]);
+    subdirs = setdiff(cellstr(strvcat(subdirs.name)), ...
+        {'.', '..', '.git', 'ground_truth'});
     for i = 1:numel(subdirs)
-        dname = subdirs(i).name;
+        dname = subdirs{i};
+        % FIXME: explicit mask is currently ignored
         if ~strcmp(dname, 'spm_explicit_mask')
-            % TODO: read config.json instead to check for software used
-            if strncmpi(dname,'spm_',4)
-                if ~strcmp(dname, 'ground_truth')
-                    disp(dname)
-                    nidm_export(fullfile(path_to, dname), out_path)
-                end
+            json_file = fullfile(path_to, dname, 'config.json');
+            
+            if exist(json_file, 'file') ~= 2
+                warning(['No config.json for ' dname])
+                continue;
             end
+%             json read error to be fixed
+%             cfg = spm_jsonread(json_file);
+            
+%             if strcmp(lower(cfg.software), 'spm')
+            if strncmpi(dname,'spm_',4)
+                disp(dname)
+                nidm_export(fullfile(path_to, dname), out_path)
+            end
+%             end
         end
     end
 end
