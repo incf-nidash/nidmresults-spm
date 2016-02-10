@@ -25,7 +25,7 @@ function nidm_export(data_path, out_path)
         % For SPM full example 001 we use already exported peaks 
         % and clusters list to get exactly the same graph
         load(fullfile(data_path, 'nidm_example001.mat'));
-        SPM = set_study_path(SPM, pwd);
+        [SPM, xSPM] = set_study_path(SPM, xSPM, pwd);
         spm_results_nidm(SPM,xSPM,TabDat);
     else
         run(fullfile(pwd, 'batch.m'))
@@ -81,6 +81,7 @@ function nidm_export(data_path, out_path)
     cd(cwd);
 end
 
-function SPM = set_study_path(SPM, new_dir)
-    SPM.swd = pwd;
+function [SPM, xSPM] = set_study_path(SPM, xSPM, new_dir)
+    SPM.swd = new_dir;
+    xSPM.swd = new_dir;
 end
