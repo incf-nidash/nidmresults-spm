@@ -63,7 +63,7 @@ function nidm_export(path_to_script_folder, out_path)
         % FIXME: version should be extracted from json        
         gt_file = fullfile(path_to_script_folder, '..', 'ground_truth', '1.2.0', gt);
         
-        target_gt_dir = fullfile(out_path, 'ground_truth', spm_file(gt,'path'));
+        target_gt_dir = fullfile(out_path, 'ground_truth', '1.2.0', spm_file(gt,'path'));
         if isdir(target_gt_dir)
             disp(['Removing ' target_gt_dir])
             rmdir(target_gt_dir,'s')
