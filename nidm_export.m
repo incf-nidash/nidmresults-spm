@@ -60,21 +60,21 @@ function nidm_export(data_path, out_path)
         str = char(raw');
         fclose(fid);
 
-        expression = '\[".*"\]';
+        expression = '\[".*\.ttl"\]';
         gt = regexp(str,expression,'match'); 
         gt = strrep(strrep(strrep(gt{1}, '[', ''), ']', ''), '"', '');
-% %         disp(gt)
-% %         gt = json_cfg.ground_truth;
-%         version = regexp(str,'"version": ".*"','match');
-%         version = strrep(strrep(version{1},'"version": "', ''), '"', '');
-%         gt_file = fullfile(data_path, '..', 'ground_truth', version, gt);
+%         disp(gt)
+%         gt = json_cfg.ground_truth;
+        version = regexp(str,'"versions": \[".*"\]','match');
+        version = strrep(strrep(strrep(version{1},'"versions": ["', ''), '"', ''), ']', '');
+        gt_file = fullfile(data_path, '..', '_ground_truth', version, gt);
         
 %         target_gt_dir = fullfile(out_path, 'ground_truth', version, spm_file(gt,'path'));
-        disp(gt)
+%         disp(gt)
         % FIXME: version should be extracted from json        
-        gt_file = fullfile(path_to_script_folder, '..', 'ground_truth', '1.2.0', gt);
+%         gt_file = fullfile(path_to_script_folder, '..', 'ground_truth', '1.2.0', gt);
         
-        target_gt_dir = fullfile(out_path, 'ground_truth', '1.2.0', spm_file(gt,'path'));
+        target_gt_dir = fullfile(out_path, 'ground_truth', version, spm_file(gt,'path'));
         if isdir(target_gt_dir)
             disp(['Removing ' target_gt_dir])
             rmdir(target_gt_dir,'s')
