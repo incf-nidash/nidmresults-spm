@@ -30,7 +30,13 @@ function nidm_export(data_path, out_path)
     else
         run(fullfile(pwd, 'batch.m'))
         result_batch = matlabbatch(end);
-        result_batch{1}.spm.stats.results.spmmat = {fullfile(pwd, 'SPM.mat')};
+        if strcmp(test_name, 'spm_group_wls')
+            study_dir = fullfile(pwd, 'mfx');
+        else
+            study_dir = pwd;
+        end
+        
+        result_batch{1}.spm.stats.results.spmmat = {fullfile(study_dir, 'SPM.mat')};
         result_batch{1}.spm.stats.results.print = 'nidm';    
         spm_jobman('run', result_batch)
     end
@@ -60,22 +66,32 @@ function nidm_export(data_path, out_path)
         str = char(raw');
         fclose(fid);
 
-        expression = '\[".*"\]';
-        gt = regexp(str,expression,'match'); 
-        gt = strrep(strrep(strrep(gt{1}, '[', ''), ']', ''), '"', '');
-%         disp(gt)
-%         gt = json_cfg.ground_truth;
-        version = regexp(str,'"version": ".*"','match');
-        version = strrep(strrep(version{1},'"version": "', ''), '"', '');
-        gt_file = fullfile(data_path, '..', 'ground_truth', version, gt);
+        expression = '\[".*\.ttl"\]';
+        gts = regexp(str,expression,'match'); 
+        gts = strrep(strrep(strrep(gts{1}, '[', ''), ']', ''), '"', '');
+        gts = strsplit(gts, ', ');
         
-        target_gt_dir = fullfile(out_path, 'ground_truth', version, spm_file(gt,'path'));
-        if isdir(target_gt_dir)
-            disp(['Removing ' target_gt_dir])
-            rmdir(target_gt_dir,'s')
+        for i = 1:numel(gts)
+            gt = gts{i};
+    %         disp(gt)
+    %         gt = json_cfg.ground_truth;
+            version = regexp(str,'"versions": \[".*"\]','match');
+            version = strrep(strrep(strrep(version{1},'"versions": ["', ''), '"', ''), ']', '');
+            gt_file = fullfile(data_path, '..', '_ground_truth', version, gt);
+
+    %         target_gt_dir = fullfile(out_path, 'ground_truth', version, spm_file(gt,'path'));
+    %         disp(gt)
+            % FIXME: version should be extracted from json        
+    %         gt_file = fullfile(path_to_script_folder, '..', 'ground_truth', '1.2.0', gt);
+
+            target_gt_dir = fullfile(out_path, 'ground_truth', version, spm_file(gt,'path'));
+            if isdir(target_gt_dir)
+                disp(['Removing ' target_gt_dir])
+                rmdir(target_gt_dir,'s')
+            end
+            mkdir(target_gt_dir)
+            copyfile(gt_file, target_gt_dir);
         end
-        mkdir(target_gt_dir)
-        copyfile(gt_file, target_gt_dir);
     end
     
     cd(cwd);
