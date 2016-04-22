@@ -30,7 +30,13 @@ function nidm_export(data_path, out_path)
     else
         run(fullfile(pwd, 'batch.m'))
         result_batch = matlabbatch(end);
-        result_batch{1}.spm.stats.results.spmmat = {fullfile(pwd, 'SPM.mat')};
+        if strcmp(test_name, 'spm_group_wls')
+            study_dir = fullfile(pwd, 'mfx');
+        else
+            study_dir = pwd;
+        end
+        
+        result_batch{1}.spm.stats.results.spmmat = {fullfile(study_dir, 'SPM.mat')};
         result_batch{1}.spm.stats.results.print = 'nidm';    
         spm_jobman('run', result_batch)
     end
