@@ -38,7 +38,20 @@ function nidm_export(data_path, out_path)
         
         result_batch{1}.spm.stats.results.spmmat = {fullfile(study_dir, 'SPM.mat')};
         result_batch{1}.spm.stats.results.print = 'nidm';    
-        spm_jobman('run', result_batch)
+        try
+            spm_jobman('run', result_batch)
+        catch ME
+            switch ME.identifier
+                case 'matlabbatch:run:jobfailederr'
+                    % Voxel-wise FDR requires topoFDR to be disabled
+                    global defaults;
+                    defaults.stats.topoFDR = 0;
+                    spm_jobman('run', result_batch)
+                    defaults.stats.topoFDR = 1;
+                otherwise
+                    rethrow(ME)
+            end
+        end
     end
     
     unzip('spm_0001.nidm.zip', 'nidm')
