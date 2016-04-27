@@ -13,8 +13,10 @@ function nidm_export_all(path_to, out_path)
         {'.', '..', '.git', 'ground_truth'});
     for i = 1:numel(subdirs)
         dname = subdirs{i};
-        % FIXME: explicit mask is currently ignored
-        if ~strcmp(dname, 'spm_explicit_mask')
+        % FIXME: examples ignored so far
+        if ~strcmp(dname, 'spm_explicit_mask') && ...
+           ~strcmp(dname, 'spm_2_t_test') && ...
+           ~strcmp(dname, 'spm_covariate')
             json_file = fullfile(path_to, dname, 'config.json');
             
             if exist(json_file, 'file') ~= 2
