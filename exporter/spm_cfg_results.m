@@ -263,27 +263,62 @@ write.values  = { none type1 type2 type3 };
 %--------------------------------------------------------------------------
 % print Print results
 %--------------------------------------------------------------------------
-print        = cfg_menu;
+print        = cfg_choice;
+
+write.val     = {none};
+write.help    = {''};
+write.values  = { none type1 type2 type3 };
+
 print.tag    = 'print';
 print.name   = 'Print results';
 print.help   = {['Select the printing format you want. PostScript (PS) is '...
                'the only format that allows to append figures to the same ' ...
                'file.']};
 pf           = spm_print('format');
-print.labels = {'No'};
-print.values = {false};
+% print.labels = {'No'};
+no_print = cfg_const;
+no_print.tag      = 'false';
+no_print.name     = 'No';   
+no_print.val      = { 0 };
+no_print.help     = {['Do not print.']};    
+print.values = {no_print};
 for i=1:numel(pf)
-    print.labels{end+1} = pf(i).name;
-    print.values{end+1} = pf(i).label{1};
+%     print.labels{end+1} = pf(i).name;
+    format = cfg_const;
+    format.tag      = pf(i).label{1};
+    format.name     = pf(i).name;   
+    format.val      = { i+1 };
+    format.help     = {['Print as ' pf(i).label{1} '.']};    
+    print.values{end+1} = format ;
+    num_formats = i+1 ;
 end
-print.labels{end+1} = 'CSV file';
-print.values{end+1} = 'csv';
+% % print.labels{end+1} = 'CSV file';
+csv = cfg_const;
+csv.tag      = 'csv';
+csv.name     = 'CSV file';   
+csv.val      = { num_formats+1 };
+num_formats = num_formats + 1 ;
+csv.help     = {['Print as CSV file.']};    
+print.values{end+1} = csv ;
 if ispc
-    print.labels{end+1} = 'Excel spreadsheet file';
-    print.values{end+1} = 'xls';
+    xls = cfg_const;
+    xls.tag      = 'xls';
+    xls.name     = 'Excel spreadsheet file';   
+    xls.val      = { num_formats+1 };
+    num_formats = num_formats + 1 ;
+    xls.help     = {['Print as Excel spreadsheet file.']};    
+%     print.labels{end+1} = 'Excel spreadsheet file';
+    print.values{end+1} = xls;
 end
-print.labels{end+1} = 'NIDM (Neuroimaging Data Model)';
-print.values{end+1} = 'nidm';
+% % print.labels{end+1} = 'NIDM (Neuroimaging Data Model)';
+% print.values{end+1} = 'nidm';
+nidm = cfg_const;
+nidm.tag      = 'nidm';
+nidm.name     = 'NIDM (Neuroimaging Data Model)';   
+nidm.val      = { num_formats+1 };
+nidm.help     = {['Print as NIDM (Neuroimaging Data Model).']};    
+%     print.labels{end+1} = 'Excel spreadsheet file';
+print.values{end+1} = nidm;
 print.def = @(val)spm_get_defaults('ui.print', val{:});
 
 %--------------------------------------------------------------------------
