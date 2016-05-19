@@ -45,8 +45,17 @@ end
 %-Options
 %--------------------------------------------------------------------------
 gz           = '.gz'; %-Compressed NIfTI {'.gz', ''}
-coordsys     = 'nidm_MNICoordinateSystem'; %-Assuming MNI space
-NIDMversion  = '1.3.0-rc2';
+switch space
+    case 'subject'
+        coordsys = 'nidm_SubjectCoordinateSystem';
+    case 'ixi'
+        coordsys = 'nidm_Ixi549CoordinateSystem';
+    case 'icbm'
+        coordsys = 'nidm_IcbmMni152LinearCoordinateSystem';
+    case 'custom'
+        coordsys = 'nidm_CustomCoordinateSystem';
+end
+NIDMversion  = '1.3.0';
 SVNrev       = '$Rev: 6797 $';
 MRIProtocol  = '';
 
