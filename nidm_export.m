@@ -26,7 +26,11 @@ function nidm_export(data_path, out_path)
         % and clusters list to get exactly the same graph
         load(fullfile(data_path, 'nidm_example001.mat'));
         [SPM, xSPM] = set_study_path(SPM, xSPM, pwd);
-        spm_results_nidm(SPM,xSPM,TabDat);
+        % FIXME: should be extracted from json (when reader fixed)
+        subjects.subject = 1;
+        modality = 'FMRI';
+        space = 'subject';
+        spm_results_nidm(SPM,xSPM,TabDat,subjects,modality,space);
     else
         run(fullfile(pwd, 'batch.m'))
         result_batch = matlabbatch(end);
