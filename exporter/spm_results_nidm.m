@@ -1,9 +1,12 @@
-function [nidmfile, prov] = spm_results_nidm(SPM,xSPM,TabDat)
+function [nidmfile, prov] = spm_results_nidm(SPM,xSPM,TabDat,sub,mod,space)
 % Export SPM stats results using the Neuroimaging Data Model (NIDM)
 % FORMAT [nidmfile, prov] = spm_results_nidm(SPM,xSPM,TabDat)
 % SPM      - structure containing analysis details (see spm_spm.m)
 % xSPM     - structure containing inference details (see spm_getSPM.m)
 % TabDat   - structure containing results details (see spm_list.m)
+% sub      - structure containing details about the subject(s) under study
+% mod      - string describing the data modality
+% space    - reference space in which the results were computed
 %
 % nidmfile - output NIDM zip archive filename
 % prov     - provenance object (see spm_provenance.m)
@@ -46,31 +49,49 @@ coordsys     = 'nidm_MNICoordinateSystem'; %-Assuming MNI space
 NIDMversion  = '1.3.0-rc2';
 SVNrev       = '$Rev: 6797 $';
 MRIProtocol  = '';
-try
-    modality = spm_get_defaults('modality');
-catch
-    modality = 'FMRI';
-end
+
+% TODO: Do we want to keep call to spm_get_defaults?
+%     modality = spm_get_defaults('modality');
+modality = mod;
+
 switch modality
+    case 'AMRI'
+        ImagingInstrument = 'nlx_Magneticresonanceimagingscanner';
+        ImagingInstrumentLabel = 'MRI Scanner';
+        
+        MRIProtocol = 'nlx_AnatomicallMRIprotocol';    
     case 'FMRI'
         ImagingInstrument = 'nlx_Magneticresonanceimagingscanner';
         ImagingInstrumentLabel = 'MRI Scanner';
         
         MRIProtocol = 'nlx_FunctionalMRIprotocol';
-        % or 'nlx_StructuralMRIprotocol'
+    case 'DMRI'
+        ImagingInstrument = 'nlx_Magneticresonanceimagingscanner';
+        ImagingInstrumentLabel = 'MRI Scanner';
+        
+        MRIProtocol = 'nlx_DiffusionMRIprotocol';
     case 'PET'
         ImagingInstrument =  'nlx_Positronemissiontomographyscanner';
         ImagingInstrumentLabel = 'PET Scanner';
-        % or 'nlx_Singlephotonemissioncomputedtomographyscanner'
+    case 'SPECT'
+        ImagingInstrument =  'nlx_Singlephotonemissioncomputedtomographyscanner';
+        ImagingInstrumentLabel = 'SPECT Scanner';     
     case 'EEG'
         ImagingInstrument = 'nlx_Electroencephalographymachine';
         ImagingInstrumentLabel = 'EEG Machine';
-        % or 'nlx_Magnetoencephalographymachine'
+    case 'MEG'
+        ImagingInstrument = 'nlx_Magnetoencephalographymachine';
+        ImagingInstrumentLabel = 'MEG Machine';        
     otherwise
         error('Unknown modality.');
 end
-groups = 1; % ie single subject or [nG1, nG2, ...]
-groupName = repmat({'Control'},1,numel(groups));
+
+if isfield(sub, 'subject')
+    groups = 1; % ie single subject or [nG1, nG2, ...]
+else
+    groups = [sub.group.numsubjects];
+    groupName = {sub.group.label};
+end
 
 try
     units = xSPM.units;

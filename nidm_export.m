@@ -41,9 +41,9 @@ function nidm_export(data_path, out_path)
         % FIXME: this will have to be read from json when json reader is
         % fixed
         if isempty(findstr(test_name, 'group'))
-            group_analysis = False;
+            group_analysis = false;
         else
-            group_analysis = True;
+            group_analysis = true;
         end
         
         if ~group_analysis
