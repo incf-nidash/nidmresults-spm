@@ -37,7 +37,30 @@ function nidm_export(data_path, out_path)
         end
         
         result_batch{1}.spm.stats.results.spmmat = {fullfile(study_dir, 'SPM.mat')};
-        result_batch{1}.spm.stats.results.print = 'nidm';    
+        
+        % FIXME: this will have to be read from json when json reader is
+        % fixed
+        if isempty(findstr(test_name, 'group'))
+            group_analysis = False;
+        else
+            group_analysis = True;
+        end
+        
+        if ~group_analysis
+            % single-subject analysis (fMRI / subject-space)         
+            result_batch{1}.spm.stats.results.print.nidm.subjects.subject = 1;
+            result_batch{1}.spm.stats.results.print.nidm.modality = 2;
+            result_batch{1}.spm.stats.results.print.nidm.refspace = 1;
+        else
+            % group-analysis (fMRI / segment space)
+            result_batch{1}.spm.stats.results.print.nidm.subjects.group.label = 'Control';
+            % FIXME: this will have to be read from json when json reader is
+            % fixed
+            result_batch{1}.spm.stats.results.print.nidm.subjects.group.numsubjects = 14;
+            result_batch{1}.spm.stats.results.print.nidm.modality = 2;
+            result_batch{1}.spm.stats.results.print.nidm.refspace = 2;
+        end
+        
         try
             spm_jobman('run', result_batch)
         catch ME

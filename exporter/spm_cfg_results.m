@@ -275,7 +275,6 @@ print.help   = {['Select the printing format you want. PostScript (PS) is '...
                'the only format that allows to append figures to the same ' ...
                'file.']};
 pf           = spm_print('format');
-% print.labels = {'No'};
 no_print = cfg_const;
 no_print.tag      = 'false';
 no_print.name     = 'No';   
@@ -283,7 +282,6 @@ no_print.val      = { 0 };
 no_print.help     = {['Do not print.']};    
 print.values = {no_print};
 for i=1:numel(pf)
-%     print.labels{end+1} = pf(i).name;
     format = cfg_const;
     format.tag      = pf(i).label{1};
     format.name     = pf(i).name;   
@@ -292,7 +290,6 @@ for i=1:numel(pf)
     print.values{end+1} = format ;
     num_formats = i+1 ;
 end
-% % print.labels{end+1} = 'CSV file';
 csv = cfg_const;
 csv.tag      = 'csv';
 csv.name     = 'CSV file';   
@@ -307,17 +304,103 @@ if ispc
     xls.val      = { num_formats+1 };
     num_formats = num_formats + 1 ;
     xls.help     = {['Print as Excel spreadsheet file.']};    
-%     print.labels{end+1} = 'Excel spreadsheet file';
     print.values{end+1} = xls;
 end
-% % print.labels{end+1} = 'NIDM (Neuroimaging Data Model)';
-% print.values{end+1} = 'nidm';
-nidm = cfg_const;
+
+%--------------------------------------------------------------------------
+% Number of subjects in the group
+%--------------------------------------------------------------------------
+numsubjects         = cfg_entry;
+numsubjects.tag     = 'numsubjects';
+numsubjects.name    = 'Number of subjects';
+numsubjects.help    = {'Number of subjects in the group.'};
+numsubjects.strtype = 'r';
+numsubjects.num     = [1 1];
+
+%--------------------------------------------------------------------------
+% Group label
+%--------------------------------------------------------------------------
+grouplabel         = cfg_entry;
+grouplabel.tag     = 'label';
+grouplabel.name    = 'Label';
+grouplabel.help    = {'Label for the group.'};
+grouplabel.strtype = 's';
+grouplabel.num     = [0 Inf];
+
+%--------------------------------------------------------------------------
+% group definition
+%--------------------------------------------------------------------------
+group      = cfg_branch;
+group.tag  = 'group';
+group.name = 'Group';
+group.val  = {grouplabel numsubjects};
+group.help = {''};
+
+%--------------------------------------------------------------------------
+% groups for group analysis
+%--------------------------------------------------------------------------
+groups        = cfg_repeat;
+groups.tag    = 'groups';
+groups.name   = 'Group analysis';
+groups.help   = {''};
+groups.values = {group};
+groups.num    = [1 Inf];
+
+%--------------------------------------------------------------------------
+% single-subject analysis
+%--------------------------------------------------------------------------
+subject      = cfg_const;
+subject.tag  = 'subject';
+subject.name = 'Single-subject analysis';
+subject.val  = { 1 };
+subject.help = {'Single-subject analysis.'};
+
+%--------------------------------------------------------------------------
+% single-subject/group analysis
+%--------------------------------------------------------------------------
+subjects        = cfg_choice;
+subjects.tag    = 'subjects';
+subjects.name   = 'Single-subject or group analysis?';
+subjects.help   = {''};
+subjects.values = {subject groups};
+
+%--------------------------------------------------------------------------
+% Modality
+%--------------------------------------------------------------------------
+modality        = cfg_menu;
+modality.tag    = 'modality';
+modality.name   = 'Modality';
+modality.help   = {['Modality.']};
+modality.labels = {'Anatomical MRI',...
+                'Functional MRI',...
+                'Diffusion MRI',...
+                'EEG',...
+                'MEG',...
+                'PET',...
+                'SPECT'}';
+modality.values = { 1 2 3 4 5 6 7 };
+
+%--------------------------------------------------------------------------
+% Reference space
+%--------------------------------------------------------------------------
+refspace        = cfg_menu;
+refspace.tag    = 'refspace';
+refspace.name   = 'Reference space';
+refspace.help   = {['Reference space.']};
+refspace.labels = {'Subject space (no normalisation)',...
+                'Normalised space (using segment)',...
+                'Normalised space (using old segment)',...
+                'Customized space' }';
+refspace.values = { 1 2 3 4 };
+
+%--------------------------------------------------------------------------
+% Print as a NIDM-Results pack
+%--------------------------------------------------------------------------
+nidm = cfg_branch;
 nidm.tag      = 'nidm';
 nidm.name     = 'NIDM (Neuroimaging Data Model)';   
-nidm.val      = { num_formats+1 };
+nidm.val      = {subjects modality refspace};
 nidm.help     = {['Print as NIDM (Neuroimaging Data Model).']};    
-%     print.labels{end+1} = 'Excel spreadsheet file';
 print.values{end+1} = nidm;
 print.def = @(val)spm_get_defaults('ui.print', val{:});
 
