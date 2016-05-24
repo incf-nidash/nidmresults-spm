@@ -32,7 +32,7 @@
 @prefix nidm_voxelUnits: <http://purl.org/nidash/nidm#NIDM_0000133> .
 @prefix nidm_voxelSize: <http://purl.org/nidash/nidm#NIDM_0000131> .
 @prefix nidm_inWorldCoordinateSystem: <http://purl.org/nidash/nidm#NIDM_0000105> .
-@prefix nidm_MNICoordinateSystem: <http://purl.org/nidash/nidm#NIDM_0000051> .
+@prefix nidm_Ixi549CoordinateSystem: <http://purl.org/nidash/nidm#NIDM_0000050> .
 @prefix nidm_numberOfDimensions: <http://purl.org/nidash/nidm#NIDM_0000112> .
 @prefix nidm_dimensionsInVoxels: <http://purl.org/nidash/nidm#NIDM_0000090> .
 @prefix nidm_Data: <http://purl.org/nidash/nidm#NIDM_0000169> .
@@ -58,7 +58,7 @@
 @prefix nidm_ExcursionSetMap: <http://purl.org/nidash/nidm#NIDM_0000025> .
 @prefix nidm_hasClusterLabelsMap: <http://purl.org/nidash/nidm#NIDM_0000098> .
 @prefix nidm_hasMaximumIntensityProjection: <http://purl.org/nidash/nidm#NIDM_0000138> .
-@prefix nidm_numberOfSignificantClusters: <http://purl.org/nidash/nidm#NIDM_0000111> .
+@prefix nidm_numberOfSupraThresholdClusters: <http://purl.org/nidash/nidm#NIDM_0000111> .
 @prefix nidm_pValue: <http://purl.org/nidash/nidm#NIDM_0000114> .
 @prefix nidm_NIDMResultsExport: <http://purl.org/nidash/nidm#NIDM_0000166> .
 @prefix nidm_spm_results_nidm: <http://purl.org/nidash/nidm#NIDM_0000168> .
@@ -206,7 +206,7 @@ niiri:coordinate_space_id_1 a prov:Entity , nidm_CoordinateSpace: ;
 	nidm_voxelToWorldMapping: "[[-3, 0, 0, 78],[0, 3, 0, -112],[0, 0, 3, -70],[0, 0, 0, 1]]"^^xsd:string ;
 	nidm_voxelUnits: "[ \"mm\", \"mm\", \"mm\" ]"^^xsd:string ;
 	nidm_voxelSize: "[ 3, 3, 3 ]"^^xsd:string ;
-	nidm_inWorldCoordinateSystem: nidm_MNICoordinateSystem: ;
+	nidm_inWorldCoordinateSystem: nidm_Ixi549CoordinateSystem: ;
 	nidm_numberOfDimensions: "3"^^xsd:int ;
 	nidm_dimensionsInVoxels: "[ 53, 63, 52 ]"^^xsd:string .
 
@@ -279,7 +279,7 @@ niiri:excursion_set_map_id a prov:Entity , nidm_ExcursionSetMap: ;
 	nidm_hasMaximumIntensityProjection: niiri:maximum_intensity_projection_id ;
 	nidm_inCoordinateSpace: niiri:coordinate_space_id_1 ;
 	crypto:sha512 "d96b82761c299a66978893cab6034f3f8aed25d0a135636b0ffe79f4cf11becce86ba261f7aeb43717f5d0e47ad0b14cfb0402786251e3f2c507890c83b27652"^^xsd:string ;
-	nidm_numberOfSignificantClusters: "5"^^xsd:int ;
+	nidm_numberOfSupraThresholdClusters: "5"^^xsd:int ;
 	nidm_pValue: "2.83510681598e-09"^^xsd:float ;
 	prov:wasGeneratedBy niiri:inference_id .
 
@@ -326,8 +326,8 @@ niiri:height_threshold_id_3 a prov:Entity, nidm_HeightThreshold:, nidm_PValueUnc
     prov:value "2.7772578456986e-06"^^xsd:float .
 
 niiri:height_threshold_id a prov:Entity, nidm_HeightThreshold:, obo_FWERadjustedpvalue: ;
-    rdfs:label "Height Threshold: p<0.05 (FWE)" ;
-    prov:value "0.0499999999999976"^^xsd:float ;
+    rdfs:label "Height Threshold: p<0.050000 (FWE)" ;
+    prov:value "0.05"^^xsd:float ;
     nidm_equivalentThreshold: niiri:height_threshold_id_2 ;
     nidm_equivalentThreshold: niiri:height_threshold_id_3 .
 
