@@ -136,12 +136,13 @@ files.mip    = fullfile(outdir,'MaximumIntensityProjection.png');
 MIP          = spm_mip(xSPM.Z,xSPM.XYZmm,xSPM.M,units);
 imwrite(MIP,gray(64),files.mip,'png');
 
-%-Beta images (as NIfTI)
-%--------------------------------------------------------------------------
-for i=1:numel(SPM.Vbeta)
-    files.beta{i} = fullfile(outdir,[sprintf('Beta_%04d',i) '.nii' gz]);
-    img2nii(fullfile(xSPM.swd,SPM.Vbeta(i).fname), files.beta{i});
-end
+% %-Beta images (as NIfTI)
+files.beta = {};
+% %--------------------------------------------------------------------------
+% for i=1:numel(SPM.Vbeta)
+%     files.beta{i} = fullfile(outdir,[sprintf('Beta_%04d',i) '.nii' gz]);
+%     img2nii(fullfile(xSPM.swd,SPM.Vbeta(i).fname), files.beta{i});
+% end
 
 %-SPM{.}, contrast, contrast standard error, and contrast explained mean square images (as NIfTI)
 %--------------------------------------------------------------------------
@@ -625,8 +626,8 @@ for i=1:numel(SPM.Vbeta)
         'prov:label',{sprintf('Beta Map %d',i),'xsd:string'},...
         extra_fields{:},...
     });
-    id = originalfile(p,fullfile(SPM.swd,SPM.Vbeta(i).fname),idBeta{i},nidm_conv('nidm_ParameterEstimateMap',p));
-    p.wasDerivedFrom(idBeta{i},id);
+%     id = originalfile(p,fullfile(SPM.swd,SPM.Vbeta(i).fname),idBeta{i},nidm_conv('nidm_ParameterEstimateMap',p));
+%     p.wasDerivedFrom(idBeta{i},id);
     p.wasGeneratedBy(idBeta{i}, idModelPE);
 end
 
