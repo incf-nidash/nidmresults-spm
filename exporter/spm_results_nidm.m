@@ -784,6 +784,9 @@ else
         case 'unc.'
             thresh_order = [2 1 3]; % uncorrected
             thresh_desc  = sprintf(': p<%f (unc.)',TabDat.ftr{1,2}(2));
+            % Set uncorrected p-value threshold to the user-defined value
+            % (to avoid possible floating point approximations)            
+            thresh(2).value = str2double(td.u);
         case 'FDR'
             thresh(3).type  = nidm_conv('obo_qvalue',p);
             thresh(3).label = 'Height Threshold';
