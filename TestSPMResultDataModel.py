@@ -99,15 +99,18 @@ class TestSPMResultsDataModel(unittest.TestCase, TestResultDataModel):
         """
         ex = self.load_graph(ttl)
         ex_gt = ""
+
+        # Creating a single ground truth graph (by merging all included ground
+        # truths)
+        gt = Graph()
         for gt_file in ex.gt_ttl_files:
             logging.info("Ground truth ttl: " + gt_file)
 
             # RDF obtained by the ground truth export
-            gt = Graph()
             gt.parse(gt_file, format='turtle')
 
-            self.compare_full_graphs(gt, ex.graph, ex.exact_comparison, False)
-            ex_gt += self.my_execption
+        self.compare_full_graphs(gt, ex.graph, ex.exact_comparison, False)
+        ex_gt += self.my_execption
 
         if ex_gt:
             raise Exception(ex_gt)
