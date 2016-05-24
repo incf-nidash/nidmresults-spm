@@ -29,7 +29,7 @@ function nidm_export(data_path, out_path)
         % FIXME: should be extracted from json (when reader fixed)
         subjects.subject = 1;
         modality = 'FMRI';
-        space = 'subject';
+        space = 'ixi';
         spm_results_nidm(SPM,xSPM,TabDat,subjects,modality,space);
     else
         run(fullfile(pwd, 'batch.m'))
