@@ -53,7 +53,11 @@ switch space
     case 'icbm'
         coordsys = 'nidm_IcbmMni152LinearCoordinateSystem';
     case 'custom'
-        coordsys = 'nidm_CustomCoordinateSystem';
+        coordsys = 'nidm_CustomCoordinateSystem';        
+    case 'mni'
+        coordsys = 'nidm_MNICoordinateSystem';        
+    case 'talairach'
+        coordsys = 'nidm_TalairachCoordinateSystem';                
 end
 NIDMversion  = '1.3.0';
 SVNrev       = '$Rev: fe765b3 $';

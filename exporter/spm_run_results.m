@@ -168,7 +168,7 @@ for k = 1:numel(cspec)
             modalities = {'AMRI','FMRI','DMRI','EEG','MEG','PET','SPECT'};
             modality = modalities{job.export.nidm.modality};
 
-            refspaces = {'subject','ixi','icbm','custom'};
+            refspaces = {'subject','ixi','icbm','custom','mni','talairach'};
             refspace = refspaces{job.export.nidm.refspace};
                 
             nidmfile = spm_results_nidm(SPM,xSPM,TabDat, ...

@@ -362,19 +362,23 @@ modality.values = { 1 2 3 4 5 6 7 };
 refspace        = cfg_menu;
 refspace.tag    = 'refspace';
 refspace.name   = 'Reference space';
-refspace.help   = {['Reference space.']};
+refspace.help   = {['Reference space. For an experiment completed only ',...
+    'within SPM, choose one of the first 4 options.']};
 refspace.labels = {'Subject space (no normalisation)',...
                 'Normalised space (using segment)',...
                 'Normalised space (using old segment)',...
-                'Customized space' }';
-refspace.values = { 1 2 3 4 };
+                'Customized space',...
+                'Other normalised MNI space',...                
+                'Other normalised Talairach space',...                                
+                 }';
+refspace.values = { 1 2 3 4 5 6 };
 
 %--------------------------------------------------------------------------
 % Export as a NIDM-Results pack
 %--------------------------------------------------------------------------
 nidm = cfg_branch;
 nidm.tag      = 'nidm';
-nidm.name     = 'NIDM (Neuroimaging Data Model)';   
+nidm.name     = 'Yes';   
 nidm.val      = {subjects modality refspace};
 nidm.help     = {['Yes']};    
 print.values{end+1} = nidm;
