@@ -56,7 +56,7 @@ switch space
         coordsys = 'nidm_CustomCoordinateSystem';
 end
 NIDMversion  = '1.3.0';
-SVNrev       = '$Rev: e88f233 $';
+SVNrev       = '$Rev: fe765b3 $';
 MRIProtocol  = '';
 
 % TODO: Do we want to keep call to spm_get_defaults?
