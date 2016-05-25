@@ -284,15 +284,6 @@ if ispc
 end
 
 %--------------------------------------------------------------------------
-% export Export results as NIDM?
-%--------------------------------------------------------------------------
-export        = cfg_choice;
-export.tag    = 'subjects';
-export.name   = 'Export results with NIDM?';
-export.help   = {''};
-export.values = {subject nidm};
-
-%--------------------------------------------------------------------------
 % Number of subjects in the group
 %--------------------------------------------------------------------------
 numsubjects         = cfg_entry;
@@ -379,15 +370,34 @@ refspace.labels = {'Subject space (no normalisation)',...
 refspace.values = { 1 2 3 4 };
 
 %--------------------------------------------------------------------------
-% Print as a NIDM-Results pack
+% Export as a NIDM-Results pack
 %--------------------------------------------------------------------------
 nidm = cfg_branch;
 nidm.tag      = 'nidm';
 nidm.name     = 'NIDM (Neuroimaging Data Model)';   
 nidm.val      = {subjects modality refspace};
-nidm.help     = {['Print as NIDM (Neuroimaging Data Model).']};    
+nidm.help     = {['Yes']};    
 print.values{end+1} = nidm;
 print.def = @(val)spm_get_defaults('ui.print', val{:});
+
+%--------------------------------------------------------------------------
+% Do not export
+%--------------------------------------------------------------------------
+no_export      = cfg_const;
+no_export.tag  = 'no';
+no_export.name = 'No';
+no_export.val  = { 0 };
+no_export.help = {'Do not export the results.'};
+
+%--------------------------------------------------------------------------
+% export Export results as NIDM?
+%--------------------------------------------------------------------------
+export        = cfg_choice;
+export.tag    = 'export';
+export.name   = 'Export results using the Neuroimaging Data Model (NIDM)?';
+export.help   = {''};
+export.values = {no_export nidm};
+export.val = {no_export};
 
 %--------------------------------------------------------------------------
 % results Results Report

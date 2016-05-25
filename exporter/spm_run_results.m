@@ -83,30 +83,18 @@ for k = 1:numel(cspec)
     
     %-Return/save result outputs
     %----------------------------------------------------------------------
-    pn = fieldnames(job.print);
-    if ~isequal(pn{1}, 'false')
-        switch pn{1}
+    if ~isequal(job.print, false)
+        switch job.print
             case {'csv','xls'}
                 ofile = spm_file(fullfile(xSPM.swd,...
-                    ['spm_' datestr(now,'yyyymmmdd') '.' pn{1}]),'unique');
+                    ['spm_' datestr(now,'yyyymmmdd') '.' job.print]),'unique');
                 spm_list([upper(job.print) 'List'],TabDat,ofile);
-                if strcmp(pn{1},'csv'), cmd = 'open(''%s'')';
+                if strcmp(job.print,'csv'), cmd = 'open(''%s'')';
                 else                        cmd = 'winopen(''%s'')'; end
                 fprintf('Saving results to:\n  %s\n',spm_file(ofile,'link',cmd));
-            case 'nidm'
-                modalities = {'AMRI','FMRI','DMRI','EEG','MEG','PET',...
-                    'SPECT'};
-                modality = modalities{job.print.nidm.modality};
-
-                refspaces = {'subject','ixi','icbm','custom'};
-                refspace = refspaces{job.print.nidm.refspace};
-                
-                nidmfile = spm_results_nidm(SPM,xSPM,TabDat, ...
-                    job.print.nidm.subjects, modality, refspace);
-                fprintf('Exporting results in:\n  %s\n',nidmfile);
             otherwise
                 if ~spm('CmdLine')
-                    spm_figure('Print','Graphics','',pn{1});
+                    spm_figure('Print','Graphics','',job.print);
                 else
                     spm_list('TxtList',TabDat);
                 end
@@ -169,6 +157,23 @@ for k = 1:numel(cspec)
             fprintf('Written %s\n',spm_file(F,'link',cmd));
         otherwise
             error('Unknown option.');
+    end
+    
+    %- Export to NIDM
+    %----------------------------------------------------------------------    
+    fn = fieldnames(job.export);
+    switch fn{1}
+        case 'no'
+        case 'nidm'
+            modalities = {'AMRI','FMRI','DMRI','EEG','MEG','PET','SPECT'};
+            modality = modalities{job.export.nidm.modality};
+
+            refspaces = {'subject','ixi','icbm','custom'};
+            refspace = refspaces{job.export.nidm.refspace};
+                
+            nidmfile = spm_results_nidm(SPM,xSPM,TabDat, ...
+                job.export.nidm.subjects, modality, refspace);
+            fprintf('Exporting results in:\n  %s\n',nidmfile);
     end
     
 end
