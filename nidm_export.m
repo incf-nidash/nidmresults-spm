@@ -53,17 +53,17 @@ function nidm_export(data_path, out_path)
         
         if ~group_analysis
             % single-subject analysis (fMRI / subject-space)         
-            result_batch{1}.spm.stats.results.print.nidm.subjects.subject = 1;
-            result_batch{1}.spm.stats.results.print.nidm.modality = 2;
-            result_batch{1}.spm.stats.results.print.nidm.refspace = 1;
+            result_batch{1}.spm.stats.results.export.nidm.subjects.subject = 1;
+            result_batch{1}.spm.stats.results.export.nidm.modality = 2;
+            result_batch{1}.spm.stats.results.export.nidm.refspace = 1;
         else
             % group-analysis (fMRI / segment space)
-            result_batch{1}.spm.stats.results.print.nidm.subjects.group.label = 'Control';
+            result_batch{1}.spm.stats.results.export.nidm.subjects.group.label = 'Control';
             % FIXME: this will have to be read from json when json reader is
             % fixed
-            result_batch{1}.spm.stats.results.print.nidm.subjects.group.numsubjects = 14;
-            result_batch{1}.spm.stats.results.print.nidm.modality = 2;
-            result_batch{1}.spm.stats.results.print.nidm.refspace = 2;
+            result_batch{1}.spm.stats.results.export.nidm.subjects.group.numsubjects = 14;
+            result_batch{1}.spm.stats.results.export.nidm.modality = 2;
+            result_batch{1}.spm.stats.results.export.nidm.refspace = 2;
         end
         
         try
