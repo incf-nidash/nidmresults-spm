@@ -60,7 +60,7 @@ switch space
         coordsys = 'nidm_TalairachCoordinateSystem';                
 end
 NIDMversion  = '1.3.0';
-SVNrev       = '$Rev: 959fb16 $';
+SVNrev       = '$Rev: 575ac2c $';
 MRIProtocol  = '';
 
 % TODO: Do we want to keep call to spm_get_defaults?
