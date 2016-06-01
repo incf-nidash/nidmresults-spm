@@ -282,6 +282,7 @@ if ispc
     print.labels{end+1} = 'Excel spreadsheet file';
     print.values{end+1} = 'xls';
 end
+print.def = @(val)spm_get_defaults('ui.print', val{:});
 
 %--------------------------------------------------------------------------
 % Number of subjects in the group
@@ -381,8 +382,6 @@ nidm.tag      = 'nidm';
 nidm.name     = 'Yes';   
 nidm.val      = {subjects modality refspace};
 nidm.help     = {['Yes']};    
-print.values{end+1} = nidm;
-print.def = @(val)spm_get_defaults('ui.print', val{:});
 
 %--------------------------------------------------------------------------
 % Do not export
