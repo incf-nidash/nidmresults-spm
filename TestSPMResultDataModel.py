@@ -21,25 +21,9 @@ logging.basicConfig(filename='debug.log', level=logging.DEBUG, filemode='w')
 logger = logging.getLogger(__name__)
 logger.info(' ---------- Debug log ----------')
 
-import sys
-RELPATH = os.path.dirname(os.path.abspath(__file__))
-
-# Add nidm common testing code folder to python path
-NIDM_DIR = os.path.join(RELPATH, "nidm")
-
-# In TravisCI the nidm repository will be created as a subtree, however locally
-# the nidm directory will be accessed directly
-logging.debug(NIDM_DIR)
-if not os.path.isdir(NIDM_DIR):
-    NIDM_DIR = os.path.join(RELPATH, "..", "nidm")
-    logging.debug(NIDM_DIR)
-
-NIDM_RESULTS_DIR = os.path.join(NIDM_DIR, "nidm", "nidm-results")
-sys.path.append(os.path.join(NIDM_RESULTS_DIR, "test"))
-
-from TestResultDataModel import TestResultDataModel
-from TestCommons import *
-from CheckConsistency import *
+from nidmresults.test.test_results_doc import TestResultDataModel
+from nidmresults.test.test_commons import *
+from nidmresults.test.check_consistency import *
 from ddt import ddt, data
 
 TEST_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -61,17 +45,9 @@ class TestSPMResultsDataModel(unittest.TestCase, TestResultDataModel):
             level=logging.DEBUG,
             format='%(asctime)s - %(levelname)s - %(message)s')
 
-        # Retreive owl file for NIDM-Results
-        owl_file = os.path.join(NIDM_RESULTS_DIR, 'terms', 'nidm-results.owl')
-        # Retreive imported owl files from NIDM-Results
-        owl_imports = glob.glob(os.path.join(
-            os.path.dirname(owl_file),
-            os.pardir, os.pardir, "imports", '*.ttl'))
-
         gt_dir = os.path.join(TEST_DIR, 'spmexport', 'ground_truth')
 
-        TestResultDataModel.setUp(self, owl_file, owl_imports, test_files,
-                                  TEST_DIR, gt_dir)
+        TestResultDataModel.setUp(self, gt_dir)
 
     # @data(*test_files)
     # def test_class_consistency_with_owl(self, ttl):
@@ -85,7 +61,8 @@ class TestSPMResultsDataModel(unittest.TestCase, TestResultDataModel):
     # @data(*test_files)
     # def test_attributes_consistency_with_owl(self, ttl):
     #     """
-    #     Test: Check that the attributes used in the ttl file comply with their
+    #     Test: Check that the attributes used in the ttl file comply with
+    # their
     #     definition (range, domain) specified in the owl file.
     #     """
     #     ex = self.load_graph(ttl)
@@ -99,15 +76,18 @@ class TestSPMResultsDataModel(unittest.TestCase, TestResultDataModel):
         """
         ex = self.load_graph(ttl)
         ex_gt = ""
+
+        # Creating a single ground truth graph (by merging all included ground
+        # truths)
+        gt = Graph()
         for gt_file in ex.gt_ttl_files:
             logging.info("Ground truth ttl: " + gt_file)
 
             # RDF obtained by the ground truth export
-            gt = Graph()
             gt.parse(gt_file, format='turtle')
 
-            self.compare_full_graphs(gt, ex.graph, ex.exact_comparison, False)
-            ex_gt += self.my_execption
+        self.compare_full_graphs(gt, ex.graph, ex.exact_comparison, False)
+        ex_gt += self.my_execption
 
         if ex_gt:
             raise Exception(ex_gt)

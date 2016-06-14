@@ -1,8 +1,15 @@
 function nidm_export(data_path, out_path)
     cwd = pwd;
     cd(data_path)
+    test_name = spm_file(data_path, 'filename');
+    
+    if strcmp(test_name, 'spm_group_wls')
+        study_dir = fullfile(pwd, 'mfx');
+    else
+        study_dir = pwd;
+    end    
     % Remove previous nidm exports    
-    files = dir(data_path);
+    files = dir(study_dir);
     subdirs = files([files.isdir]);
     for i = 1:numel(subdirs)
         dname = subdirs(i).name;
@@ -11,7 +18,7 @@ function nidm_export(data_path, out_path)
             rmdir(dname,'s')
         end
         
-        nidm_zips = cellstr(strvcat(spm_select('FPList', data_path, '\.nidm\.zip$')));
+        nidm_zips = cellstr(strvcat(spm_select('FPList', study_dir, '\.nidm\.zip$')));
         for j = 1:numel(nidm_zips)
             if ~isempty(nidm_zips{j})
                 disp(['Deleting ' nidm_zips{j}])
@@ -20,24 +27,45 @@ function nidm_export(data_path, out_path)
         end
     end
     
-    test_name = spm_file(data_path, 'filename');
     if strcmp(test_name, 'spm_full_example001')
         % For SPM full example 001 we use already exported peaks 
         % and clusters list to get exactly the same graph
         load(fullfile(data_path, 'nidm_example001.mat'));
         [SPM, xSPM] = set_study_path(SPM, xSPM, pwd);
-        spm_results_nidm(SPM,xSPM,TabDat);
+        % FIXME: should be extracted from json (when reader fixed)
+        subjects.subject = 1;
+        modality = 'FMRI';
+        space = 'ixi';
+        spm_results_nidm(SPM,xSPM,TabDat,subjects,modality,space);
     else
         run(fullfile(pwd, 'batch.m'))
         result_batch = matlabbatch(end);
-        if strcmp(test_name, 'spm_group_wls')
-            study_dir = fullfile(pwd, 'mfx');
-        else
-            study_dir = pwd;
-        end
         
         result_batch{1}.spm.stats.results.spmmat = {fullfile(study_dir, 'SPM.mat')};
-        result_batch{1}.spm.stats.results.print = 'nidm';    
+        
+        % FIXME: this will have to be read from json when json reader is
+        % fixed
+        if isempty(findstr(test_name, 'group'))
+            group_analysis = false;
+        else
+            group_analysis = true;
+        end
+        
+        if ~group_analysis
+            % single-subject analysis (fMRI / subject-space)         
+            result_batch{1}.spm.stats.results.export.nidm.subjects.subject = 1;
+            result_batch{1}.spm.stats.results.export.nidm.modality = 2;
+            result_batch{1}.spm.stats.results.export.nidm.refspace = 1;
+        else
+            % group-analysis (fMRI / segment space)
+            result_batch{1}.spm.stats.results.export.nidm.subjects.group.label = 'Control';
+            % FIXME: this will have to be read from json when json reader is
+            % fixed
+            result_batch{1}.spm.stats.results.export.nidm.subjects.group.numsubjects = 14;
+            result_batch{1}.spm.stats.results.export.nidm.modality = 2;
+            result_batch{1}.spm.stats.results.export.nidm.refspace = 2;
+        end
+        
         try
             spm_jobman('run', result_batch)
         catch ME
