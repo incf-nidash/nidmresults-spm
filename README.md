@@ -60,13 +60,15 @@ git lfs install
 ```
 
 To run the test battery, follow those steps:
- 1. Run the NIDM-Results export on your machine (within Matlab)
-```
-nidm_export_all('LOCAL_PATH_TO_NIDMRES_EX/nidmresults-examples/', 'LOCAL_PATH_TO_NIDMRES_SPM/nidm-results_spm/spmexport')
-``` 
- 2. Push the updates ttl and provn file to GitHub:
-```
-    git add -u
-    git commit -m "description of updated feature"
-    git push origin master
-```
+ 1. Run the NIDM-Results export on your machine within Matlab (replace by `<PATH_TO_SPM_EXPORTER>` by the full path to your spm exporter and <PATH_TO_EXAMPLES> by the full path to the parent of the `nidmresults-examples` clone)
+
+ ```
+ nidm_export_all('<PATH_TO_EXAMPLES>/nidmresults-examples/', '<PATH_TO_SPM_EXPORTER>/spmexport')
+ ``` 
+ 2. Push the updates turtle files to GitHub:
+
+ ```
+     git add -u
+     git commit -m "description of updated feature"
+     git push origin master
+ ```
