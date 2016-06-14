@@ -86,7 +86,8 @@ class TestSPMResultsDataModel(unittest.TestCase, TestResultDataModel):
             # RDF obtained by the ground truth export
             gt.parse(gt_file, format='turtle')
 
-        self.compare_full_graphs(gt, ex.graph, ex.exact_comparison, False)
+        self.compare_full_graphs(gt, ex.graph, ex.owl,
+                                 ex.exact_comparison, False)
         ex_gt += self.my_execption
 
         if ex_gt:
