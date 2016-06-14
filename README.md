@@ -72,3 +72,4 @@ To run the test battery, follow those steps:
      git commit -m "description of updated feature"
      git push origin master
  ```
+ 3. Create a pull request and check out the test report created by Travis CI.
