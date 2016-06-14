@@ -20,7 +20,7 @@ A *NIDM-Results pack* is a compressed file containing a NIDM-Results serializati
 
 <img src="doc/batch_results_report.png" width="500">            |  <img src="doc/batch_export_NIDM.png" width="500">
 :-------------------------:|:-------------------------:
- Fig. 1. Results report  |  Fig. 2. NIDM export
+ **Fig. 1.** Results report  |  **Fig. 2.** NIDM export
  
   
 ##### Requirements
