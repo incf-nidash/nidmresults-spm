@@ -11,13 +11,16 @@ In Matlab, open `SPM`
 spm fmri
 ```
  1. Open the `Batch Editor` by clicking on the `Batch` button in the SPM12 `Menu` window
- 1. Open the menu `SPM` > `Stats` > `Results Report` 
-    <img src="doc/batch_results_report.png" width="500">
- 3. In the batch window:
+ 1. Open the menu `SPM` > `Stats` > `Results Report` (Fig. 1.)
+ 3. In the batch window  (Fig. 2.)
   - Fill in information about the results you are interested in (in particular `SPM.mat` file, contrast number, threshold, etc.)
   - In `Export results using the Neuroimaging Data Model (NIDM)?`, selected `Yes`
   - Fill in information about your analysis (`Single-subject analysis`/`Group analysis`, `Modality`, `Reference space`, etc.) 
-    <img src="doc/batch_export_NIDM.png" width="500">
+
+<img src="doc/batch_results_report.png" width="500">            |  <img src="doc/batch_export_NIDM.png" width="500">
+:-------------------------:|:-------------------------:
+ Fig. 1. Results report  |  Fig. 2. NIDM export
+ 
   
 ##### Requirements
   - [SPM12](http://www.fil.ion.ucl.ac.uk/spm/software/spm12/)
