@@ -12,12 +12,13 @@ spm fmri
 ```
  1. Open the `Batch Editor` by clicking on the `Batch` button in the SPM12 `Menu` window
  1. Open the menu `SPM` > `Stats` > `Results Report`
-![Batch results report](doc/batch_results_report.png)
+<img src="doc/batch_results_report.png" width="500">
  1. In the batch window:
   - Fill in information about the results you are interested in (in particular `SPM.mat` file, contrast number, threshold, etc.)
   - In `Export results using the Neuroimaging Data Model (NIDM)?`, selected `Yes`
   - Fill in information about your analysis (`Single-subject analysis`/`Group analysis`, `Modality`, `Reference space`, etc.)
-![Batch NIDM export](doc/batch_export_NIDM.png)
+
+<img src="doc/batch_export_NIDM.png" width="500">
   
 ##### Requirements
   - [SPM12](http://www.fil.ion.ucl.ac.uk/spm/software/spm12/)
