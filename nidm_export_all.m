@@ -1,6 +1,10 @@
-function nidm_export_all(path_to, out_path)
+function nidm_export_all(path_to, out_path, aspacks)
     if ~isvarname('out_path')
         out_path = '';
+    end
+    
+    if ~isvarname('aspacks')
+        aspacks = false;
     end
 
     spm('defaults','fmri');
@@ -29,7 +33,7 @@ function nidm_export_all(path_to, out_path)
 %             if strcmp(lower(cfg.software), 'spm')
             if strncmpi(dname,'spm_',4)
                 disp(dname)
-                nidm_export(fullfile(path_to, dname), out_path)
+                nidm_export(fullfile(path_to, dname), out_path, aspacks)
             end
 %             end
         end
