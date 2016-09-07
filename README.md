@@ -60,6 +60,11 @@ git lfs install
 ```
 
 To run the test battery, follow those steps:
+ 1. Add the test code to your matlab path:
+ 
+ ```
+ addpath(fullfile(<PATH_TO_EXPORTER>, '..'))
+ ```
  1. Run the NIDM-Results export on your machine within Matlab (replace by `<PATH_TO_SPM_EXPORTER>` by the full path to your spm exporter and `<PATH_TO_EXAMPLES>` by the full path to the parent of the `nidmresults-examples` clone)
 
  ```
