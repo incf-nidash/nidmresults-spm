@@ -1,9 +1,9 @@
 function nidm_export_all(path_to, out_path, aspacks)
-    if ~isvarname('out_path')
+    if ~exist('out_path', 'var')
         out_path = '';
     end
     
-    if ~isvarname('aspacks')
+    if ~exist('aspacks', 'var')
         aspacks = false;
     end
 
