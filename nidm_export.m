@@ -1,4 +1,4 @@
-function nidm_export(data_path, out_path)
+function nidm_export(data_path, out_path, aspacks)
     cwd = pwd;
     cd(data_path)
     test_name = spm_file(data_path, 'filename');
@@ -82,7 +82,9 @@ function nidm_export(data_path, out_path)
         end
     end
     
-    unzip('spm_0001.nidm.zip', 'nidm')
+    if ~aspacks
+        unzip('spm_0001.nidm.zip', 'nidm')
+    end
     
     if ~isempty(out_path)
         test_name = spm_file(data_path, 'basename');
@@ -92,46 +94,53 @@ function nidm_export(data_path, out_path)
             disp(['Removing ' target_dir])
             rmdir(target_dir,'s')
         end
-        movefile('nidm', target_dir)
+        if ~aspacks
+            movefile('nidm', target_dir)
+        else
+            target_file = [target_dir '.nidm.zip'];
+            movefile('spm_0001.nidm.zip', target_file);
+        end
 
-%         error on mac to be fixed
-%         spm_jsonwrite(fullfile(target_dir, 'config.json'), json_cfg)
-        json_file = fullfile(data_path, 'config.json');
-%         aa = spm_jsonread(json_file)
-%         aa=1
-        copyfile(json_file, fullfile(target_dir, 'config.json'));
-             
-        fname = json_file;
-        fid = fopen(fname);
-        raw = fread(fid,inf);
-        str = char(raw');
-        fclose(fid);
+        if ~aspacks
+    %         error on mac to be fixed
+    %         spm_jsonwrite(fullfile(target_dir, 'config.json'), json_cfg)
+            json_file = fullfile(data_path, 'config.json');
+    %         aa = spm_jsonread(json_file)
+    %         aa=1
+            copyfile(json_file, fullfile(target_dir, 'config.json'));
 
-        expression = '\[".*\.ttl"\]';
-        gts = regexp(str,expression,'match'); 
-        gts = strrep(strrep(strrep(gts{1}, '[', ''), ']', ''), '"', '');
-        gts = strsplit(gts, ', ');
-        
-        for i = 1:numel(gts)
-            gt = gts{i};
-    %         disp(gt)
-    %         gt = json_cfg.ground_truth;
-            version = regexp(str,'"versions": \[".*"\]','match');
-            version = strrep(strrep(strrep(version{1},'"versions": ["', ''), '"', ''), ']', '');
-            gt_file = fullfile(data_path, '..', '_ground_truth', version, gt);
+            fname = json_file;
+            fid = fopen(fname);
+            raw = fread(fid,inf);
+            str = char(raw');
+            fclose(fid);
 
-    %         target_gt_dir = fullfile(out_path, 'ground_truth', version, spm_file(gt,'path'));
-    %         disp(gt)
-            % FIXME: version should be extracted from json        
-    %         gt_file = fullfile(path_to_script_folder, '..', 'ground_truth', '1.2.0', gt);
+            expression = '\[".*\.ttl"\]';
+            gts = regexp(str,expression,'match'); 
+            gts = strrep(strrep(strrep(gts{1}, '[', ''), ']', ''), '"', '');
+            gts = strsplit(gts, ', ');
 
-            target_gt_dir = fullfile(out_path, 'ground_truth', version, spm_file(gt,'path'));
-            if isdir(target_gt_dir)
-                disp(['Removing ' target_gt_dir])
-                rmdir(target_gt_dir,'s')
+            for i = 1:numel(gts)
+                gt = gts{i};
+        %         disp(gt)
+        %         gt = json_cfg.ground_truth;
+                version = regexp(str,'"versions": \[".*"\]','match');
+                version = strrep(strrep(strrep(version{1},'"versions": ["', ''), '"', ''), ']', '');
+                gt_file = fullfile(data_path, '..', '_ground_truth', version, gt);
+
+        %         target_gt_dir = fullfile(out_path, 'ground_truth', version, spm_file(gt,'path'));
+        %         disp(gt)
+                % FIXME: version should be extracted from json        
+        %         gt_file = fullfile(path_to_script_folder, '..', 'ground_truth', '1.2.0', gt);
+
+                target_gt_dir = fullfile(out_path, 'ground_truth', version, spm_file(gt,'path'));
+                if isdir(target_gt_dir)
+                    disp(['Removing ' target_gt_dir])
+                    rmdir(target_gt_dir,'s')
+                end
+                mkdir(target_gt_dir)
+                copyfile(gt_file, target_gt_dir);
             end
-            mkdir(target_gt_dir)
-            copyfile(gt_file, target_gt_dir);
         end
     end
     
