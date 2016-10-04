@@ -33,10 +33,10 @@ function nidm_export(data_path, out_path, aspacks)
         load(fullfile(data_path, 'nidm_example001.mat'));
         [SPM, xSPM] = set_study_path(SPM, xSPM, pwd);
         % FIXME: should be extracted from json (when reader fixed)
-        subjects.subject = 1;
-        modality = 'FMRI';
-        space = 'ixi';
-        spm_results_nidm(SPM,xSPM,TabDat,subjects,modality,space);
+        opts.group.N = 1;
+        opts.mod= 'FMRI';
+        opts.space = 'ixi';
+        spm_results_nidm(SPM,xSPM,TabDat,opts);
     else
         run(fullfile(pwd, 'batch.m'))
         result_batch = matlabbatch(end);
@@ -51,19 +51,18 @@ function nidm_export(data_path, out_path, aspacks)
             group_analysis = true;
         end
         
+        result_batch{1}.spm.stats.results.export{1}.nidm.modality = 'FMRI';
+        result_batch{1}.spm.stats.results.export{1}.nidm.refspace = 'ixi';
         if ~group_analysis
             % single-subject analysis (fMRI / subject-space)         
-            result_batch{1}.spm.stats.results.export.nidm.subjects.subject = 1;
-            result_batch{1}.spm.stats.results.export.nidm.modality = 2;
-            result_batch{1}.spm.stats.results.export.nidm.refspace = 1;
+            result_batch{1}.spm.stats.results.export{1}.nidm.group.nsubj = 1;
+            result_batch{1}.spm.stats.results.export{1}.nidm.group.label = 'Single subject';
         else
             % group-analysis (fMRI / segment space)
-            result_batch{1}.spm.stats.results.export.nidm.subjects.group.label = 'Control';
+            result_batch{1}.spm.stats.results.export{1}.nidm.group.label = 'Control';
             % FIXME: this will have to be read from json when json reader is
             % fixed
-            result_batch{1}.spm.stats.results.export.nidm.subjects.group.numsubjects = 14;
-            result_batch{1}.spm.stats.results.export.nidm.modality = 2;
-            result_batch{1}.spm.stats.results.export.nidm.refspace = 2;
+            result_batch{1}.spm.stats.results.export{1}.nidm.group.nsubj = 14;
         end
         
         try
