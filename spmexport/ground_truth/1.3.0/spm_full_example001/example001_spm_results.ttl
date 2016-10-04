@@ -19,10 +19,10 @@
 @prefix nidm_hasConnectivityCriterion: <http://purl.org/nidash/nidm#NIDM_0000099> .
 @prefix nidm_voxel18connected: <http://purl.org/nidash/nidm#NIDM_0000128> .
 @prefix nidm_ClusterLabelsMap: <http://purl.org/nidash/nidm#NIDM_0000008> .
+@prefix nidm_inCoordinateSpace: <http://purl.org/nidash/nidm#NIDM_0000104> .
 @prefix nidm_ContrastEstimation: <http://purl.org/nidash/nidm#NIDM_0000001> .
 @prefix nidm_ContrastMap: <http://purl.org/nidash/nidm#NIDM_0000002> .
 @prefix nidm_contrastName: <http://purl.org/nidash/nidm#NIDM_0000085> .
-@prefix nidm_inCoordinateSpace: <http://purl.org/nidash/nidm#NIDM_0000104> .
 @prefix nidm_ContrastStandardErrorMap: <http://purl.org/nidash/nidm#NIDM_0000013> .
 @prefix nidm_statisticType: <http://purl.org/nidash/nidm#NIDM_0000123> .
 @prefix nidm_Coordinate: <http://purl.org/nidash/nidm#NIDM_0000015> .
@@ -75,7 +75,7 @@
 @prefix nidm_hasAlternativeHypothesis: <http://purl.org/nidash/nidm#NIDM_0000097> .
 @prefix nidm_OneTailedTest: <http://purl.org/nidash/nidm#NIDM_0000060> .
 @prefix nidm_isUserDefined: <http://purl.org/nidash/nidm#NIDM_0000106> .
-@prefix nidm_ModelParametersEstimation: <http://purl.org/nidash/nidm#NIDM_0000056> .
+@prefix nidm_ModelParameterEstimation: <http://purl.org/nidash/nidm#NIDM_0000056> .
 @prefix nidm_withEstimationMethod: <http://purl.org/nidash/nidm#NIDM_0000134> .
 @prefix nidm_NIDMResults: <http://purl.org/nidash/nidm#NIDM_0000027> .
 @prefix nidm_version: <http://purl.org/nidash/nidm#NIDM_0000127> .
@@ -112,7 +112,7 @@
 @prefix obo_generalizedleastsquaresestimation: <http://purl.obolibrary.org/obo/STATO_0000372> .
 @prefix obo_FWERadjustedpvalue: <http://purl.obolibrary.org/obo/OBI_0001265> .
 @prefix spm_SPMsCanonicalHRF: <http://purl.org/nidash/spm#SPM_0000004> .
-@prefix spm_DCTDriftModel: <http://purl.org/nidash/spm#SPM_0000002> .
+@prefix spm_DiscreteCosineTransformbasisDriftModel: <http://purl.org/nidash/spm#SPM_0000002> .
 @prefix spm_SPMsDriftCutoffPeriod: <http://purl.org/nidash/spm#SPM_0000001> .
 @prefix spm_smallestSignificantClusterSizeInVoxelsFWE05: <http://purl.org/nidash/spm#SPM_0000014> .
 @prefix spm_smallestSignificantClusterSizeInVoxelsFDR05: <http://purl.org/nidash/spm#SPM_0000013> .
@@ -130,6 +130,9 @@ niiri:cluster_definition_criteria_id a prov:Entity , nidm_ClusterDefinitionCrite
 niiri:cluster_label_map_id a prov:Entity , nidm_ClusterLabelsMap: ;
 	prov:atLocation "ClusterLabels.nii.gz"^^xsd:anyURI ;
 	nfo:fileName "ClusterLabels.nii.gz"^^xsd:string ;
+    rdfs:label "Cluster Labels Map" ;
+    nidm_inCoordinateSpace: niiri:coordinate_space_id_1 ;
+    crypto:sha512 "13093aae03897e2518307d000eb298f4b1439814d8d3d77c622b717423f93506dd5de5669513ab65c6dd74a7d27ee9df08620f546ed00575517b40e5878c2c96"^^xsd:string ;
 	dct:format "image/nifti"^^xsd:string .
 
 niiri:contrast_estimation_id prov:used niiri:beta_map_id_2 .
@@ -362,7 +365,7 @@ niiri:mask_id_1 a prov:Entity , nidm_MaskMap: ;
     prov:wasGeneratedBy niiri:model_pe_id .
 
 niiri:model_pe_id prov:used niiri:error_model_id ;
-	a prov:Activity , nidm_ModelParametersEstimation: ;
+	a prov:Activity , nidm_ModelParameterEstimation: ;
 	rdfs:label "Model parameters estimation" ;
 	nidm_withEstimationMethod: obo_generalizedleastsquaresestimation: ;
 	prov:used niiri:design_matrix_id ;
@@ -504,7 +507,7 @@ niiri:residual_mean_squares_map_id a prov:Entity , nidm_ResidualMeanSquaresMap: 
 	crypto:sha512 "84cd0e608b8763307a1166b88761291e552838d85b58334a69a286060f6489a3b0929a940c3ccac883803455118787ea32e0bb5a6d236a5d6e9e8b6a9f918a6b"^^xsd:string ;
     prov:wasGeneratedBy niiri:model_pe_id .
 
-niiri:drift_model_id a prov:Entity , spm_DCTDriftModel: ;
+niiri:drift_model_id a prov:Entity , spm_DiscreteCosineTransformbasisDriftModel: ;
 	rdfs:label "SPM's DCT Drift Model" ;
 	spm_SPMsDriftCutoffPeriod: "128"^^xsd:float .
 
