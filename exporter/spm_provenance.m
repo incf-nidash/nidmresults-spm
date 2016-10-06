@@ -447,23 +447,52 @@ methods (Access='private')
                         if k~=numel(l) || ~isempty(attr), str = [str sprintf(',')]; end
                         str = [str sprintf('\n')];
                     end
-                    for k=1:2:numel(attr)
-                        attribute = attr{k};
-                        literal = attr{k+1};
-                        datatype = 'xsd:string';
-                        if iscell(literal)
-                            datatype = literal{2};
-                            literal = literal{1};
-                        else
-                            if isequal(attribute,'prov:type') || strncmp(literal,'prov:',5)
-                                datatype = 'xsd:QName';
+                    A = reshape(attr,2,[])';
+                    while size(A,1) ~= 0
+                        attribute = A{1,1};
+                        l = 1;
+                        for k=2:size(A,1)
+                            if strcmp(A{k,1},attribute)
+                                l = [l k];
                             end
                         end
-                        str = [str sprintf([o o o '"%s": {\n'],attribute)];
-                        str = [str sprintf([o o o o '"$": "%s",\n'],literal)];
-                        str = [str sprintf([o o o o '"type": "%s"\n'],datatype)];
-                        str = [str sprintf([o o o '}'])];
-                        if k~=numel(attr)-1, str = [str sprintf(',')]; end
+                        for k=1:numel(l)
+                            literal{k} = A{k,2};
+                            datatype{k} = 'xsd:string';
+                            if iscell(literal{k})
+                                datatype{k} = literal{k}{2};
+                                literal{k} = literal{k}{1};
+                            else
+                                if isequal(attribute,'prov:type') || strncmp(literal{k},'prov:',5)
+                                    datatype{k} = 'xsd:QName';
+                                end
+                            end
+                        end
+                        str = [str sprintf([o o o '"%s":'],attribute)];
+                        if numel(l) == 1
+                            str = [str sprintf(' {\n')];
+                        else
+                            str = [str sprintf(' [\n')];
+                        end
+                        for k=1:numel(l)
+                            if numel(l) ~= 1
+                                str = [str sprintf([o o o o '{\n'])];
+                            end
+                            str = [str sprintf([o o o o '"$": "%s",\n'],literal{k})];
+                            str = [str sprintf([o o o o '"type": "%s"\n'],datatype{k})];
+                            if numel(l) ~= 1
+                                str = [str sprintf([o o o o '}'])];
+                                if k~=numel(l), str = [str sprintf(',')]; end
+                                str = [str sprintf('\n')];
+                            end
+                        end
+                        if numel(l) == 1
+                            str = [str sprintf([o o o '}'])];
+                        else
+                            str = [str sprintf([o o o ']'])];
+                        end
+                        A(l,:) = [];
+                        if size(A,1) ~= 0, str = [str sprintf(',')]; end
                         str = [str sprintf('\n')];
                     end
                     str = [str sprintf([o o '}'])];
@@ -478,7 +507,11 @@ methods (Access='private')
             str = [str sprintf(',\n')];
             str = [str sprintf([o '"bundle": {\n'])];
             for i=1:numel(s(end).idx)
-                str = [str serialize_json(obj.stack{s(end).idx(i)}{3},2)];
+                str = [str sprintf([o o '"%s": {\n'],obj.stack{s(end).idx(i)}{2})];
+                str = [str serialize_json(obj.stack{s(end).idx(i)}{3},step+1)];
+                str = [str sprintf([o o '}'])];
+                if i~=numel(s(end).idx), str = [str sprintf(',')]; end
+                str = [str sprintf('\n')];
             end
             str = [str sprintf([o '}'])];
         end
