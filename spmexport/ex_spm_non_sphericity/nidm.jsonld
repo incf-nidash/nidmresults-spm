@@ -1,0 +1,3503 @@
+[
+{
+  "@context": [
+    "https://provenance.ecs.soton.ac.uk/prov.jsonld",
+    {
+      "nidm": "http://purl.org/nidash/nidm#",
+      "niiri": "http://iri.nidash.org/",
+      "spm": "http://purl.org/nidash/spm#",
+      "neurolex": "http://neurolex.org/wiki/",
+      "crypto": "http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/",
+      "dct": "http://purl.org/dc/terms/",
+      "nfo": "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#",
+      "dc": "http://purl.org/dc/elements/1.1/",
+      "dctype": "http://purl.org/dc/dcmitype/",
+      "obo": "http://purl.obolibrary.org/obo/",
+      "nidm_NIDMResults": "http://purl.org/nidash/nidm#NIDM_0000027",
+      "nidm_version": "http://purl.org/nidash/nidm#NIDM_0000127",
+      "nidm_spm_results_nidm": "http://purl.org/nidash/nidm#NIDM_0000168",
+      "nidm_softwareVersion": "http://purl.org/nidash/nidm#NIDM_0000122",
+      "nidm_NIDMResultsExport": "http://purl.org/nidash/nidm#NIDM_0000166"
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "niiri:0264ac31e49cef3a7588a70f74e494a0",
+      "@type": ["prov:Entity","prov:Bundle","nidm_NIDMResults:"],
+      "rdfs:label": "NIDM-Results",
+      "nidm_version:": {"@type": "xsd:string", "@value": "1.3.0"}
+    },
+    {
+      "@id": "niiri:361042b114bf3ed1885448dce1578a4b",
+      "@type": ["prov:Agent","nidm_spm_results_nidm:","prov:SoftwareAgent"],
+      "rdfs:label": "spm_results_nidm",
+      "nidm_softwareVersion:": {"@type": "xsd:string", "@value": "12.6903"}
+    },
+    {
+      "@id": "niiri:0f6ae414c41a4c49003a51d688857508",
+      "@type": ["prov:Activity","nidm_NIDMResultsExport:"],
+      "rdfs:label": "NIDM-Results export"
+    },
+    {
+      "@type": "prov:Association",
+      "activity_associated": "niiri:0f6ae414c41a4c49003a51d688857508",
+      "agent": "niiri:361042b114bf3ed1885448dce1578a4b"
+    },
+    {
+      "@type": "prov:Generation",
+      "entity_generated": "niiri:0264ac31e49cef3a7588a70f74e494a0",
+      "activity": "niiri:0f6ae414c41a4c49003a51d688857508",
+      "atTime": "2016-10-12T14:21:16"
+    }
+  ]
+},
+{
+  "@context": [
+    "https://provenance.ecs.soton.ac.uk/prov.jsonld",
+    {
+      "nidm_softwareVersion": "http://purl.org/nidash/nidm#NIDM_0000122",
+      "nidm_CoordinateSpace": "http://purl.org/nidash/nidm#NIDM_0000016",
+      "nidm_voxelToWorldMapping": "http://purl.org/nidash/nidm#NIDM_0000132",
+      "nidm_voxelUnits": "http://purl.org/nidash/nidm#NIDM_0000133",
+      "nidm_voxelSize": "http://purl.org/nidash/nidm#NIDM_0000131",
+      "nidm_inWorldCoordinateSystem": "http://purl.org/nidash/nidm#NIDM_0000105",
+      "nidm_numberOfDimensions": "http://purl.org/nidash/nidm#NIDM_0000112",
+      "nidm_dimensionsInVoxels": "http://purl.org/nidash/nidm#NIDM_0000090",
+      "nlx_Imaginginstrument": "http://uri.neuinfo.org/nif/nifstd/birnlex_2094",
+      "nlx_Magneticresonanceimagingscanner": "http://uri.neuinfo.org/nif/nifstd/birnlex_2100",
+      "nidm_grandMeanScaling": "http://purl.org/nidash/nidm#NIDM_0000096",
+      "nidm_hasMRIProtocol": "http://purl.org/nidash/nidm#NIDM_0000172",
+      "nlx_FunctionalMRIprotocol": "http://uri.neuinfo.org/nif/nifstd/birnlex_2250",
+      "nidm_Data": "http://purl.org/nidash/nidm#NIDM_0000169",
+      "nidm_DesignMatrix": "http://purl.org/nidash/nidm#NIDM_0000019",
+      "nidm_regressorNames": "http://purl.org/nidash/nidm#NIDM_0000021",
+      "nidm_hasErrorDependence": "http://purl.org/nidash/nidm#NIDM_0000100",
+      "obo_unstructuredcovariancestructure": "http://purl.obolibrary.org/obo/STATO_0000405",
+      "nidm_dependenceMapWiseDependence": "http://purl.org/nidash/nidm#NIDM_0000089",
+      "nidm_ConstantParameter": "http://purl.org/nidash/nidm#NIDM_0000072",
+      "nidm_errorVarianceHomogeneous": "http://purl.org/nidash/nidm#NIDM_0000094",
+      "nidm_varianceMapWiseDependence": "http://purl.org/nidash/nidm#NIDM_0000126",
+      "nidm_IndependentParameter": "http://purl.org/nidash/nidm#NIDM_0000073",
+      "nidm_withEstimationMethod": "http://purl.org/nidash/nidm#NIDM_0000134",
+      "obo_generalizedleastsquaresestimation": "http://purl.obolibrary.org/obo/STATO_0000372",
+      "nidm_ErrorModel": "http://purl.org/nidash/nidm#NIDM_0000023",
+      "nidm_hasErrorDistribution": "http://purl.org/nidash/nidm#NIDM_0000101",
+      "obo_normaldistribution": "http://purl.obolibrary.org/obo/STATO_0000227",
+      "nidm_ModelParametersEstimation": "http://purl.org/nidash/nidm#NIDM_0000056",
+      "nidm_MaskMap": "http://purl.org/nidash/nidm#NIDM_0000054",
+      "nidm_isUserDefined": "http://purl.org/nidash/nidm#NIDM_0000106",
+      "nidm_inCoordinateSpace": "http://purl.org/nidash/nidm#NIDM_0000104",
+      "nidm_GrandMeanMap": "http://purl.org/nidash/nidm#NIDM_0000033",
+      "nidm_maskedMedian": "http://purl.org/nidash/nidm#NIDM_0000107",
+      "nidm_ParameterEstimateMap": "http://purl.org/nidash/nidm#NIDM_0000061",
+      "nidm_ResidualMeanSquaresMap": "http://purl.org/nidash/nidm#NIDM_0000066",
+      "nidm_ReselsPerVoxelMap": "http://purl.org/nidash/nidm#NIDM_0000144",
+      "obo_contrastweightmatrix": "http://purl.obolibrary.org/obo/STATO_0000323",
+      "nidm_statisticType": "http://purl.org/nidash/nidm#NIDM_0000123",
+      "obo_Fstatistic": "http://purl.obolibrary.org/obo/STATO_0000282",
+      "nidm_contrastName": "http://purl.org/nidash/nidm#NIDM_0000085",
+      "nidm_ContrastEstimation": "http://purl.org/nidash/nidm#NIDM_0000001",
+      "nidm_StatisticMap": "http://purl.org/nidash/nidm#NIDM_0000076",
+      "nidm_errorDegreesOfFreedom": "http://purl.org/nidash/nidm#NIDM_0000093",
+      "nidm_effectDegreesOfFreedom": "http://purl.org/nidash/nidm#NIDM_0000091",
+      "nidm_ContrastExplainedMeanSquareMap": "http://purl.org/nidash/nidm#NIDM_0000163",
+      "obo_statistic": "http://purl.obolibrary.org/obo/STATO_0000039",
+      "nidm_PValueUncorrected": "http://purl.org/nidash/nidm#NIDM_0000160",
+      "obo_FWERadjustedpvalue": "http://purl.obolibrary.org/obo/OBI_0001265",
+      "nidm_HeightThreshold": "http://purl.org/nidash/nidm#NIDM_0000034",
+      "nidm_equivalentThreshold": "http://purl.org/nidash/nidm#NIDM_0000161",
+      "nidm_ExtentThreshold": "http://purl.org/nidash/nidm#NIDM_0000026",
+      "nidm_clusterSizeInVoxels": "http://purl.org/nidash/nidm#NIDM_0000084",
+      "nidm_clusterSizeInResels": "http://purl.org/nidash/nidm#NIDM_0000156",
+      "nidm_PeakDefinitionCriteria": "http://purl.org/nidash/nidm#NIDM_0000063",
+      "nidm_maxNumberOfPeaksPerCluster": "http://purl.org/nidash/nidm#NIDM_0000108",
+      "nidm_minDistanceBetweenPeaks": "http://purl.org/nidash/nidm#NIDM_0000109",
+      "nidm_ClusterDefinitionCriteria": "http://purl.org/nidash/nidm#NIDM_0000007",
+      "nidm_hasConnectivityCriterion": "http://purl.org/nidash/nidm#NIDM_0000099",
+      "nidm_voxel18connected": "http://purl.org/nidash/nidm#NIDM_0000128",
+      "nidm_Inference": "http://purl.org/nidash/nidm#NIDM_0000049",
+      "nidm_hasAlternativeHypothesis": "http://purl.org/nidash/nidm#NIDM_0000097",
+      "nidm_OneTailedTest": "http://purl.org/nidash/nidm#NIDM_0000060",
+      "nidm_SearchSpaceMaskMap": "http://purl.org/nidash/nidm#NIDM_0000068",
+      "nidm_searchVolumeInVoxels": "http://purl.org/nidash/nidm#NIDM_0000121",
+      "nidm_searchVolumeInUnits": "http://purl.org/nidash/nidm#NIDM_0000136",
+      "nidm_reselSizeInVoxels": "http://purl.org/nidash/nidm#NIDM_0000148",
+      "nidm_searchVolumeInResels": "http://purl.org/nidash/nidm#NIDM_0000149",
+      "spm_searchVolumeReselsGeometry": "http://purl.org/nidash/spm#SPM_0000010",
+      "nidm_noiseFWHMInVoxels": "http://purl.org/nidash/nidm#NIDM_0000159",
+      "nidm_noiseFWHMInUnits": "http://purl.org/nidash/nidm#NIDM_0000157",
+      "nidm_randomFieldStationarity": "http://purl.org/nidash/nidm#NIDM_0000120",
+      "nidm_expectedNumberOfVoxelsPerCluster": "http://purl.org/nidash/nidm#NIDM_0000143",
+      "nidm_expectedNumberOfClusters": "http://purl.org/nidash/nidm#NIDM_0000141",
+      "nidm_heightCriticalThresholdFWE05": "http://purl.org/nidash/nidm#NIDM_0000147",
+      "nidm_heightCriticalThresholdFDR05": "http://purl.org/nidash/nidm#NIDM_0000146",
+      "spm_smallestSignificantClusterSizeInVoxelsFWE05": "http://purl.org/nidash/spm#SPM_0000014",
+      "spm_smallestSignificantClusterSizeInVoxelsFDR05": "http://purl.org/nidash/spm#SPM_0000013",
+      "nidm_ExcursionSetMap": "http://purl.org/nidash/nidm#NIDM_0000025",
+      "nidm_numberOfSupraThresholdClusters": "http://purl.org/nidash/nidm#NIDM_0000111",
+      "nidm_pValue": "http://purl.org/nidash/nidm#NIDM_0000114",
+      "nidm_hasClusterLabelsMap": "http://purl.org/nidash/nidm#NIDM_0000098",
+      "nidm_hasMaximumIntensityProjection": "http://purl.org/nidash/nidm#NIDM_0000138",
+      "nidm_ClusterLabelsMap": "http://purl.org/nidash/nidm#NIDM_0000008",
+      "nidm_SupraThresholdCluster": "http://purl.org/nidash/nidm#NIDM_0000070",
+      "nidm_pValueUncorrected": "http://purl.org/nidash/nidm#NIDM_0000116",
+      "nidm_pValueFWER": "http://purl.org/nidash/nidm#NIDM_0000115",
+      "nidm_qValueFDR": "http://purl.org/nidash/nidm#NIDM_0000119",
+      "nidm_clusterLabelId": "http://purl.org/nidash/nidm#NIDM_0000082",
+      "nidm_Peak": "http://purl.org/nidash/nidm#NIDM_0000062",
+      "nidm_equivalentZStatistic": "http://purl.org/nidash/nidm#NIDM_0000092",
+      "nidm_Coordinate": "http://purl.org/nidash/nidm#NIDM_0000015",
+      "nidm_coordinateVector": "http://purl.org/nidash/nidm#NIDM_0000086",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+    }
+  ],
+  "@id": "niiri:0264ac31e49cef3a7588a70f74e494a0",
+  "@graph": [
+    {
+      "@id": "niiri:93eb6bc89eb51862656b45849644f65c",
+      "@type": ["prov:Agent","src_SPM:","prov:SoftwareAgent"],
+      "rdfs:label": "SPM",
+      "nidm_softwareVersion:": {"@type": "xsd:string", "@value": "12.12.2"}
+    },
+    {
+      "@id": "niiri:ca5be3271b12798f81aed3b401be6b81",
+      "@type": ["prov:Entity","nidm_CoordinateSpace:"],
+      "rdfs:label": "Coordinate space 1",
+      "nidm_voxelToWorldMapping:": {"@type": "xsd:string", "@value": "[[-2, 0, 0, 78],[0, 2, 0, -112],[0, 0, 2, -70],[0, 0, 0, 1]]"},
+      "nidm_voxelUnits:": {"@type": "xsd:string", "@value": "[\"mm\", \"mm\", \"mm\"]"},
+      "nidm_voxelSize:": {"@type": "xsd:string", "@value": "[2, 2, 2]"},
+      "nidm_inWorldCoordinateSystem:": {"@id": "nidm_Ixi549CoordinateSystem:"},
+      "nidm_numberOfDimensions:": {"@type": "xsd:int", "@value": "3"},
+      "nidm_dimensionsInVoxels:": {"@type": "xsd:string", "@value": "[79,95,79]"}
+    },
+    {
+      "@id": "niiri:0615dcdfb3c4d7adb8ac74cd49028c31",
+      "@type": ["prov:Agent","nlx_Imaginginstrument:","nlx_Magneticresonanceimagingscanner:"],
+      "rdfs:label": "MRI Scanner"
+    },
+    {
+      "@id": "niiri:398fb94d9422eb3cd9f7d673275a9315",
+      "@type": ["prov:Agent","prov:Person"],
+      "rdfs:label": "Person"
+    },
+    {
+      "@id": "niiri:749230e07f1e042b9642a8667003f3ce",
+      "@type": ["prov:Entity","prov:Collection","nidm_Data:"],
+      "rdfs:label": "Data",
+      "nidm_grandMeanScaling:": {"@type": "xsd:boolean", "@value": "false"},
+      "nidm_hasMRIProtocol:": {"@id": "nlx_FunctionalMRIprotocol:"}
+    },
+    {
+      "@type": "prov:Attribution",
+      "entity_attributed": "niiri:749230e07f1e042b9642a8667003f3ce",
+      "agent": "niiri:0615dcdfb3c4d7adb8ac74cd49028c31"
+    },
+    {
+      "@type": "prov:Attribution",
+      "entity_attributed": "niiri:749230e07f1e042b9642a8667003f3ce",
+      "agent": "niiri:398fb94d9422eb3cd9f7d673275a9315"
+    },
+    {
+      "@id": "niiri:d496058f98124adc1311f5bf3f71ee2c",
+      "@type": ["prov:Entity","nidm_DesignMatrix:"],
+      "prov:atLocation": {"@type": "xsd:anyURI", "@value": "DesignMatrix.csv"},
+      "nfo:fileName": {"@type": "xsd:string", "@value": "DesignMatrix.csv"},
+      "dct:format": {"@type": "xsd:string", "@value": "text/csv"},
+      "dc:description": {"@id": "niiri:368dccbbda672c3453bff24304bf8a47"},
+      "rdfs:label": "Design Matrix",
+      "nidm_regressorNames:": {"@type": "xsd:string", "@value": "[\"Basis_{1}\", \"Basis_{2}\", \"Basis_{3}\"]"}
+    },
+    {
+      "@id": "niiri:368dccbbda672c3453bff24304bf8a47",
+      "@type": ["prov:Entity","dctype:Image"],
+      "prov:atLocation": {"@type": "xsd:anyURI", "@value": "DesignMatrix.png"},
+      "nfo:fileName": {"@type": "xsd:string", "@value": "DesignMatrix.png"},
+      "dct:format": {"@type": "xsd:string", "@value": "image/png"}
+    },
+    {
+      "@id": "niiri:6d234c01a70f00d342d0200a7d692319",
+      "@type": ["prov:Entity","nidm_ErrorModel:"],
+      "nidm_hasErrorDistribution:": {"@id": "obo_normaldistribution:"},
+      "nidm_hasErrorDependence:": {"@id": "obo_unstructuredcovariancestructure:"},
+      "nidm_dependenceMapWiseDependence:": {"@id": "nidm_ConstantParameter:"},
+      "nidm_errorVarianceHomogeneous:": {"@type": "xsd:boolean", "@value": "false"},
+      "nidm_varianceMapWiseDependence:": {"@id": "nidm_IndependentParameter:"}
+    },
+    {
+      "@id": "niiri:69214b6ab8b7c4cb1cd691733014fe4e",
+      "@type": ["prov:Activity","nidm_ModelParametersEstimation:"],
+      "rdfs:label": "Model parameters estimation",
+      "nidm_withEstimationMethod:": {"@id": "obo_generalizedleastsquaresestimation:"}
+    },
+    {
+      "@type": "prov:Association",
+      "activity_associated": "niiri:69214b6ab8b7c4cb1cd691733014fe4e",
+      "agent": "niiri:93eb6bc89eb51862656b45849644f65c"
+    },
+    {
+      "@type": "prov:Usage",
+      "activity_using": "niiri:69214b6ab8b7c4cb1cd691733014fe4e",
+      "entity": "niiri:d496058f98124adc1311f5bf3f71ee2c"
+    },
+    {
+      "@type": "prov:Usage",
+      "activity_using": "niiri:69214b6ab8b7c4cb1cd691733014fe4e",
+      "entity": "niiri:749230e07f1e042b9642a8667003f3ce"
+    },
+    {
+      "@type": "prov:Usage",
+      "activity_using": "niiri:69214b6ab8b7c4cb1cd691733014fe4e",
+      "entity": "niiri:6d234c01a70f00d342d0200a7d692319"
+    },
+    {
+      "@id": "niiri:281044b93a7dcb85c0de2ce7ae8a8312",
+      "@type": ["prov:Entity","nidm_MaskMap:"],
+      "prov:atLocation": {"@type": "xsd:anyURI", "@value": "Mask.nii.gz"},
+      "nidm_isUserDefined:": {"@type": "xsd:boolean", "@value": "false"},
+      "nfo:fileName": {"@type": "xsd:string", "@value": "Mask.nii.gz"},
+      "dct:format": {"@type": "xsd:string", "@value": "image/nifti"},
+      "rdfs:label": "Mask",
+      "nidm_inCoordinateSpace:": {"@id": "niiri:ca5be3271b12798f81aed3b401be6b81"},
+      "crypto:sha512": {"@type": "xsd:string", "@value": "09d331386156006058738700e3d2402ca557e5ba6f5742af2974eb4c03f0514a5529859c620fe5167c0cfed26e846d21ffd2611e5f479b2d167beec168e978bd"}
+    },
+    {
+      "@id": "niiri:665e12ef00c4b78c12cd961cef62a945",
+      "@type": ["prov:Entity","nidm_MaskMap:"],
+      "nfo:fileName": {"@type": "xsd:string", "@value": "mask.nii"},
+      "dct:format": {"@type": "xsd:string", "@value": "image/nifti"},
+      "crypto:sha512": {"@type": "xsd:string", "@value": "609620056d81292b36b9f1dbbe3d02023728da7cab8f4ca3bf953dd1e5256f1799c5eb65663aa4e8b7c5cdf3cbb521708aaad4eb4cc8182c1e5280a51387678e"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:281044b93a7dcb85c0de2ce7ae8a8312",
+      "entity": "niiri:665e12ef00c4b78c12cd961cef62a945"
+    },
+    {
+      "@type": "prov:Generation",
+      "entity_generated": "niiri:281044b93a7dcb85c0de2ce7ae8a8312",
+      "activity": "niiri:69214b6ab8b7c4cb1cd691733014fe4e"
+    },
+    {
+      "@id": "niiri:caa76ef0a1d61326c196fbf0db99d5be",
+      "@type": ["prov:Entity","nidm_GrandMeanMap:"],
+      "prov:atLocation": {"@type": "xsd:anyURI", "@value": "GrandMean.nii.gz"},
+      "nfo:fileName": {"@type": "xsd:string", "@value": "GrandMean.nii.gz"},
+      "dct:format": {"@type": "xsd:string", "@value": "image/nifti"},
+      "rdfs:label": "Grand Mean Map",
+      "nidm_maskedMedian:": {"@type": "xsd:float", "@value": "0.0511472336947918"},
+      "nidm_inCoordinateSpace:": {"@id": "niiri:ca5be3271b12798f81aed3b401be6b81"},
+      "crypto:sha512": {"@type": "xsd:string", "@value": "c111e018cb1cdd0d1318256c5dcb2e0eaaa627bc540216148527056b2969939119310599fb527dfb187ae9ee422dba8e543bf5c190b9f935d828a3a4dab2ebbc"}
+    },
+    {
+      "@type": "prov:Generation",
+      "entity_generated": "niiri:caa76ef0a1d61326c196fbf0db99d5be",
+      "activity": "niiri:69214b6ab8b7c4cb1cd691733014fe4e"
+    },
+    {
+      "@id": "niiri:2758c373aafe0616964d59fe7a713816",
+      "@type": ["prov:Entity","nidm_ParameterEstimateMap:"],
+      "prov:atLocation": {"@type": "xsd:anyURI", "@value": "ParameterEstimate_0001.nii.gz"},
+      "nfo:fileName": {"@type": "xsd:string", "@value": "ParameterEstimate_0001.nii.gz"},
+      "dct:format": {"@type": "xsd:string", "@value": "image/nifti"},
+      "rdfs:label": "Parameter Estimate Map 1",
+      "nidm_inCoordinateSpace:": {"@id": "niiri:ca5be3271b12798f81aed3b401be6b81"},
+      "crypto:sha512": {"@type": "xsd:string", "@value": "b89a0120673d47d4a2e8ca19a9a69c37d4e514e795580ec064d6c246a23e9a7d5737c49cceefe6de12b67d3d722b18dc74ff194812fe4c6c3fd9145bd76a9a2f"}
+    },
+    {
+      "@id": "niiri:dabf30e4d88fbaab06919b7e055b33c9",
+      "@type": ["prov:Entity","nidm_ParameterEstimateMap:"],
+      "nfo:fileName": {"@type": "xsd:string", "@value": "beta_0001.nii"},
+      "dct:format": {"@type": "xsd:string", "@value": "image/nifti"},
+      "crypto:sha512": {"@type": "xsd:string", "@value": "b89a0120673d47d4a2e8ca19a9a69c37d4e514e795580ec064d6c246a23e9a7d5737c49cceefe6de12b67d3d722b18dc74ff194812fe4c6c3fd9145bd76a9a2f"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:2758c373aafe0616964d59fe7a713816",
+      "entity": "niiri:dabf30e4d88fbaab06919b7e055b33c9"
+    },
+    {
+      "@type": "prov:Generation",
+      "entity_generated": "niiri:2758c373aafe0616964d59fe7a713816",
+      "activity": "niiri:69214b6ab8b7c4cb1cd691733014fe4e"
+    },
+    {
+      "@id": "niiri:2f69ad0dfdf024de4e47039131d835cf",
+      "@type": ["prov:Entity","nidm_ParameterEstimateMap:"],
+      "prov:atLocation": {"@type": "xsd:anyURI", "@value": "ParameterEstimate_0002.nii.gz"},
+      "nfo:fileName": {"@type": "xsd:string", "@value": "ParameterEstimate_0002.nii.gz"},
+      "dct:format": {"@type": "xsd:string", "@value": "image/nifti"},
+      "rdfs:label": "Parameter Estimate Map 2",
+      "nidm_inCoordinateSpace:": {"@id": "niiri:ca5be3271b12798f81aed3b401be6b81"},
+      "crypto:sha512": {"@type": "xsd:string", "@value": "5ce29a8c6d060417d3246febff5596241f2e6783c1d9761306cf762057696493f53d59a40dcd6821ac1ecf6144669d80b6560bb234e4c5455d651fc4c0024978"}
+    },
+    {
+      "@id": "niiri:1016252ea11072c52af06df50d258dcf",
+      "@type": ["prov:Entity","nidm_ParameterEstimateMap:"],
+      "nfo:fileName": {"@type": "xsd:string", "@value": "beta_0002.nii"},
+      "dct:format": {"@type": "xsd:string", "@value": "image/nifti"},
+      "crypto:sha512": {"@type": "xsd:string", "@value": "5ce29a8c6d060417d3246febff5596241f2e6783c1d9761306cf762057696493f53d59a40dcd6821ac1ecf6144669d80b6560bb234e4c5455d651fc4c0024978"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:2f69ad0dfdf024de4e47039131d835cf",
+      "entity": "niiri:1016252ea11072c52af06df50d258dcf"
+    },
+    {
+      "@type": "prov:Generation",
+      "entity_generated": "niiri:2f69ad0dfdf024de4e47039131d835cf",
+      "activity": "niiri:69214b6ab8b7c4cb1cd691733014fe4e"
+    },
+    {
+      "@id": "niiri:bd1e4f46300e9feeb0b3e77c7b419707",
+      "@type": ["prov:Entity","nidm_ParameterEstimateMap:"],
+      "prov:atLocation": {"@type": "xsd:anyURI", "@value": "ParameterEstimate_0003.nii.gz"},
+      "nfo:fileName": {"@type": "xsd:string", "@value": "ParameterEstimate_0003.nii.gz"},
+      "dct:format": {"@type": "xsd:string", "@value": "image/nifti"},
+      "rdfs:label": "Parameter Estimate Map 3",
+      "nidm_inCoordinateSpace:": {"@id": "niiri:ca5be3271b12798f81aed3b401be6b81"},
+      "crypto:sha512": {"@type": "xsd:string", "@value": "d8c80bfb0cd41ceae8da00cc1b5f7a39d0c186f8a1308852e0c4d4ecf2143a46153b6d3998bcdc4a41a36a51e52eb5154a5c871a0d326d43cf02834aa7a2802a"}
+    },
+    {
+      "@id": "niiri:af9bc49056b6ce9540d948dde230d17d",
+      "@type": ["prov:Entity","nidm_ParameterEstimateMap:"],
+      "nfo:fileName": {"@type": "xsd:string", "@value": "beta_0003.nii"},
+      "dct:format": {"@type": "xsd:string", "@value": "image/nifti"},
+      "crypto:sha512": {"@type": "xsd:string", "@value": "d8c80bfb0cd41ceae8da00cc1b5f7a39d0c186f8a1308852e0c4d4ecf2143a46153b6d3998bcdc4a41a36a51e52eb5154a5c871a0d326d43cf02834aa7a2802a"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:bd1e4f46300e9feeb0b3e77c7b419707",
+      "entity": "niiri:af9bc49056b6ce9540d948dde230d17d"
+    },
+    {
+      "@type": "prov:Generation",
+      "entity_generated": "niiri:bd1e4f46300e9feeb0b3e77c7b419707",
+      "activity": "niiri:69214b6ab8b7c4cb1cd691733014fe4e"
+    },
+    {
+      "@id": "niiri:4997fc2f1f7065a9563f0eca9f8a1549",
+      "@type": ["prov:Entity","nidm_ResidualMeanSquaresMap:"],
+      "prov:atLocation": {"@type": "xsd:anyURI", "@value": "ResidualMeanSquares.nii.gz"},
+      "nfo:fileName": {"@type": "xsd:string", "@value": "ResidualMeanSquares.nii.gz"},
+      "dct:format": {"@type": "xsd:string", "@value": "image/nifti"},
+      "rdfs:label": "Residual Mean Squares Map",
+      "nidm_inCoordinateSpace:": {"@id": "niiri:ca5be3271b12798f81aed3b401be6b81"},
+      "crypto:sha512": {"@type": "xsd:string", "@value": "8dd13096358e8e9e95b0a11c6c59092dbb5cfc3d586ce9a9606ecaaa7c3f48b5fceee1ff6cf6c356b754b3990b344b66b37058402579c4c37c488fd942540d48"}
+    },
+    {
+      "@id": "niiri:038dad55278e8cf7fe0bcacc8320e733",
+      "@type": ["prov:Entity","nidm_ResidualMeanSquaresMap:"],
+      "nfo:fileName": {"@type": "xsd:string", "@value": "ResMS.nii"},
+      "dct:format": {"@type": "xsd:string", "@value": "image/nifti"},
+      "crypto:sha512": {"@type": "xsd:string", "@value": "b3ead22cbbb0b4e40e397cd74f954be9e4de46bbf7aa994f35344329aad57c551fd72827fe1aae6287c0bf37ca1afbaea22993e79b87166e1a921b9e977c2868"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:4997fc2f1f7065a9563f0eca9f8a1549",
+      "entity": "niiri:038dad55278e8cf7fe0bcacc8320e733"
+    },
+    {
+      "@type": "prov:Generation",
+      "entity_generated": "niiri:4997fc2f1f7065a9563f0eca9f8a1549",
+      "activity": "niiri:69214b6ab8b7c4cb1cd691733014fe4e"
+    },
+    {
+      "@id": "niiri:be3b8347096c2a658de886cdbbada09e",
+      "@type": ["prov:Entity","nidm_ReselsPerVoxelMap:"],
+      "prov:atLocation": {"@type": "xsd:anyURI", "@value": "ReselsPerVoxel.nii.gz"},
+      "nfo:fileName": {"@type": "xsd:string", "@value": "ReselsPerVoxel.nii.gz"},
+      "dct:format": {"@type": "xsd:string", "@value": "image/nifti"},
+      "rdfs:label": "Resels per Voxel Map",
+      "nidm_inCoordinateSpace:": {"@id": "niiri:ca5be3271b12798f81aed3b401be6b81"},
+      "crypto:sha512": {"@type": "xsd:string", "@value": "9e6bd1546a438b4313b95dfeb307638416e999e4c3596b6c3aa8f282fda2df6dae8e1db498dca3dc6717d70138f68a00101ff95a2f5e32e7a1c8074a69f17381"}
+    },
+    {
+      "@id": "niiri:5720780a7851e04e2366a390300ded48",
+      "@type": ["prov:Entity","nidm_ReselsPerVoxelMap:"],
+      "nfo:fileName": {"@type": "xsd:string", "@value": "RPV.nii"},
+      "dct:format": {"@type": "xsd:string", "@value": "image/nifti"},
+      "crypto:sha512": {"@type": "xsd:string", "@value": "f8c6e2cbdd2c099fe1cdfa7f20c2d735366627a183b06e229d82b06ea4fa189ca42d6fdbbd69ca6504f1865b00f211b940f19f1c2c8df3b424f4eedea9775bb8"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:be3b8347096c2a658de886cdbbada09e",
+      "entity": "niiri:5720780a7851e04e2366a390300ded48"
+    },
+    {
+      "@type": "prov:Generation",
+      "entity_generated": "niiri:be3b8347096c2a658de886cdbbada09e",
+      "activity": "niiri:69214b6ab8b7c4cb1cd691733014fe4e"
+    },
+    {
+      "@id": "niiri:bbdecec2e74ec1ec13ff6b7851d53a04",
+      "@type": ["prov:Entity","obo_contrastweightmatrix:"],
+      "nidm_statisticType:": {"@id": "obo_Fstatistic:"},
+      "nidm_contrastName:": {"@type": "xsd:string", "@value": "Average effect of condition"},
+      "rdfs:label": "Contrast: Average effect of condition",
+      "prov:value": {"@type": "xsd:string", "@value": "[1, 1, 1]"}
+    },
+    {
+      "@id": "niiri:d890bdc762edb9ef9879e0a5469503c9",
+      "@type": ["prov:Activity","nidm_ContrastEstimation:"],
+      "rdfs:label": "Contrast estimation"
+    },
+    {
+      "@type": "prov:Association",
+      "activity_associated": "niiri:d890bdc762edb9ef9879e0a5469503c9",
+      "agent": "niiri:93eb6bc89eb51862656b45849644f65c"
+    },
+    {
+      "@type": "prov:Usage",
+      "activity_using": "niiri:d890bdc762edb9ef9879e0a5469503c9",
+      "entity": "niiri:281044b93a7dcb85c0de2ce7ae8a8312"
+    },
+    {
+      "@type": "prov:Usage",
+      "activity_using": "niiri:d890bdc762edb9ef9879e0a5469503c9",
+      "entity": "niiri:4997fc2f1f7065a9563f0eca9f8a1549"
+    },
+    {
+      "@type": "prov:Usage",
+      "activity_using": "niiri:d890bdc762edb9ef9879e0a5469503c9",
+      "entity": "niiri:d496058f98124adc1311f5bf3f71ee2c"
+    },
+    {
+      "@type": "prov:Usage",
+      "activity_using": "niiri:d890bdc762edb9ef9879e0a5469503c9",
+      "entity": "niiri:bbdecec2e74ec1ec13ff6b7851d53a04"
+    },
+    {
+      "@type": "prov:Usage",
+      "activity_using": "niiri:d890bdc762edb9ef9879e0a5469503c9",
+      "entity": "niiri:2758c373aafe0616964d59fe7a713816"
+    },
+    {
+      "@type": "prov:Usage",
+      "activity_using": "niiri:d890bdc762edb9ef9879e0a5469503c9",
+      "entity": "niiri:2f69ad0dfdf024de4e47039131d835cf"
+    },
+    {
+      "@type": "prov:Usage",
+      "activity_using": "niiri:d890bdc762edb9ef9879e0a5469503c9",
+      "entity": "niiri:bd1e4f46300e9feeb0b3e77c7b419707"
+    },
+    {
+      "@id": "niiri:1737a0cbac66c1468da107e38ce7db18",
+      "@type": ["prov:Entity","nidm_StatisticMap:"],
+      "prov:atLocation": {"@type": "xsd:anyURI", "@value": "FStatistic.nii.gz"},
+      "nfo:fileName": {"@type": "xsd:string", "@value": "FStatistic.nii.gz"},
+      "dct:format": {"@type": "xsd:string", "@value": "image/nifti"},
+      "rdfs:label": "F-Statistic Map: Average effect of condition",
+      "nidm_statisticType:": {"@id": "obo_Fstatistic:"},
+      "nidm_contrastName:": {"@type": "xsd:string", "@value": "Average effect of condition"},
+      "nidm_errorDegreesOfFreedom:": {"@type": "xsd:float", "@value": "39"},
+      "nidm_effectDegreesOfFreedom:": {"@type": "xsd:float", "@value": "1"},
+      "nidm_inCoordinateSpace:": {"@id": "niiri:ca5be3271b12798f81aed3b401be6b81"},
+      "crypto:sha512": {"@type": "xsd:string", "@value": "531843c41e0edb06002746841a3cdcaf0aa3c319781bcbedc84f6a427e154303731eaf31b1f9a403d6ecdb86716186b69dd471787f683aa7dec5f29f26bc6960"}
+    },
+    {
+      "@id": "niiri:20f0927f475975458744fc82974e780d",
+      "@type": ["prov:Entity","nidm_StatisticMap:"],
+      "nfo:fileName": {"@type": "xsd:string", "@value": "spmF_0001.nii"},
+      "dct:format": {"@type": "xsd:string", "@value": "image/nifti"},
+      "crypto:sha512": {"@type": "xsd:string", "@value": "274c247097322961825fc7761087f9352df4af7540ca42c3cfd4a35adf1249b0b72e793d97bdc1051daadce0d855a067ab6d091ed79d9b99a92180586cd65762"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:1737a0cbac66c1468da107e38ce7db18",
+      "entity": "niiri:20f0927f475975458744fc82974e780d"
+    },
+    {
+      "@type": "prov:Generation",
+      "entity_generated": "niiri:1737a0cbac66c1468da107e38ce7db18",
+      "activity": "niiri:d890bdc762edb9ef9879e0a5469503c9"
+    },
+    {
+      "@id": "niiri:8031f6ad02b596815af3ef2f9e0d0879",
+      "@type": ["prov:Entity","nidm_ContrastExplainedMeanSquareMap:"],
+      "prov:atLocation": {"@type": "xsd:anyURI", "@value": "ContrastExplainedMeanSquare.nii.gz"},
+      "nfo:fileName": {"@type": "xsd:string", "@value": "ContrastExplainedMeanSquare.nii.gz"},
+      "dct:format": {"@type": "xsd:string", "@value": "image/nifti"},
+      "rdfs:label": "Contrast Explained Mean Square Map",
+      "nidm_inCoordinateSpace:": {"@id": "niiri:ca5be3271b12798f81aed3b401be6b81"},
+      "crypto:sha512": {"@type": "xsd:string", "@value": "367a36ade072cb98530f28763f9b42a7b408eb21636c86c87161b4e3c6def23180be03e7c730f0591f675bcf6d9f9f9e290b2fa98a788e5b44df1683ce024d7a"}
+    },
+    {
+      "@type": "prov:Generation",
+      "entity_generated": "niiri:8031f6ad02b596815af3ef2f9e0d0879",
+      "activity": "niiri:d890bdc762edb9ef9879e0a5469503c9"
+    },
+    {
+      "@id": "niiri:aa217326ddc470a71638f4215525ea59",
+      "@type": ["prov:Entity","nidm_HeightThreshold:","nidm_PValueUncorrected:"],
+      "rdfs:label": "Height Threshold: p<0.001000 (unc.)",
+      "prov:value": {"@type": "xsd:float", "@value": "0.000999500201896764"},
+      "nidm_equivalentThreshold:": [{"@id": "niiri:4af41760de1487e4a46369c84e89cb95"},{"@id": "niiri:9611f889843a23ac20bd9e58a4120f61"}]
+    },
+    {
+      "@id": "niiri:4af41760de1487e4a46369c84e89cb95",
+      "@type": ["prov:Entity","nidm_HeightThreshold:","obo_statistic:"],
+      "rdfs:label": "Height Threshold",
+      "prov:value": {"@type": "xsd:float", "@value": "12.6602184255263"}
+    },
+    {
+      "@id": "niiri:9611f889843a23ac20bd9e58a4120f61",
+      "@type": ["prov:Entity","nidm_HeightThreshold:","obo_FWERadjustedpvalue:"],
+      "rdfs:label": "Height Threshold",
+      "prov:value": {"@type": "xsd:float", "@value": "0.999999999999997"}
+    },
+    {
+      "@id": "niiri:f6d69551d734686c9262fae8e6648f96",
+      "@type": ["prov:Entity","nidm_ExtentThreshold:","obo_statistic:"],
+      "rdfs:label": "Extent Threshold: k>=0",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "0"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0"},
+      "nidm_equivalentThreshold:": [{"@id": "niiri:d1cda51ac0a849738c8b7aa3fb9d2ac1"},{"@id": "niiri:144cdce410a6352a122de9d10386d2b7"}]
+    },
+    {
+      "@id": "niiri:d1cda51ac0a849738c8b7aa3fb9d2ac1",
+      "@type": ["prov:Entity","nidm_ExtentThreshold:","obo_FWERadjustedpvalue:"],
+      "rdfs:label": "Extent Threshold",
+      "prov:value": {"@type": "xsd:float", "@value": "1"}
+    },
+    {
+      "@id": "niiri:144cdce410a6352a122de9d10386d2b7",
+      "@type": ["prov:Entity","nidm_ExtentThreshold:","nidm_PValueUncorrected:"],
+      "rdfs:label": "Extent Threshold",
+      "prov:value": {"@type": "xsd:float", "@value": "1"}
+    },
+    {
+      "@id": "niiri:498692616b9b25d9c14cab5f77d44bea",
+      "@type": ["prov:Entity","nidm_PeakDefinitionCriteria:"],
+      "rdfs:label": "Peak Definition Criteria",
+      "nidm_maxNumberOfPeaksPerCluster:": {"@type": "xsd:int", "@value": "3"},
+      "nidm_minDistanceBetweenPeaks:": {"@type": "xsd:float", "@value": "8"}
+    },
+    {
+      "@id": "niiri:7caec41ebc8398068b848918e48f62f1",
+      "@type": ["prov:Entity","nidm_ClusterDefinitionCriteria:"],
+      "rdfs:label": "Cluster Connectivity Criterion: 18",
+      "nidm_hasConnectivityCriterion:": {"@id": "nidm_voxel18connected:"}
+    },
+    {
+      "@id": "niiri:c25a7cfae531fc029fcae817b2562c7b",
+      "@type": ["prov:Activity","nidm_Inference:"],
+      "nidm_hasAlternativeHypothesis:": {"@id": "nidm_OneTailedTest:"},
+      "rdfs:label": "Inference"
+    },
+    {
+      "@type": "prov:Association",
+      "activity_associated": "niiri:c25a7cfae531fc029fcae817b2562c7b",
+      "agent": "niiri:93eb6bc89eb51862656b45849644f65c"
+    },
+    {
+      "@type": "prov:Usage",
+      "activity_using": "niiri:c25a7cfae531fc029fcae817b2562c7b",
+      "entity": "niiri:aa217326ddc470a71638f4215525ea59"
+    },
+    {
+      "@type": "prov:Usage",
+      "activity_using": "niiri:c25a7cfae531fc029fcae817b2562c7b",
+      "entity": "niiri:f6d69551d734686c9262fae8e6648f96"
+    },
+    {
+      "@type": "prov:Usage",
+      "activity_using": "niiri:c25a7cfae531fc029fcae817b2562c7b",
+      "entity": "niiri:1737a0cbac66c1468da107e38ce7db18"
+    },
+    {
+      "@type": "prov:Usage",
+      "activity_using": "niiri:c25a7cfae531fc029fcae817b2562c7b",
+      "entity": "niiri:be3b8347096c2a658de886cdbbada09e"
+    },
+    {
+      "@type": "prov:Usage",
+      "activity_using": "niiri:c25a7cfae531fc029fcae817b2562c7b",
+      "entity": "niiri:281044b93a7dcb85c0de2ce7ae8a8312"
+    },
+    {
+      "@type": "prov:Usage",
+      "activity_using": "niiri:c25a7cfae531fc029fcae817b2562c7b",
+      "entity": "niiri:498692616b9b25d9c14cab5f77d44bea"
+    },
+    {
+      "@type": "prov:Usage",
+      "activity_using": "niiri:c25a7cfae531fc029fcae817b2562c7b",
+      "entity": "niiri:7caec41ebc8398068b848918e48f62f1"
+    },
+    {
+      "@id": "niiri:120eefc62eed0ae0d34f3441f03646f3",
+      "@type": ["prov:Entity","nidm_SearchSpaceMaskMap:"],
+      "prov:atLocation": {"@type": "xsd:anyURI", "@value": "SearchSpaceMask.nii.gz"},
+      "nfo:fileName": {"@type": "xsd:string", "@value": "SearchSpaceMask.nii.gz"},
+      "dct:format": {"@type": "xsd:string", "@value": "image/nifti"},
+      "rdfs:label": "Search Space Mask Map",
+      "nidm_inCoordinateSpace:": {"@id": "niiri:ca5be3271b12798f81aed3b401be6b81"},
+      "nidm_searchVolumeInVoxels:": {"@type": "xsd:int", "@value": "167222"},
+      "nidm_searchVolumeInUnits:": {"@type": "xsd:float", "@value": "1337776"},
+      "nidm_reselSizeInVoxels:": {"@type": "xsd:float", "@value": "68.5679161280351"},
+      "nidm_searchVolumeInResels:": {"@type": "xsd:float", "@value": "2244.24204044145"},
+      "spm_searchVolumeReselsGeometry:": {"@type": "xsd:string", "@value": "[5, 56.1858858382816, 782.552337179563, 2244.24204044145]"},
+      "nidm_noiseFWHMInVoxels:": {"@type": "xsd:string", "@value": "[4.09364449471869, 4.06742111213816, 4.11805068781302]"},
+      "nidm_noiseFWHMInUnits:": {"@type": "xsd:string", "@value": "[8.18728898943738, 8.13484222427633, 8.23610137562605]"},
+      "nidm_randomFieldStationarity:": {"@type": "xsd:boolean", "@value": "true"},
+      "nidm_expectedNumberOfVoxelsPerCluster:": {"@type": "xsd:float", "@value": "5.40031514302336"},
+      "nidm_expectedNumberOfClusters:": {"@type": "xsd:float", "@value": "33.3078455926716"},
+      "nidm_heightCriticalThresholdFWE05:": {"@type": "xsd:float", "@value": "37.9092455175785"},
+      "nidm_heightCriticalThresholdFDR05:": {"@type": "xsd:float", "@value": "Inf"},
+      "crypto:sha512": {"@type": "xsd:string", "@value": "09d331386156006058738700e3d2402ca557e5ba6f5742af2974eb4c03f0514a5529859c620fe5167c0cfed26e846d21ffd2611e5f479b2d167beec168e978bd"},
+      "spm_smallestSignificantClusterSizeInVoxelsFWE05:": {"@type": "xsd:int", "@value": "99"},
+      "spm_smallestSignificantClusterSizeInVoxelsFDR05:": {"@type": "xsd:int", "@value": "57"}
+    },
+    {
+      "@type": "prov:Generation",
+      "entity_generated": "niiri:120eefc62eed0ae0d34f3441f03646f3",
+      "activity": "niiri:c25a7cfae531fc029fcae817b2562c7b"
+    },
+    {
+      "@id": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af",
+      "@type": ["prov:Entity","nidm_ExcursionSetMap:"],
+      "prov:atLocation": {"@type": "xsd:anyURI", "@value": "ExcursionSet.nii.gz"},
+      "nfo:fileName": {"@type": "xsd:string", "@value": "ExcursionSet.nii.gz"},
+      "dct:format": {"@type": "xsd:string", "@value": "image/nifti"},
+      "rdfs:label": "Excursion Set Map",
+      "nidm_numberOfSupraThresholdClusters:": {"@type": "xsd:int", "@value": "71"},
+      "nidm_pValue:": {"@type": "xsd:float", "@value": "9.36073596413678e-09"},
+      "nidm_hasClusterLabelsMap:": {"@id": "niiri:eb0479465c28b6007937c295acf013f2"},
+      "nidm_hasMaximumIntensityProjection:": {"@id": "niiri:995cfbe326cf61e8b412e81c95941cc7"},
+      "nidm_inCoordinateSpace:": {"@id": "niiri:ca5be3271b12798f81aed3b401be6b81"},
+      "crypto:sha512": {"@type": "xsd:string", "@value": "3cb7cb94a15ceea4d3b829f354f40eaeb85863016ba6e236003b548b7cf18ceaa22541bd90454f190ee0e374f2958f6130c7eb1bf4c55e75bdad693646d71006"}
+    },
+    {
+      "@id": "niiri:eb0479465c28b6007937c295acf013f2",
+      "@type": ["prov:Entity","nidm_ClusterLabelsMap:"],
+      "prov:atLocation": {"@type": "xsd:anyURI", "@value": "ClusterLabels.nii.gz"},
+      "nfo:fileName": {"@type": "xsd:string", "@value": "ClusterLabels.nii.gz"},
+      "dct:format": {"@type": "xsd:string", "@value": "image/nifti"},
+      "rdfs:label": "Cluster Labels Map",
+      "nidm_inCoordinateSpace:": {"@id": "niiri:ca5be3271b12798f81aed3b401be6b81"},
+      "crypto:sha512": {"@type": "xsd:string", "@value": "403459cc812b3927db0db6d5a3f64b79acf6774fc116e11ed6ecf56ec229afd8812650c060fdf10c2ecdab534ffadb67f4650178e12b65ccea6220e0ed951cb2"}
+    },
+    {
+      "@id": "niiri:995cfbe326cf61e8b412e81c95941cc7",
+      "@type": ["prov:Entity","dctype:Image"],
+      "prov:atLocation": {"@type": "xsd:anyURI", "@value": "MaximumIntensityProjection.png"},
+      "nfo:fileName": {"@type": "xsd:string", "@value": "MaximumIntensityProjection.png"},
+      "dct:format": {"@type": "xsd:string", "@value": "image/png"}
+    },
+    {
+      "@type": "prov:Generation",
+      "entity_generated": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af",
+      "activity": "niiri:c25a7cfae531fc029fcae817b2562c7b"
+    },
+    {
+      "@id": "niiri:9ed95585403a957d4bc227efae968a3b",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0001",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "64"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.933381144039647"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.00186515164019167"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.060233823286733"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.0331064416134022"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "1"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:9ed95585403a957d4bc227efae968a3b",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:a80bac541cede37eeb78668cdfa6c308",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0002",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "139"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "2.02718717221111"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "2.6469154891926e-05"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.000881242002104266"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.00187930999732674"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "2"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:a80bac541cede37eeb78668cdfa6c308",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:f18ccbc13c01fb570810d74796e94c0c",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0003",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "99"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "1.44382395718633"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000223613862913789"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.00742042768591067"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.00529219475562633"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "3"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:f18ccbc13c01fb570810d74796e94c0c",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:2226b65f38963e51a9adbaa9e6cd9fdd",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0004",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "100"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "1.45840803756195"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.00021132818538256"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.00701417162859297"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.00529219475562633"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "4"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:2226b65f38963e51a9adbaa9e6cd9fdd",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:2dc733370024b8048a64e5fc621d7dab",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0005",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "41"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.597947295400399"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.00937054756605333"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.26810099909693"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.0831636096487233"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "5"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:2dc733370024b8048a64e5fc621d7dab",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:cffcf0c6b39aa915a9c645f776b3475a",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0006",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "42"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.612531375776019"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.00868796710659031"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.251270468559567"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.0831636096487233"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "6"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:cffcf0c6b39aa915a9c645f776b3475a",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:22c10de27165c7b18f2c4b42029cf609",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0007",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "27"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.393770170141726"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.02915927403888"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.621383930767395"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.159254496673883"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "7"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:22c10de27165c7b18f2c4b42029cf609",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:e2638c2de147ff0e9423c9f602e856a7",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0008",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "57"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.831292581410311"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.00297536918873803"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.0943507032156397"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.04225024248008"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "8"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:e2638c2de147ff0e9423c9f602e856a7",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:dee02d10f624d83aa96ec79ac76accc8",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0009",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "33"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.481274652395443"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.0175801280664628"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.443203909376631"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.112910609996037"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "9"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:dee02d10f624d83aa96ec79ac76accc8",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:1c96c9a1df5e785e6effecb000d0027c",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0010",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "6"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0875044822537169"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.273373266352505"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999888943840686"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.539152830861885"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "10"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:1c96c9a1df5e785e6effecb000d0027c",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:f0315cccde1c308dd2bce42beeb4a879",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0011",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "10"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.145840803756195"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.161523634652226"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.995392197803255"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.409577787868145"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "11"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:f0315cccde1c308dd2bce42beeb4a879",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:f18d4345053f666eacc35a71a96be03f",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0012",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "26"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.379186089766107"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.0318362117547758"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.653681229272869"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.16145507389922"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "12"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:f18d4345053f666eacc35a71a96be03f",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:b8933e9bc28a5fa5b8a7f7bd3cf40180",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0013",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "11"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.160424884131814"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.143315972308448"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.991549640351899"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.407017361355993"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "13"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:b8933e9bc28a5fa5b8a7f7bd3cf40180",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:ce506abbc626c20df95276a70688c706",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0014",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "16"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.233345286009912"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.0825813905071932"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.936111008142629"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.325737707000596"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "14"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:ce506abbc626c20df95276a70688c706",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:92734c466d68db7918a41970ad401f8b",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0015",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "14"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.204177125258673"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.10212573718427"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.966679694237215"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.36254636700416"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "15"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:92734c466d68db7918a41970ad401f8b",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:0a7ccb07c7f7d18952da7dad311a2309",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0016",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "35"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.510442813146682"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.0149558617235747"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.392344720913691"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.112910609996037"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "16"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:0a7ccb07c7f7d18952da7dad311a2309",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:3fabf84446384eaa319e0475ba536309",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0017",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "32"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.466690572019824"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.0190834833796118"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.470398116431399"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.112910609996037"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "17"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:3fabf84446384eaa319e0475ba536309",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:9ba3554de14dda61f627a2c1be9bd03a",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0018",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "46"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.670867697278497"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.00645728092420274"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.193521561130372"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.0764111576030657"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "18"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:9ba3554de14dda61f627a2c1be9bd03a",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:676e1dad43353432364d4cdec482afce",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0019",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "15"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.218761205634292"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.0917266976854565"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.952887583051913"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.342768186087759"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "19"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:676e1dad43353432364d4cdec482afce",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:414a2ee4977dfb3ed9a154a38d24684c",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0020",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "20"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.29168160751239"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.0553545237190288"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.841775430461368"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.231186540238297"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "20"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:414a2ee4977dfb3ed9a154a38d24684c",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:4e55b050fd8167c5705b70dc62ff3506",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0021",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "11"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.160424884131814"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.143315972308448"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.991549640351899"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.407017361355993"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "21"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:4e55b050fd8167c5705b70dc62ff3506",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:b5a43620429429afa4cda6f653280da3",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0022",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "32"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.466690572019824"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.0190834833796118"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.470398116431399"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.112910609996037"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "22"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:b5a43620429429afa4cda6f653280da3",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:25143f960a99051b326721af8c0cfd65",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0023",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "4"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.058336321502478"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.371675909431407"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999995797049595"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.599749762946134"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "23"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:25143f960a99051b326721af8c0cfd65",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:ebb107eb8e6d69b55eab92220fc11080",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0024",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "11"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.160424884131814"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.143315972308448"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.991549640351899"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.407017361355993"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "24"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:ebb107eb8e6d69b55eab92220fc11080",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:d3efcfd19962d90fdad9962452f34611",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0025",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "5"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0729204018780975"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.317117336021626"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999974131777239"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.549154411159401"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "25"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:d3efcfd19962d90fdad9962452f34611",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:105908bb465b6f5dc35fed75f26bd662",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0026",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "21"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.306265687888009"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.0503036857692116"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.812786836270519"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.223222605600877"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "26"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:105908bb465b6f5dc35fed75f26bd662",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:3d37903025f182ecdec4f529f0626ddd",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0027",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "25"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.364602009390487"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.0347983287867789"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.686218175845877"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.164712089590753"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "27"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:3d37903025f182ecdec4f529f0626ddd",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:6722edaf2cb2f54c5dc94ea6943413d1",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0028",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "8"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.116672643004956"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.20781578719113"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999014041359979"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.475965190018395"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "28"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:6722edaf2cb2f54c5dc94ea6943413d1",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:25a8ab452992d6ec5504ff7a21f0714d",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0029",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "12"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.175008964507434"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.127616241080866"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.985744636441848"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.407017361355993"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "29"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:25a8ab452992d6ec5504ff7a21f0714d",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:574076ebf4a6a2cb857da823976a09fa",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0030",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "1"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0145840803756195"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999828904"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "30"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:574076ebf4a6a2cb857da823976a09fa",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:10d2997d2644d22ef72aad2fb5bebc87",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0031",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "10"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.145840803756195"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.161523634652226"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.995392197803255"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.409577787868145"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "31"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:10d2997d2644d22ef72aad2fb5bebc87",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:df2273fe57c93c5af8e5c176a8440aee",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0032",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "4"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.058336321502478"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.371675909431407"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999995797049595"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.599749762946134"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "32"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:df2273fe57c93c5af8e5c176a8440aee",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:ad5257306b48aa649efbb69a8a68e069",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0033",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "6"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0875044822537169"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.273373266352505"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999888943840686"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.539152830861885"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "33"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:ad5257306b48aa649efbb69a8a68e069",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:622337003d1d05fd6f52c846f778c909",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0034",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "5"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0729204018780975"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.317117336021626"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999974131777239"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.549154411159401"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "34"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:622337003d1d05fd6f52c846f778c909",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:791fff4c5b9201b35391f7f3ac7c1aa9",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0035",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "10"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.145840803756195"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.161523634652226"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.995392197803255"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.409577787868145"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "35"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:791fff4c5b9201b35391f7f3ac7c1aa9",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:e7375fddec2107fbd6c591225210fe17",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0036",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "7"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.102088562629336"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.237571474546961"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.99963404273418"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.52711170915107"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "36"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:e7375fddec2107fbd6c591225210fe17",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:354ffa0f8a8da1aac4e4a905cc0cceb7",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0037",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "8"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.116672643004956"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.20781578719113"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999014041359979"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.475965190018395"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "37"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:354ffa0f8a8da1aac4e4a905cc0cceb7",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:c633fad8781690e25bdb6fa1c8ae39a3",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0038",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "12"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.175008964507434"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.127616241080866"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.985744636441848"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.407017361355993"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "38"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:c633fad8781690e25bdb6fa1c8ae39a3",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:5d5e50bded2ccb5124de3f3d5b788abb",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0039",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "5"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0729204018780975"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.317117336021626"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999974131777239"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.549154411159401"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "39"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:5d5e50bded2ccb5124de3f3d5b788abb",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:5d6012111c65592bce78fa13e076a34a",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0040",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "5"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0729204018780975"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.317117336021626"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999974131777239"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.549154411159401"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "40"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:5d6012111c65592bce78fa13e076a34a",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:415d113cf475ea185b5205a602312844",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0041",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "3"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0437522411268585"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.441752016334617"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999592737522"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.653424857494954"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "41"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:415d113cf475ea185b5205a602312844",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:cb4241e599b0847ee2d3e4752ce757b9",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0042",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "6"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0875044822537169"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.273373266352505"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999888943840686"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.539152830861885"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "42"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:cb4241e599b0847ee2d3e4752ce757b9",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:836263aaf0f16823074bc10eada3e0f0",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0043",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "9"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.131256723380575"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.182785449876348"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.997730485940405"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.44750920486968"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "43"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:836263aaf0f16823074bc10eada3e0f0",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:6ef8faa493b2b7b79fe0df15518621c5",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0044",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "3"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0437522411268585"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.441752016334617"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999592737522"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.653424857494954"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "44"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:6ef8faa493b2b7b79fe0df15518621c5",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:e4a22cf0ef8870af86c13ac30f9281c4",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0045",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "3"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0437522411268585"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.441752016334617"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999592737522"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.653424857494954"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "45"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:e4a22cf0ef8870af86c13ac30f9281c4",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:3c17a41f076abd9081741dd879afdd9e",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0046",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "1"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0145840803756195"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999828904"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "46"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:3c17a41f076abd9081741dd879afdd9e",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:652a06e21ee9871618f4c323f2cd9a0c",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0047",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "4"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.058336321502478"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.371675909431407"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999995797049595"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.599749762946134"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "47"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:652a06e21ee9871618f4c323f2cd9a0c",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:4d941ae1250a393f8c8a9c90d4be21de",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0048",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "3"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0437522411268585"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.441752016334617"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999592737522"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.653424857494954"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "48"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:4d941ae1250a393f8c8a9c90d4be21de",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:a0c822e70e2a413dc4d3d9f4169dc861",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0049",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "5"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0729204018780975"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.317117336021626"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999974131777239"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.549154411159401"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "49"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:a0c822e70e2a413dc4d3d9f4169dc861",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:8caa1fc466923b10ee4065372ffd5216",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0050",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "1"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0145840803756195"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999828904"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "50"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:8caa1fc466923b10ee4065372ffd5216",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:d05107b21493648cbb8d43bbe522c2b7",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0051",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "1"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0145840803756195"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999828904"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "51"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:d05107b21493648cbb8d43bbe522c2b7",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:d1ee25ce497c839da8c2a1d249711476",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0052",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "1"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0145840803756195"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999828904"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "52"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:d1ee25ce497c839da8c2a1d249711476",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:c555347a58cdb8a25f373cbc0e1f3d21",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0053",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "1"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0145840803756195"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999828904"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "53"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:c555347a58cdb8a25f373cbc0e1f3d21",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:b94f6c9709aa59074d7b70aa809ca7e6",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0054",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "6"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0875044822537169"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.273373266352505"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999888943840686"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.539152830861885"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "54"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:b94f6c9709aa59074d7b70aa809ca7e6",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:d6728bb6df0c151662f6ed4b3346a695",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0055",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "1"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0145840803756195"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999828904"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "55"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:d6728bb6df0c151662f6ed4b3346a695",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:246beffd2e030d6b585612eb6ec3b8f5",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0056",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "1"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0145840803756195"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999828904"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "56"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:246beffd2e030d6b585612eb6ec3b8f5",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:1f635fcdcbda21c2c2845895b5e8f86b",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0057",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "1"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0145840803756195"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999828904"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "57"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:1f635fcdcbda21c2c2845895b5e8f86b",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:56d1db174cd5475edeabc2c47c64a610",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0058",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "2"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.029168160751239"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.536068820289802"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999982398778"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "58"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:56d1db174cd5475edeabc2c47c64a610",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:d5ce5c5fb070f0b9a9ee2c3cef75e843",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0059",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "1"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0145840803756195"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999828904"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "59"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:d5ce5c5fb070f0b9a9ee2c3cef75e843",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:e0228bd5135dbdec113c8bb4c1c151e3",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0060",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "1"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0145840803756195"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999828904"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "60"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:e0228bd5135dbdec113c8bb4c1c151e3",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:bfc539a4541e71cc83d9a5702f093abd",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0061",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "1"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0145840803756195"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999828904"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "61"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:bfc539a4541e71cc83d9a5702f093abd",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:dc5a3cc95db7809bc2345cdad1ae49da",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0062",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "1"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0145840803756195"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999828904"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "62"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:dc5a3cc95db7809bc2345cdad1ae49da",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:a233c959b56de434d007f96c8a514bec",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0063",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "2"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.029168160751239"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.536068820289802"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999982398778"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "63"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:a233c959b56de434d007f96c8a514bec",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:74a513b0c663aa61ad8e56d4342c00f4",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0064",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "1"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0145840803756195"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999828904"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "64"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:74a513b0c663aa61ad8e56d4342c00f4",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:1d4efe1fdf11e7706370797c646fcab9",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0065",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "1"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0145840803756195"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999828904"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "65"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:1d4efe1fdf11e7706370797c646fcab9",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:77c8608b497b583c57a1341c4d605ceb",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0066",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "1"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0145840803756195"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999828904"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "66"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:77c8608b497b583c57a1341c4d605ceb",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:66648b7bce00fa767c0d326f27a4bfe3",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0067",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "1"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0145840803756195"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999828904"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "67"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:66648b7bce00fa767c0d326f27a4bfe3",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:8e251dcddd555fa05ce8ad7792d5c34e",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0068",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "1"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0145840803756195"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999828904"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "68"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:8e251dcddd555fa05ce8ad7792d5c34e",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:be712cdee7ddeaae1ae5c7f5e5f14598",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0069",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "1"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0145840803756195"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999828904"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "69"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:be712cdee7ddeaae1ae5c7f5e5f14598",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:a0a765b756a958c1825561a732aa24c6",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0070",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "1"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0145840803756195"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999828904"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "70"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:a0a765b756a958c1825561a732aa24c6",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:7b1568ab6ebe986e11ee4b05dfd34849",
+      "@type": ["prov:Entity","nidm_SupraThresholdCluster:"],
+      "rdfs:label": "Supra-Threshold Cluster: 0071",
+      "nidm_clusterSizeInVoxels:": {"@type": "xsd:int", "@value": "1"},
+      "nidm_clusterSizeInResels:": {"@type": "xsd:float", "@value": "0.0145840803756195"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999828904"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.675180100901307"},
+      "nidm_clusterLabelId:": {"@type": "xsd:int", "@value": "71"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:7b1568ab6ebe986e11ee4b05dfd34849",
+      "entity": "niiri:f4bb5145865e6f66b4ca2b0305b2f5af"
+    },
+    {
+      "@id": "niiri:ddd16ca7d17c9cb4cc54958d3987b399",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0001",
+      "prov:atLocation": {"@id": "niiri:55240c0f707b2e184b61341b0cd45295"},
+      "prov:value": {"@type": "xsd:float", "@value": "39.0658683776855"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "5.04009751746769"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "2.3264734660966e-07"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.0389037590875805"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.097253800423278"}
+    },
+    {
+      "@id": "niiri:55240c0f707b2e184b61341b0cd45295",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0001",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-2,-90,28]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:ddd16ca7d17c9cb4cc54958d3987b399",
+      "entity": "niiri:9ed95585403a957d4bc227efae968a3b"
+    },
+    {
+      "@id": "niiri:9e6902562a88997c4168857044b6ae78",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0002",
+      "prov:atLocation": {"@id": "niiri:750502131cff07e7ce9e54f94116a760"},
+      "prov:value": {"@type": "xsd:float", "@value": "36.2393341064453"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "4.89725160225159"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "4.85931842320042e-07"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.071761896035709"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.097253800423278"}
+    },
+    {
+      "@id": "niiri:750502131cff07e7ce9e54f94116a760",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0002",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-42,-64,-8]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:9e6902562a88997c4168857044b6ae78",
+      "entity": "niiri:a80bac541cede37eeb78668cdfa6c308"
+    },
+    {
+      "@id": "niiri:3462a6bc86ab87f74a79e32219300a69",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0003",
+      "prov:atLocation": {"@id": "niiri:4d9c758a83f0e0873d047ba9814fe46f"},
+      "prov:value": {"@type": "xsd:float", "@value": "17.9251842498779"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.64201416072196"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000135256594276711"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999417997648594"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.642014449876257"}
+    },
+    {
+      "@id": "niiri:4d9c758a83f0e0873d047ba9814fe46f",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0003",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-40,-52,-10]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:3462a6bc86ab87f74a79e32219300a69",
+      "entity": "niiri:a80bac541cede37eeb78668cdfa6c308"
+    },
+    {
+      "@id": "niiri:d23932b62dbfd0e49fb4d1c746df5871",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0004",
+      "prov:atLocation": {"@id": "niiri:7b6d8fa921694671f77eedab8a63c50e"},
+      "prov:value": {"@type": "xsd:float", "@value": "13.454288482666"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.18324713734782"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000728166268399777"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999996872"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.94954759467573"}
+    },
+    {
+      "@id": "niiri:7b6d8fa921694671f77eedab8a63c50e",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0004",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-38,-70,0]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:d23932b62dbfd0e49fb4d1c746df5871",
+      "entity": "niiri:a80bac541cede37eeb78668cdfa6c308"
+    },
+    {
+      "@id": "niiri:1f2d3ccc9e67c4bf37e08f1cedb4241c",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0005",
+      "prov:atLocation": {"@id": "niiri:e7a4491bb14d86bd61a262a34fb3cf79"},
+      "prov:value": {"@type": "xsd:float", "@value": "29.4676361083984"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "4.51162164706026"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "3.21669348379849e-06"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.305525019896507"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.297255514853906"}
+    },
+    {
+      "@id": "niiri:e7a4491bb14d86bd61a262a34fb3cf79",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0005",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[16,-88,24]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:1f2d3ccc9e67c4bf37e08f1cedb4241c",
+      "entity": "niiri:f18ccbc13c01fb570810d74796e94c0c"
+    },
+    {
+      "@id": "niiri:00e28bf9af3b7d8d4859b15ec757e65d",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0006",
+      "prov:atLocation": {"@id": "niiri:04627a25e5f467a5cdf2ea9c63845754"},
+      "prov:value": {"@type": "xsd:float", "@value": "28.5631580352783"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "4.45459114773779"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "4.20266075706888e-06"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.365688847752494"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.297255514853906"}
+    },
+    {
+      "@id": "niiri:04627a25e5f467a5cdf2ea9c63845754",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0006",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[28,-72,26]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:00e28bf9af3b7d8d4859b15ec757e65d",
+      "entity": "niiri:2226b65f38963e51a9adbaa9e6cd9fdd"
+    },
+    {
+      "@id": "niiri:a8f0ffe36654c67f0fb692a207c9dec3",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0007",
+      "prov:atLocation": {"@id": "niiri:42f350afdedcf9854dca65eef616bd93"},
+      "prov:value": {"@type": "xsd:float", "@value": "26.9945106506348"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "4.35204306383375"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "6.7437380493196e-06"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.489729172437052"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.302930044135827"}
+    },
+    {
+      "@id": "niiri:42f350afdedcf9854dca65eef616bd93",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0007",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-32,20,-4]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:a8f0ffe36654c67f0fb692a207c9dec3",
+      "entity": "niiri:2dc733370024b8048a64e5fc621d7dab"
+    },
+    {
+      "@id": "niiri:6f14670bfef42307d6d7aebb356aecf1",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0008",
+      "prov:atLocation": {"@id": "niiri:8a051185c8dde013ea0ab5810f9a296b"},
+      "prov:value": {"@type": "xsd:float", "@value": "26.8606586456299"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "4.34306775687574"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "7.02533878071954e-06"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.501353785238145"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.302930044135827"}
+    },
+    {
+      "@id": "niiri:8a051185c8dde013ea0ab5810f9a296b",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0008",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-8,50,32]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:6f14670bfef42307d6d7aebb356aecf1",
+      "entity": "niiri:cffcf0c6b39aa915a9c645f776b3475a"
+    },
+    {
+      "@id": "niiri:fb7727f5b46b51cc376443f3bbf70f93",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0009",
+      "prov:atLocation": {"@id": "niiri:9eb198aa9673722d5df6e602428e0428"},
+      "prov:value": {"@type": "xsd:float", "@value": "25.8067512512207"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "4.27109313660164"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "9.72585724245967e-06"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.597019202761311"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.317981530335124"}
+    },
+    {
+      "@id": "niiri:9eb198aa9673722d5df6e602428e0428",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0009",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-34,8,58]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:fb7727f5b46b51cc376443f3bbf70f93",
+      "entity": "niiri:22c10de27165c7b18f2c4b42029cf609"
+    },
+    {
+      "@id": "niiri:93b3389244e8f8ad33def78375df54c4",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0010",
+      "prov:atLocation": {"@id": "niiri:349c26ad84b317294e3a4ce3132c96cd"},
+      "prov:value": {"@type": "xsd:float", "@value": "25.0769119262695"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "4.21983658750018"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "1.22239732009977e-05"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.665677647955296"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.317981530335124"}
+    },
+    {
+      "@id": "niiri:349c26ad84b317294e3a4ce3132c96cd",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0010",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[32,-86,0]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:93b3389244e8f8ad33def78375df54c4",
+      "entity": "niiri:e2638c2de147ff0e9423c9f602e856a7"
+    },
+    {
+      "@id": "niiri:18cd2fb3bb451ce6e9d85427ed7cac33",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0011",
+      "prov:atLocation": {"@id": "niiri:57acaa3d615cd65fbbc0ca62aaf95a9a"},
+      "prov:value": {"@type": "xsd:float", "@value": "24.5828113555908"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "4.18444689049798"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "1.42930633414418e-05"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.711939170732988"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.325084892179266"}
+    },
+    {
+      "@id": "niiri:57acaa3d615cd65fbbc0ca62aaf95a9a",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0011",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[66,-32,30]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:18cd2fb3bb451ce6e9d85427ed7cac33",
+      "entity": "niiri:dee02d10f624d83aa96ec79ac76accc8"
+    },
+    {
+      "@id": "niiri:6de56ad0ee4dc5cd47d87db0b37116f2",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0012",
+      "prov:atLocation": {"@id": "niiri:290a8d0d4045555d8dd056d1ecb709f6"},
+      "prov:value": {"@type": "xsd:float", "@value": "14.2693071365356"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.27451594161643"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000529215834762176"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999209483"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.904639459548904"}
+    },
+    {
+      "@id": "niiri:290a8d0d4045555d8dd056d1ecb709f6",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0012",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[60,-38,28]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:6de56ad0ee4dc5cd47d87db0b37116f2",
+      "entity": "niiri:dee02d10f624d83aa96ec79ac76accc8"
+    },
+    {
+      "@id": "niiri:03dd3a40d2f40f198ddb094f9bf7bd93",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0013",
+      "prov:atLocation": {"@id": "niiri:0da05f532a1e6cfd694a95902850603c"},
+      "prov:value": {"@type": "xsd:float", "@value": "23.3039436340332"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "4.09011898331566"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "2.15575975488491e-05"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.823947459995523"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.412451648636247"}
+    },
+    {
+      "@id": "niiri:0da05f532a1e6cfd694a95902850603c",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0013",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[28,30,52]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:03dd3a40d2f40f198ddb094f9bf7bd93",
+      "entity": "niiri:1c96c9a1df5e785e6effecb000d0027c"
+    },
+    {
+      "@id": "niiri:3b2dd7611cfc0456c0c6b3a2d8fd6d9b",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0014",
+      "prov:atLocation": {"@id": "niiri:4249598cecf82133605ab05378f798a5"},
+      "prov:value": {"@type": "xsd:float", "@value": "22.6157932281494"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "4.03763886298215"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "2.69959426782984e-05"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.87538446987651"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.43925432096054"}
+    },
+    {
+      "@id": "niiri:4249598cecf82133605ab05378f798a5",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0014",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-30,-34,6]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:3b2dd7611cfc0456c0c6b3a2d8fd6d9b",
+      "entity": "niiri:f0315cccde1c308dd2bce42beeb4a879"
+    },
+    {
+      "@id": "niiri:370487beeef445052e98fcae52a26f0c",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0015",
+      "prov:atLocation": {"@id": "niiri:0b126dbbbfb72505e19b13f48c590ae9"},
+      "prov:value": {"@type": "xsd:float", "@value": "21.8558578491211"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.97819185113407"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "3.47206660495925e-05"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.921823721412592"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.43925432096054"}
+    },
+    {
+      "@id": "niiri:0b126dbbbfb72505e19b13f48c590ae9",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0015",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-28,0,30]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:370487beeef445052e98fcae52a26f0c",
+      "entity": "niiri:f18d4345053f666eacc35a71a96be03f"
+    },
+    {
+      "@id": "niiri:373bfff9194f3b57bd2cee1950423d6a",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0016",
+      "prov:atLocation": {"@id": "niiri:010e44d501b20bb584d0f42f778b1e0c"},
+      "prov:value": {"@type": "xsd:float", "@value": "21.8296661376953"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.97611404363788"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "3.50252708366527e-05"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.923209894114283"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.43925432096054"}
+    },
+    {
+      "@id": "niiri:010e44d501b20bb584d0f42f778b1e0c",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0016",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[8,34,10]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:373bfff9194f3b57bd2cee1950423d6a",
+      "entity": "niiri:b8933e9bc28a5fa5b8a7f7bd3cf40180"
+    },
+    {
+      "@id": "niiri:c31296f26d56f857a81a64a014b5b0c1",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0017",
+      "prov:atLocation": {"@id": "niiri:765e02b308cb67c4423c4c7efbe1b5ba"},
+      "prov:value": {"@type": "xsd:float", "@value": "21.7287845611572"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.96809263472704"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "3.6225086553876e-05"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.928411428313329"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.43925432096054"}
+    },
+    {
+      "@id": "niiri:765e02b308cb67c4423c4c7efbe1b5ba",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0017",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[46,-56,10]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:c31296f26d56f857a81a64a014b5b0c1",
+      "entity": "niiri:ce506abbc626c20df95276a70688c706"
+    },
+    {
+      "@id": "niiri:b593a45c91d6090718dd57534f451e94",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0018",
+      "prov:atLocation": {"@id": "niiri:b8fdf24f6d098ddf2fe12871e5e8856b"},
+      "prov:value": {"@type": "xsd:float", "@value": "14.2801656723022"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.27570591680179"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000526991241768693"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999156251"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.904639459548904"}
+    },
+    {
+      "@id": "niiri:b8fdf24f6d098ddf2fe12871e5e8856b",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0018",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[48,-48,16]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:b593a45c91d6090718dd57534f451e94",
+      "entity": "niiri:ce506abbc626c20df95276a70688c706"
+    },
+    {
+      "@id": "niiri:02b412552fd9adb1d5f7a5d182b467cc",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0019",
+      "prov:atLocation": {"@id": "niiri:03875a5acbc0363c18c2fceab8350b2f"},
+      "prov:value": {"@type": "xsd:float", "@value": "21.4629364013672"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.9468129149843"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "3.95991966499754e-05"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.941069307565192"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.43925432096054"}
+    },
+    {
+      "@id": "niiri:03875a5acbc0363c18c2fceab8350b2f",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0019",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[46,-62,-10]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:02b412552fd9adb1d5f7a5d182b467cc",
+      "entity": "niiri:92734c466d68db7918a41970ad401f8b"
+    },
+    {
+      "@id": "niiri:062ebfda1ad6c234d9692cce545608d9",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0020",
+      "prov:atLocation": {"@id": "niiri:432270fef6fdc9d2b3ccb5ceac65bb0a"},
+      "prov:value": {"@type": "xsd:float", "@value": "21.4269542694092"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.94391683979485"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "4.00807329147268e-05"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.942665676683549"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.43925432096054"}
+    },
+    {
+      "@id": "niiri:432270fef6fdc9d2b3ccb5ceac65bb0a",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0020",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-8,-32,36]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:062ebfda1ad6c234d9692cce545608d9",
+      "entity": "niiri:0a7ccb07c7f7d18952da7dad311a2309"
+    },
+    {
+      "@id": "niiri:b638376e0967d00833e6200fe0586d3e",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0021",
+      "prov:atLocation": {"@id": "niiri:2afc9658812c0b85f2bbc2c75a4355c1"},
+      "prov:value": {"@type": "xsd:float", "@value": "20.0413494110107"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.82938429557992"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "6.42321325474704e-05"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.984364018223445"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.603397549204652"}
+    },
+    {
+      "@id": "niiri:2afc9658812c0b85f2bbc2c75a4355c1",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0021",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-34,-84,-4]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:b638376e0967d00833e6200fe0586d3e",
+      "entity": "niiri:3fabf84446384eaa319e0475ba536309"
+    },
+    {
+      "@id": "niiri:ad44f3276a03cec1c68709fa13e4d7c9",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0022",
+      "prov:atLocation": {"@id": "niiri:6215763376c4291bb8b5819f4d1ad584"},
+      "prov:value": {"@type": "xsd:float", "@value": "19.5813789367676"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.79000141974546"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "7.53232118573255e-05"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.991038394814884"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.620995764715313"}
+    },
+    {
+      "@id": "niiri:6215763376c4291bb8b5819f4d1ad584",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0022",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-50,2,40]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:ad44f3276a03cec1c68709fa13e4d7c9",
+      "entity": "niiri:9ba3554de14dda61f627a2c1be9bd03a"
+    },
+    {
+      "@id": "niiri:0f59fbbf9497bff5be70a154d4b44852",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0023",
+      "prov:atLocation": {"@id": "niiri:b519430aaf5021a01e6e240ca8ed595c"},
+      "prov:value": {"@type": "xsd:float", "@value": "16.7666301727295"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.53217184854778"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.00020608070787731"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.99996648470095"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.655203493056632"}
+    },
+    {
+      "@id": "niiri:b519430aaf5021a01e6e240ca8ed595c",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0023",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-52,-6,46]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:0f59fbbf9497bff5be70a154d4b44852",
+      "entity": "niiri:9ba3554de14dda61f627a2c1be9bd03a"
+    },
+    {
+      "@id": "niiri:a4984137395c1a187c572a013c680cb5",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0024",
+      "prov:atLocation": {"@id": "niiri:845ba9ab39023bd63ef77aa967ac5047"},
+      "prov:value": {"@type": "xsd:float", "@value": "19.3040504455566"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.76590943131268"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "8.2971971291701e-05"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.993825462793153"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.620995764715313"}
+    },
+    {
+      "@id": "niiri:845ba9ab39023bd63ef77aa967ac5047",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0024",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[24,-46,32]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:a4984137395c1a187c572a013c680cb5",
+      "entity": "niiri:676e1dad43353432364d4cdec482afce"
+    },
+    {
+      "@id": "niiri:1334f0360230616ca79ee0f7f9c41d1e",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0025",
+      "prov:atLocation": {"@id": "niiri:7bdb33fb8c0511624824149393e50a78"},
+      "prov:value": {"@type": "xsd:float", "@value": "19.1409015655518"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.75161143600874"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "8.7850813353163e-05"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.995110302012489"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.620995764715313"}
+    },
+    {
+      "@id": "niiri:7bdb33fb8c0511624824149393e50a78",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0025",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[6,16,50]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:1334f0360230616ca79ee0f7f9c41d1e",
+      "entity": "niiri:414a2ee4977dfb3ed9a154a38d24684c"
+    },
+    {
+      "@id": "niiri:e8beeb63c5f6cc0e17364a97e07e797e",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0026",
+      "prov:atLocation": {"@id": "niiri:576a371641ac8dd5f8cffae87e2cf1ca"},
+      "prov:value": {"@type": "xsd:float", "@value": "19.098669052124"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.74789498829157"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "8.91624398706714e-05"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.995405100064856"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.620995764715313"}
+    },
+    {
+      "@id": "niiri:576a371641ac8dd5f8cffae87e2cf1ca",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0026",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-4,-24,6]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:e8beeb63c5f6cc0e17364a97e07e797e",
+      "entity": "niiri:4e55b050fd8167c5705b70dc62ff3506"
+    },
+    {
+      "@id": "niiri:f76e0c35d01ea3b32159925fe94ddd43",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0027",
+      "prov:atLocation": {"@id": "niiri:3d13eb81a4ea6d3eaef1cf04d74b289c"},
+      "prov:value": {"@type": "xsd:float", "@value": "19.0145893096924"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.7404771295496"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "9.1835629583259e-05"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.995949293325196"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.620995764715313"}
+    },
+    {
+      "@id": "niiri:3d13eb81a4ea6d3eaef1cf04d74b289c",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0027",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-4,0,54]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:f76e0c35d01ea3b32159925fe94ddd43",
+      "entity": "niiri:b5a43620429429afa4cda6f653280da3"
+    },
+    {
+      "@id": "niiri:95f0b0f064c95fe4136cd3c681744864",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0028",
+      "prov:atLocation": {"@id": "niiri:a5bbcc65459a04859824570c5e94ff9c"},
+      "prov:value": {"@type": "xsd:float", "@value": "18.8265838623047"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.72379883766124"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "9.81236582245915e-05"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.996978299202392"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.620995764715313"}
+    },
+    {
+      "@id": "niiri:a5bbcc65459a04859824570c5e94ff9c",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0028",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[42,-28,30]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:95f0b0f064c95fe4136cd3c681744864",
+      "entity": "niiri:25143f960a99051b326721af8c0cfd65"
+    },
+    {
+      "@id": "niiri:1f0363b26b255a2424e212f9c7ea18b5",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0029",
+      "prov:atLocation": {"@id": "niiri:202c1034a4e165f88a9014e498c366b5"},
+      "prov:value": {"@type": "xsd:float", "@value": "18.5199432373047"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.69631988620818"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000109373660980738"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.998191254166604"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.620995764715313"}
+    },
+    {
+      "@id": "niiri:202c1034a4e165f88a9014e498c366b5",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0029",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[52,-12,44]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:1f0363b26b255a2424e212f9c7ea18b5",
+      "entity": "niiri:ebb107eb8e6d69b55eab92220fc11080"
+    },
+    {
+      "@id": "niiri:aa6eb1745274359e38100ff76a921431",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0030",
+      "prov:atLocation": {"@id": "niiri:f0af857eec508f03d715911080650ae9"},
+      "prov:value": {"@type": "xsd:float", "@value": "18.516544342041"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.69601335434539"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000109505728679404"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.998201975106935"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.620995764715313"}
+    },
+    {
+      "@id": "niiri:f0af857eec508f03d715911080650ae9",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0030",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-40,-28,30]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:aa6eb1745274359e38100ff76a921431",
+      "entity": "niiri:d3efcfd19962d90fdad9962452f34611"
+    },
+    {
+      "@id": "niiri:692aeec701eb9ecec806451f0c85b842",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0031",
+      "prov:atLocation": {"@id": "niiri:a864f4b7bd1021efe020708359e899df"},
+      "prov:value": {"@type": "xsd:float", "@value": "18.4609222412109"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.69099090519778"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000111691062804176"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.998370011058266"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.620995764715313"}
+    },
+    {
+      "@id": "niiri:a864f4b7bd1021efe020708359e899df",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0031",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[32,22,-8]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:692aeec701eb9ecec806451f0c85b842",
+      "entity": "niiri:105908bb465b6f5dc35fed75f26bd662"
+    },
+    {
+      "@id": "niiri:8ed7e19c4763eaf9c38372289646a1b9",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0032",
+      "prov:atLocation": {"@id": "niiri:198280dad21148e1631d581887e00000"},
+      "prov:value": {"@type": "xsd:float", "@value": "17.9312534332275"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.64257521175179"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.00013496203699781"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.99941063068466"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.642014449876257"}
+    },
+    {
+      "@id": "niiri:198280dad21148e1631d581887e00000",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0032",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[64,-4,10]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:8ed7e19c4763eaf9c38372289646a1b9",
+      "entity": "niiri:3d37903025f182ecdec4f529f0626ddd"
+    },
+    {
+      "@id": "niiri:941eb4ec94623e407bb8406b624b4cc2",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0033",
+      "prov:atLocation": {"@id": "niiri:34e61bfca65e9291a5948a2b7cbd8e56"},
+      "prov:value": {"@type": "xsd:float", "@value": "17.8439044952393"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.63448648232359"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000139267429951739"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999509275806277"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.642014449876257"}
+    },
+    {
+      "@id": "niiri:34e61bfca65e9291a5948a2b7cbd8e56",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0033",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-22,-72,34]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:941eb4ec94623e407bb8406b624b4cc2",
+      "entity": "niiri:6722edaf2cb2f54c5dc94ea6943413d1"
+    },
+    {
+      "@id": "niiri:9e1711315b817599d9f6b413f8be54da",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0034",
+      "prov:atLocation": {"@id": "niiri:f452771c8bf96424d7b834b6668da350"},
+      "prov:value": {"@type": "xsd:float", "@value": "17.552827835083"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.60731294050443"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000154692216466135"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999742486133075"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.655203493056632"}
+    },
+    {
+      "@id": "niiri:f452771c8bf96424d7b834b6668da350",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0034",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-6,-44,40]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:9e1711315b817599d9f6b413f8be54da",
+      "entity": "niiri:25a8ab452992d6ec5504ff7a21f0714d"
+    },
+    {
+      "@id": "niiri:a7d6515886deb432250ca9da817d184c",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0035",
+      "prov:atLocation": {"@id": "niiri:fac9e23e72b1f87e863b573d9a8c279a"},
+      "prov:value": {"@type": "xsd:float", "@value": "17.2906818389893"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.58254613965863"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000170130746602659"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.99986271355264"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.655203493056632"}
+    },
+    {
+      "@id": "niiri:fac9e23e72b1f87e863b573d9a8c279a",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0035",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-34,-38,-34]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:a7d6515886deb432250ca9da817d184c",
+      "entity": "niiri:574076ebf4a6a2cb857da823976a09fa"
+    },
+    {
+      "@id": "niiri:dfdb233a0e87ad5078bf2486e39361bb",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0036",
+      "prov:atLocation": {"@id": "niiri:ca08879fff2325116c465747651bd4de"},
+      "prov:value": {"@type": "xsd:float", "@value": "17.1612319946289"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.57021115022413"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000178346794309836"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999901168620001"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.655203493056632"}
+    },
+    {
+      "@id": "niiri:ca08879fff2325116c465747651bd4de",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0036",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-46,-16,20]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:dfdb233a0e87ad5078bf2486e39361bb",
+      "entity": "niiri:10d2997d2644d22ef72aad2fb5bebc87"
+    },
+    {
+      "@id": "niiri:16cf25f58043f6659980ff106ee8b467",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0037",
+      "prov:atLocation": {"@id": "niiri:20fa5499106aee81efc4a2f305335cae"},
+      "prov:value": {"@type": "xsd:float", "@value": "17.0075950622559"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.55547987606237"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000188644912021529"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999934173907998"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.655203493056632"}
+    },
+    {
+      "@id": "niiri:20fa5499106aee81efc4a2f305335cae",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0037",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[24,32,2]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:16cf25f58043f6659980ff106ee8b467",
+      "entity": "niiri:df2273fe57c93c5af8e5c176a8440aee"
+    },
+    {
+      "@id": "niiri:5c1317bf23c468e14ea2847e48882cdb",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0038",
+      "prov:atLocation": {"@id": "niiri:7385af21b831973090d30924a380a70c"},
+      "prov:value": {"@type": "xsd:float", "@value": "16.5308303833008"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.50911812032442"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000224797592033421"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999983487413756"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.655203493056632"}
+    },
+    {
+      "@id": "niiri:7385af21b831973090d30924a380a70c",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0038",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-26,-90,16]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:5c1317bf23c468e14ea2847e48882cdb",
+      "entity": "niiri:ad5257306b48aa649efbb69a8a68e069"
+    },
+    {
+      "@id": "niiri:2c53c152d9a83f04ab6f87fdd49d2318",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0039",
+      "prov:atLocation": {"@id": "niiri:a82af072d3aea4f3ef6be7f1a1afb1c7"},
+      "prov:value": {"@type": "xsd:float", "@value": "16.5225524902344"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.50830432871627"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.0002254864217901"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999983907066973"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.655203493056632"}
+    },
+    {
+      "@id": "niiri:a82af072d3aea4f3ef6be7f1a1afb1c7",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0039",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-28,-4,16]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:2c53c152d9a83f04ab6f87fdd49d2318",
+      "entity": "niiri:622337003d1d05fd6f52c846f778c909"
+    },
+    {
+      "@id": "niiri:2719cbe2d438028e119e173a8f04f6ac",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0040",
+      "prov:atLocation": {"@id": "niiri:5b4e9c6c0a46af7e01997c5375578d16"},
+      "prov:value": {"@type": "xsd:float", "@value": "16.1374092102051"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.47009871338807"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.00026013355917065"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999995475747835"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.714297554117909"}
+    },
+    {
+      "@id": "niiri:5b4e9c6c0a46af7e01997c5375578d16",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0040",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[12,60,20]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:2719cbe2d438028e119e173a8f04f6ac",
+      "entity": "niiri:791fff4c5b9201b35391f7f3ac7c1aa9"
+    },
+    {
+      "@id": "niiri:71dc378791d35517430fe551fbb02051",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0041",
+      "prov:atLocation": {"@id": "niiri:9aaa14dc4689858115f1a348b7b95786"},
+      "prov:value": {"@type": "xsd:float", "@value": "15.9136981964111"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.44759277757755"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000282803055741021"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999997977474125"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.730845085955462"}
+    },
+    {
+      "@id": "niiri:9aaa14dc4689858115f1a348b7b95786",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0041",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[4,-84,-4]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:71dc378791d35517430fe551fbb02051",
+      "entity": "niiri:e7375fddec2107fbd6c591225210fe17"
+    },
+    {
+      "@id": "niiri:36eaf15f7fad54f18d26c0563798e74a",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0042",
+      "prov:atLocation": {"@id": "niiri:b9d7b4e1666c7e618d89584360d36ccb"},
+      "prov:value": {"@type": "xsd:float", "@value": "15.8536109924316"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.44150764421068"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000289241063091916"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999998385530387"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.730845085955462"}
+    },
+    {
+      "@id": "niiri:b9d7b4e1666c7e618d89584360d36ccb",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0042",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[62,-18,22]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:36eaf15f7fad54f18d26c0563798e74a",
+      "entity": "niiri:354ffa0f8a8da1aac4e4a905cc0cceb7"
+    },
+    {
+      "@id": "niiri:7e28d90bc1fba2b3c66c3a0c0854c06c",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0043",
+      "prov:atLocation": {"@id": "niiri:cec56c103e64d2e8264b57514824ec33"},
+      "prov:value": {"@type": "xsd:float", "@value": "15.8288412094116"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.43899416081302"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000291939913913408"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999998530446399"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.730845085955462"}
+    },
+    {
+      "@id": "niiri:cec56c103e64d2e8264b57514824ec33",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0043",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[28,-58,44]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:7e28d90bc1fba2b3c66c3a0c0854c06c",
+      "entity": "niiri:c633fad8781690e25bdb6fa1c8ae39a3"
+    },
+    {
+      "@id": "niiri:9930f0564bf4331d4cf7adb2552a3f30",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0044",
+      "prov:atLocation": {"@id": "niiri:ca4f30c8b67e32845e36a45eebaefb58"},
+      "prov:value": {"@type": "xsd:float", "@value": "15.7273988723755"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.42866974555038"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000303273553249328"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999007347173"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.736843607649928"}
+    },
+    {
+      "@id": "niiri:ca4f30c8b67e32845e36a45eebaefb58",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0044",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[38,44,0]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:9930f0564bf4331d4cf7adb2552a3f30",
+      "entity": "niiri:5d5e50bded2ccb5124de3f3d5b788abb"
+    },
+    {
+      "@id": "niiri:a92b2d01d0ca1ee698af5917d41e9082",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0045",
+      "prov:atLocation": {"@id": "niiri:89531091b2551bddf519fb328927abb1"},
+      "prov:value": {"@type": "xsd:float", "@value": "15.4726600646973"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.40252319694713"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000333833435672726"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999648429928"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.766283831090278"}
+    },
+    {
+      "@id": "niiri:89531091b2551bddf519fb328927abb1",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0045",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[40,-6,-6]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:a92b2d01d0ca1ee698af5917d41e9082",
+      "entity": "niiri:5d6012111c65592bce78fa13e076a34a"
+    },
+    {
+      "@id": "niiri:9e0eade9a4a7ff8f99692fa0749abea0",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0046",
+      "prov:atLocation": {"@id": "niiri:a72ba847af728b4726e14d18f3f50c32"},
+      "prov:value": {"@type": "xsd:float", "@value": "15.3332357406616"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.38807697766079"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.00035192253822891"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999807374102"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.766283831090278"}
+    },
+    {
+      "@id": "niiri:a72ba847af728b4726e14d18f3f50c32",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0046",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[32,14,58]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:9e0eade9a4a7ff8f99692fa0749abea0",
+      "entity": "niiri:415d113cf475ea185b5205a602312844"
+    },
+    {
+      "@id": "niiri:2203c7bbc82ff5b20fe170548258f24c",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0047",
+      "prov:atLocation": {"@id": "niiri:cac82034f21b966c462d9dfa6b266994"},
+      "prov:value": {"@type": "xsd:float", "@value": "15.3172578811646"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.38641524500992"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000354060730342054"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.99999982049151"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.766283831090278"}
+    },
+    {
+      "@id": "niiri:cac82034f21b966c462d9dfa6b266994",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0047",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[4,-86,4]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:2203c7bbc82ff5b20fe170548258f24c",
+      "entity": "niiri:cb4241e599b0847ee2d3e4752ce757b9"
+    },
+    {
+      "@id": "niiri:6bbd06f5433248e8d9e752362356222a",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0048",
+      "prov:atLocation": {"@id": "niiri:a507084b97dd65ac70909e5da1911c09"},
+      "prov:value": {"@type": "xsd:float", "@value": "15.3137311935425"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.38604828864924"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000354534526388783"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999823272138"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.766283831090278"}
+    },
+    {
+      "@id": "niiri:a507084b97dd65ac70909e5da1911c09",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0048",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[62,-36,46]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:6bbd06f5433248e8d9e752362356222a",
+      "entity": "niiri:836263aaf0f16823074bc10eada3e0f0"
+    },
+    {
+      "@id": "niiri:dbc5158bf8a4fab8aaeee9b3d1bdc3fd",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0049",
+      "prov:atLocation": {"@id": "niiri:bc06b97952ee6b5bfbc8c8e61f62ec0b"},
+      "prov:value": {"@type": "xsd:float", "@value": "15.1916456222534"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.37330635701462"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000371356333789152"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999898084819"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.778719805919739"}
+    },
+    {
+      "@id": "niiri:bc06b97952ee6b5bfbc8c8e61f62ec0b",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0049",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-24,18,58]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:dbc5158bf8a4fab8aaeee9b3d1bdc3fd",
+      "entity": "niiri:6ef8faa493b2b7b79fe0df15518621c5"
+    },
+    {
+      "@id": "niiri:082550f2bdc8ade492ed9521bad1280d",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0050",
+      "prov:atLocation": {"@id": "niiri:c9d3bd0ee1b384dc6cb91b7723a35e8d"},
+      "prov:value": {"@type": "xsd:float", "@value": "15.0888338088989"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.36251708484568"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000386176732959709"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999936876428"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.787311600282456"}
+    },
+    {
+      "@id": "niiri:c9d3bd0ee1b384dc6cb91b7723a35e8d",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0050",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[8,-22,-44]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:082550f2bdc8ade492ed9521bad1280d",
+      "entity": "niiri:e4a22cf0ef8870af86c13ac30f9281c4"
+    },
+    {
+      "@id": "niiri:d4b547bb9a7549f562536b17aaed4712",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0051",
+      "prov:atLocation": {"@id": "niiri:7937d1c778a713fbd078a171383dd76b"},
+      "prov:value": {"@type": "xsd:float", "@value": "14.8200588226318"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.33405240591422"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000427952650791097"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999983180231"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.834595072923498"}
+    },
+    {
+      "@id": "niiri:7937d1c778a713fbd078a171383dd76b",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0051",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[38,34,22]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:d4b547bb9a7549f562536b17aaed4712",
+      "entity": "niiri:3c17a41f076abd9081741dd879afdd9e"
+    },
+    {
+      "@id": "niiri:b2dde5c6d7bef5d9659d4021b26896b4",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0052",
+      "prov:atLocation": {"@id": "niiri:e74ef5d04a841aaff05ecb8d53d13ecb"},
+      "prov:value": {"@type": "xsd:float", "@value": "14.696608543396"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.32085065286489"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000448717729613968"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.9999999911592"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.835113533794074"}
+    },
+    {
+      "@id": "niiri:e74ef5d04a841aaff05ecb8d53d13ecb",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0052",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[0,-26,-28]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:b2dde5c6d7bef5d9659d4021b26896b4",
+      "entity": "niiri:652a06e21ee9871618f4c323f2cd9a0c"
+    },
+    {
+      "@id": "niiri:59e5a79b2495969b5d3430a08dce7e1c",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0053",
+      "prov:atLocation": {"@id": "niiri:e84f0e312b42456dc11a006edec4d5b3"},
+      "prov:value": {"@type": "xsd:float", "@value": "14.2414035797119"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.27145497586776"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.00053497811978398"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.99999999933201"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.904639459548904"}
+    },
+    {
+      "@id": "niiri:e84f0e312b42456dc11a006edec4d5b3",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0053",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[40,-50,-22]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:59e5a79b2495969b5d3430a08dce7e1c",
+      "entity": "niiri:4d941ae1250a393f8c8a9c90d4be21de"
+    },
+    {
+      "@id": "niiri:07782f3dbf463b1283de9f2facc45340",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0054",
+      "prov:atLocation": {"@id": "niiri:55260057f6ebc162e904705a1a58c8a3"},
+      "prov:value": {"@type": "xsd:float", "@value": "14.0012445449829"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.24492687341108"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000587403942481801"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999852106"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.931776511128243"}
+    },
+    {
+      "@id": "niiri:55260057f6ebc162e904705a1a58c8a3",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0054",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[8,52,32]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:07782f3dbf463b1283de9f2facc45340",
+      "entity": "niiri:a0c822e70e2a413dc4d3d9f4169dc861"
+    },
+    {
+      "@id": "niiri:acbdb6d1771b8e9dc592f98b9b7f1686",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0055",
+      "prov:atLocation": {"@id": "niiri:6a0d0f1b2f241a7fef1407e348feb837"},
+      "prov:value": {"@type": "xsd:float", "@value": "13.9842071533203"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.2430323166614"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000591323980175695"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999867649"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.931776511128243"}
+    },
+    {
+      "@id": "niiri:6a0d0f1b2f241a7fef1407e348feb837",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0055",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-14,-48,-24]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:acbdb6d1771b8e9dc592f98b9b7f1686",
+      "entity": "niiri:8caa1fc466923b10ee4065372ffd5216"
+    },
+    {
+      "@id": "niiri:cd3a6c71eb41ced3fbb9b748d999cac7",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0056",
+      "prov:atLocation": {"@id": "niiri:277758cb7e5f5b1f3c3fb54e80aa810d"},
+      "prov:value": {"@type": "xsd:float", "@value": "13.9203996658325"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.23592192136056"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000606252725692924"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999913111"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.931776511128243"}
+    },
+    {
+      "@id": "niiri:277758cb7e5f5b1f3c3fb54e80aa810d",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0056",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[20,0,-8]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:cd3a6c71eb41ced3fbb9b748d999cac7",
+      "entity": "niiri:d05107b21493648cbb8d43bbe522c2b7"
+    },
+    {
+      "@id": "niiri:f0e614711eb7a087c9ec501c68bfd669",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0057",
+      "prov:atLocation": {"@id": "niiri:82a453ac96dee81d9ecff1eed664a910"},
+      "prov:value": {"@type": "xsd:float", "@value": "13.8925752639771"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.23281385809669"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000612887021428588"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999927857"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.931776511128243"}
+    },
+    {
+      "@id": "niiri:82a453ac96dee81d9ecff1eed664a910",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0057",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[40,-14,60]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:f0e614711eb7a087c9ec501c68bfd669",
+      "entity": "niiri:d1ee25ce497c839da8c2a1d249711476"
+    },
+    {
+      "@id": "niiri:61cb8484404533e0ad9edb80623efbe8",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0058",
+      "prov:atLocation": {"@id": "niiri:e3202f9073dd38516a1077ef88b37a96"},
+      "prov:value": {"@type": "xsd:float", "@value": "13.8641185760498"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.22963046726961"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000619751563460058"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999940447"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.931776511128243"}
+    },
+    {
+      "@id": "niiri:e3202f9073dd38516a1077ef88b37a96",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0058",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-36,10,24]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:61cb8484404533e0ad9edb80623efbe8",
+      "entity": "niiri:c555347a58cdb8a25f373cbc0e1f3d21"
+    },
+    {
+      "@id": "niiri:ae11986e176bc7d96a49f8e438a8b04c",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0059",
+      "prov:atLocation": {"@id": "niiri:ad17e6870c2654c07eb85da82bb2f727"},
+      "prov:value": {"@type": "xsd:float", "@value": "13.7912406921387"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.22145599369965"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000637705235827735"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999963824"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.937302971928444"}
+    },
+    {
+      "@id": "niiri:ad17e6870c2654c07eb85da82bb2f727",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0059",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[30,-78,14]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:ae11986e176bc7d96a49f8e438a8b04c",
+      "entity": "niiri:b94f6c9709aa59074d7b70aa809ca7e6"
+    },
+    {
+      "@id": "niiri:f77aa587be8a291a94f93975b6b53c20",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0060",
+      "prov:atLocation": {"@id": "niiri:448adccb3f24aa90b8feb76c823ed4b3"},
+      "prov:value": {"@type": "xsd:float", "@value": "13.629490852356"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.20320002112963"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000679547746644249"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999988489"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.94954759467573"}
+    },
+    {
+      "@id": "niiri:448adccb3f24aa90b8feb76c823ed4b3",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0060",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[18,-78,12]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:f77aa587be8a291a94f93975b6b53c20",
+      "entity": "niiri:d6728bb6df0c151662f6ed4b3346a695"
+    },
+    {
+      "@id": "niiri:2e514e47f1682f463f7c277c8e2e020c",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0061",
+      "prov:atLocation": {"@id": "niiri:078a08240c6375ac38dc7d87833e3414"},
+      "prov:value": {"@type": "xsd:float", "@value": "13.5061225891113"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.18916981007524"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000713410180681495"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999995369"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.94954759467573"}
+    },
+    {
+      "@id": "niiri:078a08240c6375ac38dc7d87833e3414",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0061",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[46,8,-16]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:2e514e47f1682f463f7c277c8e2e020c",
+      "entity": "niiri:246beffd2e030d6b585612eb6ec3b8f5"
+    },
+    {
+      "@id": "niiri:84d1ccf0b6ec56089a8227a1c0b0a510",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0062",
+      "prov:atLocation": {"@id": "niiri:df84345b657944c2f5bd67d3bf284158"},
+      "prov:value": {"@type": "xsd:float", "@value": "13.4754667282104"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.1856690050705"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000722098618250455"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999996325"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.94954759467573"}
+    },
+    {
+      "@id": "niiri:df84345b657944c2f5bd67d3bf284158",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0062",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[58,-40,50]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:84d1ccf0b6ec56089a8227a1c0b0a510",
+      "entity": "niiri:1f635fcdcbda21c2c2845895b5e8f86b"
+    },
+    {
+      "@id": "niiri:b64f528e4b1aca753977494e0fed0493",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0063",
+      "prov:atLocation": {"@id": "niiri:b89ad7cc6460138eb1484a4ac5326a1d"},
+      "prov:value": {"@type": "xsd:float", "@value": "13.4480972290039"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.18253860543696"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000729950259848011"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999997016"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.94954759467573"}
+    },
+    {
+      "@id": "niiri:b89ad7cc6460138eb1484a4ac5326a1d",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0063",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[46,-66,32]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:b64f528e4b1aca753977494e0fed0493",
+      "entity": "niiri:56d1db174cd5475edeabc2c47c64a610"
+    },
+    {
+      "@id": "niiri:ac99735d90da4ce773d3e86f32067813",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0064",
+      "prov:atLocation": {"@id": "niiri:f6be8034a3ab31554a5fe80279786210"},
+      "prov:value": {"@type": "xsd:float", "@value": "13.2857608795166"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.16387572537233"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000778416284459293"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999999163"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.971579849523251"}
+    },
+    {
+      "@id": "niiri:f6be8034a3ab31554a5fe80279786210",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0064",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[2,-76,8]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:ac99735d90da4ce773d3e86f32067813",
+      "entity": "niiri:d5ce5c5fb070f0b9a9ee2c3cef75e843"
+    },
+    {
+      "@id": "niiri:3984c7ed2d62cd253529efcba5c51306",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0065",
+      "prov:atLocation": {"@id": "niiri:278ba5148c848efa7baf2fcb363f89f8"},
+      "prov:value": {"@type": "xsd:float", "@value": "13.2286987304688"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.15727638472708"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000796251631906664"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999999472"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.971579849523251"}
+    },
+    {
+      "@id": "niiri:278ba5148c848efa7baf2fcb363f89f8",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0065",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[14,-24,-2]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:3984c7ed2d62cd253529efcba5c51306",
+      "entity": "niiri:e0228bd5135dbdec113c8bb4c1c151e3"
+    },
+    {
+      "@id": "niiri:b71588dcf8e82378c5a0fd966d44f885",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0066",
+      "prov:atLocation": {"@id": "niiri:e79e7ccf76ca3caa522c0c8a3ce0b03d"},
+      "prov:value": {"@type": "xsd:float", "@value": "13.0621271133423"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.13789355719639"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.00085083330089919"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999999869"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.973821135792583"}
+    },
+    {
+      "@id": "niiri:e79e7ccf76ca3caa522c0c8a3ce0b03d",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0066",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-36,0,-4]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:b71588dcf8e82378c5a0fd966d44f885",
+      "entity": "niiri:bfc539a4541e71cc83d9a5702f093abd"
+    },
+    {
+      "@id": "niiri:c8cd5cf46b2773e9904c1433a62c1d26",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0067",
+      "prov:atLocation": {"@id": "niiri:2fb3a14aee8805ab4484d22925119408"},
+      "prov:value": {"@type": "xsd:float", "@value": "13.0451946258545"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.13591325616981"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000856599341067521"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999999886"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.973821135792583"}
+    },
+    {
+      "@id": "niiri:2fb3a14aee8805ab4484d22925119408",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0067",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[12,6,62]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:c8cd5cf46b2773e9904c1433a62c1d26",
+      "entity": "niiri:dc5a3cc95db7809bc2345cdad1ae49da"
+    },
+    {
+      "@id": "niiri:b9a885e710bc5f0c34ca23d40999dd3f",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0068",
+      "prov:atLocation": {"@id": "niiri:085f47e39766437c25701e8251c7b821"},
+      "prov:value": {"@type": "xsd:float", "@value": "13.0064306259155"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.13137270324883"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000869955985260296"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999999919"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.973821135792583"}
+    },
+    {
+      "@id": "niiri:085f47e39766437c25701e8251c7b821",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0068",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-8,-4,24]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:b9a885e710bc5f0c34ca23d40999dd3f",
+      "entity": "niiri:a233c959b56de434d007f96c8a514bec"
+    },
+    {
+      "@id": "niiri:d52120c23d2e448d89173a65ea2e4402",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0069",
+      "prov:atLocation": {"@id": "niiri:bf74cc34d41f02af2542a6e52973d337"},
+      "prov:value": {"@type": "xsd:float", "@value": "12.968074798584"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.12687033926247"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.00088338914171493"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999999942"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.973821135792583"}
+    },
+    {
+      "@id": "niiri:bf74cc34d41f02af2542a6e52973d337",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0069",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[8,-36,40]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:d52120c23d2e448d89173a65ea2e4402",
+      "entity": "niiri:74a513b0c663aa61ad8e56d4342c00f4"
+    },
+    {
+      "@id": "niiri:eabf3ab3d95f330b6be6523ca7bb6c57",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0070",
+      "prov:atLocation": {"@id": "niiri:d20d1952844a13e2071ed726fd90a40c"},
+      "prov:value": {"@type": "xsd:float", "@value": "12.9628992080688"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.12626207199886"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000885218504765861"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999999944"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.973821135792583"}
+    },
+    {
+      "@id": "niiri:d20d1952844a13e2071ed726fd90a40c",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0070",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[24,38,0]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:eabf3ab3d95f330b6be6523ca7bb6c57",
+      "entity": "niiri:1d4efe1fdf11e7706370797c646fcab9"
+    },
+    {
+      "@id": "niiri:bd6a94972fabf3def4aa7f7dd865200c",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0071",
+      "prov:atLocation": {"@id": "niiri:c4fe670ac950509e61c2d3ec1c77f391"},
+      "prov:value": {"@type": "xsd:float", "@value": "12.9482192993164"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.12453584528173"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000890429112242686"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999999951"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.973821135792583"}
+    },
+    {
+      "@id": "niiri:c4fe670ac950509e61c2d3ec1c77f391",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0071",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[26,-50,46]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:bd6a94972fabf3def4aa7f7dd865200c",
+      "entity": "niiri:77c8608b497b583c57a1341c4d605ceb"
+    },
+    {
+      "@id": "niiri:31da139fea6e4c9cbb6ce186311522ec",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0072",
+      "prov:atLocation": {"@id": "niiri:a13ddaf477ad47e2273fe1a331279690"},
+      "prov:value": {"@type": "xsd:float", "@value": "12.9151954650879"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.12064737190897"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000902269894699104"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999999964"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.973821135792583"}
+    },
+    {
+      "@id": "niiri:a13ddaf477ad47e2273fe1a331279690",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0072",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-30,-86,8]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:31da139fea6e4c9cbb6ce186311522ec",
+      "entity": "niiri:66648b7bce00fa767c0d326f27a4bfe3"
+    },
+    {
+      "@id": "niiri:17ae20346784b352a33e562731a1b991",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0073",
+      "prov:atLocation": {"@id": "niiri:c418addfeccd855337d427eb186d33e5"},
+      "prov:value": {"@type": "xsd:float", "@value": "12.8661985397339"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.11486488202419"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.00092014594111034"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999999977"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.975928938473905"}
+    },
+    {
+      "@id": "niiri:c418addfeccd855337d427eb186d33e5",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0073",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[22,-24,38]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:17ae20346784b352a33e562731a1b991",
+      "entity": "niiri:8e251dcddd555fa05ce8ad7792d5c34e"
+    },
+    {
+      "@id": "niiri:ca5c3966ef7ba3ef84ded637888a5875",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0074",
+      "prov:atLocation": {"@id": "niiri:8ad08f4b9e10490e122730cd74c85647"},
+      "prov:value": {"@type": "xsd:float", "@value": "12.8156299591064"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.10888025138563"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000938989080538355"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999999985"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.978285341995832"}
+    },
+    {
+      "@id": "niiri:8ad08f4b9e10490e122730cd74c85647",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0074",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[48,50,2]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:ca5c3966ef7ba3ef84ded637888a5875",
+      "entity": "niiri:be712cdee7ddeaae1ae5c7f5e5f14598"
+    },
+    {
+      "@id": "niiri:0ebe698aa8a7012546c8701a143768c5",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0075",
+      "prov:atLocation": {"@id": "niiri:31f44013b6729bb719a2e960341f2112"},
+      "prov:value": {"@type": "xsd:float", "@value": "12.7734069824219"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.10387025917553"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000955035352381506"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.99999999999999"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.978285341995832"}
+    },
+    {
+      "@id": "niiri:31f44013b6729bb719a2e960341f2112",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0075",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[-48,-68,20]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:0ebe698aa8a7012546c8701a143768c5",
+      "entity": "niiri:a0a765b756a958c1825561a732aa24c6"
+    },
+    {
+      "@id": "niiri:5482fd16a63b80dbbab93f6d6f1efe01",
+      "@type": ["prov:Entity","nidm_Peak:"],
+      "rdfs:label": "Peak: 0076",
+      "prov:atLocation": {"@id": "niiri:becc7e80fe237aa3f23e319fe7baf1bf"},
+      "prov:value": {"@type": "xsd:float", "@value": "12.7362623214722"},
+      "nidm_equivalentZStatistic:": {"@type": "xsd:float", "@value": "3.0994529756118"},
+      "nidm_pValueUncorrected:": {"@type": "xsd:float", "@value": "0.000969391758882221"},
+      "nidm_pValueFWER:": {"@type": "xsd:float", "@value": "0.999999999999993"},
+      "nidm_qValueFDR:": {"@type": "xsd:float", "@value": "0.978285341995832"}
+    },
+    {
+      "@id": "niiri:becc7e80fe237aa3f23e319fe7baf1bf",
+      "@type": ["prov:Entity","prov:Location","nidm_Coordinate:"],
+      "rdfs:label": "Coordinate: 0076",
+      "nidm_coordinateVector:": {"@type": "xsd:string", "@value": "[24,-22,36]"}
+    },
+    {
+      "@type": "prov:Derivation",
+      "entity_derived": "niiri:5482fd16a63b80dbbab93f6d6f1efe01",
+      "entity": "niiri:7b1568ab6ebe986e11ee4b05dfd34849"
+    }
+  ]
+}
+]
