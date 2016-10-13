@@ -40,7 +40,7 @@ cp -p $spm_path/config/spm_run_results.m $spm_path/config/spm_run_results_ORIGIN
 cp -p $exporter_path/spm_cfg_results.m $spm_path/config/spm_cfg_results.m
 cp -p $exporter_path/spm_run_results.m $spm_path/config/spm_run_results.m
 ```
-In Matlab, update your path (replace by `<PATH_TO_SPM>` by the output of `echo $spm_path` and `<PATH_TO_EXPORTER>` by the output of `echo $exporter_path`)
+In Matlab, update your path (replace `<PATH_TO_SPM>` by the output of `echo $spm_path` and `<PATH_TO_EXPORTER>` by the output of `echo $exporter_path`)
  ```
  addpath('<PATH_TO_SPM>')
  addpath('<PATH_TO_EXPORTER>')
