@@ -29,7 +29,6 @@ A *NIDM-Results pack* is a compressed file containing a NIDM-Results serializati
 ##### Installation
   - The latest version of the NIDM exporter in available in the last SPM release (v. xx)
 
-
 ##### Tests
 
 Testing procedures for SPM NIDM-Results export.
