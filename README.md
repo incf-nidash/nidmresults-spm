@@ -32,7 +32,7 @@ Download the latest release (**12.575ac2c**)
 curl -sLo -  https://github.com/incf-nidash/nidmresults-spm/archive/12.575ac2c.tar.gz | tar xzvf -
 export exporter_path=`pwd`/nidmresults-spm-12.575ac2c/exporter
 ```
-Copy the core SPM files modified by the exporter (replace by `<PATH_TO_SPM>` by the full path to your spm installation)
+Copy the core SPM files modified by the exporter (replace `<PATH_TO_SPM>` by the full path to your spm installation)
 ```
 export spm_path="<PATH_TO_SPM>"
 cp -p $spm_path/config/spm_cfg_results.m $spm_path/config/spm_cfg_results_ORIGINAL.m
