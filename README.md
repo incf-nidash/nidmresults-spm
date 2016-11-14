@@ -15,8 +15,8 @@ A *NIDM-Results pack* is a compressed file containing a NIDM-Results serializati
  1. Open the menu `SPM` > `Stats` > `Results Report` (Fig. 1.)
  3. In the batch window  (Fig. 2.)
   - Fill in information about the results you are interested in (in particular `SPM.mat` file, contrast number, threshold, etc.)
-  - In `Export results using the Neuroimaging Data Model (NIDM)?`, selected `Yes`
-  - Fill in information about your analysis (`Single-subject analysis`/`Group analysis`, `Modality`, `Reference space`, etc.) 
+  - In `Export results`, selected `New: NIDM (Neuroimaging Data Model)`
+  - Fill in information about your analysis (`Modality`, `Reference space`, `Groups`etc.``) 
 
 <img src="doc/batch_results_report.png" width="500">            |  <img src="doc/batch_export_NIDM.png" width="500">
 :-------------------------:|:-------------------------:
@@ -27,27 +27,7 @@ A *NIDM-Results pack* is a compressed file containing a NIDM-Results serializati
   - [SPM12](http://www.fil.ion.ucl.ac.uk/spm/software/spm12/)
 
 ##### Installation
-Download the latest release (**12.575ac2c**)
-```
-curl -sLo -  https://github.com/incf-nidash/nidmresults-spm/archive/12.575ac2c.tar.gz | tar xzvf -
-export exporter_path=`pwd`/nidmresults-spm-12.575ac2c/exporter
-```
-Copy the core SPM files modified by the exporter (replace `<PATH_TO_SPM>` by the full path to your spm installation)
-```
-export spm_path="<PATH_TO_SPM>"
-cp -p $spm_path/config/spm_cfg_results.m $spm_path/config/spm_cfg_results_ORIGINAL.m
-cp -p $spm_path/config/spm_run_results.m $spm_path/config/spm_run_results_ORIGINAL.m
-cp -p $exporter_path/spm_cfg_results.m $spm_path/config/spm_cfg_results.m
-cp -p $exporter_path/spm_run_results.m $spm_path/config/spm_run_results.m
-```
-In Matlab, update your path (replace `<PATH_TO_SPM>` by the output of `echo $spm_path` and `<PATH_TO_EXPORTER>` by the output of `echo $exporter_path`)
- ```
- addpath('<PATH_TO_SPM>')
- addpath('<PATH_TO_EXPORTER>')
- ```
-
- 
-
+  - The latest version of the NIDM exporter in available in the last SPM release (v. xx)
 
 ##### Tests
 

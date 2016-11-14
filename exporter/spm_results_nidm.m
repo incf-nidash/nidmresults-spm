@@ -1,12 +1,13 @@
-function [nidmfile, prov] = spm_results_nidm(SPM,xSPM,TabDat,sub,mod,space)
+function [nidmfile, prov] = spm_results_nidm(SPM,xSPM,TabDat,opts)
 % Export SPM stats results using the Neuroimaging Data Model (NIDM)
-% FORMAT [nidmfile, prov] = spm_results_nidm(SPM,xSPM,TabDat)
+% FORMAT [nidmfile, prov] = spm_results_nidm(SPM,xSPM,TabDat,opts)
 % SPM      - structure containing analysis details (see spm_spm.m)
 % xSPM     - structure containing inference details (see spm_getSPM.m)
 % TabDat   - structure containing results details (see spm_list.m)
-% sub      - structure containing details about the subject(s) under study
-% mod      - string describing the data modality
-% space    - reference space in which the results were computed
+% opts     - structure containing extra information about:
+%   .group - subject/group(s) under study
+%   .mod   - data modality
+%   .space - reference space
 %
 % nidmfile - output NIDM zip archive filename
 % prov     - provenance object (see spm_provenance.m)
@@ -22,11 +23,20 @@ function [nidmfile, prov] = spm_results_nidm(SPM,xSPM,TabDat,sub,mod,space)
 % Copyright (C) 2013-2016 Wellcome Trust Centre for Neuroimaging
 
 % Guillaume Flandin
-% $Id: spm_results_nidm.m 6797 2016-05-06 16:48:08Z guillaume $
+% $Id: spm_results_nidm.m 6903 2016-10-12 11:36:41Z guillaume $
 
 
 %-Get input parameters, interactively if needed
 %==========================================================================
+if nargin && ischar(SPM) && strcmpi(SPM,'upload')
+    if nargin > 2
+        upload_to_neurovault(xSPM,TabDat); % token
+    else
+        upload_to_neurovault(xSPM);
+    end
+    return;
+end
+
 if nargin < 1
     [SPM,xSPM] = spm_getSPM;
 elseif nargin < 2
@@ -41,11 +51,30 @@ if nargin < 3
     % Consider Inf local maxima more than 0mm apart (i.e. all)
     TabDat = spm_list('Table',xSPM,Inf,0);
 end
+if nargin < 4
+    opts = struct;
+end
 
 %-Options
+%==========================================================================
+
+%-General options
 %--------------------------------------------------------------------------
-gz           = '.gz'; %-Compressed NIfTI {'.gz', ''}
-switch space
+gz           = '.gz';                        %-Compressed NIfTI {'.gz', ''}
+NIDMversion  = '1.3.0';
+SVNrev       = '$Rev: 6903 $';
+
+%-Reference space
+%--------------------------------------------------------------------------
+if ~isfield(opts,'space')
+    s1 = {'Subject space','Normalised space (using Segment)',...
+        'Normalised space (using Old Segment)','Custom space',...
+        'Other normalised MNI space','Other normalised Talairach space'};
+    s2 = {'subject','ixi','icbm','custom','mni','talairach'};
+    opts.space = spm_input('Reference space :',1,'m',s1);
+    opts.space = s2{opts.space};
+end
+switch opts.space
     case 'subject'
         coordsys = 'nidm_SubjectCoordinateSystem';
     case 'ixi'
@@ -57,55 +86,69 @@ switch space
     case 'mni'
         coordsys = 'nidm_MNICoordinateSystem';        
     case 'talairach'
-        coordsys = 'nidm_TalairachCoordinateSystem';                
+        coordsys = 'nidm_TalairachCoordinateSystem';  
+    otherwise
+        error('Unknown reference space.');
 end
-NIDMversion  = '1.3.0';
-SVNrev       = '$Rev: 575ac2c $';
+
+%-Data modality
+%--------------------------------------------------------------------------
 MRIProtocol  = '';
-
-% TODO: Do we want to keep call to spm_get_defaults?
-%     modality = spm_get_defaults('modality');
-modality = mod;
-
-switch modality
+if ~isfield(opts,'mod')
+    m1 = {'Anatomical MRI','functional MRI','Diffusion MRI','PET','SPECT','EEG','MEG'};
+    m2 = {'AMRI','FMRI','DMRI','PET','SPECT','EEG','MEG'};
+    opts.mod = spm_input('Data modality :','+1','m',m1);
+    opts.mod = m2{opts.mod};
+end
+switch opts.mod
     case 'AMRI'
-        ImagingInstrument = 'nlx_Magneticresonanceimagingscanner';
+        ImagingInstrument      = 'nlx_Magneticresonanceimagingscanner';
         ImagingInstrumentLabel = 'MRI Scanner';
         
-        MRIProtocol = 'nlx_AnatomicallMRIprotocol';    
+        MRIProtocol            = 'nlx_AnatomicalMRIprotocol';    
     case 'FMRI'
-        ImagingInstrument = 'nlx_Magneticresonanceimagingscanner';
+        ImagingInstrument      = 'nlx_Magneticresonanceimagingscanner';
         ImagingInstrumentLabel = 'MRI Scanner';
         
-        MRIProtocol = 'nlx_FunctionalMRIprotocol';
+        MRIProtocol            = 'nlx_FunctionalMRIprotocol';
     case 'DMRI'
-        ImagingInstrument = 'nlx_Magneticresonanceimagingscanner';
+        ImagingInstrument      = 'nlx_Magneticresonanceimagingscanner';
         ImagingInstrumentLabel = 'MRI Scanner';
         
-        MRIProtocol = 'nlx_DiffusionMRIprotocol';
+        MRIProtocol            = 'nlx_DiffusionMRIprotocol';
     case 'PET'
-        ImagingInstrument =  'nlx_Positronemissiontomographyscanner';
+        ImagingInstrument      = 'nlx_Positronemissiontomographyscanner';
         ImagingInstrumentLabel = 'PET Scanner';
     case 'SPECT'
-        ImagingInstrument =  'nlx_Singlephotonemissioncomputedtomographyscanner';
+        ImagingInstrument      = 'nlx_Singlephotonemissioncomputedtomographyscanner';
         ImagingInstrumentLabel = 'SPECT Scanner';     
     case 'EEG'
-        ImagingInstrument = 'nlx_Electroencephalographymachine';
+        ImagingInstrument      = 'nlx_Electroencephalographymachine';
         ImagingInstrumentLabel = 'EEG Machine';
     case 'MEG'
-        ImagingInstrument = 'nlx_Magnetoencephalographymachine';
+        ImagingInstrument      = 'nlx_Magnetoencephalographymachine';
         ImagingInstrumentLabel = 'MEG Machine';        
     otherwise
         error('Unknown modality.');
 end
 
-if isfield(sub, 'subject')
-    groups = 1; % ie single subject or [nG1, nG2, ...]
-else
-    groups = [sub.group.numsubjects];
-    groupName = {sub.group.label};
+%-Subject/Group(s)
+%--------------------------------------------------------------------------
+if ~isfield(opts,'group')
+    opts.group.N = spm_input('Number of subjects per group :','+1','e');
+    if isequal(opts.group.N,1)
+        opts.group.name = {'single subject'};
+    else
+        for i=1:numel(opts.group.N)
+            opts.group.name{i} = spm_input(...
+                sprintf('Name of group %d :',i),'+1','s');
+        end
+    end
 end
+groups = opts.group;
 
+%-Units
+%--------------------------------------------------------------------------
 try
     units = xSPM.units;
 catch
@@ -140,13 +183,12 @@ files.mip    = fullfile(outdir,'MaximumIntensityProjection.png');
 MIP          = spm_mip(xSPM.Z,xSPM.XYZmm,xSPM.M,units);
 imwrite(MIP,gray(64),files.mip,'png');
 
-% %-Beta images (as NIfTI)
-files.beta = {};
-% %--------------------------------------------------------------------------
-% for i=1:numel(SPM.Vbeta)
-%     files.beta{i} = fullfile(outdir,[sprintf('Beta_%04d',i) '.nii' gz]);
-%     img2nii(fullfile(xSPM.swd,SPM.Vbeta(i).fname), files.beta{i});
-% end
+%-Beta images (as NIfTI)
+%--------------------------------------------------------------------------
+for i=1:numel(SPM.Vbeta)
+    files.beta{i} = fullfile(outdir,[sprintf('ParameterEstimate_%04d',i) '.nii' gz]);
+    img2nii(fullfile(xSPM.swd,SPM.Vbeta(i).fname), files.beta{i});
+end
 
 %-SPM{.}, contrast, contrast standard error, and contrast explained mean square images (as NIfTI)
 %--------------------------------------------------------------------------
@@ -365,7 +407,7 @@ p.agent(idScanner,{...
 
 %-Agent: Person
 %--------------------------------------------------------------------------
-if isequal(groups,1)
+if isequal(groups.N,1)
     idPerson = getid('niiri:subject_id',isHumanReadable);
     p.agent(idPerson,{...
         'prov:type','prov:Person',...
@@ -374,14 +416,14 @@ if isequal(groups,1)
 else
     %-Agent: Group
     %----------------------------------------------------------------------
-    idGroup = cell(1,numel(groups));
-    for i=1:numel(groups)
+    idGroup = cell(1,numel(groups.N));
+    for i=1:numel(groups.N)
         idGroup{i} = getid(sprintf('niiri:group_id_%d',i),isHumanReadable);
         p.agent(idGroup{i},{...
             'prov:type',nidm_conv('obo_studygrouppopulation',p),...
-            'prov:label',{sprintf('Group: %s',groupName{i}),'xsd:string'},...
-            nidm_conv('nidm_groupName',p),{groupName{i},'xsd:string'},...
-            nidm_conv('nidm_numberOfSubjects',p),{groups(i),'xsd:int'},...
+            'prov:label',{sprintf('Group: %s',groups.name{i}),'xsd:string'},...
+            nidm_conv('nidm_groupName',p),{groups.name{i},'xsd:string'},...
+            nidm_conv('nidm_numberOfSubjects',p),{groups.N(i),'xsd:int'},...
             });
     end
 end
@@ -410,10 +452,10 @@ p.entity(idData,{...
     'prov:label',{'Data','xsd:string'},...
     extra_fields{:}});
 p.wasAttributedTo(idData,idScanner);
-if isequal(groups,1)
+if isequal(groups.N,1)
     p.wasAttributedTo(idData,idPerson);
 else
-    for i=1:numel(groups)
+    for i=1:numel(groups.N)
         p.wasAttributedTo(idData,idGroup{i});
     end
 end
@@ -609,30 +651,22 @@ p.entity(idGrandMean,{...
     });
 p.wasGeneratedBy(idGrandMean, idModelPE);
 
-%-Entity: Beta Maps
+%-Entity: Parameter Estimate (Beta) Maps
 %--------------------------------------------------------------------------
 idBeta = cell(1,numel(SPM.Vbeta));
 for i=1:numel(SPM.Vbeta)
-    if ~isempty(files.beta)
-        extra_fields = {...
-            'nfo:fileName',{spm_file(files.beta{i},'filename'),'xsd:string'},...   
-            'prov:location',{uri(files.beta{i}),'xsd:anyURI'}...
-        };
-    else
-        extra_fields = {};
-    end
     idBeta{i} = getid(sprintf('niiri:beta_map_id_%d',i),isHumanReadable);
     p.entity(idBeta{i},{...
         'prov:type',nidm_conv('nidm_ParameterEstimateMap',p),...
-        'prov:label',{sprintf('Beta Map %d',i),'xsd:string'},...
-        nidm_conv('nidm_inCoordinateSpace',p),id_data_coordspace,...
-        'nfo:fileName',{spm_file(fullfile(SPM.swd,SPM.Vbeta(i).fname),'filename'),'xsd:string'},...   
+        'prov:location',{uri(files.beta{i}),'xsd:anyURI'}...
+        'nfo:fileName',{spm_file(files.beta{i},'filename'),'xsd:string'},...
         'dct:format',niifmt,...
+        'prov:label',{sprintf('Parameter Estimate Map %d',i),'xsd:string'},...
+        nidm_conv('nidm_inCoordinateSpace',p),id_data_coordspace,...
         'crypto:sha512',{sha512sum(fullfile(SPM.swd,SPM.Vbeta(i).fname)),'xsd:string'},...        
-        extra_fields{:}...
     });
-%     id = originalfile(p,fullfile(SPM.swd,SPM.Vbeta(i).fname),idBeta{i},nidm_conv('nidm_ParameterEstimateMap',p));
-%     p.wasDerivedFrom(idBeta{i},id);
+    id = originalfile(p,fullfile(SPM.swd,SPM.Vbeta(i).fname),idBeta{i},nidm_conv('nidm_ParameterEstimateMap',p));
+    p.wasDerivedFrom(idBeta{i},id);
     p.wasGeneratedBy(idBeta{i}, idModelPE);
 end
 
@@ -705,7 +739,7 @@ for c=1:numel(xSPM.Ic)
         'prov:location',{uri(spm_file(files.spm{c},'cpath')),'xsd:anyURI'},...
         'nfo:fileName',{spm_file(files.spm{c},'filename'),'xsd:string'},...
         'dct:format',niifmt,...
-        'prov:label',{['Statistic Map: ' nidm_esc(SPM.xCon(xSPM.Ic(c)).name)],'xsd:string'},...
+        'prov:label',{[upper(STAT) '-Statistic Map: ' nidm_esc(SPM.xCon(xSPM.Ic(c)).name)],'xsd:string'},...
         nidm_conv('nidm_statisticType',p),nidm_conv(['obo_' STAT 'statistic'],p),...
         nidm_conv('nidm_contrastName',p),{nidm_esc(SPM.xCon(xSPM.Ic(c)).name),'xsd:string'},...
         nidm_conv('nidm_errorDegreesOfFreedom',p),{xSPM.df(2),'xsd:float'},...
@@ -792,7 +826,7 @@ else
             thresh_desc  = sprintf(': p<%f (unc.)',TabDat.ftr{1,2}(2));
             % Set uncorrected p-value threshold to the user-defined value
             % (to avoid possible floating point approximations)            
-            thresh(2).value = str2double(td.u);
+            %thresh(2).value = str2double(td.u);
         case 'FDR'
             thresh(3).type  = nidm_conv('obo_qvalue',p);
             thresh(3).label = 'Height Threshold';
@@ -970,6 +1004,7 @@ if ~isempty(files.svcmask)
         'prov:type','nidm:SubVolumeMap',...
         'prov:location',{uri(spm_file(files.svcmask,'cpath')),'xsd:anyURI'},...
         'nfo:fileName',{spm_file(files.svcmask,'filename'),'xsd:string'},...
+        'dct:format',niifmt,...
         'prov:label',{'Sub-volume','xsd:string'},...
         nidm_conv('nidm_inCoordinateSpace',p),currCoordSpace,...
         'crypto:sha512',{sha512sum(spm_file(files.svcmask,'cpath')),'xsd:string'},...
@@ -1048,6 +1083,9 @@ p.entity(idClusterLabelsMap,{...
     'prov:location',{uri(spm_file(files.clust,'cpath')),'xsd:anyURI'},...
     'nfo:fileName',{spm_file(files.clust,'filename'),'xsd:string'},...
     'dct:format',niifmt,...
+    'prov:label',{'Cluster Labels Map','xsd:string'},...
+    nidm_conv('nidm_inCoordinateSpace',p),id_data_coordspace,...
+    'crypto:sha512',{sha512sum(spm_file(files.clust,'cpath')),'xsd:string'},...
     });
 p.entity(idMaximumIntensityProjection,{...
     'prov:type','dctype:Image',...
@@ -1113,6 +1151,7 @@ pp.bundle(idResults,p);
 %==========================================================================
 %serialize(pp,fullfile(outdir,'nidm.provn'));
 serialize(pp,fullfile(outdir,'nidm.ttl'));
+try, serialize(pp,fullfile(outdir,'nidm.jsonld')); end
 %serialize(pp,fullfile(outdir,'nidm.json'));
 %serialize(pp,fullfile(outdir,'nidm.pdf'));
 
@@ -1648,3 +1687,234 @@ C = {...
 'nlx:ixl_0050004', 'nlx_AnatomicalMRIprotocol';...
 'nlx:nlx_inv_20090249', 'nlx_Diffusionweightedimagingprotocol';...
 };
+
+%==========================================================================
+% Upload to NeuroVault
+%==========================================================================
+function upload_to_neurovault(nidmfile,token)
+
+neurovault = 'http://neurovault.org';
+
+% Get token
+if nargin > 1
+    addpref('neurovault','token',token);
+elseif ispref('neurovault','token')
+    token = getpref('neurovault','token');
+else
+    if spm('CmdLine')
+        error('Upload to NeuroVault requires a token-based authentication.');
+    end
+    fprintf([...
+        'To set up integration with NeuroVault you need to obtain a\n',...
+        'secret token first. Please go to http://neurovault.org/ and\n',...
+        'generate a new token. To complete the procedure you will need\n',...
+        'to log into NeuroVault. If you don''t have an account you can\n',...
+        'create one or simply log in using Facebook or Google. When you\n',...
+        'generated a token (a string of 40 random characters), copy it\n',...
+        'into the dialog box. If you ever lose access to this machine\n',...
+        'you can delete the token on NeuroVault.org thus preventing\n',...
+        'unauthorized parties to access your NeuroVault data\n']);
+    token = inputdlg('Token','Enter NeuroVault token',1,{''},'on');
+    if isempty(token) || isempty(token{1}), return; else token = char(token); end
+    addpref('neurovault','token',token);
+end
+auth = ['Bearer ' token];
+
+% Check token
+url = [neurovault '/api/my_collections/'];
+statusCode = http_request('head', url, 'Authorization', auth);
+if isnan(statusCode)
+    error('Cannot connect to NeuroVault.');
+elseif statusCode ~= 200
+    warning('Failed authentication with NeuroVault: invalid token.');
+    rmpref('neurovault','token');
+    upload_to_neurovault(nidmfile);
+    return;
+end
+
+% Get user name
+url = [neurovault '/api/user/'];
+[statusCode, responseBody] = http_request('jsonGet', url, 'Authorization', auth);
+if statusCode == 200
+    responseBody = spm_jsonread(responseBody);
+    owner_name = responseBody.username;
+else
+    err = spm_jsonread(responseBody);
+    error(char(err.detail));
+end
+my_collection = sprintf('%s''s %s Collection',owner_name,spm('Ver'));
+
+% Get the list of collections
+url   = [neurovault '/api/my_collections/'];
+[statusCode, responseBody] = http_request('jsonGet', url, 'Authorization', auth);
+if statusCode == 200
+    collections = spm_jsonread(responseBody);
+else
+    err = spm_jsonread(responseBody);
+    error(char(err.detail));
+end
+
+% Create a new collection if needed
+id = NaN;
+for i=1:numel(collections.results)
+    if strcmp(collections.results(i).name,my_collection)
+        id = collections.results(i).id;
+        break;
+    end
+end
+if isnan(id)
+    url   = [neurovault '/api/collections/'];
+    requestParts = [];
+    requestParts.Type = 'string';
+    requestParts.Name = 'name';
+    requestParts.Body = my_collection;
+    [statusCode, responseBody] = http_request('multipartPost', url, requestParts, 'Authorization', auth);
+    if statusCode == 201
+        collections = spm_jsonread(responseBody);
+        id = collections.id;
+    else
+        err = spm_jsonread(responseBody);
+        error(char(err.name));
+    end
+end
+
+% Upload NIDM-Results in NeuroVault's collection
+url = [neurovault sprintf('/api/collections/%d/nidm_results/',id)];
+requestParts = [];
+requestParts(1).Type = 'string';
+requestParts(1).Name = 'name';
+requestParts(1).Body = 'No name'; % NAME
+requestParts(2).Type = 'string';
+requestParts(2).Name = 'description';
+requestParts(2).Body = 'No description'; % DESCRIPTION
+requestParts(3).Type = 'file';
+requestParts(3).Name = 'zip_file';
+requestParts(3).Body = nidmfile;
+[statusCode, responseBody] = http_request('multipartPost', url, requestParts, 'Authorization', auth);
+if statusCode == 201
+    responseBody = spm_jsonread(responseBody);
+    cmd = 'web(''%s'',''-browser'')';
+    fprintf('Uploaded to %s\n',spm_file(responseBody.url,'link',cmd));
+else
+    err = spm_jsonread(responseBody);
+    error(char(err.name));
+end
+
+%==========================================================================
+% HTTP requests with missing-http
+%==========================================================================
+function varargout = http_request(action, url, varargin)
+% Use missing-http from Paul Sexton:
+% https://github.com/psexton/missing-http/
+
+persistent jar_added_to_path
+if isempty(jar_added_to_path)
+    try
+        net.psexton.missinghttp.MatlabShim;
+    catch
+        err = lasterror;
+        if strcmp(err.identifier, 'MATLAB:dispatcher:noMatchingConstructor')
+            jar_added_to_path = true;
+        else
+            jarfile = fullfile(spm('Dir'),'external','missing-http','missing-http.jar');
+            if spm_existfile(jarfile)
+                javaaddpath(jarfile); % this clears global
+                jar_added_to_path = true;
+            else
+                error('HTTP library missing.');
+            end
+        end
+    end
+end
+
+switch lower(action)
+    case 'head'
+        try
+            response = char(net.psexton.missinghttp.MatlabShim.head(url, varargin));
+        catch
+            response = 'NaN';
+        end
+        statusCode   = str2double(response);
+        varargout    = { statusCode };
+    case 'jsonget'
+        try
+            response = cell(net.psexton.missinghttp.MatlabShim.jsonGet(url, varargin));
+        catch
+            response = {'NaN',''};
+        end
+        statusCode   = str2double(response{1});
+        responseBody = response{2};
+        varargout    = { statusCode, responseBody };
+    case 'multipartpost'
+        requestParts = varargin{1};
+        crp = cell(1, numel(requestParts));
+        for k=1:numel(requestParts)
+            crp{k}   = sprintf('%s\n%s\n%s', requestParts(k).Type, requestParts(k).Name, requestParts(k).Body);
+        end
+        try
+            response = cell(net.psexton.missinghttp.MatlabShim.multipartPost(url, crp, varargin(2:end)));
+        catch
+            response = {'NaN',''};
+        end
+        statusCode   = str2double(response{1});
+        responseBody = response{2};
+        varargout    = { statusCode, responseBody };
+    otherwise
+        error('Unknown HTTP request.');
+end
+
+%==========================================================================
+% HTTP requests with MATLAB R2016b
+%==========================================================================
+function varargout = http_request2(action, url, varargin)
+
+switch lower(action)
+    case 'head'
+        opt = weboptions('HeaderFields',varargin,'ContentType','text');
+        try
+            webread(url,opt); % it's a GET, not a HEAD
+            statusCode = 200;
+        catch
+            err = lasterror;
+            s = regexp(err.identifier,'MATLAB:webservices:HTTP(\d+)','tokens');
+            if isempty(s)
+                statusCode = NaN;
+            else
+                statusCode = str2double(s{1}{1});
+            end
+        end
+        varargout    = { statusCode };
+    case 'jsonget'
+        opt = weboptions('HeaderFields',varargin,'ContentType','text');
+        try
+            responseBody = webread(url,opt);
+            statusCode = 200;
+        catch
+            err = lasterror;
+            s = regexp(err.identifier,'MATLAB:webservices:HTTP(\d+)','tokens');
+            if isempty(s)
+                statusCode = NaN;
+            else
+                statusCode = str2double(s{1}{1});
+            end
+        end
+        varargout    = { statusCode, responseBody };
+    case 'multipartpost'
+        requestParts = varargin{1};
+        opt = weboptions('HeaderFields',varargin(2:end),'ContentType','text');
+        try
+            responseBody = webread(url,opt);
+            statusCode = 200;
+        catch
+            err = lasterror;
+            s = regexp(err.identifier,'MATLAB:webservices:HTTP(\d+)','tokens');
+            if isempty(s)
+                statusCode = NaN;
+            else
+                statusCode = str2double(s{1}{1});
+            end
+        end
+        varargout    = { statusCode, responseBody };
+    otherwise
+        error('Unknown HTTP request.');
+end
