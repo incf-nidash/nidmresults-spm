@@ -185,7 +185,7 @@ for i=1:numel(SPM.Vbeta)
 end
 
 %-SPM{.}, contrast, contrast standard error, and contrast explained mean square images (as NIfTI)
-%--------------------------------------------------------------------------
+%-----------------------x---------------------------------------------------
 for i=1:numel(xSPM.Ic)
     if numel(xSPM.Ic) == 1, postfix = '';
     else                    postfix = sprintf('_%04d',i); end
@@ -524,7 +524,6 @@ for c=1:numel(xSPM.Ic)
                 'nidm_StatisticMap/nidm_errorDegreesOfFreedom', ...
                 'nidm_StatisticMap/nidm_effectDegreesOfFreedom', ...
                 'nidm_StatisticMap/prov:atLocation', ...
-                'nidm_ContrastMap/prov:atLocation', ...
                 'nidm_ContrastExplainedMeanSquareMap/prov:atLocation' ...
             }, ...
             { ...
@@ -533,7 +532,6 @@ for c=1:numel(xSPM.Ic)
                 xSPM.df(2), ...
                 xSPM.df(1), ...
                 uri(spm_file(files.spm{c},'cpath')), ...
-                uri(spm_file(files.con{c},'cpath')), ...
                 uri(uri(spm_file(files.effms{c},'cpath'))) ...
             });
     end
@@ -612,7 +610,7 @@ nidm_height_equivthresh = containers.Map();
 nidm_extent_equivthresh = containers.Map();
 ex_equiv_types = {'obo_FWERadjustedpvalue', 'nidm_PValueUncorrected'};
 for i = 2:3
-    nidm_height_equivthresh(nidm_esc(thresh(i).label)) = containers.Map(...
+    nidm_height_equivthresh(nidm_esc([thresh(i).label ' ' num2str(i)])) = containers.Map(...
         {...
             'nidm_HeightThreshold/prov:type', ...
             'nidm_HeightThreshold/prov:value'
@@ -620,10 +618,10 @@ for i = 2:3
             thresh(i).type, ...
             thresh(i).value, ...
         });
-    nidm_extent_equivthresh(nidm_esc(thresh(i).label)) = containers.Map(...
+    nidm_extent_equivthresh(nidm_esc([thresh(i).label ' ' num2str(i)])) = containers.Map(...
         {...
             'nidm_ExtentThreshold/prov:type', ...
-            'nidm_ExtentThreshold/nidm_clusterSizeInVoxels'
+            'nidm_ExtentThreshold/prov:value' % SPM equiv thresholds are always p-values (i.e. not cluster sizes)
         }, {...
             ex_equiv_types{i-1}, ...
             kk(i-1)
@@ -740,22 +738,20 @@ num_digits = numel(num2str(max(clustidx)));
 for i=1:numel(idx)
     clust_key = num2str(i, ['%0' num2str(num_digits) 'd']);
     
-    nidm_clusters(clust_key) = containers.Map(...
-        {...
+    clust_keys = {...
             'nidm_SupraThresholdCluster/nidm_clusterSizeInVoxels',...
             'nidm_SupraThresholdCluster/nidm_clusterSizeInResels',...
             'nidm_SupraThresholdCluster/nidm_pValueUncorrected',...
             'nidm_SupraThresholdCluster/nidm_pValueFWER',...
             'nidm_SupraThresholdCluster/nidm_qValueFDR'...
-        }, ...
-        {...
+        };
+    clust_values = {...
             TabDat.dat{idx(i),5}, ...
             TabDat.dat{idx(i),5}*V2R, ...
             TabDat.dat{idx(i),6}, ...
             TabDat.dat{idx(i),3}, ...
             TabDat.dat{idx(i),4} ...   
-        }...
-    );
+        };
     
 %-Entity: Peaks
 %--------------------------------------------------------------------------
@@ -782,7 +778,10 @@ for i=1:numel(idx)
                 });
         end
     end
-    nidm_clusters(clust_key) = nidm_peaks;
+    clust_keys{end+1} = 'Peaks';
+    clust_values{end+1} = nidm_peaks;
+    
+    nidm_clusters(clust_key) = containers.Map(clust_keys, clust_values);
 end
 
 nidm_inference('Clusters') = nidm_clusters;
@@ -790,31 +789,31 @@ nidm_inference('Clusters') = nidm_clusters;
 nidm_inferences(con_name) = nidm_inference;
 nidm_json('Inferences') = nidm_inferences;
 
-spm_nidmresults(nidm_json, SPM.swd);
+[nidmfile, prov] = spm_nidmresults(nidm_json, SPM.swd);
 
-% pp.bundle(idResults,p);
-
-%==========================================================================
-%-                  P R O V   S E R I A L I Z A T I O N
-%==========================================================================
-%serialize(pp,fullfile(outdir,'nidm.provn'));
-serialize(pp,fullfile(outdir,'nidm.ttl'));
-try, serialize(pp,fullfile(outdir,'nidm.jsonld')); end
-%serialize(pp,fullfile(outdir,'nidm.json'));
-%serialize(pp,fullfile(outdir,'nidm.pdf'));
-
-i = 1;
-while true
-    nidmfile = fullfile(SPM.swd,sprintf('spm_%04d.nidm.zip',i));
-    if spm_existfile(nidmfile), i = i + 1; else break; end
-end
-f = zip(nidmfile,'*',outdir);
-for i=1:numel(f)
-    spm_unlink(fullfile(outdir,f{i}));
-end
-rmdir(outdir);
-
-prov = pp;
+% % pp.bundle(idResults,p);
+% 
+% %==========================================================================
+% %-                  P R O V   S E R I A L I Z A T I O N
+% %==========================================================================
+% %serialize(pp,fullfile(outdir,'nidm.provn'));
+% serialize(pp,fullfile(outdir,'nidm.ttl'));
+% try, serialize(pp,fullfile(outdir,'nidm.jsonld')); end
+% %serialize(pp,fullfile(outdir,'nidm.json'));
+% %serialize(pp,fullfile(outdir,'nidm.pdf'));
+% 
+% i = 1;
+% while true
+%     nidmfile = fullfile(SPM.swd,sprintf('spm_%04d.nidm.zip',i));
+%     if spm_existfile(nidmfile), i = i + 1; else break; end
+% end
+% f = zip(nidmfile,'*',outdir);
+% for i=1:numel(f)
+%     spm_unlink(fullfile(outdir,f{i}));
+% end
+% rmdir(outdir);
+% 
+% prov = pp;
 
 
 %==========================================================================
