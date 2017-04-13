@@ -178,7 +178,7 @@ copyfile(clust_map, files.clust);
 %--------------------------------------------------------------------------
 if isKey(inference, 'nidm_DisplayMaskMap/prov:atLocation')
     files.dmask_orig = inference('nidm_DisplayMaskMap/prov:atLocation');
-    if str(files.dmask_orig)
+    if ischar(files.dmask_orig)
         files.dmask_orig = {files.dmask_orig};
     end
     for i = 1:numel(files.dmask_orig)
@@ -316,17 +316,18 @@ else
     isgroup = true;
     groups = nidm_json('Groups');
     
-    % TODO
+    group_names = groups.keys;
+    
     %-Agent: Group
     %----------------------------------------------------------------------
-    idGroup = cell(1,numel(groups.N));
-    for i=1:numel(groups.N)
+    idGroup = cell(1,numel(group_names));
+    for i=1:numel(group_names)
         idGroup{i} = getid(sprintf('niiri:group_id_%d',i),isHumanReadable);
         p.agent(idGroup{i},{...
             'prov:type',nidm_conv('obo_studygrouppopulation',p),...
-            'prov:label',{sprintf('Group: %s',groups.name{i}),'xsd:string'},...
-            nidm_conv('nidm_groupName',p),{groups.name{i},'xsd:string'},...
-            nidm_conv('nidm_numberOfSubjects',p),{groups.N(i),'xsd:int'},...
+            'prov:label',{sprintf('Group: %s',group_names{i}),'xsd:string'},...
+            nidm_conv('nidm_groupName',p),{group_names{i},'xsd:string'},...
+            nidm_conv('nidm_numberOfSubjects',p),{groups(group_names{i}),'xsd:int'},...
             });
     end
 end
@@ -360,8 +361,7 @@ p.wasAttributedTo(idData,idScanner);
 if ~isgroup
     p.wasAttributedTo(idData,idPerson);
 else
-    % TODO
-    for i=1:numel(groups.N)
+    for i=1:numel(group_names)
         p.wasAttributedTo(idData,idGroup{i});
     end
 end
@@ -888,11 +888,17 @@ p.used(idInference, idClusterDefCrit);
 %-Entity: Display Mask Maps
 %--------------------------------------------------------------------------
 if isKey(inference, 'nidm_DisplayMaskMap/prov:atLocation')
-    % TODO
     for i=1:numel(files.dmask)
-        V = spm_vol(files.dmask{i});
-        if ~spm_check_orientations(struct('dim',{xSPM.DIM',V.dim},...
-                'mat',{xSPM.M,V.mat}),false)
+        gunzip(files.dmask{i});
+        V = spm_vol(strrep(files.dmask{i}, '.gz', ''));
+        gzip(strrep(files.dmask{i}, '.gz', ''))
+        
+        gunzip(files.tspm);
+        V_ex = spm_vol(strrep(files.tspm, '.gz', ''));
+        gzip(strrep(files.tspm, '.gz', ''))
+        
+        if ~spm_check_orientations(struct('dim',{V_ex.dim,V.dim},...
+                'mat',{V_ex.mat,V.mat}),false)
             currCoordSpace = coordspace(p,V.mat,V.dim',units,coordsys);
         else
             currCoordSpace = id_data_coordspace;

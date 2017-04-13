@@ -395,8 +395,10 @@ end
 
 %-Entity: Drift Model
 %--------------------------------------------------------------------------
-nidm_json('nidm_DesignMatrix/nidm_hasDriftModel') = 'spm_DiscreteCosineTransformbasisDriftModel';
-nidm_json('nidm_DesignMatrix/spm_SPMsDriftCutoffPeriod') = SPM.xX.K(1).HParam;
+if isfield(SPM,'Sess') && isfield(SPM.xX,'K')
+    nidm_json('nidm_DesignMatrix/nidm_hasDriftModel') = 'spm_DiscreteCosineTransformbasisDriftModel';
+    nidm_json('nidm_DesignMatrix/spm_SPMsDriftCutoffPeriod') = SPM.xX.K(1).HParam;
+end
 
 %-Entity: Design Matrix
 %--------------------------------------------------------------------------
