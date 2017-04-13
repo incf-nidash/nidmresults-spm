@@ -244,7 +244,6 @@ files.mask = fullfile(xSPM.swd,SPM.VM.fname);
 %-Grand mean image (as NIfTI)
 %--------------------------------------------------------------------------
 files.grandmean = fullfile(xSPM.swd,'GrandMean.nii');
-temp_img{end+1} = files.grandmean;
 
 sf  = mean(SPM.xX.xKXs.X,1);
 Vb  = SPM.Vbeta;
@@ -260,6 +259,7 @@ Vgm = spm_create_vol(Vgm);
 Vgm.pinfo(1,1) = spm_add(Vb,Vgm);
 Vgm = spm_create_vol(Vgm);
 if ~isempty(gz), gzip(files.grandmean); spm_unlink(files.grandmean); files.grandmean = [files.grandmean gz]; end
+temp_img{end+1} = files.grandmean;
 
 %-Explicit mask image (as NIfTI)
 %--------------------------------------------------------------------------
@@ -792,6 +792,10 @@ nidm_inferences(con_name) = nidm_inference;
 nidm_json('Inferences') = nidm_inferences;
 
 [nidmfile, prov] = spm_nidmresults(nidm_json, SPM.swd);
+
+for i = 1:numel(temp_img)
+    spm_unlink(temp_img{i});
+end
 
 % % pp.bundle(idResults,p);
 % 

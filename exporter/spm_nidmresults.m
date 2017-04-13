@@ -20,9 +20,6 @@ function [nidmfile, prov] = spm_nidmresults(nidm_json, direc)
 % Guillaume Flandin, Camille Maumet
 % $Id: spm_results_nidm.m 6903 2016-10-12 11:36:41Z guillaume $
 
-% Only temporary
-jsonwrite('nidm.json', nidm_json, struct('indent','    ', 'escape', false));
-
 %-Options
 %==========================================================================
 
@@ -157,8 +154,8 @@ copyfile(gm_map, files.grandmean);
 gunzip(gm_map)
 gunzip(files.mask)
 grandMeanMedian = spm_summarise(strrep(gm_map, gz, ''),strrep(files.mask, gz, ''),@median);
-gzip(strrep(gm_map, gz, ''));
-gzip(strrep(files.mask, gz, ''));
+delete(strrep(gm_map, gz, ''));
+delete(strrep(files.mask, gz, ''));
 
 %-Explicit mask image (as NIfTI)
 %--------------------------------------------------------------------------
@@ -895,11 +892,11 @@ if isKey(inference, 'nidm_DisplayMaskMap/prov:atLocation')
     for i=1:numel(files.dmask)
         gunzip(files.dmask{i});
         V = spm_vol(strrep(files.dmask{i}, '.gz', ''));
-        gzip(strrep(files.dmask{i}, '.gz', ''))
+        delete(strrep(files.dmask{i}, '.gz', ''))
         
         gunzip(files.tspm);
         V_ex = spm_vol(strrep(files.tspm, '.gz', ''));
-        gzip(strrep(files.tspm, '.gz', ''))
+        delete(strrep(files.tspm, '.gz', ''))
         
         if ~spm_check_orientations(struct('dim',{V_ex.dim,V.dim},...
                 'mat',{V_ex.mat,V.mat}),false)
