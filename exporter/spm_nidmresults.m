@@ -27,6 +27,7 @@ function [nidmfile, prov] = spm_nidmresults(nidm_json, direc)
 %--------------------------------------------------------------------------
 gz           = '.gz';                        %-Compressed NIfTI {'.gz', ''}
 
+jsonwrite('nidm.json', nidm_json, struct('indent','    ', 'escape', false));
 
 %==========================================================================
 %-Populate output directory
@@ -53,14 +54,29 @@ csvwrite(files.descsv,DesMtxValue);
 
 %-Maximum Intensity Projection image (as png)
 %--------------------------------------------------------------------------
-con_name = nidm_json('Inferences').keys;
-con_name = con_name{1};
+if isKey(nidm_json, 'Inferences')
+    con_name = nidm_json('Inferences').keys;
+    con_name = con_name(1);
 
-inferences = nidm_json('Inferences');
-if inferences.Count>1
-    warning('Exporter assumes only one inference is reported.')
+    inferences = nidm_json('Inferences');
+    if inferences.Count>1
+        warning('Exporter assumes only one inference is reported.')
+    end
+    
+    inference = inferences(con_name{1});
+else
+    inferences = nidm_json('ConjunctionInferences');
+    
+    if inferences.Count>1
+        warning('Exporter assumes only one inference is reported.')
+    end
+    
+    con_descs = inferences.keys;
+    
+    inference = inferences(con_descs{1});
+    
+    con_name = inference('nidm_contrastName');
 end
-inference = inferences(con_name);
 
 files.mip_orig = inference('nidm_ExcursionSetMap/nidm_hasMaximumIntensityProjection');
 files.mip = fullfile(outdir, files.mip_orig);
@@ -88,7 +104,7 @@ for i=1:numel(contrast_names)
     else                    postfix = sprintf('_%04d',i); end
     stat_type = con('nidm_StatisticMap/nidm_statisticType');
     
-    if contrast_names{i} == con_name
+    if strcmp(contrast_names{i},con_name{1})
         STAT = stat_type;
     end
     
@@ -271,8 +287,10 @@ p.agent(idSoftware,{...
 %-Entity: Coordinate Space
 %--------------------------------------------------------------------------
 units = nidm_json('nidm_CoordinateSpace/units');
-stat_img = nifti(stat_map);
-id_data_coordspace = coordspace(p,stat_img.mat,stat_img.dat.dim,units,coordsys,1);
+gunzip(excset_map)
+excset_img = nifti(strrep(excset_map, '.gz', ''));
+spm_unlink(strrep(excset_map, '.gz', ''))
+id_data_coordspace = coordspace(p,excset_img.mat,excset_img.dat.dim,units,coordsys,1);
 
 %-Agent: Scanner
 %--------------------------------------------------------------------------
@@ -595,7 +613,7 @@ p.wasGeneratedBy(idRPV, idModelPE);
 % if STAT == 'T', STAT = lower(STAT); end
 
 contrast_names = contrasts.keys;
-for c=1:numel(contrasts.Count)
+for c=1:contrasts.Count
     this_con_name = contrast_names{c};
     my_contrast = contrasts(this_con_name);
     
@@ -879,7 +897,11 @@ p.used(idInference, idExtentThresh);
 for c=1:contrasts.Count
     if contrasts.Count == 1, postfix = '';
     else                    postfix = sprintf('_%d',c); end
-    p.used(idInference, idSPM{c});
+    try
+        p.used(idInference, idSPM{c});
+    catch
+        aa=1
+    end
 end
 p.used(idInference, idRPV);
 p.used(idInference, idMask1);

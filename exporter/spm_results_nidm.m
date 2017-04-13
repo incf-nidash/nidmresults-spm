@@ -493,12 +493,15 @@ STAT = xSPM.STAT;
 if STAT == 'T', STAT = lower(STAT); end
 
 nidm_contrasts = containers.Map();
+contrast_names = {};
+
 for c=1:numel(xSPM.Ic)
     if numel(xSPM.Ic) == 1, postfix = '';
     else                    postfix = sprintf('_%d',c); end
        
     if xSPM.STAT == 'T'
         con_name = nidm_esc(SPM.xCon(xSPM.Ic(c)).name);
+        contrast_names{end+1} = con_name;
         nidm_contrasts(con_name) = ...
             containers.Map({...
                 'obo_contrastweightmatrix/prov:value', ...
@@ -519,6 +522,7 @@ for c=1:numel(xSPM.Ic)
     end
     if xSPM.STAT == 'F'
         con_name = nidm_esc(SPM.xCon(xSPM.Ic(c)).name);
+        contrast_names{end+1} = con_name;
         nidm_contrasts(con_name) = ...
             containers.Map({...
                 'obo_contrastweightmatrix/prov:value', ...
@@ -646,28 +650,32 @@ nidm_json('nidm_PeakDefinitionCriteria/nidm_minDistanceBetweenPeaks') = ...
     minDistanceBetweenPeaks;
 nidm_json('nidm_PeakDefinitionCriteria/nidm_maxNumberOfPeaksPerCluster') = ...
     maxNumberOfPeaksPerCluster;
-
-nidm_inference('nidm_Inference/nidm_hasAlternativeHypothesis') = ...
-    'nidm_OneTailedTest';
     
 %-Activity: Inference
 %==========================================================================
-% if numel(xSPM.Ic) == 1
-%     st = {'prov:type',nidm_conv('nidm_Inference',p), ...
-%           nidm_conv('nidm_hasAlternativeHypothesis',p),nidm_conv('nidm_OneTailedTest',p),...
-%           'prov:label','Inference'};
-% else
-%     if xSPM.n == 1
+nidm_inference('nidm_Inference/nidm_hasAlternativeHypothesis') = ...
+    'nidm_OneTailedTest';
+if numel(xSPM.Ic) == 1
+    conj = false;
+else
+    conj = true;
+    nidm_inference('nidm_contrastName') = contrast_names;
+    if xSPM.n == 1
+        nidm_inference('nidm_Inference/prov:type') = 'nidm_ConjunctionInference';
+% 
 %         st = {'prov:type',nidm_conv('nidm_ConjunctionInference',p), ...
 %               nidm_conv('nidm_hasAlternativeHypothesis',p),nidm_conv('nidm_OneTailedTest',p),...
 %               'prov:label','Conjunction Inference'};
-%     else
+    else
+        nidm_inference('nidm_Inference/prov:type') = 'spm_PartialConjunctionInference';
+        nidm_inference('spm_PartialConjunctionInference/spm_partialConjunctionDegree') = xSPM.n;
+%         
 %         st = {'prov:type',nidm_conv('spm_PartialConjunctionInference',p), ...
 %               nidm_conv('nidm_hasAlternativeHypothesis',p),nidm_conv('nidm_OneTailedTest',p),...
 %               'prov:label','Partial Conjunction Inference', ...
 %               nidm_conv('spm_partialConjunctionDegree',p),{xSPM.n,'xsd:int'}};
-%     end
-% end
+    end
+end
 
 %-Entity: Display Mask Maps
 %--------------------------------------------------------------------------
@@ -788,8 +796,13 @@ end
 
 nidm_inference('Clusters') = nidm_clusters;
 
-nidm_inferences(con_name) = nidm_inference;
-nidm_json('Inferences') = nidm_inferences;
+nidm_inferences([contrast_names{:}]) = nidm_inference;
+
+if ~conj
+    nidm_json('Inferences') = nidm_inferences;
+else
+    nidm_json('ConjunctionInferences') = nidm_inferences;    
+end
 
 [nidmfile, prov] = spm_nidmresults(nidm_json, SPM.swd);
 
