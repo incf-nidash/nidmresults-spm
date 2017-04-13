@@ -157,8 +157,8 @@ copyfile(gm_map, files.grandmean);
 gunzip(gm_map)
 gunzip(files.mask)
 grandMeanMedian = spm_summarise(strrep(gm_map, gz, ''),strrep(files.mask, gz, ''),@median);
-gzip(gm_map);
-gzip(files.mask);
+gzip(strrep(gm_map, gz, ''));
+gzip(strrep(files.mask, gz, ''));
 
 %-Explicit mask image (as NIfTI)
 %--------------------------------------------------------------------------
@@ -730,6 +730,10 @@ switch(height_thresh_type)
         height_thresh_desc  = sprintf(': p<%f (unc.)',height_thresh_value);
     case 'obo_qvalue'
         height_thresh_desc  = sprintf(': p<%s (FDR)',height_thresh_value);
+    case 'obo_statistic'
+        height_thresh_desc  = sprintf(': %s>%f',stat, height_thresh_value);
+    otherwise
+        error(['Unrecognised threshold type: ' height_thresh_type])
 end
 
 p.entity(idHeightThresh,{...
