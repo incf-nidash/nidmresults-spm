@@ -867,27 +867,26 @@ p.entity(idClusterDefCrit,{...
 
 %-Activity: Inference
 %==========================================================================
-% TODO deal with conjunctions ---
-
-
-% if numel(xSPM.Ic) == 1
-
+if numel(con_name) == 1
     st = {'prov:type',nidm_conv('nidm_Inference',p), ...
           nidm_conv('nidm_hasAlternativeHypothesis',p),nidm_conv(inference('nidm_Inference/nidm_hasAlternativeHypothesis'),p),...
           'prov:label','Inference'};
-% else
-%     if xSPM.n == 1
-%         st = {'prov:type',nidm_conv('nidm_ConjunctionInference',p), ...
-%               nidm_conv('nidm_hasAlternativeHypothesis',p),nidm_conv('nidm_OneTailedTest',p),...
-%               'prov:label','Conjunction Inference'};
-%     else
-%         st = {'prov:type',nidm_conv('spm_PartialConjunctionInference',p), ...
-%               nidm_conv('nidm_hasAlternativeHypothesis',p),nidm_conv('nidm_OneTailedTest',p),...
-%               'prov:label','Partial Conjunction Inference', ...
-%               nidm_conv('spm_partialConjunctionDegree',p),{xSPM.n,'xsd:int'}};
-%     end
-% end
-% --- end deal with conjunctions
+else
+    switch(inference('nidm_Inference/prov:type'))
+        case 'nidm_ConjunctionInference'
+            st = {'prov:type',nidm_conv('nidm_ConjunctionInference',p), ...
+              nidm_conv('nidm_hasAlternativeHypothesis',p),nidm_conv(inference('nidm_Inference/nidm_hasAlternativeHypothesis'),p),...
+              'prov:label','Conjunction Inference'};
+        case 'spm_PartialConjunctionInference'
+            partialConjDegree = inference('spm_PartialConjunctionInference/spm_partialConjunctionDegree');
+            st = {'prov:type',nidm_conv('spm_PartialConjunctionInference',p), ...
+              nidm_conv('nidm_hasAlternativeHypothesis',p),nidm_conv(inference('nidm_Inference/nidm_hasAlternativeHypothesis'),p),...
+              'prov:label','Partial Conjunction Inference', ...
+              nidm_conv('spm_partialConjunctionDegree',p),{partialConjDegree,'xsd:int'}};
+        otherwise
+            error('Unknown conjunction type.');
+    end
+end
 
 idInference = getid('niiri:inference_id',isHumanReadable);
 p.activity(idInference,st);
