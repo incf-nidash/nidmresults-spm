@@ -170,8 +170,8 @@ copyfile(gm_map, files.grandmean);
 gunzip(gm_map)
 gunzip(files.mask)
 grandMeanMedian = spm_summarise(strrep(gm_map, gz, ''),strrep(files.mask, gz, ''),@median);
-delete(strrep(gm_map, gz, ''));
-delete(strrep(files.mask, gz, ''));
+spm_unlink(strrep(gm_map, '.gz', ''));
+spm_unlink(strrep(files.mask, '.gz', ''));
 
 %-Explicit mask image (as NIfTI)
 %--------------------------------------------------------------------------
@@ -914,11 +914,11 @@ if isKey(inference, 'nidm_DisplayMaskMap/prov:atLocation')
     for i=1:numel(files.dmask)
         gunzip(files.dmask{i});
         V = spm_vol(strrep(files.dmask{i}, '.gz', ''));
-        delete(strrep(files.dmask{i}, '.gz', ''))
+        spm_unlink(strrep(files.dmask{i}, '.gz', ''))
         
         gunzip(files.tspm);
         V_ex = spm_vol(strrep(files.tspm, '.gz', ''));
-        delete(strrep(files.tspm, '.gz', ''))
+        spm_unlink(strrep(files.tspm, '.gz', ''))
         
         if ~spm_check_orientations(struct('dim',{V_ex.dim,V.dim},...
                 'mat',{V_ex.mat,V.mat}),false)
