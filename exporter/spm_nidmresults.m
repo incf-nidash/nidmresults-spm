@@ -27,7 +27,7 @@ function [nidmfile, prov] = spm_nidmresults(nidm_json, direc)
 %--------------------------------------------------------------------------
 gz           = '.gz';                        %-Compressed NIfTI {'.gz', ''}
 
-jsonwrite('nidm.json', nidm_json, struct('indent','    ', 'escape', false));
+% jsonwrite('nidm.json', nidm_json, struct('indent','    ', 'escape', false));
 
 %==========================================================================
 %-Populate output directory
