@@ -88,7 +88,7 @@ files.beta_orig = nidm_json('ParameterEstimateMaps');
 regressor_names = files.beta_orig.keys;
 for i=1:numel(regressor_names)
     files.beta{i} = fullfile(outdir,[sprintf('ParameterEstimate_%04d',i) '.nii' gz]);
-    copyfile(files.beta_orig(regressor_names{i}), files.beta{i});
+    img2nii(files.beta_orig(regressor_names{i}), files.beta{i});
 end
 
 %-SPM{.}, contrast, contrast standard error, and contrast explained mean square images (as NIfTI)
@@ -119,12 +119,12 @@ for i=1:numel(contrast_names)
     
     files.spm{i}  = fullfile(outdir,[stat 'Statistic' postfix '.nii' gz]);
     stat_map{i} = con('nidm_StatisticMap/prov:atLocation');
-    copyfile(stat_map{i}, files.spm{i});
+    img2nii(stat_map{i}, files.spm{i});
     
     if stat == 'T'
         files.con{i} = fullfile(outdir,['Contrast' postfix '.nii' gz]);
         files.con_orig{i} = con('nidm_ContrastMap/prov:atLocation');
-        copyfile(files.con_orig{i}, files.con{i});
+        img2nii(files.con_orig{i}, files.con{i});
         
         files.conse{i} = fullfile(outdir,['ContrastStandardError' postfix '.nii' gz]);
         files.conse_orig{i} = con('nidm_ContrastStandardErrorMap/prov:atLocation');
