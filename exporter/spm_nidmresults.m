@@ -164,7 +164,7 @@ img2nii(files.mask_orig, files.mask);
 
 %-Grand mean image (as NIfTI)
 %--------------------------------------------------------------------------
-files.grandmean = fullfile(outdir,'GrandMean.nii');
+files.grandmean = fullfile(outdir, ['GrandMean.nii' gz]);
 gm_map = nidm_json('nidm_GrandMeanMap/prov:atLocation');
 copyfile(gm_map, files.grandmean);
 gunzip(gm_map)
