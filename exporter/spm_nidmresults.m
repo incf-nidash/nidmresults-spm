@@ -119,12 +119,24 @@ for i=1:numel(contrast_names)
     
     files.spm{i}  = fullfile(outdir,[stat 'Statistic' postfix '.nii' gz]);
     stat_map{i} = con('nidm_StatisticMap/prov:atLocation');
-    img2nii(stat_map{i}, files.spm{i});
+    dof = con('nidm_StatisticMap/nidm_errorDegreesOfFreedom');
+    if stat == 'T'
+        info = struct('STAT', 'T', ...
+                  'STATstr', ['T_{' num2str(dof) '}'], ...
+                  'df', [NaN dof]);
+    elseif stat == 'F'
+        info = struct('STAT', 'F', ...
+                      'STATstr', ['F_{' num2str(dof) '}'], ...
+                      'df', dof);
+    end
+    img2nii(fullfile(pwd, stat_map{i}), files.spm{i}, info);
     
     if stat == 'T'
         files.con{i} = fullfile(outdir,['Contrast' postfix '.nii' gz]);
         files.con_orig{i} = con('nidm_ContrastMap/prov:atLocation');
-        img2nii(files.con_orig{i}, files.con{i});
+        dof = con('nidm_StatisticMap/nidm_errorDegreesOfFreedom');
+        info = struct('STAT', 'con');
+        img2nii(files.con_orig{i}, files.con{i}, info);
         
         files.conse{i} = fullfile(outdir,['ContrastStandardError' postfix '.nii' gz]);
         files.conse_orig{i} = con('nidm_ContrastStandardErrorMap/prov:atLocation');
