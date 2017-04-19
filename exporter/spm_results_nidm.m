@@ -405,17 +405,17 @@ end
 if isfield(SPM,'xBF')
     switch SPM.xBF.name
         case 'hrf'
-            nidm_json('nidm_DesignMatrix/nidm_hasHRFBasis') = 'spm_SPMsCanonicalHRF';
+            nidm_json('nidm_DesignMatrix/nidm_hasHRFBasis') = {'spm_SPMsCanonicalHRF'};
         case 'hrf (with time derivative)'
-            nidm_json('nidm_DesignMatrix/nidm_hasHRFBasis') = ['spm_SPMsCanonicalHRF', 'spm_SPMsTemporalDerivative'];
+            nidm_json('nidm_DesignMatrix/nidm_hasHRFBasis') = {'spm_SPMsCanonicalHRF', 'spm_SPMsTemporalDerivative'};
         case 'hrf (with time and dispersion derivatives)'
-            nidm_json('nidm_DesignMatrix/nidm_hasHRFBasis') = ['spm_SPMsCanonicalHRF', 'spm_SPMsTemporalDerivative', 'spm_SPMsDispersionDerivative'];
+            nidm_json('nidm_DesignMatrix/nidm_hasHRFBasis') = {'spm_SPMsCanonicalHRF', 'spm_SPMsTemporalDerivative', 'spm_SPMsDispersionDerivative'};
         case 'Finite Impulse Response'
-            nidm_json('nidm_DesignMatrix/nidm_hasHRFBasis') = ['nidm_FiniteImpulseResponseBasisSet'];
+            nidm_json('nidm_DesignMatrix/nidm_hasHRFBasis') = {'nidm_FiniteImpulseResponseBasisSet'};
         case 'Fourier set'
-            nidm_json('nidm_DesignMatrix/nidm_hasHRFBasis') = ['nidm_FourierBasisSet'];
+            nidm_json('nidm_DesignMatrix/nidm_hasHRFBasis') = {'nidm_FourierBasisSet'};
         case 'Gamma functions'
-            nidm_json('nidm_DesignMatrix/nidm_hasHRFBasis') = ['nidm_GammaBasisSet'];
+            nidm_json('nidm_DesignMatrix/nidm_hasHRFBasis') = {'nidm_GammaBasisSet'};
         case {'Fourier set (Hanning)'}
             warning('Not implemented "%s".',SPM.xBF.name);
         otherwise

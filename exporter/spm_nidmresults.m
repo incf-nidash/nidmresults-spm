@@ -27,7 +27,7 @@ function [nidmfile, prov] = spm_nidmresults(nidm_json, direc)
 %--------------------------------------------------------------------------
 gz           = '.gz';                        %-Compressed NIfTI {'.gz', ''}
 
-% jsonwrite('nidm.json', nidm_json, struct('indent','    ', 'escape', false));
+jsonwrite('nidm.json', nidm_json, struct('indent','    ', 'escape', false));
 
 %==========================================================================
 %-Populate output directory
@@ -428,7 +428,7 @@ if isKey(nidm_json, 'nidm_DesignMatrix/nidm_hasHRFBasis')
     hrf_bases = nidm_json('nidm_DesignMatrix/nidm_hasHRFBasis');
     for h = 1:numel(hrf_bases)
         extra_fields_basis_set(end+1:end+2) = ...
-                {nidm_conv('nidm_hasHRFBasis',p),nidm_conv('spm_SPMsCanonicalHRF',p)};
+                {nidm_conv('nidm_hasHRFBasis',p),nidm_conv(hrf_bases{h},p)};
     end
 end
 
