@@ -38,7 +38,7 @@ sts          = mkdir(outdir);
 if ~sts, error('Cannot create directory "%s".',outdir); end
 
 %-Design Matrix image (as png and csv)
-%--------------------f------------------------------------------------------
+%--------------------------------------------------------------------------
 DesMtxValue = nidm_json('nidm_DesignMatrix/prov:value');
 reg_names = nidm_json('nidm_DesignMatrix/nidm_regressorNames');
 
