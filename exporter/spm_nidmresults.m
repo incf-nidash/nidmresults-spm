@@ -834,7 +834,7 @@ switch(extent_thresh_type)
         };
     case 'obo_statistic'
         extent_thresh_value = inference('nidm_ExtentThreshold/nidm_clusterSizeInVoxels');
-        extent_thresh_desc  = sprintf(': k>%d (unc.)',extent_thresh_value);
+        extent_thresh_desc  = sprintf(': k>=%d',extent_thresh_value);
         extra_fields_extent(end+1:end+2) = {
             nidm_conv('nidm_clusterSizeInVoxels',p),{extent_thresh_value,'xsd:int'},... 
         };
