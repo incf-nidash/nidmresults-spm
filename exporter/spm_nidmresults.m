@@ -1236,43 +1236,49 @@ checksum = lower(reshape(dec2hex(checksum)',1,[]));
 % function img2nii(img,nii,xSPM)
 %==========================================================================
 function img2nii(img,nii,xSPM)
-if nargin == 2, xSPM = struct; end
-if ~isfield(xSPM,'STAT'), xSPM.STAT = ''; end
-if ~isfield(xSPM,'fcn'), xSPM.fcn = @(x) x; end
-if nargin == 1, nii = spm_file(img,'ext','.nii'); end
-gz = strcmp(spm_file(nii,'ext'),'gz');
-if gz, nii = spm_file(nii,'ext',''); end
-ni     = nifti(img);
-no     = nifti;
-no.dat = file_array(nii,...
-                    ni.dat.dim,...
-                    ni.dat.dtype,...
-                    0,...
-                    ni.dat.scl_slope,...
-                    ni.dat.scl_inter);
-no.mat  = ni.mat;
-no.mat_intent = ni.mat_intent;
-no.mat0 = ni.mat0;
-no.mat0_intent = ni.mat0_intent;
-no.descrip = ni.descrip;
-switch xSPM.STAT
-    case 'T'
-        no.intent.name  = ['spm' xSPM.STATstr];
-        no.intent.code  = 3;
-        no.intent.param = xSPM.df(2);
-    case 'F'
-        no.intent.name  = ['spm' xSPM.STATstr];
-        no.intent.code  = 4;
-        no.intent.param = xSPM.df;
-    case 'con'
-        no.intent.name  = 'SPM contrast';
-        no.intent.code  = 1001;
-end
-create(no);
-no.dat(:,:,:) = xSPM.fcn(ni.dat(:,:,:));
-if gz
-    gzip(nii);
-    spm_unlink(nii);
+
+% If input and output are nii.gz then use a simple copy
+if strcmp(spm_file(img, 'ext'), 'gz') && strcmp(spm_file(nii, 'ext'), 'gz')
+    copyfile(img, nii)
+else
+    if nargin == 2, xSPM = struct; end
+    if ~isfield(xSPM,'STAT'), xSPM.STAT = ''; end
+    if ~isfield(xSPM,'fcn'), xSPM.fcn = @(x) x; end
+    if nargin == 1, nii = spm_file(img,'ext','.nii'); end
+    gz = strcmp(spm_file(nii,'ext'),'gz');
+    if gz, nii = spm_file(nii,'ext',''); end
+    ni     = nifti(img);
+    no     = nifti;
+    no.dat = file_array(nii,...
+                        ni.dat.dim,...
+                        ni.dat.dtype,...
+                        0,...
+                        ni.dat.scl_slope,...
+                        ni.dat.scl_inter);
+    no.mat  = ni.mat;
+    no.mat_intent = ni.mat_intent;
+    no.mat0 = ni.mat0;
+    no.mat0_intent = ni.mat0_intent;
+    no.descrip = ni.descrip;
+    switch xSPM.STAT
+        case 'T'
+            no.intent.name  = ['spm' xSPM.STATstr];
+            no.intent.code  = 3;
+            no.intent.param = xSPM.df(2);
+        case 'F'
+            no.intent.name  = ['spm' xSPM.STATstr];
+            no.intent.code  = 4;
+            no.intent.param = xSPM.df;
+        case 'con'
+            no.intent.name  = 'SPM contrast';
+            no.intent.code  = 1001;
+    end
+    create(no);
+    no.dat(:,:,:) = xSPM.fcn(ni.dat(:,:,:));
+    if gz
+        gzip(nii);
+        spm_unlink(nii);
+    end
 end
 
 
