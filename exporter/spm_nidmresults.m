@@ -1091,7 +1091,7 @@ for i=1:numel(clusters_names)
     for j=1:numel(peak_names)
         my_peak = peaks(peak_names{j});
         
-        iPeak  = sprintf('%04d',j);
+        iPeak  = peak_names{j};
         idPeak = getid(['niiri:peak_' iPeak],isHumanReadable);
         idCoordinate = getid(['niiri:coordinate_' iPeak],isHumanReadable);
 
