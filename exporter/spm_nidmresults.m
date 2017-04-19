@@ -220,7 +220,7 @@ end
 %--------------------------------------------------------------------------
 files.searchspace = fullfile(outdir,['SearchSpaceMask.nii' gz]);
 search_map = inference('nidm_SearchSpaceMaskMap/prov:atLocation');
-copyfile(search_map, files.searchspace)
+img2nii(search_map, files.searchspace)
 
 
 %==========================================================================
