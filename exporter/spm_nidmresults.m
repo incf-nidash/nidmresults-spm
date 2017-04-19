@@ -140,11 +140,11 @@ for i=1:numel(contrast_names)
         
         files.conse{i} = fullfile(outdir,['ContrastStandardError' postfix '.nii' gz]);
         files.conse_orig{i} = con('nidm_ContrastStandardErrorMap/prov:atLocation');
-        copyfile(files.conse_orig{i}, files.conse{i});
+        img2nii(files.conse_orig{i}, files.conse{i});
     elseif stat == 'F'
         files.effms{i} = fullfile(outdir,['ContrastExplainedMeanSquare' postfix '.nii' gz]);
         files.effms_orig{i} = con('nidm_ContrastExplainedMeanSquareMap/prov:atLocation');
-        copyfile(files.effms_orig{i}, files.effms{i});
+        img2nii(files.effms_orig{i}, files.effms{i});
     end
 end
 
@@ -152,7 +152,7 @@ end
 %--------------------------------------------------------------------------
 files.tspm = fullfile(outdir,['ExcursionSet.nii' gz]);
 excset_map = inference('nidm_ExcursionSetMap/prov:atLocation');
-copyfile(excset_map, files.tspm);
+img2nii(excset_map, files.tspm);
 
 %-Residual Mean Squares image (as NIfTI)
 %--------------------------------------------------------------------------
@@ -178,7 +178,7 @@ img2nii(files.mask_orig, files.mask);
 %--------------------------------------------------------------------------
 files.grandmean = fullfile(outdir, ['GrandMean.nii' gz]);
 gm_map = nidm_json('nidm_GrandMeanMap/prov:atLocation');
-copyfile(gm_map, files.grandmean);
+img2nii(gm_map, files.grandmean);
 gunzip(gm_map)
 gunzip(files.mask)
 grandMeanMedian = spm_summarise(strrep(gm_map, gz, ''),strrep(files.mask, gz, ''),@median);
@@ -190,14 +190,14 @@ spm_unlink(strrep(files.mask, '.gz', ''));
 if isKey(nidm_json, 'nidm_CustomMap/prov:atLocation')
     files.emask = fullfile(outdir,['CustomMask.nii' gz]);
     cmask_map = nidm_json('nidm_CustomMap/prov:atLocation');
-    copyfile(cmask_map, files.emask);
+    img2nii(cmask_map, files.emask);
 end
 
 %-Clusters n-ary image (as NIfTI)
 %--------------------------------------------------------------------------
 files.clust = fullfile(outdir,['ClusterLabels.nii' gz]);
 clust_map = inference('nidm_ClusterLabelsMap/prov:atLocation');
-copyfile(clust_map, files.clust);
+img2nii(clust_map, files.clust);
 
 %-Display mask images (as NIfTI)
 %--------------------------------------------------------------------------
@@ -208,7 +208,7 @@ if isKey(inference, 'nidm_DisplayMaskMap/prov:atLocation')
     end
     for i = 1:numel(files.dmask_orig)
         files.dmask{i} = fullfile(outdir,[sprintf('DisplayMask_%04d.nii',i) gz]);
-        copyfile(files.dmask_orig{i}, files.dmask{i})
+        img2nii(files.dmask_orig{i}, files.dmask{i})
     end
 end
 
