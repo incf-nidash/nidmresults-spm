@@ -78,12 +78,13 @@ else
     con_name = inference('nidm_contrastName');
 end
 
-has_mip = false;
-if isKey(nidm_json, 'nidm_ExcursionSetMap/nidm_hasMaximumIntensityProjection')
+if isKey(inference, 'nidm_ExcursionSetMap/nidm_hasMaximumIntensityProjection')
     has_mip = true;
     files.mip_orig = inference('nidm_ExcursionSetMap/nidm_hasMaximumIntensityProjection');
     files.mip = fullfile(outdir, files.mip_orig);
     copyfile(files.mip_orig, files.mip)
+else
+    has_mip = false;
 end
 
 %-Beta images (as NIfTI)
@@ -203,12 +204,13 @@ end
 
 %-Clusters n-ary image (as NIfTI)
 %--------------------------------------------------------------------------
-has_clustlabelmap = false;
-if isKey(nidm_json, 'nidm_ClusterLabelsMap/prov:atLocation')
+if isKey(inference, 'nidm_ClusterLabelsMap/prov:atLocation')
     has_clustlabelmap = true;
     files.clust = fullfile(outdir,['ClusterLabels.nii' gz]);
     clust_map = inference('nidm_ClusterLabelsMap/prov:atLocation');
     img2nii(clust_map, files.clust);
+else
+    has_clustlabelmap = false;
 end
 
 %-Display mask images (as NIfTI)
