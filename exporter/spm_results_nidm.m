@@ -353,7 +353,8 @@ nidm_json('nidm_NIDMResults/nidm_version') = NIDMversion;
 
 %-Agent: SPM
 %--------------------------------------------------------------------------
-nidm_json('nidm_NeuroimagingAnalysisSoftware/prov:type') = 'SPM';
+nidm_json('nidm_NeuroimagingAnalysisSoftware/prov:type') = 'src_SPM';
+nidm_json('nidm_NeuroimagingAnalysisSoftware/prov:label') = 'SPM';
 nidm_json('nidm_NeuroimagingAnalysisSoftware/nidm_softwareVersion') = [V(4:end) '.' R];
 
 %-Agent: Scanner
