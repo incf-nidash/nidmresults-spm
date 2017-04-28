@@ -113,13 +113,18 @@ for i=1:numel(contrast_names)
         STAT = stat_type;
     end
     
-    if strcmp(stat_type, 'obo_tstatistic')
-        stat = 'T';
-    elseif strcmp(stat_type, 'obo_Fstatistic')
-        stat = 'F';
+    if isKey(con, 'nidm_StatisticMap/nidm_statisticNotation')
+        stat = con('nidm_StatisticMap/nidm_statisticNotation');
     else
-        error('nidm:unknownStatType', ...
-            ['Unrecognised stat type: ' stat_type])
+        if strcmp(stat_type, 'obo_tstatistic')
+            stat = 'T';
+        elseif strcmp(stat_type, 'obo_Fstatistic')
+            stat = 'F';
+        else
+            warning('nidm:unknownStatType', ...
+                ['Unrecognised statistic type.'])
+            stat = 'U';
+        end
     end
     
     files.spm{i}  = fullfile(outdir,[stat 'Statistic' postfix '.nii' gz]);
@@ -133,11 +138,12 @@ for i=1:numel(contrast_names)
         info = struct('STAT', 'F', ...
                       'STATstr', ['F_{' num2str(dof) '}'], ...
                       'df', dof);
+    else
+        info = struct('STAT', stat);
     end
     img2nii(fullfile(pwd, stat_map{i}), files.spm{i}, info);
     
     if stat == 'T'
-        
         files.con{i} = fullfile(outdir,['Contrast' postfix '.nii' gz]);
         files.con_orig{i} = con('nidm_ContrastMap/prov:atLocation');
         dof = con('nidm_StatisticMap/nidm_errorDegreesOfFreedom');
@@ -151,6 +157,8 @@ for i=1:numel(contrast_names)
         files.effms{i} = fullfile(outdir,['ContrastExplainedMeanSquare' postfix '.nii' gz]);
         files.effms_orig{i} = con('nidm_ContrastExplainedMeanSquareMap/prov:atLocation');
         img2nii(files.effms_orig{i}, files.effms{i});
+    else
+        
     end
 end
 
@@ -676,8 +684,9 @@ for c=1:contrasts.Count
     elseif strcmp(this_stat_type, 'obo_Fstatistic')
         this_stat = 'F';
     else
-        error('nidm:unknownStatType', ...
+        warning('nidm:unknownStatType', ...
             ['Unrecognised stat type: ' this_stat_type])
+        this_stat = 'U';
     end
     
     idConVec = getid(['niiri:contrast_id' postfix],isHumanReadable);
@@ -722,7 +731,7 @@ for c=1:contrasts.Count
     p.wasDerivedFrom(idSPM{c},id);
     p.wasGeneratedBy(idSPM{c},idConEst);
     
-    if this_stat_type == 'obo_tstatistic'
+    if strcmp(this_stat_type, 'obo_tstatistic')
         idContrast = getid(['niiri:contrast_map_id' postfix],isHumanReadable);
         p.entity(idContrast,{...
             'prov:type',nidm_conv('nidm_ContrastMap',p),...
@@ -749,7 +758,7 @@ for c=1:contrasts.Count
             'crypto:sha512',{sha512sum(spm_file(files.conse{c},'cpath')),'xsd:string'},...
             });
         p.wasGeneratedBy(idSE,idConEst);
-    elseif this_stat_type == 'obo_Fstatistic'
+    elseif strcmp(this_stat_type, 'obo_Fstatistic')
         idEffMS = getid(['niiri:contrast_explained_mean_square_map_id' postfix],isHumanReadable);
         p.entity(idEffMS,{...
             'prov:type',nidm_conv('nidm_ContrastExplainedMeanSquareMap',p),...
