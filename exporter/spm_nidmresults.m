@@ -868,7 +868,7 @@ switch(extent_thresh_type)
         extent_thresh_value = inference('nidm_ExtentThreshold/prov:value');
         extent_thresh_desc  = sprintf(': p<%f (FWE)',extent_thresh_value);
         extra_fields_extent(end+1:end+2) = {
-            nidm_conv('prov:value',p),extent_thresh_value,...
+            'prov:value',extent_thresh_value,...
         };
     case 'nidm_PValueUncorrected'
         extent_thresh_value = inference('nidm_ExtentThreshold/prov:value');
@@ -880,7 +880,7 @@ switch(extent_thresh_type)
         extent_thresh_value = inference('nidm_ExtentThreshold/prov:value');
         extent_thresh_desc  = sprintf(': p<%s (FDR)',extent_thresh_value);
         extra_fields_extent(end+1:end+2) = {
-            nidm_conv('prov:value',p),extent_thresh_value,...
+            'prov:value',extent_thresh_value,...
         };
     case 'obo_statistic'
         extent_thresh_value = inference('nidm_ExtentThreshold/nidm_clusterSizeInVoxels');
