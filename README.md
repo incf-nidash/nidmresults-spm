@@ -6,14 +6,14 @@ Export mass-univariate neuroimaging results computed in SPM as NIDM-Results pack
 A *NIDM-Results pack* is a compressed file containing a NIDM-Results serialization and some or all of the referenced image data files in compliance with [NIDM-Results specification](http://nidm.nidash.org/specs/nidm-results.html).
 
 ##### Usage
- 1. In Matlab, open `SPM`
+1. In Matlab, open `SPM`
 
- ```
- spm fmri
- ```
- 1. Open the `Batch Editor` by clicking on the `Batch` button in the SPM12 `Menu` window
- 1. Open the menu `SPM` > `Stats` > `Results Report` (Fig. 1.)
- 3. In the batch window  (Fig. 2.)
+   ```
+   spm fmri
+   ```
+1. Open the `Batch Editor` by clicking on the `Batch` button in the SPM12 `Menu` window
+1. Open the menu `SPM` > `Stats` > `Results Report` (Fig. 1.)
+3. In the batch window  (Fig. 2.)
   - Fill in information about the results you are interested in (in particular `SPM.mat` file, contrast number, threshold, etc.)
   - In `Export results`, selected `New: NIDM (Neuroimaging Data Model)`
   - Fill in information about your analysis (`Modality`, `Reference space`, `Groups`etc.``) 
