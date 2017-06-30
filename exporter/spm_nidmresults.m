@@ -39,8 +39,8 @@ if ~sts, error('Cannot create directory "%s".',outdir); end
 
 %-Design Matrix image (as png and csv)
 %--------------------------------------------------------------------------
-DesMtxValue = nidm_json('nidm_DesignMatrix/prov:value');
-reg_names = nidm_json('nidm_DesignMatrix/nidm_regressorNames');
+DesMtxValue = nidm_json('DesignMatrix_value');
+reg_names = nidm_json('DesignMatrix_regressorNames');
 
 files.desimg = fullfile(outdir,'DesignMatrix.png');
 
@@ -78,9 +78,9 @@ else
     con_name = inference('nidm_contrastName');
 end
 
-if isKey(inference, 'nidm_ExcursionSetMap/nidm_hasMaximumIntensityProjection')
+if isKey(inference, 'ExcursionSetMap_hasMaximumIntensityProjection')
     has_mip = true;
-    files.mip_orig = inference('nidm_ExcursionSetMap/nidm_hasMaximumIntensityProjection');
+    files.mip_orig = inference('ExcursionSetMap_hasMaximumIntensityProjection');
     files.mip = fullfile(outdir, files.mip_orig);
     copyfile(files.mip_orig, files.mip)
 else
@@ -107,14 +107,14 @@ for i=1:numel(contrast_names)
     
     if numel(contrast_names) == 1, postfix = '';
     else                    postfix = sprintf('_%04d',i); end
-    stat_type = con('nidm_StatisticMap/nidm_statisticType');
+    stat_type = con('StatisticMap_statisticType');
     
     if strcmp(contrast_names{i},con_name{1})
         STAT = stat_type;
     end
     
-    if isKey(con, 'nidm_StatisticMap/nidm_statisticNotation')
-        stat = con('nidm_StatisticMap/nidm_statisticNotation');
+    if isKey(con, 'StatisticMap_statisticNotation')
+        stat = con('StatisticMap_statisticNotation');
     else
         if strcmp(stat_type, 'obo_tstatistic')
             stat = 'T';
@@ -128,8 +128,8 @@ for i=1:numel(contrast_names)
     end
     
     files.spm{i}  = fullfile(outdir,[stat 'Statistic' postfix '.nii' gz]);
-    stat_map{i} = con('nidm_StatisticMap/prov:atLocation');
-    dof = con('nidm_StatisticMap/nidm_errorDegreesOfFreedom');
+    stat_map{i} = con('StatisticMap_atLocation');
+    dof = con('StatisticMap_errorDegreesOfFreedom');
     if stat == 'T'
         info = struct('STAT', 'T', ...
                   'STATstr', ['T_{' num2str(dof) '}'], ...
@@ -145,17 +145,17 @@ for i=1:numel(contrast_names)
     
     if stat == 'T'
         files.con{i} = fullfile(outdir,['Contrast' postfix '.nii' gz]);
-        files.con_orig{i} = con('nidm_ContrastMap/prov:atLocation');
-        dof = con('nidm_StatisticMap/nidm_errorDegreesOfFreedom');
+        files.con_orig{i} = con('ContrastMap_atLocation');
+        dof = con('StatisticMap_errorDegreesOfFreedom');
         info = struct('STAT', 'con');
         img2nii(files.con_orig{i}, files.con{i}, info);
         
         files.conse{i} = fullfile(outdir,['ContrastStandardError' postfix '.nii' gz]);
-        files.conse_orig{i} = con('nidm_ContrastStandardErrorMap/prov:atLocation');
+        files.conse_orig{i} = con('ContrastStandardErrorMap_atLocation');
         img2nii(files.conse_orig{i}, files.conse{i});
     elseif stat == 'F'
         files.effms{i} = fullfile(outdir,['ContrastExplainedMeanSquare' postfix '.nii' gz]);
-        files.effms_orig{i} = con('nidm_ContrastExplainedMeanSquareMap/prov:atLocation');
+        files.effms_orig{i} = con('ContrastExplainedMeanSquareMap_atLocation');
         img2nii(files.effms_orig{i}, files.effms{i});
     else
         
@@ -165,36 +165,36 @@ end
 %-Thresholded SPM{.} image (as NIfTI)
 %--------------------------------------------------------------------------
 files.tspm = fullfile(outdir,['ExcursionSet.nii' gz]);
-excset_map = inference('nidm_ExcursionSetMap/prov:atLocation');
+excset_map = inference('ExcursionSetMap_atLocation');
 img2nii(excset_map, files.tspm);
 
 %-Residual Mean Squares image (as NIfTI)
 %--------------------------------------------------------------------------
 files.rms = fullfile(outdir,['ResidualMeanSquares.nii' gz]);
-files.rms_orig = nidm_json('nidm_ResidualMeanSquaresMap/prov:atLocation');
+files.rms_orig = nidm_json('ResidualMeanSquaresMap_atLocation');
 img2nii(files.rms_orig, files.rms);
 
 %-Resels per Voxel image (as NIfTI)
 %--------------------------------------------------------------------------
 has_rpv = false;
-if isKey(nidm_json, 'nidm_ReselsPerVoxelMap/prov:atLocation')
+if isKey(nidm_json, 'ReselsPerVoxelMap_atLocation')
     has_rpv = true;
     
     files.rpv = fullfile(outdir,['ReselsPerVoxel.nii' gz]);
-    files.rpv_orig = nidm_json('nidm_ReselsPerVoxelMap/prov:atLocation');
+    files.rpv_orig = nidm_json('ReselsPerVoxelMap_atLocation');
     img2nii(files.rpv_orig, files.rpv);
 end
 
 %-Analysis mask image (as NIfTI)
 %--------------------------------------------------------------------------
-files.mask_orig = nidm_json('nidm_MaskMap/prov:atLocation');
+files.mask_orig = nidm_json('MaskMap_atLocation');
 files.mask = fullfile(outdir,['Mask.nii' gz]);
 img2nii(files.mask_orig, files.mask);
 
 %-Grand mean image (as NIfTI)
 %--------------------------------------------------------------------------
 files.grandmean = fullfile(outdir, ['GrandMean.nii' gz]);
-gm_map = nidm_json('nidm_GrandMeanMap/prov:atLocation');
+gm_map = nidm_json('GrandMeanMap_atLocation');
 img2nii(gm_map, files.grandmean);
 gunzip(files.grandmean)
 gunzip(files.mask)
@@ -204,18 +204,18 @@ spm_unlink(strrep(files.mask, '.gz', ''));
 
 %-Explicit mask image (as NIfTI)
 %--------------------------------------------------------------------------
-if isKey(nidm_json, 'nidm_CustomMap/prov:atLocation')
+if isKey(nidm_json, 'CustomMap_atLocation')
     files.emask = fullfile(outdir,['CustomMask.nii' gz]);
-    cmask_map = nidm_json('nidm_CustomMap/prov:atLocation');
+    cmask_map = nidm_json('CustomMap_atLocation');
     img2nii(cmask_map, files.emask);
 end
 
 %-Clusters n-ary image (as NIfTI)
 %--------------------------------------------------------------------------
-if isKey(inference, 'nidm_ClusterLabelsMap/prov:atLocation')
+if isKey(inference, 'ClusterLabelsMap_atLocation')
     has_clustlabelmap = true;
     files.clust = fullfile(outdir,['ClusterLabels.nii' gz]);
-    clust_map = inference('nidm_ClusterLabelsMap/prov:atLocation');
+    clust_map = inference('ClusterLabelsMap_atLocation');
     img2nii(clust_map, files.clust);
 else
     has_clustlabelmap = false;
@@ -223,8 +223,8 @@ end
 
 %-Display mask images (as NIfTI)
 %--------------------------------------------------------------------------
-if isKey(inference, 'nidm_DisplayMaskMap/prov:atLocation')
-    files.dmask_orig = inference('nidm_DisplayMaskMap/prov:atLocation');
+if isKey(inference, 'DisplayMaskMap_atLocation')
+    files.dmask_orig = inference('DisplayMaskMap_atLocation');
     if ischar(files.dmask_orig)
         files.dmask_orig = {files.dmask_orig};
     end
@@ -241,7 +241,7 @@ end
 %-Search Space mask image (as NIfTI)
 %--------------------------------------------------------------------------
 files.searchspace = fullfile(outdir,['SearchSpaceMask.nii' gz]);
-search_map = inference('nidm_SearchSpaceMaskMap/prov:atLocation');
+search_map = inference('SearchSpaceMaskMap_atLocation');
 img2nii(search_map, files.searchspace)
 
 
@@ -275,8 +275,8 @@ pp.add_namespace('obo','http://purl.obolibrary.org/obo/');
 
 idResults = getid('niiri:spm_results_id',isHumanReadable);
 
-if isKey(nidm_json, 'nidm_NIDMResults/nidm_version')
-    NIDMversion = nidm_json('nidm_NIDMResults/nidm_version');
+if isKey(nidm_json, 'NIDMResults_version')
+    NIDMversion = nidm_json('NIDMResults_version');
     % TODO should check version and say whether we are able to export 
 else
     NIDMversion = '1.3.0';
@@ -289,7 +289,7 @@ pp.entity(idResults,{...
   });
 
 idExporter = getid('niiri:exporter_id',isHumanReadable);
-softVersion = nidm_json('nidm_NIDMResultsExporter/nidm_softwareVersion');
+softVersion = nidm_json('NIDMResultsExporter_softwareVersion');
 pp.agent(idExporter,{...
     'prov:type',nidm_conv('nidm_spm_results_nidm',pp),...
     'prov:type','prov:SoftwareAgent',...
@@ -309,17 +309,17 @@ p = spm_provenance;
 p.remove_namespace('prov');
 p.remove_namespace('xsd');
 
-coordsys = nidm_json('nidm_CoordinateSpace/nidm_inWorldCoordinateSystem');
+coordsys = nidm_json('CoordinateSpace_inWorldCoordinateSystem');
 coordsys = nidm_conv(coordsys,p);
 
 %-Agent: SPM
 %--------------------------------------------------------------------------
 idSoftware = getid('niiri:software_id',isHumanReadable);
-softwareVersion = nidm_json('nidm_NeuroimagingAnalysisSoftware/nidm_softwareVersion');
+softwareVersion = nidm_json('NeuroimagingAnalysisSoftware_softwareVersion');
 
-if isKey(nidm_json, 'nidm_NeuroimagingAnalysisSoftware/prov:type')
-    soft = nidm_json('nidm_NeuroimagingAnalysisSoftware/prov:type');
-    soft_label = nidm_json('nidm_NeuroimagingAnalysisSoftware/prov:label');
+if isKey(nidm_json, 'NeuroimagingAnalysisSoftware_type')
+    soft = nidm_json('NeuroimagingAnalysisSoftware_type');
+    soft_label = nidm_json('NeuroimagingAnalysisSoftware_label');
 end
 
 p.agent(idSoftware,{...
@@ -339,7 +339,7 @@ id_data_coordspace = coordspace(p,excset_img.mat,excset_img.dat.dim,units,coords
 
 %-Agent: Scanner
 %--------------------------------------------------------------------------
-ImagingInstrument = nidm_json('nlx_Imaginginstrument/prov:type');
+ImagingInstrument = nidm_json('Imaginginstrument_type');
 switch ImagingInstrument
     case 'nlx_Magneticresonanceimagingscanner'
         ImagingInstrumentLabel = 'MRI Scanner';
@@ -394,8 +394,8 @@ end
 
 %-Entity: Image Data
 %--------------------------------------------------------------------------
-if nidm_json('nidm_Data/nidm_grandMeanScaling')
-    target = nidm_json('nidm_Data/nidm_targetIntensity');
+if nidm_json('Data_grandMeanScaling')
+    target = nidm_json('Data_targetIntensity');
     extra_fields = {...
         nidm_conv('nidm_grandMeanScaling',p),{'true','xsd:boolean'},...
         nidm_conv('nidm_targetIntensity',p),{target,'xsd:float'},...
@@ -405,8 +405,8 @@ else
         nidm_conv('nidm_grandMeanScaling',p),{'false','xsd:boolean'},...
         };
 end
-if isKey(nidm_json, 'nidm_Data/nidm_hasMRIProtocol')
-    mri_protocol = nidm_json('nidm_Data/nidm_hasMRIProtocol');
+if isKey(nidm_json, 'Data_hasMRIProtocol')
+    mri_protocol = nidm_json('Data_hasMRIProtocol');
     extra_fields = {extra_fields{:},...
         nidm_conv('nidm_hasMRIProtocol',p),nidm_conv(mri_protocol,p),...
         };
@@ -428,13 +428,13 @@ end
 
 %-Entity: Drift Model
 %--------------------------------------------------------------------------
-if isKey(nidm_json, 'nidm_DesignMatrix/nidm_hasDriftModel')
+if isKey(nidm_json, 'DesignMatrix_hasDriftModel')
     idDriftModel = getid('niiri:drift_model_id',isHumanReadable);
     
-    drift_model = nidm_json('nidm_DesignMatrix/nidm_hasDriftModel');
+    drift_model = nidm_json('DesignMatrix_hasDriftModel');
     
     if strcmp(drift_model, 'spm_DiscreteCosineTransformbasisDriftModel')
-        cut_off = nidm_json('nidm_DesignMatrix/spm_SPMsDriftCutoffPeriod');
+        cut_off = nidm_json('DesignMatrix_SPMsDriftCutoffPeriod');
         extra_fields = {...
             nidm_conv('spm_SPMsDriftCutoffPeriod',p),...
             {cut_off,'xsd:float'}
@@ -457,8 +457,8 @@ idDesignMatrix = getid('niiri:design_matrix_id',isHumanReadable);
 idDesignMatrixImage = getid('niiri:design_matrix_png_id',isHumanReadable);
 
 extra_fields_basis_set = {};
-if isKey(nidm_json, 'nidm_DesignMatrix/nidm_hasHRFBasis')
-    hrf_bases = nidm_json('nidm_DesignMatrix/nidm_hasHRFBasis');
+if isKey(nidm_json, 'DesignMatrix_hasHRFBasis')
+    hrf_bases = nidm_json('DesignMatrix_hasHRFBasis');
     for h = 1:numel(hrf_bases)
         extra_fields_basis_set(end+1:end+2) = ...
                 {nidm_conv('nidm_hasHRFBasis',p),nidm_conv(hrf_bases{h},p)};
@@ -486,10 +486,10 @@ p.entity(idDesignMatrixImage,{...
 
 %-Entity: Explicit Mask
 %--------------------------------------------------------------------------
-if isKey(nidm_json, 'nidm_CustomMap/prov:atLocation')
+if isKey(nidm_json, 'CustomMap_atLocation')
     has_emask = true;
     
-    emask_map = nidm_json('nidm_CustomMap/prov:atLocation');
+    emask_map = nidm_json('CustomMap_atLocation');
     emask_img = nifti(emask_map);
     
     if ~spm_check_orientations(struct('dim',{emask_img.dat.dim,stat_img.dat.dim},...
@@ -517,8 +517,8 @@ end
 
 %-Entity: Error Model
 %--------------------------------------------------------------------------
-err_dep = nidm_json('nidm_ErrorModel/nidm_hasErrorDependence');
-err_var_hom = nidm_json('nidm_ErrorModel/nidm_errorVarianceHomogeneous');
+err_dep = nidm_json('ErrorModel_hasErrorDependence');
+err_var_hom = nidm_json('ErrorModel_errorVarianceHomogeneous');
 if err_var_hom
     err_var_hom = 'true';
 else
@@ -529,25 +529,25 @@ extra_fields_NM = { ...
     nidm_conv('nidm_errorVarianceHomogeneous',p),{err_var_hom,'xsd:boolean'}...
     };
 
-if isKey(nidm_json, 'nidm_ErrorModel/nidm_varianceMapWiseDependence')
-    err_var_dep = nidm_json('nidm_ErrorModel/nidm_varianceMapWiseDependence');
+if isKey(nidm_json, 'ErrorModel_varianceMapWiseDependence')
+    err_var_dep = nidm_json('ErrorModel_varianceMapWiseDependence');
     extra_fields_NM(end+1:end+2) = { ...
         nidm_conv('nidm_varianceMapWiseDependence',p),nidm_conv(err_var_dep,p)
     };
 end
-if isKey(nidm_json, 'nidm_ErrorModel/nidm_dependenceMapWiseDependence')
-    err_dep_dep = nidm_json('nidm_ErrorModel/nidm_dependenceMapWiseDependence');
+if isKey(nidm_json, 'ErrorModel_dependenceMapWiseDependence')
+    err_dep_dep = nidm_json('ErrorModel_dependenceMapWiseDependence');
     extra_fields_NM(end+1:end+2) = { ...
         nidm_conv('nidm_dependenceMapWiseDependence',p),nidm_conv(err_dep_dep,p)
     };
 end
 
-est_method = nidm_json('nidm_ModelParameterEstimation/nidm_withEstimationMethod');
+est_method = nidm_json('ModelParameterEstimation_withEstimationMethod');
 extra_fields_PE = {
     nidm_conv('nidm_withEstimationMethod',p),nidm_conv(est_method,p),...
 };
 
-err_dist = nidm_json('nidm_ErrorModel/nidm_hasErrorDistribution');
+err_dist = nidm_json('ErrorModel_hasErrorDistribution');
 if ~iscell(err_dist)
     err_dist = {err_dist};
 end
@@ -677,7 +677,7 @@ for c=1:contrasts.Count
     else                    postfix = sprintf('_%d',c); end
     
     this_value = my_contrast('obo_contrastweightmatrix/prov:value');
-    this_stat_type = my_contrast('nidm_StatisticMap/nidm_statisticType');
+    this_stat_type = my_contrast('StatisticMap_statisticType');
     
     if strcmp(this_stat_type, 'obo_tstatistic')
         this_stat = 'T';
@@ -712,7 +712,7 @@ for c=1:contrasts.Count
         p.used(idConEst, idBeta{i});
     end
     
-    errdof = my_contrast('nidm_StatisticMap/nidm_errorDegreesOfFreedom');
+    errdof = my_contrast('StatisticMap_errorDegreesOfFreedom');
     idSPM{c} = getid(['niiri:statistic_map_id' postfix],isHumanReadable);
     p.entity(idSPM{c},{...
         'prov:type',nidm_conv('nidm_StatisticMap',p),...
@@ -780,14 +780,14 @@ idHeightThresh = getid('niiri:height_threshold_id',isHumanReadable);
 idHeightThresh3 = getid('niiri:height_threshold_id_3',isHumanReadable);
 
 equivHeightThreshNames = {};
-if isKey(inference, 'nidm_HeightThreshold/nidm_equivalentThreshold')
-    equivHeightThreshNames = inference('nidm_HeightThreshold/nidm_equivalentThreshold').keys;
+if isKey(inference, 'HeightThreshold_equivalentThreshold')
+    equivHeightThreshNames = inference('HeightThreshold_equivalentThreshold').keys;
 end
 
 extra_fields_height = {};
 
-if isKey(inference, 'nidm_HeightThreshold/nidm_equivalentThreshold')
-    equivHThresholds = inference('nidm_HeightThreshold/nidm_equivalentThreshold');
+if isKey(inference, 'HeightThreshold_equivalentThreshold')
+    equivHThresholds = inference('HeightThreshold_equivalentThreshold');
     for i = 1:numel(equivHeightThreshNames)
         equivHThresh = equivHThresholds(equivHeightThreshNames{i});
 
@@ -799,16 +799,16 @@ if isKey(inference, 'nidm_HeightThreshold/nidm_equivalentThreshold')
 
         p.entity(idEquivHThresh,{...
             'prov:type',nidm_conv('nidm_HeightThreshold',p),...
-            'prov:type',nidm_conv(equivHThresh('nidm_HeightThreshold/prov:type'), p),...
+            'prov:type',nidm_conv(equivHThresh('HeightThreshold_type'), p),...
             ... %         'prov:label',{nidm_esc(equivHeightThreshNames{i}),'xsd:string'},...
             'prov:label',{'Height Threshold','xsd:string'},... 
-            'prov:value',{equivHThresh('nidm_HeightThreshold/prov:value'),'xsd:float'},...
+            'prov:value',{equivHThresh('HeightThreshold_value'),'xsd:float'},...
         });
     end
 end
 
-height_thresh_type = inference('nidm_HeightThreshold/prov:type');
-height_thresh_value = inference('nidm_HeightThreshold/prov:value');
+height_thresh_type = inference('HeightThreshold_type');
+height_thresh_value = inference('HeightThreshold_value');
 switch(height_thresh_type)
     case 'obo_FWERadjustedpvalue'
         height_thresh_desc  = sprintf(': p<%f (FWE)',height_thresh_value);
@@ -838,9 +838,9 @@ end
 
 equivExtentThreshNames = {};
 
-if isKey(inference, 'nidm_ExtentThreshold/nidm_equivalentThreshold')
-    equivExtentThreshNames = inference('nidm_ExtentThreshold/nidm_equivalentThreshold').keys;
-    equivEThresholds = inference('nidm_ExtentThreshold/nidm_equivalentThreshold');
+if isKey(inference, 'ExtentThreshold_equivalentThreshold')
+    equivExtentThreshNames = inference('ExtentThreshold_equivalentThreshold').keys;
+    equivEThresholds = inference('ExtentThreshold_equivalentThreshold');
 end
 extra_fields_extent = {};
 
@@ -855,43 +855,43 @@ for i = 1:numel(equivExtentThreshNames)
 
     p.entity(idEquivEThresh,{...
         'prov:type',nidm_conv('nidm_ExtentThreshold',p),...
-        'prov:type',nidm_conv(equivEThresh('nidm_ExtentThreshold/prov:type'),p),...
+        'prov:type',nidm_conv(equivEThresh('ExtentThreshold_type'),p),...
         ... %         'prov:label',{nidm_esc(equivExtentThreshNames{i}),'xsd:string'},...
         'prov:label',{'Extent Threshold','xsd:string'},... 
-        'prov:value',{equivEThresh('nidm_ExtentThreshold/prov:value'),'xsd:float'},...
+        'prov:value',{equivEThresh('ExtentThreshold_value'),'xsd:float'},...
         });
 end
 
-extent_thresh_type = inference('nidm_ExtentThreshold/prov:type');
+extent_thresh_type = inference('ExtentThreshold_type');
 switch(extent_thresh_type)
     case 'obo_FWERadjustedpvalue'
-        extent_thresh_value = inference('nidm_ExtentThreshold/prov:value');
+        extent_thresh_value = inference('ExtentThreshold_value');
         extent_thresh_desc  = sprintf(': p<%f (FWE)',extent_thresh_value);
         extra_fields_extent(end+1:end+2) = {
             'prov:value',extent_thresh_value,...
         };
     case 'nidm_PValueUncorrected'
-        extent_thresh_value = inference('nidm_ExtentThreshold/prov:value');
+        extent_thresh_value = inference('ExtentThreshold_value');
         extent_thresh_desc  = sprintf(': p<%f (unc.)',extent_thresh_value);
         extra_fields_extent(end+1:end+2) = {
             'prov:value',extent_thresh_value,...
         };
     case 'obo_qvalue'
-        extent_thresh_value = inference('nidm_ExtentThreshold/prov:value');
+        extent_thresh_value = inference('ExtentThreshold_value');
         extent_thresh_desc  = sprintf(': p<%s (FDR)',extent_thresh_value);
         extra_fields_extent(end+1:end+2) = {
             'prov:value',extent_thresh_value,...
         };
     case 'obo_statistic'
-        extent_thresh_value = inference('nidm_ExtentThreshold/nidm_clusterSizeInVoxels');
+        extent_thresh_value = inference('ExtentThreshold_clusterSizeInVoxels');
         extent_thresh_desc  = sprintf(': k>=%d',extent_thresh_value);
         extra_fields_extent(end+1:end+2) = {
             nidm_conv('nidm_clusterSizeInVoxels',p),{extent_thresh_value,'xsd:int'},... 
         };
-        if isKey(inference, 'nidm_ExtentThreshold/nidm_clusterSizeInResels')
+        if isKey(inference, 'ExtentThreshold_clusterSizeInResels')
             extra_fields_extent(end+1:end+2) = {
                 nidm_conv('nidm_clusterSizeInResels',p),...
-                {inference('nidm_ExtentThreshold/nidm_clusterSizeInResels'),'xsd:float'},...
+                {inference('ExtentThreshold_clusterSizeInResels'),'xsd:float'},...
             };
         end
 end
@@ -906,8 +906,8 @@ p.entity(idExtentThresh,{...
 
 %-Entity: Peak Definition Criteria
 %--------------------------------------------------------------------------
-maxNumberOfPeaksPerCluster = nidm_json('nidm_PeakDefinitionCriteria/nidm_maxNumberOfPeaksPerCluster');
-minDistanceBetweenPeaks = nidm_json('nidm_PeakDefinitionCriteria/nidm_minDistanceBetweenPeaks');
+maxNumberOfPeaksPerCluster = nidm_json('PeakDefinitionCriteria_maxNumberOfPeaksPerCluster');
+minDistanceBetweenPeaks = nidm_json('PeakDefinitionCriteria_minDistanceBetweenPeaks');
 idPeakDefCrit = getid('niiri:peak_definition_criteria_id',isHumanReadable);
 p.entity(idPeakDefCrit,{...
     'prov:type',nidm_conv('nidm_PeakDefinitionCriteria',p),...
@@ -918,7 +918,7 @@ p.entity(idPeakDefCrit,{...
 
 %-Entity: Cluster Definition Criteria
 %--------------------------------------------------------------------------
-clusterConnectivityCriterion = nidm_json('nidm_ClusterDefinitionCriteria/nidm_hasConnectivityCriterion'); % see spm_max.m
+clusterConnectivityCriterion = nidm_json('ClusterDefinitionCriteria_hasConnectivityCriterion'); % see spm_max.m
 idClusterDefCrit = getid('niiri:cluster_definition_criteria_id',isHumanReadable);
 
 switch(clusterConnectivityCriterion)
@@ -943,18 +943,18 @@ p.entity(idClusterDefCrit,{...
 %==========================================================================
 if numel(con_name) == 1
     st = {'prov:type',nidm_conv('nidm_Inference',p), ...
-          nidm_conv('nidm_hasAlternativeHypothesis',p),nidm_conv(inference('nidm_Inference/nidm_hasAlternativeHypothesis'),p),...
+          nidm_conv('nidm_hasAlternativeHypothesis',p),nidm_conv(inference('Inference_hasAlternativeHypothesis'),p),...
           'prov:label','Inference'};
 else
-    switch(inference('nidm_Inference/prov:type'))
+    switch(inference('Inference_type'))
         case 'nidm_ConjunctionInference'
             st = {'prov:type',nidm_conv('nidm_ConjunctionInference',p), ...
-              nidm_conv('nidm_hasAlternativeHypothesis',p),nidm_conv(inference('nidm_Inference/nidm_hasAlternativeHypothesis'),p),...
+              nidm_conv('nidm_hasAlternativeHypothesis',p),nidm_conv(inference('Inference_hasAlternativeHypothesis'),p),...
               'prov:label','Conjunction Inference'};
         case 'spm_PartialConjunctionInference'
             partialConjDegree = inference('spm_PartialConjunctionInference/spm_partialConjunctionDegree');
             st = {'prov:type',nidm_conv('spm_PartialConjunctionInference',p), ...
-              nidm_conv('nidm_hasAlternativeHypothesis',p),nidm_conv(inference('nidm_Inference/nidm_hasAlternativeHypothesis'),p),...
+              nidm_conv('nidm_hasAlternativeHypothesis',p),nidm_conv(inference('Inference_hasAlternativeHypothesis'),p),...
               'prov:label','Partial Conjunction Inference', ...
               nidm_conv('spm_partialConjunctionDegree',p),{partialConjDegree,'xsd:int'}};
         otherwise
@@ -981,7 +981,7 @@ p.used(idInference, idClusterDefCrit);
 
 %-Entity: Display Mask Maps
 %--------------------------------------------------------------------------
-if isKey(inference, 'nidm_DisplayMaskMap/prov:atLocation')
+if isKey(inference, 'DisplayMaskMap_atLocation')
     for i=1:numel(files.dmask)
         gunzip(files.dmask{i});
         V = spm_vol(strrep(files.dmask{i}, '.gz', ''));
@@ -1018,7 +1018,7 @@ end
 
 %-Entity: SVC Mask Map
 %--------------------------------------------------------------------------
-if isKey(inference, 'nidm_SubVolumeMap/prov:atLocation')
+if isKey(inference, 'SubVolumeMap_atLocation')
     % TODO deal with SVC
     if ~isempty(files.svcmask)
         V = spm_vol(files.svcmask);
@@ -1046,7 +1046,7 @@ end
 
 %-Entity: Search Space
 %--------------------------------------------------------------------------
-rftstat = inference('nidm_SearchSpaceMaskMap/nidm_randomFieldStationarity');
+rftstat = inference('SearchSpaceMaskMap_randomFieldStationarity');
 
 if rftstat
     rftstat_str = 'true';
@@ -1057,39 +1057,39 @@ end
 % TODO checak if okay to have resels optional > maybe only for non param
 extra_fields_searchspace = {};
 has_resels = false;
-if isKey(inference, 'nidm_SearchSpaceMaskMap/nidm_reselSizeInVoxels')
+if isKey(inference, 'SearchSpaceMaskMap_reselSizeInVoxels')
     has_resels = true;
     extra_fields_searchspace(end+1:end+8) = {
-            nidm_conv('nidm_reselSizeInVoxels',p),{inference('nidm_SearchSpaceMaskMap/nidm_reselSizeInVoxels'),'xsd:float'},... 
-            nidm_conv('nidm_searchVolumeInResels',p),{inference('nidm_SearchSpaceMaskMap/nidm_searchVolumeInResels'),'xsd:float'},...
-            nidm_conv('nidm_noiseFWHMInVoxels',p),{inference('nidm_SearchSpaceMaskMap/nidm_noiseFWHMInVoxels'),'xsd:string'},...
-            nidm_conv('nidm_noiseFWHMInUnits',p),{inference('nidm_SearchSpaceMaskMap/nidm_noiseFWHMInUnits'),'xsd:string'},...
+            nidm_conv('nidm_reselSizeInVoxels',p),{inference('SearchSpaceMaskMap_reselSizeInVoxels'),'xsd:float'},... 
+            nidm_conv('nidm_searchVolumeInResels',p),{inference('SearchSpaceMaskMap_searchVolumeInResels'),'xsd:float'},...
+            nidm_conv('nidm_noiseFWHMInVoxels',p),{inference('SearchSpaceMaskMap_noiseFWHMInVoxels'),'xsd:string'},...
+            nidm_conv('nidm_noiseFWHMInUnits',p),{inference('SearchSpaceMaskMap_noiseFWHMInUnits'),'xsd:string'},...
         };
 end
 
-if isKey(inference, 'nidm_SearchSpaceMaskMap/nidm_heightCriticalThresholdFWE05')
+if isKey(inference, 'SearchSpaceMaskMap_heightCriticalThresholdFWE05')
     extra_fields_searchspace(end+1:end+2) = {
-            nidm_conv('nidm_heightCriticalThresholdFWE05',p),{inference('nidm_SearchSpaceMaskMap/nidm_heightCriticalThresholdFWE05'),'xsd:float'},... 
+            nidm_conv('nidm_heightCriticalThresholdFWE05',p),{inference('SearchSpaceMaskMap_heightCriticalThresholdFWE05'),'xsd:float'},... 
         };
 end
-if isKey(inference, 'nidm_SearchSpaceMaskMap/nidm_heightCriticalThresholdFDR05')
+if isKey(inference, 'SearchSpaceMaskMap_heightCriticalThresholdFDR05')
     extra_fields_searchspace(end+1:end+2) = {
-            nidm_conv('nidm_heightCriticalThresholdFDR05',p),{inference('nidm_SearchSpaceMaskMap/nidm_heightCriticalThresholdFDR05'),'xsd:float'},... 
+            nidm_conv('nidm_heightCriticalThresholdFDR05',p),{inference('SearchSpaceMaskMap_heightCriticalThresholdFDR05'),'xsd:float'},... 
         };
 end
-if isKey(inference, 'nidm_SearchSpaceMaskMap/nidm_expectedNumberOfVoxelsPerCluster')
+if isKey(inference, 'SearchSpaceMaskMap_expectedNumberOfVoxelsPerCluster')
     extra_fields_searchspace(end+1:end+2) = {
-            nidm_conv('nidm_expectedNumberOfVoxelsPerCluster',p),{inference('nidm_SearchSpaceMaskMap/nidm_expectedNumberOfVoxelsPerCluster'),'xsd:float'},... 
+            nidm_conv('nidm_expectedNumberOfVoxelsPerCluster',p),{inference('SearchSpaceMaskMap_expectedNumberOfVoxelsPerCluster'),'xsd:float'},... 
         };
 end
-if isKey(inference, 'nidm_SearchSpaceMaskMap/nidm_expectedNumberOfClusters')
+if isKey(inference, 'SearchSpaceMaskMap_expectedNumberOfClusters')
     extra_fields_searchspace(end+1:end+2) = {
-            nidm_conv('nidm_expectedNumberOfClusters',p),{inference('nidm_SearchSpaceMaskMap/nidm_expectedNumberOfClusters'),'xsd:float'},... 
+            nidm_conv('nidm_expectedNumberOfClusters',p),{inference('SearchSpaceMaskMap_expectedNumberOfClusters'),'xsd:float'},... 
         };
 end
-if isKey(inference, 'nidm_SearchSpaceMaskMap/spm_searchVolumeReselsGeometry')
+if isKey(inference, 'SearchSpaceMaskMap_searchVolumeReselsGeometry')
     extra_fields_searchspace(end+1:end+2) = {
-            nidm_conv('spm_searchVolumeReselsGeometry',p),{inference('nidm_SearchSpaceMaskMap/spm_searchVolumeReselsGeometry'),'xsd:float'},... 
+            nidm_conv('spm_searchVolumeReselsGeometry',p),{inference('SearchSpaceMaskMap_searchVolumeReselsGeometry'),'xsd:float'},... 
         };
 end
 
@@ -1101,22 +1101,22 @@ search_space_attributes = {...
     'dct:format',niifmt,...
     'prov:label',{'Search Space Mask Map','xsd:string'}...
     nidm_conv('nidm_inCoordinateSpace',p),id_data_coordspace,...
-    nidm_conv('nidm_searchVolumeInVoxels',p),{inference('nidm_SearchSpaceMaskMap/nidm_searchVolumeInVoxels'),'xsd:int'},...
-    nidm_conv('nidm_searchVolumeInUnits',p),{inference('nidm_SearchSpaceMaskMap/nidm_searchVolumeInUnits'),'xsd:float'},...
+    nidm_conv('nidm_searchVolumeInVoxels',p),{inference('SearchSpaceMaskMap_searchVolumeInVoxels'),'xsd:int'},...
+    nidm_conv('nidm_searchVolumeInUnits',p),{inference('SearchSpaceMaskMap_searchVolumeInUnits'),'xsd:float'},...
     extra_fields_searchspace{:},...
     nidm_conv('nidm_randomFieldStationarity',p),{rftstat_str, 'xsd:boolean'},...
     'crypto:sha512',{sha512sum(spm_file(files.searchspace,'cpath')),'xsd:string'},...
     };
-if isKey(inference, 'nidm_SearchSpaceMaskMap/spm_smallestSignificantClusterSizeInVoxelsFWE05')
+if isKey(inference, 'SearchSpaceMaskMap_smallestSignificantClusterSizeInVoxelsFWE05')
     search_space_attributes = [search_space_attributes, {...
         nidm_conv('spm_smallestSignificantClusterSizeInVoxelsFWE05',p),...
-        {inference('nidm_SearchSpaceMaskMap/spm_smallestSignificantClusterSizeInVoxelsFWE05'),'xsd:int'},...
+        {inference('SearchSpaceMaskMap_smallestSignificantClusterSizeInVoxelsFWE05'),'xsd:int'},...
         }];
 end
-if isKey(inference, 'nidm_SearchSpaceMaskMap/spm_smallestSignificantClusterSizeInVoxelsFDR05')
+if isKey(inference, 'SearchSpaceMaskMap_smallestSignificantClusterSizeInVoxelsFDR05')
     search_space_attributes = [search_space_attributes, {...
         nidm_conv('spm_smallestSignificantClusterSizeInVoxelsFDR05',p),...
-        {inference('nidm_SearchSpaceMaskMap/spm_smallestSignificantClusterSizeInVoxelsFDR05'),'xsd:int'},...
+        {inference('SearchSpaceMaskMap_smallestSignificantClusterSizeInVoxelsFDR05'),'xsd:int'},...
         }];
 end
 p.entity(idSearchSpace,search_space_attributes);
@@ -1125,9 +1125,9 @@ p.wasGeneratedBy(idSearchSpace, idInference);
 %-Entity: Excursion Set
 %--------------------------------------------------------------------------
 extra_fields_excset = {};
-if isKey(inference, 'nidm_ExcursionSetMap/nidm_numberOfSupraThresholdClusters')
-    c = inference('nidm_ExcursionSetMap/nidm_numberOfSupraThresholdClusters');
-    pc = inference('nidm_ExcursionSetMap/nidm_pValue');
+if isKey(inference, 'ExcursionSetMap_numberOfSupraThresholdClusters')
+    c = inference('ExcursionSetMap_numberOfSupraThresholdClusters');
+    pc = inference('ExcursionSetMap_pValue');
     extra_fields_excset(end+1:end+4) = {
             nidm_conv('nidm_numberOfSupraThresholdClusters',p),{c,'xsd:int'},...
             nidm_conv('nidm_pValue',p),{pc,'xsd:float'},...
@@ -1199,29 +1199,29 @@ for i=1:numel(clusters_names)
     extra_clust = {};
     if has_resels
         extra_clust(end+1:end+2) = {...
-            nidm_conv('nidm_clusterSizeInResels',p),{this_cluster('nidm_SupraThresholdCluster/nidm_clusterSizeInResels'),'xsd:float'},...
+            nidm_conv('nidm_clusterSizeInResels',p),{this_cluster('SupraThresholdCluster_clusterSizeInResels'),'xsd:float'},...
             };
     end
-    if isKey(this_cluster, 'nidm_SupraThresholdCluster/nidm_pValueUncorrected')
+    if isKey(this_cluster, 'SupraThresholdCluster_pValueUncorrected')
         extra_clust(end+1:end+2) = {...
-            nidm_conv('nidm_pValueUncorrected',p),{this_cluster('nidm_SupraThresholdCluster/nidm_pValueUncorrected'),'xsd:float'},...
+            nidm_conv('nidm_pValueUncorrected',p),{this_cluster('SupraThresholdCluster_pValueUncorrected'),'xsd:float'},...
             };
     end
-    if isKey(this_cluster, 'nidm_SupraThresholdCluster/nidm_pValueFWER')
+    if isKey(this_cluster, 'SupraThresholdCluster_pValueFWER')
         extra_clust(end+1:end+2) = {...
-            nidm_conv('nidm_pValueFWER',p),{this_cluster('nidm_SupraThresholdCluster/nidm_pValueFWER'),'xsd:float'},...
+            nidm_conv('nidm_pValueFWER',p),{this_cluster('SupraThresholdCluster_pValueFWER'),'xsd:float'},...
             };
     end
-    if isKey(this_cluster, 'nidm_SupraThresholdCluster/nidm_qValueFDR')
+    if isKey(this_cluster, 'SupraThresholdCluster_qValueFDR')
         extra_clust(end+1:end+2) = {...
-            nidm_conv('nidm_qValueFDR',p),{this_cluster('nidm_SupraThresholdCluster/nidm_qValueFDR'),'xsd:float'},...
+            nidm_conv('nidm_qValueFDR',p),{this_cluster('SupraThresholdCluster_qValueFDR'),'xsd:float'},...
             };
     end
     
     p.entity(idCluster{i},{...
         'prov:type',nidm_conv('nidm_SupraThresholdCluster',p),...
         'prov:label',{['Supra-Threshold Cluster: ' iClus],'xsd:string'},...
-        nidm_conv('nidm_clusterSizeInVoxels',p),{this_cluster('nidm_SupraThresholdCluster/nidm_clusterSizeInVoxels'),'xsd:int'},...
+        nidm_conv('nidm_clusterSizeInVoxels',p),{this_cluster('SupraThresholdCluster_clusterSizeInVoxels'),'xsd:int'},...
         extra_clust{:},...
         nidm_conv('nidm_clusterLabelId',p),{num2str(i),'xsd:int'},...
         });
@@ -1239,20 +1239,20 @@ for i=1:numel(clusters_names)
         idCoordinate = getid(['niiri:coordinate_' iPeak],isHumanReadable);
         
         extra_peak = {};
-        if isKey(my_peak, 'nidm_Peak/nidm_pValueUncorrected')
+        if isKey(my_peak, 'Peak_pValueUncorrected')
             extra_peak(end+1:end+4) = {...
-                nidm_conv('nidm_pValueUncorrected',p),{my_peak('nidm_Peak/nidm_pValueUncorrected'),'xsd:float'},...
-                nidm_conv('nidm_equivalentZStatistic',p),{my_peak('nidm_Peak/nidm_equivalentZStatistic'),'xsd:float'},...
+                nidm_conv('nidm_pValueUncorrected',p),{my_peak('Peak_pValueUncorrected'),'xsd:float'},...
+                nidm_conv('nidm_equivalentZStatistic',p),{my_peak('Peak_equivalentZStatistic'),'xsd:float'},...
                 };
         end
-        if isKey(my_peak, 'nidm_Peak/nidm_pValueFWER')
+        if isKey(my_peak, 'Peak_pValueFWER')
             extra_peak(end+1:end+2) = {...
-                nidm_conv('nidm_pValueFWER',p),{my_peak('nidm_Peak/nidm_pValueFWER'),'xsd:float'},...
+                nidm_conv('nidm_pValueFWER',p),{my_peak('Peak_pValueFWER'),'xsd:float'},...
                 };
         end
-        if isKey(my_peak, 'nidm_Peak/nidm_qValueFDR')
+        if isKey(my_peak, 'Peak_qValueFDR')
             extra_peak(end+1:end+2) = {...
-                nidm_conv('nidm_qValueFDR',p),{my_peak('nidm_Peak/nidm_qValueFDR'),'xsd:float'},...
+                nidm_conv('nidm_qValueFDR',p),{my_peak('Peak_qValueFDR'),'xsd:float'},...
                 };
         end
 
@@ -1260,7 +1260,7 @@ for i=1:numel(clusters_names)
             'prov:type',nidm_conv('nidm_Peak',p),...
             'prov:label',{['Peak: ' iPeak],'xsd:string'},...
             'prov:location',idCoordinate,...
-            'prov:value',{my_peak('nidm_Peak/prov:value'),'xsd:float'},...
+            'prov:value',{my_peak('Peak_value'),'xsd:float'},...
             extra_peak{:},...
             });
 
@@ -1268,7 +1268,7 @@ for i=1:numel(clusters_names)
             'prov:type','prov:Location',...
             'prov:type',nidm_conv('nidm_Coordinate',p),...
             'prov:label',{['Coordinate: ' iPeak],'xsd:string'},...
-            nidm_conv('nidm_coordinateVector',p),{my_peak('nidm_Coordinate/nidm_coordinateVector'),'xsd:string'},...
+            nidm_conv('nidm_coordinateVector',p),{my_peak('Coordinate_coordinateVector'),'xsd:string'},...
             });
 
         p.wasDerivedFrom(idPeak, idCluster{i});
