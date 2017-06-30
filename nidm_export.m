@@ -107,6 +107,9 @@ function nidm_export(data_path, out_path, aspacks)
     %         aa = spm_jsonread(json_file)
     %         aa=1
             copyfile(json_file, fullfile(target_dir, 'config.json'));
+            
+            copyfile(fullfile(data_path, 'minimal_nidm.json'), ...
+                     fullfile(target_dir, 'minimal_nidm.json'));
 
             fname = json_file;
             fid = fopen(fname);
