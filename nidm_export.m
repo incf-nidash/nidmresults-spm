@@ -109,11 +109,11 @@ function nidm_export(data_path, out_path, aspacks)
             copyfile(json_file, fullfile(target_dir, 'config.json'));
             
             try
-                copyfile(fullfile(data_path, 'minimal_nidm.json'), ...
-                     fullfile(target_dir, 'minimal_nidm.json'));
+                copyfile(fullfile(data_path, 'nidm_minimal.json'), ...
+                     fullfile(target_dir, 'nidm_minimal.json'));
             catch
-                copyfile(fullfile(data_path, 'mfx', 'minimal_nidm.json'), ...
-                     fullfile(target_dir, 'minimal_nidm.json'));
+                copyfile(fullfile(data_path, 'mfx', 'nidm_minimal.json'), ...
+                     fullfile(target_dir, 'nidm_minimal.json'));
             end
 
             fname = json_file;
