@@ -17,6 +17,7 @@ install:
  # Download test data using git-lfs
  - curl -sLo - https://github.com/github/git-lfs/releases/download/v1.4.1/git-lfs-linux-amd64-1.4.1.tar.gz | tar xzvf -
  - export PATH=$PATH:`pwd`/git-lfs-1.4.1
+ - git config -l lfs.https://github.com/incf-nidash/nidmresults-examples.git/info/lfs.access=basic
  - cd test/data/nidmresults-examples
  # Is this is not a git repo them clone nidmresults-examples
  - if ! [ -d .git ]; then git lfs clone https://github.com/incf-nidash/nidmresults-examples.git .; fi
