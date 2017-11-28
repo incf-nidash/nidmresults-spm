@@ -14,21 +14,9 @@ install:
   # Install nidmresults from source in GitHub repo
  - pip install --upgrade --no-deps git+https://github.com/cmaumet/nidmresults.git@json_ld#egg=nidmresults
  - pip install -r requirements.txt
- # Download test data using git-lfs
- - curl -sLo - https://github.com/github/git-lfs/releases/download/v1.4.1/git-lfs-linux-amd64-1.4.1.tar.gz | tar xzvf -
- - export PATH=$PATH:`pwd`/git-lfs-1.4.1
- - git config -l lfs.https://github.com/incf-nidash/nidmresults-examples.git/info/lfs.access=basic
  - cd test/data/nidmresults-examples
  # Is this is not a git repo them clone nidmresults-examples
  - if ! [ -d .git ]; then git lfs clone https://github.com/incf-nidash/nidmresults-examples.git .; fi
- - git fetch origin
- - git lfs install
-  # Delete any previous changes (retry because lfs might download files)
- - travis_retry git reset --hard origin/${NIDM_EX_BRANCH}
- # A second time to allow for 3 more retries as "--retry 9" does not seem to be
- # taken into account by Travis CI
- - travis_retry git reset --hard origin/${NIDM_EX_BRANCH}
- # command to run tests, e.g. python setup.py test 
  - cd ../../..
 script:  
 - python TestSPMResultDataModel.py
