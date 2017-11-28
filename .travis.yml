@@ -27,10 +27,11 @@ install:
  - sudo apt-get install octave
 script:  
 # Run octave
-- octave --eval "a=1';a"
+- octave --eval "addpath('spm12'); nidm_export_all('test/data/nidmresults-examples/', './spmexport')"
 - python TestSPMResultDataModel.py
 - cat debug.log
 before_install: 
  - git config --global user.name "TravisCI"
  - git config --global user.email "travis@dummy.com"
+ - git clone git@github.com:spm/spm12.git
 
