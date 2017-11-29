@@ -29,7 +29,7 @@ install:
  - octave --version
 script:  
 # Run octave
-- octave --eval "addpath('spm12'); nidm_export_all('test/data/nidmresults-examples/', './spmexport')"
+- octave --eval "addpath(fullfile(pwd, 'spm12')); nidm_export_all('test/data/nidmresults-examples/', './spmexport')"
 - python TestSPMResultDataModel.py
 - cat debug.log
 before_install: 
