@@ -23,10 +23,6 @@ install:
  - git pull
  - ls
  - cd ../../..
- - sudo add-apt-repository -y ppa:octave/stable
- - sudo apt-get update
- - sudo apt-get install octave
- - octave --version
 script:  
 # Run octave
 - octave --eval "addpath(fullfile(pwd, 'spm12')); nidm_export_all('test/data/nidmresults-examples/', './spmexport')"
@@ -36,8 +32,12 @@ before_install:
  - git config --global user.name "TravisCI"
  - git config --global user.email "travis@dummy.com"
  - git clone https://github.com/spm/spm12.git
- # Octave dev tools (mkoctfile) required to compile MEX files
- - sudo apt-get install liboctave-dev
+ # Install octave including Octave dev tools (mkoctfile)
+ # required to compile MEX files
+ - sudo add-apt-repository -y ppa:octave/stable
+ - sudo apt-get update
+ - sudo apt-get install octave
+ - octave --version
  # Compile SPM MEX files for octave
  - cd spm12/src
  - make PLATFORM=octave && make install PLATFORM=octave
