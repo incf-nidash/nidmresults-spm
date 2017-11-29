@@ -33,18 +33,24 @@ before_install:
  - git config --global user.email "travis@dummy.com"
  - git clone https://github.com/spm/spm12.git
  # Install updated version of GraphicsMagick
- # to avoid 'your version of GraphicsMagick limits images to 8 bits per pixel'
+ # to avoid 'your version of GraphicsMagick limits images to 8 bits per pixel
  - sudo apt-get install python-software-properties
  - sudo apt-get install software-properties-common
  - sudo add-apt-repository -y ppa:rwky/graphicsmagick
  - sudo apt-get update
  - sudo apt-get install graphicsmagick
- # Install octave 
- - sudo add-apt-repository -y ppa:octave/stable
- - sudo apt-get update
- - sudo apt-get install octave
- - octave --version
-  # Install Octave dev tools (mkoctfile) required to compile 
+  # Rebuild octave with links to updated GraphicsMagick
+ - sudo apt-get build-dep octave
+ - curl -sLo - ftp://ftp.gnu.org/gnu/octave/octave-4.2.1.tar.gz | tar xzvf -
+ - cd octave-4.2.1
+ - ./configure
+ - make
+ - sudo make install
+ - cd ..
+ # # 
+ # - sudo apt-get install octave
+ # - octave --version
+ #  # Install Octave dev tools (mkoctfile) required to compile 
  # MEX files
  - sudo apt-get install liboctave-dev
  # Compile SPM MEX files for octave
