@@ -37,6 +37,10 @@ before_install:
  - sudo apt-get update
  - sudo apt-get install octave
  - octave --version
+ # Install updated version of GraphicsMagick
+ # to avoid 
+ - sudo apt-get install graphicsmagick
+ - gm --version
  # Install Octave dev tools (mkoctfile) required to compile 
  # MEX files
  - sudo apt-get install liboctave-dev
@@ -44,7 +48,11 @@ before_install:
  - cd spm12/src
  - make PLATFORM=octave && make install PLATFORM=octave
  - cd ../..
- # Display version of GraphicsMagick
- - gm -version
+ # # Rebuild GraphicsMagick for Octave
+ # # cf. https://wiki.octave.org/GraphicsMagick
+ # - ./configure  --with-quantum-depth=16 --enable-shared --disable-static --with-magick-plus-plus=yes
+ # - make
+ # - make check
+ # - sudo make install
 
 
