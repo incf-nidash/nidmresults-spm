@@ -27,7 +27,6 @@ install:
  - cd ../../..
 script:  
 # Run octave
-- octave --eval "addpath('/spm12'); addpath('/nidmresults-spm/exporter'); addpath('/nidmresults-spm'); disp(spm('version')); nidm_export_all('/nidmresults-spm/test/data/nidmresults-examples/', './spmexport')"
 - python TestSPMResultDataModel.py
 - cat debug.log
 before_install: 
@@ -36,8 +35,8 @@ before_install:
  # Install SPM12
  - git clone https://github.com/spm/spm12.git
  # Run docker snapshot of dev octave (until 4.4 is released)
- - docker run -ti --rm -v /Users/camaumet/Softs/spm12/:/spm12 -v /Users/camaumet/Softs/nidmresults-spm/:/nidmresults-spm mtmiller/octave-snapshot
+ - did=$(docker run -it -d --rm -v `pwd`/spm12/:/spm12 -v `pwd`/nidmresults-spm/:/nidmresults-spm mtmiller/octave-snapshot)
  # Compile SPM MEX files for octave
- - cd spm12/src
- - make PLATFORM=octave && make install PLATFORM=octave
- - cd ../..
+ - docker exec -it $did cd spm12/src; make PLATFORM=octave && make install PLATFORM=octave; cd ../..
+ # Run tests in Octave
+ - docker exec -it $did octave --eval "addpath('/spm12'); addpath('/nidmresults-spm/exporter'); addpath('/nidmresults-spm'); disp(spm('version')); nidm_export_all('/nidmresults-spm/test/data/nidmresults-examples/', './spmexport')"
