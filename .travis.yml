@@ -34,9 +34,13 @@ before_install:
  - git config --global user.email "travis@dummy.com"
  # Install SPM12
  - git clone https://github.com/spm/spm12.git
+ # Octave dev tools (mkoctfile) required to compile MEX files
+ - sudo apt-get install liboctave-dev
+ # Compile SPM MEX files for octave
+ - cd spm12/src
+ - make PLATFORM=octave && make install PLATFORM=octave
+ - cd ../..
  # Run docker snapshot of dev octave (until 4.4 is released)
  - did=$(docker run -it -d --rm -v `pwd`/spm12/:/spm12 -v `pwd`/incf-nidash/nidmresults-spm/:/nidmresults-spm mtmiller/octave-snapshot)
- # Compile SPM MEX files for octave
- - docker exec -it $did cd spm12/src; make PLATFORM=octave && make install PLATFORM=octave; cd ../..
  # Run tests in Octave
  - docker exec -it $did octave --eval "addpath('/spm12'); addpath('/nidmresults-spm/exporter'); addpath('/nidmresults-spm'); disp(spm('version')); nidm_export_all('/nidmresults-spm/test/data/nidmresults-examples/', './spmexport')"
