@@ -1,6 +1,8 @@
 language: python
 # use container-based infrastructure
-sudo: false
+sudo: required
+services:
+  - docker
 cache:
   pip: true
   directories:
@@ -25,43 +27,17 @@ install:
  - cd ../../..
 script:  
 # Run octave
-- octave --eval "addpath(fullfile(pwd, 'spm12')); disp(spm('version')); nidm_export_all('test/data/nidmresults-examples/', './spmexport')"
+- octave --eval "addpath('/spm12'); addpath('/nidmresults-spm/exporter'); addpath('/nidmresults-spm'); disp(spm('version')); nidm_export_all('/nidmresults-spm/test/data/nidmresults-examples/', './spmexport')"
 - python TestSPMResultDataModel.py
 - cat debug.log
 before_install: 
  - git config --global user.name "TravisCI"
  - git config --global user.email "travis@dummy.com"
+ # Install SPM12
  - git clone https://github.com/spm/spm12.git
- # Install updated version of GraphicsMagick
- # to avoid 'your version of GraphicsMagick limits images to 8 bits per pixel
- - sudo apt-get install python-software-properties
- - sudo apt-get install software-properties-common
- - sudo add-apt-repository -y ppa:rwky/graphicsmagick
- - sudo apt-get update
- - sudo apt-get install graphicsmagick
-  # Rebuild octave with links to updated GraphicsMagick
- - sudo apt-get build-dep octave
- - curl -sLo - ftp://ftp.gnu.org/gnu/octave/octave-4.2.1.tar.gz | tar xzvf -
- - cd octave-4.2.1
- - ./configure
- - make
- - sudo make install
- - cd ..
- # # 
- # - sudo apt-get install octave
- # - octave --version
- #  # Install Octave dev tools (mkoctfile) required to compile 
- # MEX files
- - sudo apt-get install liboctave-dev
+ # Run docker snapshot of dev octave (until 4.4 is released)
+ - docker run -ti --rm -v /Users/camaumet/Softs/spm12/:/spm12 -v /Users/camaumet/Softs/nidmresults-spm/:/nidmresults-spm mtmiller/octave-snapshot
  # Compile SPM MEX files for octave
  - cd spm12/src
  - make PLATFORM=octave && make install PLATFORM=octave
  - cd ../..
- # # Rebuild GraphicsMagick for Octave
- # # cf. https://wiki.octave.org/GraphicsMagick
- # - ./configure  --with-quantum-depth=16 --enable-shared --disable-static --with-magick-plus-plus=yes
- # - make
- # - make check
- # - sudo make install
-
-
