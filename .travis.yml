@@ -28,7 +28,7 @@ install:
  - ls
 script:  
  # Run docker snapshot of dev octave (until 4.4 is released)
- - did=$(docker run -it -d --rm -v `pwd`/spm12/:/spm12 -v `pwd`:/nidmresults-spm -v `pwd`/spmexport:/spmexport octave_with_spm)
+ - did=$(docker run -it -d --rm -v `pwd`:/nidmresults-spm -v `pwd`/spmexport:/spmexport octave_with_spm)
  # Run tests in Octave
  - docker exec -it $did octave --eval "addpath('/spm12'); ls('/nidmresults-spm'); addpath('/nidmresults-spm/exporter'); addpath('/nidmresults-spm'); disp(spm('version')); nidm_export_all('/nidmresults-spm/test/data/nidmresults-examples/', '/spmexport')"
  # Run tests
@@ -37,4 +37,4 @@ script:
 before_install: 
  - git config --global user.name "TravisCI"
  - git config --global user.email "travis@dummy.com"
- - docker build -t octave_with_spm .
+ - docker build -t octave_with_spm ./docker_spm/
