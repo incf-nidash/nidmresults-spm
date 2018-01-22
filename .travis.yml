@@ -28,7 +28,7 @@ install:
  - ls
 script:  
  # Run docker snapshot of dev octave (until 4.4 is released)
- - did=$(docker run -it -d --rm -v `pwd`/code:/code -v `pwd`/test/data:/test_data -v `pwd`/spmexport:/spmexport octave_with_spm)
+ - did=$(docker run -it -d --rm -v `pwd`/code:/code -v `pwd`/test/data/nidmresults-examples:/test_data -v `pwd`/spmexport:/spmexport octave_with_spm)
  # Run tests in Octave
  - docker exec -it $did octave --eval "addpath('/code/exporter'); addpath('/code'); nidm_export_all('/test_data/', '/spmexport')"
  # Run tests
