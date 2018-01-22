@@ -28,9 +28,9 @@ install:
  - ls
 script:  
  # Run docker snapshot of dev octave (until 4.4 is released)
- - did=$(docker run -it -d --rm -v `pwd`:/nidmresults-spm -v `pwd`/spmexport:/spmexport octave_with_spm)
+ - did=$(docker run -it -d --rm -v `pwd`/code:/code -v `pwd`/spmexport:/spmexport octave_with_spm)
  # Run tests in Octave
- - docker exec -it $did octave --eval "addpath('/spm12'); ls('/nidmresults-spm'); addpath('/nidmresults-spm/exporter'); addpath('/nidmresults-spm'); disp(spm('version')); nidm_export_all('/nidmresults-spm/test/data/nidmresults-examples/', '/spmexport')"
+ - docker exec -it $did octave --eval "addpath('/spm12'); ls('/code'); addpath('/code/exporter'); addpath('/code'); disp(spm('version')); nidm_export_all('/nidmresults-spm/test/data/nidmresults-examples/', '/spmexport')"
  # Run tests
  - python TestSPMResultDataModel.py
  - cat debug.log
