@@ -43,6 +43,6 @@ before_install:
  - pwd
  - ls
  # Run docker snapshot of dev octave (until 4.4 is released)
- - did=$(docker run -it -d --rm -v `pwd`/spm12/:/spm12 -v `pwd`/incf-nidash/nidmresults-spm/:/nidmresults-spm mtmiller/octave-snapshot)
+ - did=$(docker run -it -d --rm -v `pwd`/spm12/:/spm12 -v `pwd`:/nidmresults-spm mtmiller/octave-snapshot)
  # Run tests in Octave
  - docker exec -it $did octave --eval "addpath('/spm12'); ls('/nidmresults-spm'); addpath('/nidmresults-spm/exporter'); addpath('/nidmresults-spm'); disp(spm('version')); nidm_export_all('/nidmresults-spm/test/data/nidmresults-examples/', './spmexport')"
