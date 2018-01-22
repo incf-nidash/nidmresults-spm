@@ -1,9 +1,9 @@
 FROM mtmiller/octave-snapshot
 
+ADD code /code
+
 RUN apt-get update && apt-get install -y git
 
-RUN git clone https://github.com/spm/spm12.git && cd spm12/src && make PLATFORM=octave && make install PLATFORM=octave
+RUN cd /code && git clone https://github.com/spm/spm12.git && cd spm12/src && make PLATFORM=octave && make install PLATFORM=octave && cd ../../..
 
-RUN octave --no-window-system --eval "addpath('/spm12'); path; savepath;"
-
-ADD /spm12 /spm12
+RUN octave --no-window-system --eval "addpath('/code/spm12'); path; savepath;"
