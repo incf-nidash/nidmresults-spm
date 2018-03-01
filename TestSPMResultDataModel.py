@@ -77,33 +77,6 @@ class TestSPMResultsDataModel(unittest.TestCase, TestResultDataModel):
         ex = self.load_graph(ttl)
         ex_gt = ""
 
-        # Workaround to deal with differences in shasum for gzipped files
-        # between octave and Matlab
-
-        sha_in_octave = {
-            """nidm_randomFieldStationarity: "true"^^xsd:boolean ;
-\tcrypto:sha512 "16b5dfa20c39f12dd75051dbc407e432185e5bc3a3ee48d0c9dd3c2c2786ec2a61c642815b54ea33497b2e6c9ef72f03e81457108820dae2b0e7624df19d109c"^^xsd:string ;""":
-            """nidm_randomFieldStationarity: "true"^^xsd:boolean ;
-\tcrypto:sha512 "932fd9f0d55e9822748f4a9b35a0a7f0fe442f3e061e2eda48c2617a2938df50ea84deca8de0725641a0105b712a80a0c8931df9bdf3bef788b1041379d00875"^^xsd:string ;""",
-            '9691e90e01f0f7177ff648f66e35da12973b8a503dd89d2db62065d5885ed509ba48df3aeab1b5db7fdf0d56be8187ae96d910082b91f492b46ad2187166b29f':
-            'a132bb284da461fd9e20eb2986373a9171c90a342c1e694297bc02f5674a311a560b7ff34bdf045dc191d4afff8c690a373db6408c1fe93f7c25e23707ce65c3',
-            'db3bc58281e8e63a46add69cd00d447297921301d1091d1179004fe6248f4a5cb2f5f5089796342610fa1f99a7897c16b052ced20466d8cd8a522d2960300ade':
-            'f0720b732aaf19c2ec42d0469f8308beb3aa978baf65c7dce6476a0d8e5b2f38c4fa9609f045a536678440feebce9a047e3bd6d59fdb8fb64baae058690bbda2',
-            'da3ce2837a7fd9d8e3f2fa85a330e297874d962091102976af02b2dd491e867f1f20b403f88f777fe383a94ad05a57e2c16afcd6ce7e6108d0425dee20d7f65e':
-            '932fd9f0d55e9822748f4a9b35a0a7f0fe442f3e061e2eda48c2617a2938df50ea84deca8de0725641a0105b712a80a0c8931df9bdf3bef788b1041379d00875',
-            '8539f2db2355df27f3e99500d783e3f6d8672175e80282bc45c183571821d33147df2624019152adb204e98d1625e71e843bf486f41d7182bc65b3791244ddeb':
-            '4d3528031bce4a9c1b994b8124e6e0eddb9df90b49c84787652ed94df8c14c04ec92100a2d8ea86a8df24ba44617aca7457ddcb2f42253fc17e33296a1aea1cb',
-            '477c3d2b3ba51cf6061f490904d1a0063ffb2d121abcd8f2ddb48712ea4849cbf7b2b3b21a35113e46dcfc394e29ad4e0f993722a9166acbe740b92b907369cf':
-            '2025dc6c33708b80708c2eba3215fb1149df236fb558a8e8f8f6cf34595fb54734fe5e436db3e192a424d99699dd7feb2f4a9020ceae8e7bcbd881b17825256a',
-            '05cf1489fe21b437c953074c533f7ad3d1790325ade3d7ccf296c0725b3267c0cb7f6369b83beaf9422f6c8eb6f8c07363a156a008859bdded0ec4596d9df3f9':
-            '84cd0e608b8763307a1166b88761291e552838d85b58334a69a286060f6489a3b0929a940c3ccac883803455118787ea32e0bb5a6d236a5d6e9e8b6a9f918a6b',
-            'dcf4f7a91c4b16b190922230c7d0074c06c01225b19a5314069203da83a541afb0c725695e7c7762dde78ee117d38267a58dff9cb8b28b9dc8d47f96403e05a5':
-            'd96b82761c299a66978893cab6034f3f8aed25d0a135636b0ffe79f4cf11becce86ba261f7aeb43717f5d0e47ad0b14cfb0402786251e3f2c507890c83b27652',
-            '478ed8e21d1478879f287f36363e2c5b19c5d348469f08e9e291a65fb12d239b2456e314421082f87f0bdd17a3fcd63a776c6cb8b1f4709377324c34999f9dbd':
-            '799e9bbf8c15b35c0098bca468846bf2cd895a3366382b5ceaa953f1e9e576955341a7c86e13e6fe9359da4ff1496a609f55ce9ecff8da2e461365372f2506d6',
-            '4201f74e88de3044569dd6b35757bb4b1f7ae7dc1bf2a3b039ad7de494a65a5f0aa7ec8492e26c94d64bb68db0d8ede97c02275611cead3d5d739982cc935508':
-            'f4e3616579fe8b0812469409b1501e391bb17ca6e364f37d622b37fa9014cf1dd89befece07e73cf5bca5b3116f55ac4496751ca990db85e8377001a4be941b2'}
-
         # Creating a single ground truth graph (by merging all included ground
         # truths)
         gt = Graph()
@@ -118,17 +91,17 @@ class TestSPMResultsDataModel(unittest.TestCase, TestResultDataModel):
         for gt_file in ex.gt_ttl_files:
             logging.info("Ground truth ttl: " + gt_file)
 
-            with open(gt_file, "r") as f:
-                gt_data = f.read()
-
-            for oct_sha, mat_sha in sha_in_octave.items():
-                gt_data = gt_data.replace(mat_sha, oct_sha)
-
-            # with open(gt_file.replace('.ttl', '_copy.ttl'), "w") as f:
-            #     f.write(gt_data)
-
             # RDF obtained by the ground truth export
-            gt.parse(data=gt_data, format='turtle')
+            gt.parse(gt_file, format='turtle')
+
+        # TODO: Workaround to deal with differences in shasum for gzipped files
+        # between octave and Matlab and across hosts
+        # -- Ignore shasums --
+        CRYPT_RDFLIB = rdflib.Namespace(
+            "http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions#")
+        gt.remove((None, CRYPT_RDFLIB.sha512, None))
+        ex.exact_comparison = True
+        # End of TODO
 
         self.compare_full_graphs(gt, ex.graph, ex.owl,
                                  ex.exact_comparison, False)
