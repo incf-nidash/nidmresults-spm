@@ -118,7 +118,7 @@ class TestSPMResultsDataModel(unittest.TestCase, TestResultDataModel):
         for gt_file in ex.gt_ttl_files:
             logging.info("Ground truth ttl: " + gt_file)
 
-            with open(gt_file, "r+") as f:
+            with open(gt_file, "r") as f:
                 gt_data = f.read()
 
             for oct_sha, mat_sha in sha_in_octave.items():
