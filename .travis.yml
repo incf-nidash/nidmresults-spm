@@ -3,11 +3,6 @@ language: python
 sudo: required
 services:
   - docker
-# Update docker version
-addons:
-  apt:
-    packages:
-      - docker-ce
 cache:
   pip: true
   directories:
@@ -32,6 +27,7 @@ install:
  - cd ../../..
  - ls
 script:  
+ - docker version
  # Run docker snapshot of dev octave (until 4.4 is released)
  - did=$(docker run -it -d --rm -v `pwd`/test/data/nidmresults-examples:/test_data -v `pwd`/spmexport:/spmexport -v `pwd`/exporter:/exporter cmaumet/octave-spm)
  # Run tests in Octave
@@ -39,7 +35,10 @@ script:
  # Run tests
  - python TestSPMResultDataModel.py
  - cat debug.log
-before_install: 
+before_install:
+ # Update docker version
+ - sudo apt-get update
+ - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
  - git config --global user.name "TravisCI"
  - git config --global user.email "travis@dummy.com"
  - docker pull cmaumet/octave-spm
